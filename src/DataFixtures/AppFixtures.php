@@ -14,10 +14,11 @@ class AppFixtures extends Fixture
 
         for($i = 0; $i < 10; $i++){
             $author = new Author();
-            // $author->setName();
-            // $author->setAddress();
-        }
+            $author->setName($faker->firstName());
+            $author->setAddress($faker->address);
 
+            $manager->persist($author);
+        }
         $manager->flush();
     }
 }
