@@ -35,22 +35,17 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user = $form->getData();
-
-            $search_email = $this->em->getRepository(User::class)->findOneByEmail($user->getEmail);
-
-            if($user->getPassword() != $search_email ){
                 
-                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($password);
-                $this->em->persist($user);
-                $this->em->flush();
-                $this->addFlash('notice', 'Inscription validée');
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+            $user->setRoles(["ROLE_PUBLIC"]);
+            $this->em->persist($user);
+            $this->em->flush();
+            $this->addFlash('notice', 'Inscription validée');
 
-                $guardHandler->authenticateUserAndHandleSuccess($user, $request, $authenticator,'main');
+            $guardHandler->authenticateUserAndHandleSuccess($user, $request, $authenticator,'main');
 
-                return $this->redirectToRoute('home');
-            }
-            
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('registration/register.html.twig', [

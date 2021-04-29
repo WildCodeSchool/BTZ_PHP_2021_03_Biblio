@@ -64,21 +64,6 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         /**
-         * Membres équipe Audap
-         */
-        $public = new User();
-        $public->setEmail('public@yopmail.com');
-        $public->setRoles(['ROLE_PUBLIC']);
-        $public->setPassword($this->passwordEncoder->encodePassword($public,'public'));
-        $public->setFirstname('public_firstname');
-        $public->setLastname('public_lastname');
-        $public->setPhone('0600000000');
-        $public->setAddress('3 rue des Publics 64200 Bayonne');
-        $public->setNewsletter(true);
-        $manager->persist($public);
-        $manager->flush();
-
-        /**
          * Partenaire Audap
          */
         $audap_partner = new User();
@@ -91,6 +76,21 @@ class UserFixtures extends Fixture
         $audap_partner->setAddress('3 rue des Partners 64200 Bayonne');
         $audap_partner->setNewsletter(false);
         $manager->persist($audap_partner);
+        $manager->flush();
+
+        /**
+         * Public
+         */
+        $public = new User();
+        $public->setEmail('public@yopmail.com');
+        $public->setRoles(['ROLE_PUBLIC']);
+        $public->setPassword($this->passwordEncoder->encodePassword($public,'public'));
+        $public->setFirstname('public_firstname');
+        $public->setLastname('public_lastname');
+        $public->setPhone('0600000000');
+        $public->setAddress('3 rue des Publics 64200 Bayonne');
+        $public->setNewsletter(true);
+        $manager->persist($public);
         $manager->flush();
     }
 }

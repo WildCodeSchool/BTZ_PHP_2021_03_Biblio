@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Un compte est déjà existant avec cette addresse e-mail")
  */
 class User implements UserInterface
 {
@@ -74,7 +74,7 @@ class User implements UserInterface
     private $address;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true, options={"default"=0})
      */
     private $newsletter;
 
