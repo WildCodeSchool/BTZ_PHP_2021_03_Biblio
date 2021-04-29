@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PublicationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -76,6 +78,16 @@ class Publication
      * @ORM\Column(type="string", length=255)
      */
     private $access;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Borrow::class, mappedBy="publication")
+     */
+    private $borrow;
+
+    public function __construct()
+    {
+        $this->borrow = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -222,6 +234,36 @@ class Publication
     public function setAccess(string $access): self
     {
         $this->access = $access;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Borrow[]
+     */
+    public function getBorrow(): Collection
+    {
+        return $this->borrow;
+    }
+
+    public function addBorrow(Borrow $borrow): self
+    {
+        if (!$this->borrow->contains($borrow)) {
+            $this->borrow[] = $borrow;
+            $borrow->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBorrow(Borrow $borrow): self
+    {
+        if ($this->borrow->removeElement($borrow)) {
+            // set the owning side to null (unless already changed)
+            if ($borrow->getPublication() === $this) {
+                $borrow->setPublication(null);
+            }
+        }
 
         return $this;
     }

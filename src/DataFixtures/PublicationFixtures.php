@@ -10,14 +10,14 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $faker = Faker\Factory::create('fr_FR');
+        // $faker = Faker\Factory::create('fr_FR');
 
-        for($i = 0; $i < 10; $i++){
-            $author = new Author();
-            // $author->setName();
-            // $author->setAddress();
-        }
+        // for($i = 0; $i < 10; $i++){
+        //     $author = new Author();
+        //     // $author->setName();
+        //     // $author->setAddress();
+        // }
 
-        $manager->flush();
+        // $manager->flush();
     }
 }

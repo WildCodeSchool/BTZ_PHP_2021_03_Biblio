@@ -27,7 +27,6 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator): Response
     {
-        $notification = null;
         
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
