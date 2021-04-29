@@ -178,7 +178,7 @@
                 <mxCell id="63" value="name" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="61" vertex="1">
                     <mxGeometry y="52" width="112.73" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" value="collection" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#1ba1e2;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontColor=#ffffff;strokeColor=#FFFFFF;" parent="1" vertex="1">
+                <mxCell id="64" value="bookcollection" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#1ba1e2;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontColor=#ffffff;strokeColor=#FFFFFF;" parent="1" vertex="1">
                     <mxGeometry x="702.73" y="432" width="100" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="65" value="id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#FF9999;fontStyle=1" parent="64" vertex="1">
