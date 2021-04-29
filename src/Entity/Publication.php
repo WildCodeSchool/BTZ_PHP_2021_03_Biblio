@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PublicationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,7 +55,7 @@ class Publication
     private $issn_isbn;
 
     /**
-     * @ORM\Column(type="string", length=255, columnDefinition=('Physique', 'en ligne', 'Physique & en ligne'))
+     * @ORM\Column(type="string", length=255)
      */
     private $support;
 
@@ -76,6 +78,39 @@ class Publication
      * @ORM\Column(type="string", length=255)
      */
     private $access;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=PublicationType::class, inversedBy="publications")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $type;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Localisation::class, inversedBy="publications")
+     */
+    private $localisation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Thematic::class, inversedBy="publications")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $thematic;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Language::class, inversedBy="publications")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $language;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Editor::class, inversedBy="publications")
+     */
+    private $editors;
+
+    public function __construct()
+    {
+        $this->editors = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -222,6 +257,78 @@ class Publication
     public function setAccess(string $access): self
     {
         $this->access = $access;
+
+        return $this;
+    }
+
+    public function getType(): ?PublicationType
+    {
+        return $this->type;
+    }
+
+    public function setType(?PublicationType $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getLocalisation(): ?Localisation
+    {
+        return $this->localisation;
+    }
+
+    public function setLocalisation(?Localisation $localisation): self
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    public function getThematic(): ?Thematic
+    {
+        return $this->thematic;
+    }
+
+    public function setThematic(?Thematic $thematic): self
+    {
+        $this->thematic = $thematic;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?Language
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(?Language $language): self
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Editor[]
+     */
+    public function getEditors(): Collection
+    {
+        return $this->editors;
+    }
+
+    public function addEditor(Editor $editor): self
+    {
+        if (!$this->editors->contains($editor)) {
+            $this->editors[] = $editor;
+        }
+
+        return $this;
+    }
+
+    public function removeEditor(Editor $editor): self
+    {
+        $this->editors->removeElement($editor);
 
         return $this;
     }
