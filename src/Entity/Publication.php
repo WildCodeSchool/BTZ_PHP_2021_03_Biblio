@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PublicationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,7 +55,7 @@ class Publication
     private $issn_isbn;
 
     /**
-     * @ORM\Column(type="string", length=255, columnDefinition=('Physique', 'en ligne', 'Physique & en ligne'))
+     * @ORM\Column(type="string", length=255)
      */
     private $support;
 
@@ -76,6 +78,16 @@ class Publication
      * @ORM\Column(type="string", length=255)
      */
     private $access;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Notice::class, mappedBy="publication")
+     */
+    private $notices;
+
+    public function __construct()
+    {
+        $this->notices = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -222,6 +234,36 @@ class Publication
     public function setAccess(string $access): self
     {
         $this->access = $access;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Notice[]
+     */
+    public function getNotices(): Collection
+    {
+        return $this->notices;
+    }
+
+    public function addNotice(Notice $notice): self
+    {
+        if (!$this->notices->contains($notice)) {
+            $this->notices[] = $notice;
+            $notice->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotice(Notice $notice): self
+    {
+        if ($this->notices->removeElement($notice)) {
+            // set the owning side to null (unless already changed)
+            if ($notice->getPublication() === $this) {
+                $notice->setPublication(null);
+            }
+        }
 
         return $this;
     }
