@@ -53,7 +53,7 @@ class Publication
     private $issn_isbn;
 
     /**
-     * @ORM\Column(type="string", length=255, columnDefinition=('Physique', 'en ligne', 'Physique & en ligne'))
+     * @ORM\Column(type="string", length=255)
      */
     private $support;
 
