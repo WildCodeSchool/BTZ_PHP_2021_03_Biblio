@@ -73,9 +73,9 @@ class User implements UserInterface
     private $address;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $newsletter = false;
+    private $newsletter;
 
     public function getId(): ?int
     {
