@@ -27,6 +27,16 @@ class Keyword
      */
     private $geolocalisation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="keywords")
+     */
+    private $publication;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Notice::class, inversedBy="keywords")
+     */
+    private $notice;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +62,30 @@ class Keyword
     public function setGeolocalisation(string $geolocalisation): self
     {
         $this->geolocalisation = $geolocalisation;
+
+        return $this;
+    }
+
+    public function getPublication(): ?Publication
+    {
+        return $this->publication;
+    }
+
+    public function setPublication(?Publication $publication): self
+    {
+        $this->publication = $publication;
+
+        return $this;
+    }
+
+    public function getNotice(): ?Notice
+    {
+        return $this->notice;
+    }
+
+    public function setNotice(?Notice $notice): self
+    {
+        $this->notice = $notice;
 
         return $this;
     }

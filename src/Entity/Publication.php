@@ -84,9 +84,15 @@ class Publication
      */
     private $notices;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="publication")
+     */
+    private $keywords;
+
     public function __construct()
     {
         $this->notices = new ArrayCollection();
+        $this->keywords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -262,6 +268,36 @@ class Publication
             // set the owning side to null (unless already changed)
             if ($notice->getPublication() === $this) {
                 $notice->setPublication(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Keyword[]
+     */
+    public function getKeywords(): Collection
+    {
+        return $this->keywords;
+    }
+
+    public function addKeyword(Keyword $keyword): self
+    {
+        if (!$this->keywords->contains($keyword)) {
+            $this->keywords[] = $keyword;
+            $keyword->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeyword(Keyword $keyword): self
+    {
+        if ($this->keywords->removeElement($keyword)) {
+            // set the owning side to null (unless already changed)
+            if ($keyword->getPublication() === $this) {
+                $keyword->setPublication(null);
             }
         }
 
