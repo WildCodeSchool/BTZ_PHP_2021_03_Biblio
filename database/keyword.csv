@@ -1,1 +1,981 @@
-id;notice-id;publication-id;Mot clé 1;Mot clé 2;Mot clé 3;Mot clé 4;Mot clé Géographique1;1;845;Donnée ; cartographie ; planification;;Euskadi2;2;844;santé ; paysage ; biodiversité;;France3;3;843;numérique ; anthropocène ; économie circulaire;;Non4;4;842;santé ; social ; environnement;;International5;5;841;habitat ; patrimoine bâti ; Histoire;;Pays basque6;6;840;développement durable ; prospective ; agences d'urbanisme;;France7;7;839;Ville numérique ; innovation ; Transition énergétique;;France8;8;838;Planification ; politique de la ville ; développement durable;;Paris9;9;838;Planification ; politique de la ville ; développement durable;;Paris10;10;837;espace public ; ville ; société;;International11;11;836;Atlas ; cartographie ; ville;;International12;12;835;économie ; Société ; écologie;;France13;13;834;Politiques de l'habitat ; développement durable ; logement;;France14;14;833;Politiques publiques ; planification ; collectivités territoriales;;France15;15;832;Aménagement urbain ; sécurité routière ; voirie urbaine;;France16;16;832;Aménagement urbain ; sécurité routière ; voirie urbaine;;France17;17;830;société ; relations sociales ; histoire;;International18;18;830;société ; relations sociales ; histoire;;International19;19;829;Prospective ; économie ; région;;Europe20;20;828;construction ; environnement ; innovation;;France21;21;827;paysage ; territoires ; ville;;France22;22;827;paysage ; territoires ; ville;;France23;23;826;artificialisation des sols ; Biodiversité ; Politiques publiques;;France24;24;825;agence d'urbanisme ; changement climatique ; transition énergétique;;France25;25;823;métropole ; transport ; territoire;;Europe26;26;822;métropole ; emploi ; qualité de vie;;France27;27;821;agglomération ; loyer ; Parc locatif;;France28;28;820;santé ; eau potable ; environnement;;France29;29;819;Numérique ; territoire ; Social;;France30;30;818;territoire ; transfrontalier ; métropole;;Europe31;31;817;PLU ; planification ; architecture;;France32;32;816;agglomération ; sociologie ; ville;;International33;33;815;quartier ; Politique de la ville ; renouvellement urbain;;France34;34;814;logement ; immobilier ; aire urbaine;;Pays Basque35;35;813;agglomération ; centre;ville ; territoire;France36;36;812;santé ; aménagement du territoire ; qualité de vie;;France37;37;811;ville ; paysage ; développement économique;;France38;38;810;métropole ; ville ; histoire;;Bordeaux39;39;809;sociologie ; société ; démocratie;;France40;40;809;sociologie ; société ; démocratie;;France41;41;808;sociologie ; Numérique ; société;;France42;42;807;ville durable ; écologie ; eau;;International43;43;806;Développement urbain ; Etalement urbain ; Ville durable;;France44;44;805;Environnement ; artificialisation des sols ; Biodiversité;;France45;45;804;vélo ; mobilité douce ; modes de déplacement;;Pyrénées Atlantiques46;46;803;Changement climatique ; citoyenneté ; Transition énergétique;;France47;47;802;architecture ; maison individuelle ; ville;;Aquitaine48;48;801;PLUi ; SCoT ; Aménagement du territoire;;France49;49;800;tourisme ; logement ; activité économique;;Europe50;50;799;Ville ; Stratégie urbaine ; Action publique;;France51;51;798;Aménagement du territoire ; santé ; Ville;;France52;52;797;Société ; Territoire ; ƒconomie;;France53;53;796;espace public ; sociologie ; Population et modes de vie;;France54;54;795;agence d'urbanisme ; changement climatique ; transition énergétique;;France55;55;794;Mobilité ; sociologie ; Déplacement;;Pau56;56;785;changement climatique ; démographie ; Biodiversité;;Monde57;57;785;changement climatique ; démographie ; Biodiversité;;Monde58;58;783;atlas ; cartographie ; carte;;Monde59;59;783;atlas ; cartographie ; carte;;Monde60;60;792;agence d'urbanisme ; patrimoine ; paysage;;Bordeaux61;61;791;agriculture ; Biodiversité ; quartier;;France62;62;790;architecture ; innovation ; environnement;;France63;63;784;écologie ; ressources naturelles ; changement climatique;;International64;64;784;écologie ; ressources naturelles ; changement climatique;;International65;65;789;histoire ; ville ; cartographie;;Bayonne66;66;772;paysage urbain ; Ville durable ; Espaces publics;;France67;67;772;paysage urbain ; Ville durable ; Espaces publics;;France68;68;787;construction ; logement ; ville;;France69;69;786;Histoire ; innovation ; Social;;Pays basque70;70;786;Histoire ; innovation ; Social;;Pays basque71;71;781;Biodiversité ; paysage urbain ; ville;;Europe72;72;782;changement climatique ; paysage ; ville;;Europe73;73;726;Politiques publiques ; innovation ; territoire;;France74;74;726;Politiques publiques ; innovation ; territoire;;France75;75;779;changement climatique ; eau ; urbanisme;;Aquitaine76;76;780;changement climatique ; eau ; urbanisme;;Aquitaine77;77;778;PLU ; patrimoine ; histoire;;France78;78;777;foncier ; Aménagement du territoire ; urbanisme;;Aquitaine79;79;777;foncier ; Aménagement du territoire ; urbanisme;;Aquitaine80;80;775;ville ;aires urbaines ; transition écologique;;France81;81;774;Zone d'activités économiques ; emploi ; ville;;France82;82;773;ville ; innovation ; territoire;;France83;83;771; Territoires ; Ville ; Population et modes de vie;;France84;84;769;logement ; HLM ; Social;;France85;85;768;agence d'urbanisme ; développement territorial ; innovation;;France86;86;767;architecture ; inondation ; ville;;International87;87;765;immobilier ; ville ; innovation;;International88;88;766;financement ; logement social ; HLM;;Aquitaine89;89;758;région ; économie ; emploi;;France90;90;759;ville ; emploi ; péri;urbain;France91;91;760;ville ; emploi ; péri;urbain;France92;92;762;développement durable ; espace public ; santé;;Bordeaux93;93;756;immobilier ; logement ; région;;Pau94;94;757;logement ; immobilier ; observatoire;;Aquitaine95;95;761;immobilier ; logement social ; commerce;;Bordeaux96;96;761;immobilier ; logement social ; commerce;;Bordeaux97;97;755;artificialisation des sols ; Biodiversité ; habitat;;France98;98;753;économie ; foncier ; territoire;;France99;99;753;économie ; emploi ; territoire;;France100;100;752;eau ; changement climatique ; milieux aquatiques;;Adour-Garonne101;101;751;agglomération ; cadre de vie ; santé;;France102;102;748;commerce ; emploi ; économie;;France103;103;749;innovation ; territoire ; Social;;France104;104;747;Gare ; réhabilitation urbaine ; quartier;;France105;105;745;Politique de la ville ; emploi ; Quartier;;France106;106;746;cadre de vie ; renouvellement urbain ; Politique de la ville;;France107;107;744;mobilité ; transport ; voiture;;International108;108;743;eau ; gestion des risques ; inondation;;Aquitaine109;109;742;planification ; agriculture ; aménagement rural ;;France110;110;740;carte ; cartographie ; topographie;;France111;111;741;carte ; cartographie ; topographie;;France112;112;735;carte ; cartographie ; topographie;;France113;113;736;carte ; cartographie ; topographie;;France114;114;737;carte ; cartographie ; topographie;;France115;115;738;carte ; cartographie ; topographie;;France116;116;739;carte ; cartographie ; topographie;;France117;117;734;tourisme ; ville ; Numérique;;Aquitaine118;118;733;habitat ; mobilité ; eau;;Pays Basque119;119;732;territoire ; transfrontalier ; ville;;Europe120;120;576;centre;ville ; commerce ; modes de déplacement;France121;121;576;centre;ville ; commerce ; modes de déplacement;France122;122;731;droit de l'urbanisme ; loi ; urbanisation;;France123;123;730;Politiques publiques ; innovation ; ville;;France124;124;717;ville ; commerce ; emploi;;International125;125;717;ville ; commerce ; emploi;;International126;126;729;Mobilité ; Emploi ; Territoire;;France127;127;728;urbanisme ; territoire ; innovation;;France128;128;725;ville ; mode de vie ; aménagement urbain ;;Europe129;129;724;ville ; université ; logement;;France130;130;722;architecture ; espace public ; ville;;France131;131;720;paysage ; écologie ; ville;;France132;132;721;paysage ; eau ; urbanisme;;Europe133;133;723;paysage ; eau ; territoire;;France134;134;718;paysage ; urbanisme ; architecture;;France135;135;719;paysage ; écologie ; ville;;International136;136;716;paysage ; Urbaniste ; ville;;Europe137;137;715;architecture ; paysage ; urbanisme;;International138;138;714;tourisme ; architecture ; urbanisme;;France139;139;570;Architecture ; Paysage ; Patrimoine;;Béarn140;140;712;agence d'urbanisme ; eau ; paysage;;Grenoble141;141;713;paysage ; eau ; ville;;International142;142;710;ville ; culture ; région;;Europe143;143;711;périurbain ; centre;ville ; territoire;France144;144;709;économie ; Social ; politique locale;;France145;145;708;périurbain ; ville ; urbanisation;;France146;146;707;périurbain ; innovation ; territoire;;France147;147;699;activité économique ; commerce ; rapport centre;périphérie ;France148;148;699;activité économique ; commerce ; rapport centre;périphérie ;France149;149;703;planification urbaine ; planification ; SIG;;Europe150;150;703;planification urbaine ; planification ; SIG;;Europe151;151;697;PDU ; stationnement ; parking;;France152;152;697;PDU ; stationnement ; parking;;France153;153;706;Plan climat ; énergie ; innovation;;Pyrénées Atlantiques154;154;706;Plan climat ; énergie ; innovation;;Pyrénées Atlantiques155;155;698;citoyenneté ; territoire ; habitat participatif;;France156;156;698;citoyenneté ; territoire ; habitat participatif;;France157;157;704;transfrontalier ; territoire ; Politiques publiques;;Europe158;158;704;transfrontalier ; territoire ; Politiques publiques;;Europe159;159;705;logement ; innovation ; Social;;France160;160;788;Politiques publiques ; Action publique ; métropole;;Lyon161;161;701;architecture ; ville ; logement;;International162;162;702;Changement climatique ; température ; développement durable;;France163;163;700;paysage ; transition énergétique ; renouvellement urbain;;France164;164;696;SCoT ; agriculture ; Développement économique;;Pyrénées Atlantiques165;165;34;Paysage;Espaces naturels;;;Pyrénées Atlantiques166;166;34;Paysage;Espaces naturels;;;Pyrénées Atlantiques167;167;679;Biodiversité ; tram verte et bleue ; paysage;;Europe168;168;679;Biodiversité ; tram verte et bleue ; paysage;;Europe169;169;680;territoire ; architecture ; paysage;;France170;170;680;territoire ; architecture ; paysage;;France171;171;681;péri;urbain ; innovation ; agriculture;France172;172;681;péri;urbain ; innovation ; agriculture;France173;173;685;urbain ; ville ; Equipements;;International174;174;685;urbain ; ville ; Equipements;;International175;175;691;eau ; Biodiversité ; paysage;;Europe176;176;691;eau ; Biodiversité ; paysage;;Europe177;177;644;Pôle Métropolitain ; coopération intercommunale ; inter;territorialité;France178;178;644;Pôle Métropolitain ; coopération intercommunale ; inter;territorialité;France179;179;695;eau ; changement climatique ; milieux aquatiques;;Adour-Garonne180;180;694;santé ; ville ; environnement;;France181;181;543;ville ; développement durable ; urbanisme;;Pau182;182;543;ville ; développement durable ; urbanisme;;Pau183;183;692;environnement ; urbanisme ; développement économique;;Landes184;184;693;Conseil des élus ; lurraldea ; développement durable;;Pays Basque185;185;690;Biodiversité ; écologie ; milieux aquatiques;;Aquitaine186;186;688;logement ; Population ; Société;;France187;187;689;logement ; Social ; économie;;France188;188;686;SCoT ; territoire ; développement économique;;Pyrénées Atlantiques189;189;687;innovation ; territoire ; ville;;France190;190;684;FNAU ; territoire ; urbanisme;;Europe191;191;683;emploi ; agglomération ; région;;France192;192;682;économie ; histoire ; tourisme;;Pau193;193;672;Aménagement du territoire ; Paysage ; Espaces naturels;;France194;194;672;Aménagement du territoire ; Paysage ; Espaces naturels;;France195;195;675;Aménagement de l'espace public ; Aménagement urbain ; Paysage;;France196;196;675;Aménagement de l'espace public ; Aménagement urbain ; Paysage;;France197;197;218;mobilité ; marche ˆ pied ; piéton;;France198;198;218;mobilité ; marche ˆ pied ; piéton;;France199;199;645;Architecture ; Ville ; Aménagement urbain;;Pau200;200;645;Architecture ; Ville ; Aménagement urbain;;Pau201;201;604;culture ; pays ; histoire;;Pays Basque202;202;604;culture ; pays ; histoire;;Pays Basque203;203;678;énergie ; ville durable ; aménagement du territoire;;France204;204;673;Aménagement urbain ; Paysage ; Aménagement de l'espace public;;France205;205;674;Aménagement urbain ; Paysage ; armature urbaine;;France206;206;676;Aménagement urbain ; Espaces publics ; Paysage;;International207;207;677;Aménagement urbain ; Espace public ; paysage urbain;;France208;208;671;SCoT ; transition énergétique ; intercommunalité;;France209;209;668;Architecture ; Ville ; projet urbain;;International210;210;669;Paysage ; Environnement ; Espaces naturels;;France211;211;670;Equipements ; Espace public ; Aménagement urbain;;France212;212;667;Etalement urbain ; Changement climatique ; Ville durable;;France213;213;666;Trame verte et bleue ; Biodiversité ; écologie;;Aquitaine214;214;665;Donnée ; innovation ; environnement;;France215;215;664;logement ; mal;logement ; logement social;France216;216;663;Politique de la ville ; quartier ; ville;;France217;217;662;planification ; tourisme ; urbanisme;;France218;218;656;activité agricole ; construction ; logement;;Pyrénées Atlantiques219;219;656;activité agricole ; construction ; logement;;Pyrénées Atlantiques220;220;657;Politique de la ville ; quartier ; Habitat social;;France221;221;658;tourisme ; économie résidentielle ; territoire;;France222;222;659;Lotissement ; Habitat individuel ; Forme urbaine;;France223;223;660;PLH ; Diagnostic ; Logement;;Pays Basque224;224;661;PLH ; Logement ; Habitat;;Pays Basque225;225;647;patrimoine ; biodiversité ; paysage ; audap;Pays Basque226;226;647;patrimoine ; biodiversité ; paysage ; audap;Pays Basque227;227;655;Mobilité ; Mobilité douce ; voiture;;France228;228;654;Numérique ; ville ; mode de vie;;Toulouse229;229;653;Densité ; architecture ; développement durable;;Europe230;230;639;Projet urbain ; Stratégie urbaine ; Attractivité;;Berlin231;231;639;Projet urbain ; Stratégie urbaine ; Attractivité;;Berlin232;232;652;agence d'urbanisme ; région ; schéma régional de cohérence écologique;;France233;233;651;mobilité ; innovation ; territoire;;Aquitaine234;234;650;ville ; territoire ; urbanisme;;Monde235;235;649;agriculture ; ville ; urbain;;Europe236;236;642;FNAU ; urbanisme ; citoyen;;Europe237;237;642;FNAU ; urbanisme ; citoyen;;Europe238;238;445;transfrontalier ; logistique ; biodiversité;;France239;239;445;transfrontalier ; logistique ; biodiversité;;France240;240;648;logement ; logement social ; handicap;;France241;241;648;logement ; logement social ; handicap;;France242;242;646;ville ; citoyen ; concertation;;France243;243;643;patrimoine ; développement économique ; urbanisme;;France244;244;641;patrimoine ; biodiversité ; paysage ; AUDAP;France245;245;640;agglomération ; centre;ville ; espaces publics;France246;246;626;cartographie ; Donnée ; Territoire;;France247;247;626;cartographie ; Donnée ; Territoire;;France248;248;631;Architecture ; patrimoine ; ville;;Aquitaine249;249;631;Architecture ; patrimoine ; ville;;Aquitaine250;250;634;PLUi ; PLU ; projet de territoire;;France251;251;634;PLUi ; PLU ; projet de territoire;;France252;252;627;développement économique ; urbanisme ; environnement;;Sud des Landes253;253;627;développement économique ; urbanisme ; environnement;;Sud des Landes254;254;629;Air ; Plan climat ; santé;;France255;255;629;Air ; Plan climat ; santé;;France256;256;632; statistiques ; mobilité ; aménagement urbain;;France257;257;632; statistiques ; mobilité ; aménagement urbain;;France258;258;633;statistique ; environnement ; foncier;;France259;259;633;statistique ; environnement ; foncier;;France260;260;630;déchet ; traitement des déchets; environnement;;Aquitaine261;261;630;déchet ; traitement des déchets; environnement;;Aquitaine262;262;637;gouvernance ; patrimoine ; culture;;Pays Basque263;263;638;information ; SIG ; Internet;;France264;264;636;SIG ; topographie ; Numérique;;France265;265;635;immobilier ; ville ; Plan climat;;Pays Basque266;266;571;Architecture ; Paysage ; Construction;;Béarn267;267;571;Architecture ; Paysage ; Construction;;Béarn268;268;628;logement social ; observatoire ; territoire;;Europe269;269;624;indicateur ; métropole ; qualité de vie;;France270;270;624;indicateur ; métropole ; qualité de vie;;France271;271;614;aménagement urbain ; économie ; ville numérique;;France272;272;614;aménagement urbain ; économie ; ville numérique;;France273;273;615;espaces publics ; Politiques publiques ; renouvellement urbain;;France274;274;615;espaces publics ; Politiques publiques ; renouvellement urbain;;France275;275;617;fnau ; intercommunalité ; urbanisme;;France276;276;617;fnau ; intercommunalité ; urbanisme;;France277;277;616;patrimoine ; transport ; ville;;Toulouse278;278;616;patrimoine ; transport ; ville;;Toulouse279;279;622;habitat ; développement local ; citoyenneté;;Aquitaine280;280;622;habitat ; développement local ; citoyenneté;;Aquitaine281;281;625;construction ; déchets ; gestion des déchets;;France282;282;623;urbanisme ; ville durable ; logement;;France283;283;619;architecture ; paysage ; innovation;;Pau284;284;620;trafic ; port ; économie des transports;;Bayonne285;285;621;territoire ; transfrontalier ; crise économique;;France286;286;618;foncier ; politique foncière ; habitat;;Pyrénées Atlantiques287;287;613;environnement ; urbanisme ; économie;;Pays Basque288;288;606;transition énergétique ; climat ; énergie;;Pyrénées Atlantiques289;289;606;transition énergétique ; climat ; énergie;;Pyrénées Atlantiques290;290;611;air ; changement climatique ; aménagement du territoire;;Pyrénées Atlantiques291;291;612;air ; territoire ; voiture;;Pyrénées Atlantiques292;292;610;histoire ; gare ; urbain;;Pays Basque293;293;609;politique de la ville ; rénovation urbaine ; environnement;;France294;294;609;politique de la ville ; rénovation urbaine ; environnement;;France295;295;608;observation ; métropole ; emploi;;France296;296;607;région ; train ; lgv;;Aquitaine297;297;605;immobilier ; observatoire ; donnée;;Aquitaine298;298;603;histoire ; population ; pays;;Pays Basque299;299;602;immobilier ; logement ; agglomération;;Pyrénées Atlantiques & Sud des Landes300;300;599;littoral ; écologie ; activité économique;;France301;301;600;ville ; développement durable ; espaces publics;;Pau302;302;598;ville ; modes de vie ; environnement;;Bordeaux303;303;389;transport ˆ la demande ; transport urbain ; TAD;;France304;304;597;ville ; architecture ; métropole;;Bordeaux305;305;595;cartographie ; ville ; territoire;;Béarn306;306;596;loyer ; observatoire ; territoire;;France307;307;594;culture ; société ; ville;;France308;308;592;foncier agricole ; marché foncier ; région;;France309;309;591;environnement ; plan local d'urbanisme ; territoire;;France310;310;315;métropole ; agglomération ; aire urbaine;;Europe311;311;315;métropole ; agglomération ; aire urbaine;;Europe312;312;588;mobilité ; métropole ; vélo;;Bordeaux313;313;589;Agglomération ; Démographie ; mobilité;;France314;314;583;ville ; projet urbain ; planification;;France315;315;583;ville ; projet urbain ; planification;;France316;316;587;dictionnaire ; information ; urbanisme;;France317;317;587;dictionnaire ; information ; urbanisme;;France318;318;582;urbanisme ; ville ; modes de vie;;Monde319;319;582;urbanisme ; ville ; modes de vie;;Monde320;320;579;biodiversité ; environnement ; énergie;;Aquitaine321;321;579;biodiversité ; environnement ; énergie;;Aquitaine322;322;578;transport d'énergie ; transport de gaz ; canalisation;;Aquitaine323;323;578;transport d'énergie ; transport de gaz ; canalisation;;Aquitaine324;324;586;urbanisme ; ville ; immigration;;International325;325;586;urbanisme ; ville ; immigration;;International326;326;585;mobilité ; urbanisme ; transport;;France327;327;585;mobilité ; urbanisme ; transport;;France328;328;584;innovation ; logement social ; construction;;Aquitaine329;329;581;ville ; université ; territoire;;Europe330;330;580;ville ; nature ; paysage;;France331;331;577;Foncier ; Territoire ; Immobilier;;Pays Basque332;332;575;aménagement rural  ; développement local ; démographie;;Bretagne333;333;574;Réforme territoriale ; Région ; Territoire;;France334;334;573;cadre de vie ; urbanisme ; ville;;Bordeaux335;335;568;FNAU ; projet urbain ; paysage;;France336;336;569;Agence d'urbanisme ; FNAU ; Planification;;France337;337;567;Foncier ; Immobilier ; Habitat;;France338;338;565;Numérique ; ville durable ; innovation;;Toulouse339;339;566;Politiques publiques ; paysage ; nature;;France340;340;564;ville ; Politiques publiques ; territoire;;France341;341;563;emploi ; immobilier ; Zone d'activités économiques;;Bordeaux342;342;562;milieux aquatiques ; eau ; inondation;;Adour-Garonne343;343;560;Attractivité ; mobilité ; Politiques publiques;;France344;344;561;Agences d'urbanisme ; territoire ; péri;urbain;France345;345;559;habitat ; foncier ; immobilier;;Pays Basque346;346;558;développement territorial ; économie ; comportement social;;France347;347;557;Air ; trafic ; transport;;Aquitaine348;348;554;intercommunalité ; urbanisme ; territoire;;France349;349;555;nature ; Biodiversité ; eau;;France350;350;556;environnement ; logistique ; économie;;France351;351;552;écoquartier ; urbain ; logement;;France352;352;553;ville durable ; Planification Territoriale ; qualité de vie;;International353;353;551;développement territorial ; innovation ; économie;;France354;354;548;carte ; cartographie ; topographie;;France355;355;549;carte ; cartographie ; topographie;;France356;356;550;carte ; cartographie ; topographie;;France357;357;546;ingénierie ; Politiques publiques ; territoire;;France358;358;547;carte ; cartographie ; topographie;;France359;359;539;Politiques publiques ; urbanisme ; territoire;;Pau360;360;539;Politiques publiques ; urbanisme ; territoire;;Pau361;361;540;Trame Verte et Bleue ; urbanisme ; territoire;;Pau362;362;540;Trame Verte et Bleue ; urbanisme ; territoire;;Pau363;363;545;déchets ; environnement ; Politiques publiques;;France364;364;538;agriculture ; urbain ; territoire;;France365;365;538;agriculture ; urbain ; territoire;;France366;366;541;planification ; urbanisme ; SRADDET;;France367;367;541;planification ; urbanisme ; SRADDET;;France368;368;542;rapport d'activité ; agence d'urbanisme ; urbanisme;;France369;369;542;rapport d'activité ; agence d'urbanisme ; urbanisme;;France370;370;544;eaux pluviales ; Biodiversité ; urbanisme;;France371;371;517;tourisme ; urbanisme ; aménagement du littoral;;Aquitaine372;372;517;tourisme ; urbanisme ; aménagement du littoral;;Aquitaine373;373;537;aménagement du territoire ; centralité ; ville;;France374;374;536;foncier ; budget ; territoire;;France375;375;536;foncier ; budget ; territoire;;France376;376;535;carte ; topographie ; cartographie;;Pyrénées Atlantiques377;377;534;projet de territoire ; cadre de vie ; développement économique;;France378;378;533;transfrontalier ; projet de territoire ; agglomération;;Europe379;379;532;climat ; agriculture ; urbanisme;;France380;380;512;ingénierie ; urbanisme ; génie civile;;France381;381;512;ingénierie ; urbanisme ; génie civile;;France382;382;511;projet urbain ; urbanisme opérationnel ; développement durable;;France383;383;511;projet urbain ; urbanisme opérationnel ; développement durable;;France384;384;513;ville ; mobilité ; services;;France385;385;513;ville ; mobilité ; services;;France386;386;523;carte ; cartographie ; topographie;;France387;387;524;carte ; cartographie ; topographie;;France388;388;525;carte ; cartographie ; topographie;;France389;389;526;carte ; cartographie ; topographie;;France390;390;527;carte ; cartographie ; topographie;;France391;391;528;carte ; cartographie ; topographie;;France392;392;529;carte ; cartographie ; topographie;;France393;393;530;carte ; cartographie ; topographie;;France394;394;531;carte ; cartographie ; topographie;;France395;395;532;changement climatique ; habitat ; transports;;France396;396;518;collectivités territoriales ; plan local d'urbanisme ; agglomération;;France397;397;519;paysage urbain ; ville durable ; aménagement urbain;;International398;398;520;habitat ; OPAH ; renouvellement urbain;;France399;399;521;habitat ; urbanisme ; Politiques publiques;;France400;400;516;Trame verte et bleue ; Biodiversité ; aménagement du territoire;;Aquitaine401;401;514;ville ; espace public ; marche;;France402;402;515;urbanisme ; décret ; code;;France403;403;510;ville ; citoyen ; espaces urbains;;Lyon404;404;510;ville ; citoyen ; espaces urbains;;Lyon405;405;508;tourisme ; territoire ; projet urbain;;France406;406;508;tourisme ; territoire ; projet urbain;;France407;407;509;territoire ; intercommunalité ; gouvernance;;Pays Basque408;408;509;territoire ; intercommunalité ; gouvernance;;Pays Basque409;409;507;ville ; urbanisme ; projet urbain;;International410;410;507;ville ; urbanisme ; projet urbain;;International411;411;506;ville ; commerce ; urbanisme;;Europe412;412;505;santé ; éducation ; qualité de vie ;;France413;413;496;foncier ; renouvellement urbain ; politiques publiques;;International414;414;496;foncier ; renouvellement urbain ; politiques publiques;;International415;415;502;ville ; architecture ; urbanisme;;Europe416;416;502;ville ; architecture ; urbanisme;;Europe417;417;494;surélévation ; logement ; urbanisme;;France418;418;494;surélévation ; logement ; urbanisme;;France419;419;501;marché immobilier ; marché foncier ; politiques publiques;;France420;420;501;marché immobilier ; marché foncier ; politiques publiques;;France421;421;503;marché immobilier ; foncier ; logement;;France422;422;503;marché immobilier ; foncier ; logement;;France423;423;500;marché foncier ; planification urbaine ; politiques publiques;;International424;424;500;marché foncier ; planification urbaine ; politiques publiques;;International425;425;493;copropriété ; habitat ; politiques publiques;;France426;426;493;copropriété ; habitat ; politiques publiques;;France427;427;498;logement ; marché immobilier ; renouvellement urbain;;Europe428;428;498;logement ; marché immobilier ; renouvellement urbain;;Europe429;429;497;logement ; politiques publiques ; aménagement du territoire;;France430;430;497;logement ; politiques publiques ; aménagement du territoire;;France431;431;495;mobilité ; urbanisme ; planification;;France432;432;495;mobilité ; urbanisme ; planification;;France433;433;504;ville ; habitat ; réhabilitation urbaine;;France434;434;499;tourisme ; environnement ; littoral;;France435;435;491;paysage ; architecture ; eau;;France436;436;491;paysage ; architecture ; eau;;France437;437;492;littoral ; Trait de côte ; observatoire;;France438;438;437;Aménagement du territoire ; bassin de vie ; métropole;;Ile-de-France439;439;437;Aménagement du territoire ; bassin de vie ; métropole;;Ile-de-France440;440;444;territoire ; Décentralisation ; Démographie;;France441;441;444;territoire ; Décentralisation ; Démographie;;France442;442;489;ville ; économie ; architecture;;Bayonne443;443;490;ville ; architecture ; histoire;;Orthez444;444;487;gestion de l'eau ; pouvoirs publics ; innondation;;France445;445;487;gestion de l'eau ; pouvoirs publics ; innondation;;France446;446;488;histoire ; économie ; architecture;;Anglet447;447;488;histoire ; économie ; architecture;;Anglet448;448;482;ville ; agriculture ; logistique urbaine;;France449;449;482;ville ; agriculture ; logistique urbaine;;France450;450;484;ville ; renouvellement urbain ; territoire;;France451;451;484;ville ; renouvellement urbain ; territoire;;France452;452;486;paysage ; architecture ; environnement;;Anglet453;453;486;paysage ; architecture ; environnement;;Anglet454;454;485;Observatoire ; Statistiques ; SIG;;Aquitaine455;455;485;Observatoire ; Statistiques ; SIG;;Aquitaine456;456;481;ville ; innovation ; projet urbain;;Barcelone457;457;483;ville ; métropole ; urbanisme;;International458;458;478;ville ; stratégie urbaine ; urbanisme;;International459;459;479;projet urbain ; habitat ; architecture;;France460;460;480;ville ; conception ; projet urbain;;France461;461;477;aménagement urbain ; ville ; nature;;International462;462;476;Transports ; Mobilité ; Déplacement;;France463;463;476;Transports ; Mobilité ; Déplacement;;France464;464;473;métropole ; planification ; territoire;;Lyon465;465;474;Patrimoine ; territoire ; agences d'urbanisme;;Europe466;466;475;logement ; urbain ; diagnostic;;France467;467;471;architecture ; habitat ; eau;;France468;468;471;architecture ; habitat ; eau;;France469;469;472;Transports ; ville ; mobilité;;France470;470;472;Transports ; ville ; mobilité;;France471;471;245;politique des transports ; intermodalité ; aire urbaine;;Aquitaine472;472;245;politique des transports ; intermodalité ; aire urbaine;;Aquitaine473;473;145;Marche ; Piéton ; Ville;;Bordeaux474;474;145;Marche ; Piéton ; Ville;;Bordeaux475;475;289;périurbain ; ville ; étalement urbain;;France476;476;289;périurbain ; ville ; étalement urbain;;France477;477;366;espace public ; projet urbain ; prospective;;Bordeaux478;478;366;espace public ; projet urbain ; prospective;;Bordeaux479;479;419;ville ; voiture ; modes de vie;;Europe480;480;419;ville ; voiture ; modes de vie;;Europe481;481;469;ville ; piéton ; projet urbain;;Europe482;482;470;ville ; territoire ; urbanisme;;France483;483;120;Mobilité ; Travail ; Modes de déplacement;;Ile-de-France484;484;120;Mobilité ; Travail ; Modes de déplacement;;Ile-de-France485;485;468;PLU ; déplacement ; mobilité;;France486;486;467;télétravail ; entreprises ; territoires;;France487;487;466;économie verte ; progés technologiques ; recherche;;Béarn488;488;464;risques ; transport ; vigilance;;France489;489;465;climat ; température ; économie;;Pyrénées Atlantiques490;490;463;Ville ; Transports ; urbain;;International491;491;462;ville ; changement climatique ; planification;;International492;492;461;Front National ; Parti politique ; Géographie;;France493;493;460;Développement durable ; Changement climatique ; Biodiversité;;Bayonne494;494;459;Changement climatique ; ville ; territoires;;France495;495;458;cartographie ; étalement urbain ; territoire;;International496;496;457;imperméabilisation ; assainissement ; sol;;France497;497;456;Organisation de l'espace ; Port ; Ville;;International498;498;453;Agences d'urbanisme ; territoire ; offre de services;;France499;499;454;architecture ; ville ; aménagement urbain;;Pau500;500;455;Mobilité durable ; voiture ; agglomération;;International501;501;451;agriculture ; territoire ; foncier;;Pays Basque502;502;452;FNAU ; Agence d'urbanisme ; partenariat;;France503;503;448;climat ; planification ; urbanisme;;France504;504;449;agriculture ; environnement ; terre;;France505;505;449;agriculture ; environnement ; terre;;France506;506;450;paysage ; territoire ; projet urbain;;France507;507;447;sol ; ménages ; logement;;Europe508;508;446;Immobilier ; Construction ; Habitat;;Pays Basque509;509;443;collectivités territoriales ; région ; intercommunalité;;France510;510;441;campagnes urbaines ; périurbain ; mode de vie;;France511;511;442;ville ; écologie urbaine ; projet urbain;;France512;512;438;ville ; mode de vie ; urbanisme;;France513;513;439;renouvellement urbain ; Politique de la ville ; agglomération;;France514;514;440;Urbanisme commercial ; friche commerciale ; zone commerciale;;France515;515;417;urbanisme ; transport ; contrat d'axe;;International516;516;417;urbanisme ; transport ; contrat d'axe;;International517;517;435;intercommunalité ; outils juridiques ; finances locales;;Pyrénées Atlantiques518;518;435;intercommunalité ; outils juridiques ; finances locales;;Pyrénées Atlantiques519;519;436;tourisme ; emploi ; chiffre d'affaires;;Pays Basque et sud des Landes520;520;434;habitat ; TIC ; transfrontalier;;Pays Basque521;521;433;planification ; Trame verte et bleue ; transfrontalier;;Europe522;522;432;habitat ; foncier ; immobilier;;Béarn523;523;431;ville ; économie ; formes urbaines;;International524;524;430;filière ; technologie ; infrastructure;;Europe525;525;304;logistique ; territoire ;   plateforme logistique;;France526;526;304;logistique ; territoire ;   plateforme logistique;;France527;527;230;trame verte ; PLU ; Projet urbain;;France528;528;230;trame verte ; PLU ; Projet urbain;;France529;529;427;ville ; innovation ; projet urbain;;Europe530;530;429;planification ; SCoT ; Agence d'urbanisme;;France531;531;428;territoires ; énergie ; Dématérialisation;;France532;532;426;sol ; imperméabilisation ; télédétection;;Europe533;533;11;Littoral;Aménagement du littoral;;;Aquitaine534;534;11;Littoral;Aménagement du littoral;;;Aquitaine535;535;425;ville ; Vacances ; saison;;Bordeaux536;536;420;Ville ; Port ; Espaces maritimes;;Europe537;537;420;Ville ; Port ; Espaces maritimes;;Europe538;538;423;Commerce ; ville ; équipements commerciaux;;Europe539;539;423;Commerce ; ville ; équipements commerciaux;;Europe540;540;421;Territoire ; Trame Verte et Bleue ; Biodiversité;;Aquitaine541;541;421;Territoire ; Trame Verte et Bleue ; Biodiversité;;Aquitaine542;542;424;Littoral aquitain ; Lacanau ; tourisme;;Aquitaine543;543;422;Littoral aquitain ; Aménagement du territoire ; Changement climatique;;Aquitaine544;544;422;Littoral aquitain ; Aménagement du territoire ; Changement climatique;;Aquitaine545;545;53;PLU;Plan local d'urbanisme;;;France546;546;53;PLU;Plan local d'urbanisme;;;France547;547;418;logement ; logement social ; offre de logement;;France548;548;415;projet urbain ; espace public ; gouvernance;;Lisbonne549;549;416;tourisme ; culture ; ville;;International550;550;414;climat ; énergie ; déchets;;France551;551;413;Logement social ; Coût de la construction ; Financement de la construction;;Aquitaine552;552;412;Eau ; Ville ; Gestion de l'eau;;France553;553;411;Ville ; Port ; Rénovation urbaine;;France554;554;408;Foncier ; Paysage ; Document d'Urbanisme;;France555;555;407;Ingénierie ; Planification ; Document d'Urbanisme;;France556;556;409;Logement ; habitat ; logement ; Plannification;France557;557;410;Logement vacant ; Marché de l'habitat ; Vacance;;France558;558;406;commerce ; requalification urbaine ; espaces publics;;France559;559;405;ingénierie territoriale ; Développement local ; Assistance technique;;France560;560;403;eau ; eaux pluviales ; aménagement urbain;;France561;561;404;Planification ; Prospective ; Aménagement urbain;;France562;562;401;INTERSCOT ; Transition énergétique ; Energie;;Gironde563;563;402;SCOT ; Plannification ; Urbanisme;;France564;564;397;Climat ; Energie ; schéma régional de cohérence écologique;;Aquitaine565;565;398;Trait de côte ; Risques littoraux ; Activités économiques;;Aquitaine566;566;399;Risques littoraux ; Activités économiques ; Trait de côte;;Aquitaine567;567;400;Risques littoraux ; Activités économiques ; Trait de côte;;Aquitaine568;568;396;ZAE ; requalification ; consommation foncière;;France569;569;394;ville ; inondation ; projet urbain;;Europe570;570;395;logement ; crise du logement ; logement social;;France571;571;392;Territoire ; Bien commun ; collectivités territoriales;;France572;572;393;Conférence ; Aménagement du littoral ; développement durable;;Aquitaine573;573;391;Mobilité ; Péri;urbain ; Milieu rural;France574;574;390;projet urbain ; urbanisme ; nature;;Europe575;575;387;gestion des risques ; inondation ; climat;;Adour-Garonne576;576;388;mobilité ; budget ; ménages;;France577;577;386;quartier ; ville ; ghetto;;International578;578;385;transport collectif ; BHNS ; système de transport;;France579;579;381;mobilité ; autoroute ; ville;;France580;580;382;espace public ; armature urbaine ; eau;;France581;581;383;Agence d'urbanisme ; projet urbain ; projet de territoire;;France582;582;384;SDAGE ; eau ; milieux aquatiques;;Adour-Garonne583;583;380;projet urbain ; urbanisme ; prospective;;Montpellier584;584;379;eau ; urbanisme ; étalement urbain;;Aquitaine585;585;371;environnement ; eau ; eaux pluviales;;Bordeaux586;586;371;environnement ; eau ; eaux pluviales;;Bordeaux587;587;373;urbanisme ; énergie ; ville;;International588;588;374;urbanisme ; environnement ; mobilité;;Montpellier589;589;375;projet urbain ; environnement ; urbanisme;;Montpellier590;590;376;PLUi ; planification ; intercommunalité;;Bayonne591;591;377;ville ; développement durable ; énergie;;France592;592;378;risques naturels ; érosion côtière ; littoral;;Aquitaine593;593;372;observation ; action publique ; SIG;;France594;594;368;urbanisme ; droit de l'urbanisme ; instruction;;France595;595;369;territoire ; intercommunalité ; stratégie;;France596;596;370;urbanisme ; santé ; aménagement urbain;;France597;597;367;urbanisme ; planification ; PLUi;;France598;598;364;logement social ; habitat ; HLM;;Aquitaine599;599;365;urbanisme ; construction ; logement;;France600;600;363;logistique ; logistique urbaine ; circulation;;France601;601;362;nature ; ville ; tourisme;;France602;602;360;économie résidentielle ; réforme territoriale ; développement régional;;France603;603;361;PLU ; SCoT ; Urbanisme;;France604;604;357;planification ; PLU ; ville;;Bordeaux605;605;358;planification ; PLUi ; SCoT;;France606;606;359;habitat ; PLU ; intercommunalité;;Bordeaux607;607;356;mobilité ; transport en commun ; covoiturage;;Gironde608;608;355;indicateur ; étalement urbain ;   occupation du sol;;France609;609;349;urbanisme ; planification ; logement;;France610;610;350;urbanisme ; habitat ; logement;;France611;611;352;coopération intercommunale ; ingénierie publique ; AUDAP;;Pyrénées Atlantiques612;612;353;gouvernance ; agglomération ; coopération intercommunale;;Bayonne613;613;354;paysage ; cadre de vie ; Aménagement urbain;;France614;614;348;foncier ; agence foncière ; politique foncière;;Béarn615;615;351;MOS ; SIG ;   mode d'occupation du sol;;Ile-de-France616;616;326;agglomération ; métropole ; développement territorial;;France617;617;327;géographie politique ; décentralisation ;   aménagement du territoire;;France618;618;330;aménagement du territoire ; coopération intercommunale ; pays;;France619;619;332;SCoT ; planification ; PADD;;France620;620;333;SCoT ; planification ; document d'urbanisme;;France621;621;336;Planification Territoriale ; prospective ; méthode;;France622;622;342;prospective ; Internet ; développement territorial;;France623;623;269;ville ; Urbanisme ; territoire;;International624;624;269;ville ; Urbanisme ; territoire;;International625;625;335;urbanisation ; économie urbaine ; formes urbaines;;France626;626;329;décentralisation ; département ; région;;France627;627;339;développement durable ; gouvernance ; concertation;;International628;628;331;développement urbain ; marché foncier ; planification;;France629;629;324;sociologie ; sécurité urbaine ; politique locale;;Italie630;630;325;mobilité ; modes de vie ; déplacement;;France631;631;325;mobilité ; modes de vie ; déplacement;;France632;632;328;gouvernance ; organisation spatiale ; ville;;France633;633;328;gouvernance ; organisation spatiale ; ville;;France634;634;334;sociologie ; espace public ; voisin;;France635;635;337;modes de vie ; ville ; gouvernance;;International636;636;338;sociologie ; centre commercial ; comportement social;;France637;637;340;développement durable ; ville ; écologie urbaine;;International638;638;341;modes de vie ; ville ; environnement;;International639;639;343;modes de vie ; ville ; rythmes urbain;;France640;640;347;modes de vie ; déplacement ; développement urbain;;France641;641;344;mobilité ; espace rural ; périurbain;;France642;642;345;aménagement du territoire ; chronoaménagement ; déplacement;;Grenoble643;643;346;SCoT ; déplacement ; mobilité;;France644;644;321;enseignement supérieur ; équipement d'enseignement ; université;;Bordeaux645;645;323;PLUi ; planification ; urbanisme;;France646;646;322;développement économique ; démographie ; aménagement du territoire;;Béarn647;647;320;paysage urbain ; nature ; ville;;France648;648;318;Projet urbain ; renouvellement urbain ; friche urbaine;;Bilbao649;649;319;transport collectif ; économie ; financement;;France650;650;316;eaux pluviales ; Gestion de l'eau ; eau;;France651;651;317;observation ; transfrontalier ; territoire;;International652;652;167;Projet urbain ; Renouvellement urbain ; Espaces publics;;France653;653;167;Projet urbain ; Renouvellement urbain ; Espaces publics;;France654;654;313;développement urbain ; développement durable ; territoire;;France655;655;312;économie ; emploi ; territoire;;France656;656;314;TIC ; ville numérique ; adaptation économique;;France657;657;305;eau ; milieux aquatiques ; rivière;;Adour-Garonne658;658;296;télétravail ; tiers lieux ; TIC;;Pays Basque659;659;296;télétravail ; tiers lieux ; TIC;;Pays Basque660;660;311;logement ; urbanisme ; Planification;;France661;661;310;déplacements ; stationnement ; marche;;France662;662;309;ville ; urbanisme ; formes urbaines;;France663;663;308;eau ; eaux pluviales ; zone humide;;Bordeaux664;664;307;atlas ; métropole ; carte;;Paris665;665;306;sociologie ; enquête ; questionnaire;;France666;666;303;politique foncière ; foncier agricole ; sol;;France667;667;302;Tourisme ; Logement ; TIC;;France668;668;87;Société ; Quartier ; Ségrégation urbaine;;France669;669;87;Société ; Quartier ; Ségrégation urbaine;;France670;670;301;Aménagement du territoire ; SIG ; MOS;;France671;671;293;Agences d'urbanisme ; périurbain ; prospective;;France672;672;293;Agences d'urbanisme ; périurbain ; prospective;;France673;673;300;habitat ; Agence d'urbanisme ; logement;;France674;674;298;sol ; consommation d'espace ; occupation du sol;;France675;675;297;habitat collectif ; habitat participatif ; logement;;France676;676;299;parcs relais ; parking ; stationnement;;France677;677;294;ville ; renouvellement urbain ; Aménagement durable;;Bordeaux678;678;295;Transports ; Trafics ; mobilité;;Pyrénées679;679;292;patrimoine ; patrimoine bâti ; territoire;;France680;680;290;ingénierie territoriale ; département ; partenariat;;France681;681;291;aménagement régionale ; champ de la connaissance ; partenariat;;France682;682;288;diagnostic ; territoire ; méthodologie;;France683;683;287;environnement ; énergie ; logement;;France684;684;286;vélo ; déplacement domicile;travail ; Mobilité douce;France685;685;285;développement économique ; enseignement supérieur ; innovation;;Normandie686;686;284;Transports en commun ; transport en site propre ; Projet urbain;;Pau687;687;282;friche urbaine ; reconversion ; réhabilitation urbaine;;Amiens688;688;283;friche urbaine ; reconversion ; réhabilitation urbaine;;Amiens689;689;281;ingénierie ; observation ; TIC;;France690;690;280;littoral ; économie littoral ; économie;;Aquitaine691;691;279;vélo ; Stationnement ; espace privé;;France692;692;162;Territoire ; Dette publique ; Mobilité;;France693;693;162;Territoire ; Dette publique ; Mobilité;;France694;694;252;habitat ;   marché du logement ;   évolution du parc immobilier;;Aquitaine695;695;252;habitat ;   marché du logement ;   évolution du parc immobilier;;Aquitaine696;696;42;VilleSocial;test;;;Paris697;697;42;VilleSocial;test;;;Paris698;698;270;Transports ; économie ; lgv;;Aquitaine699;699;270;Transports ; économie ; lgv;;Aquitaine700;700;271;cartographie ; représentation graphique ; système d'information géographique;;France701;701;271;cartographie ; représentation graphique ; système d'information géographique;;France702;702;274;mobilité ; transports urbain ; réseau de transport;;Bayonne703;703;273;immobilier ; logement ; économie;;France704;704;272;Trame verte et bleue ; document d'urbanisme ; environnement;;France705;705;268;périurbain ; mobilité ; Modes de vie;;France706;706;268;périurbain ; mobilité ; Modes de vie;;France707;707;267;Climat ; environnement ; économie;;Aquitaine708;708;264;Planification Territoriale ; document d'urbanisme ; bassin de vie;;Rouen709;709;265;Agence d'urbanisme ; périurbain ; mode de vie;;Amiens710;710;266;ville durable ; Aménagement durable ; développement durable;;Nantes711;711;260;Eau ; Système d'information ; Donnée;;Adour-Garonne712;712;261;Eau ; Milieux aquatiques ; eau potable;;Adour-Garonne713;713;262;eau ; gestion des eaux pluviales ; Gestion de l'eau;;Adour-Garonne714;714;263;eau ; eau potable ; Gestion de l'eau;;Adour-Garonne715;715;259;étalement urbain ; urbanisation ; artificialisation des sols;;France716;716;216;économie ; anthropologie ;   migration;;France717;717;216;économie ; anthropologie ;   migration;;France718;718;257;Urbanisme ; PLUi ; logement;;France719;719;258;Ville durable ; écoquartier ; Aménagement durable;;France720;720;256;Aménagement durable ; Planification ; Urbanisme;;France721;721;253;SCoT ; Gouvernance ; Planification Territoriale;;France722;722;255;aménagement numérique ; document d'urbanisme ; TIC;;France723;723;254;Bus;Tram ; Transports en commun ; Développement urbain;Pau724;724;251;fiscalité ; ressources fiscales ; collectivités territoriales;;France725;725;235;Pôle Métropolitain ; Planification Territoriale ; coopération intercommunale;;France726;726;332;SCoT ; planification urbaine ; coopération intercommunale;;France727;727;111;Démographie ; Péri;urbain ; Mobilité résidentielle;Angers728;728;111;Démographie ; Péri;urbain ; Mobilité résidentielle;Angers729;729;232;Aménagement urbain ; Foncier ; Densification;;Ile-de-France730;730;241;cadre juridique ; renouvellement urbain ; SRU;;France731;731;243;renouvellement urbain ; politique urbaine ; Projet urbain;;France732;732;249;aire urbaine ; ville ; atlas;;France733;733;237;Commerce ; SCoT ; planification urbaine;;France734;734;250;économie résidentielle ; mobilité résidentielle ; migration;;France735;735;233;Trame verte et bleue ; politique de l'environnement ; schéma régional de cohérence écologique;;France736;736;240;Agenda 21 ; développement durable ; écologie;;France737;737;236;politique foncière ; Environnement ; développement durable;;France738;738;231;Habitat ; Logement ; Modes de vie;;France739;739;246;aménagement du territoire ; planification urbaine ;   vieillissement;;France740;740;234;TIC ; ville numérique ; développement durable;;France741;741;247;environnement ; loi ; développement durable;;France742;742;238;déplacements ; SCoT ; planification des transports;;France743;743;242;déplacements ; développement durable ; mobilité;;Angers744;744;244;économie des transports ; politique des transports ; Environnement;;France745;745;248;déplacements ; planification des transports ; Aménagement urbain;;France746;746;32;Environnement;Urbanisme Durable;;;France747;747;32;Environnement;Urbanisme Durable;;;France748;748;33;Projet urbain;Développement durable;;;Anvers749;749;33;Projet urbain;Développement durable;;;Anvers750;750;229;  conseil de développement ; développement local ; société civile;;France751;751;175;Qualité environnementale ; Architecture ; Paysage;;Grenoble752;752;175;Qualité environnementale ; Architecture ; Paysage;;Grenoble753;753;225;marché foncier ; marché foncier agricole ; prix du sol;;Pyrénées Atlantiques754;754;225;marché foncier ; marché foncier agricole ; prix du sol;;Pyrénées Atlantiques755;755;224;marché foncier agricole ; marché de l'urbanisation ; prix des vignes;;France756;756;224;marché foncier agricole ; marché de l'urbanisation ; prix des vignes;;France757;757;228;mobilité ; déplacement ; ingénierie;;France758;758;211;eau ; assainissement ; SDAGE;;Adour-Garonne759;759;211;eau ; assainissement ; SDAGE;;Adour-Garonne760;760;227;eau potable ; politique foncière ; règlement d'urbanisme;;Adour-Garonne761;761;226;tourisme ;   équipement touristique ; Aménagement du littoral;;Aquitaine762;762;223;mobilité ; déplacement ; trafic;;Bordeaux763;763;223;mobilité ; déplacement ; trafic;;Bordeaux764;764;221;Aménagement urbain ; habitat ; mode de vie;;France765;765;219;activité économique ; état économique ; formation;;Pays Basque766;766;220;marché foncier ; politique foncière ; EPFL;;Béarn767;767;222;aménagement rural  ; activité agricole ; vigne;;Béarn768;768;215;Ville ; développement urbain ; étalement urbain;;Rennes769;769;217;voirie urbaine ; sécurité routière ; équipement de la voirie;;France770;770;124;Mobilité ; Mobilité durable ; Modes de déplacement;;France771;771;124;Mobilité ; Mobilité durable ; Modes de déplacement;;France772;772;213;Aménagement urbain ; architecture ;  développement durable;;France773;773;212;eau ; SDAGE ; milieux aquatiques;;Adour-Garonne774;774;210;histoire ; architecture ; paysage;;Seignanx775;775;214;énergie ; ressources naturelles ; transition énergétique;;Aquitaine776;776;209;Aménagement du territoire ; échelle ; territoire;;France777;777;379;eau ; assainissement ; zones humides;;Pyrénées Atlantiques & Sud des Landes778;778;205;migration pendulaire ; péri;urbain ; densité de population;Nantes779;779;206;centre;ville ; espace piétonnier ; espace public;France780;780;207;Projet urbain ; Aménagement urbain ; Agences d'urbanisme;;France781;781;204;habitat ; logement ; document d'urbanisme ; marché foncier;France782;782;203;Développement économique ; Habitat et logement ; Population et modes de vie;;Ile-de-France783;783;202;loyer ; Logement ; observation;;France784;784;201;tour ; monument ; ouvrage d'art;;International785;785;200;logement ; PLH ; démographie;;Caen786;786;195;plan local d'urbanisme ; PLU ; planification urbaine;;France787;787;199;démographie ;   infrastructure de transport ; dynamique économique;;Béarn788;788;197;habitat ; formes urbaines ; logement;;Rennes789;789;198;formes urbaines ; logement ; quartier;;Rennes790;790;196;Fiscalité ; loyer ; parc privé;;France791;791;193;Agences d'urbanisme ; Action publique ; Ingénièrie;;France792;792;194;PLU ; plan local d'urbanisme ; droit de l'urbanisme;;France793;793;192;Ingénièrie territoriale ; Décentralisation ; Réforme territoriale;;France794;794;191;Projet urbain ; Espace public ; Commerce;;International795;795;190;Ingénièrie territoriale ; Décentralisation ; Réforme territoriale;;France796;796;189;Immobilier d'entreprise ; Marché ; Bureau;;Rouen797;797;188;Marche ; Mobilité ; Ville;;Europe798;798;187;Urbanisme ; Architecture ; Rivages;;France799;799;184;Logement ; Fiscalité ; Foncier;;France800;800;185;Habitat ; Logement social ; Construction neuve;;Bordeaux801;801;186;Gare ; Centralité urbaine ; Intermodalité;;Caen802;802;182;Architecture ; Projet urbain ; Urbanisme;;Bordeaux803;803;183;Gare ; Projet urbain ; ligne de chemin de fer;;Rouen804;804;181;Aménagement durable ; Environnement ; Espaces naturels;;Stockholm805;805;178;Projet urbain ; Marché foncier ; Plan des Déplacements Urbains;;Rennes806;806;180;Urbaniste ; Ville ; Projet urbain;;France807;807;179;Agence d'urbanisme ; Rencontre nationale ; Observatoire;;Bordeaux808;808;177;PADD ; Fleuve ; Rade;;France809;809;176;TIC ; Diagnostic ; Numérique;;Aquitaine810;810;173;Projet urbain ; Port ; Fleuve;;Lorient811;811;174;Projet urbain ; Fleuve ; Paysage;;Besançon812;812;172;Mobilité ; Déplacements ; Ville numérique;;France813;813;171;Urbanisme ; Projet urbain ; Aménagement du territoire;;France814;814;168;Fleuve ; Projet urbain ; Concertation;;Brest815;815;169;Projet urbain ; écoquartier ; Renouvellement urbain;;Reims816;816;170;Projet urbain ; Fleuve ; Infrastructures;;Avignon817;817;277;Projet urbain ; centralité ; mobilité;;Marseille818;818;275;Littoral ; Erosion côtière ; prévention;;France819;819;278;marché du logement ; observatoire ; marché foncier;;France820;820;276;transport en site propre ; Transports en commun ; Projet urbain;;Pau821;821;163;Urbaniste ; Ville ; Projet urbain;;France822;822;164;Projet urbain ; Métropole ; Port;;Nantes823;823;165;Planification ; Etalement urbain ; Territoire;;Europe824;824;166;Observatoire ; Open Data ; Données statistiques;;France825;825;161;Ecoquartier ; Renouvellement urbain ; Biodiversité;;Nord-Pas de Calais826;826;158;Littoral aquitain ; Energies marines ; Energies renouvelables;;Aquitaine827;827;160;Aéronautique ; Industrie chimique ; Agroalimentaire;;Béarn828;828;157;Environnement ; Eco;responsable ; Budget communal;France829;829;159;Habitat individuel ; Densité ; Formes urbaines;;France830;830;155;Conférence ; Métropole ; Paysage;;Le Havre831;831;156;PAO ; Mise en page ; In Design;;France832;832;5;TIC;Diagnostic;;;Aquitaine833;833;153;Planification ; Projet urbain ; Stratégie urbaine;;France834;834;154;Logiciel ; Dessin ; Informatique;;France835;835;152;Données publiques ; open data ; Action publique;;Aquitaine836;836;151;Coopération décentralisée ; Relations internationales ; Développement urbain;;France837;837;146;Habitat ; Logement ; Habitat urbain;;Bordeaux838;838;147;Métropole ; Transport ; Habitat;;Bordeaux839;839;148;Gare TGV ; Métropole ; Zone d'activités économiques;;Clermont-Ferrand840;840;149;Ville ; Trame verte et bleue ; Fleuve;;Amiens841;841;150;Projet urbain ; Agence d'urbanisme ; Aménagement urbain;;France842;842;142;Développement économique ; ZAE ; Foncier;;France843;843;144;Développement économique ; Mobilité résidentielle ; Attractivité;;France844;844;143;Environnement ; Changement climatique ; Vulnérabilité des zones urbanisées;;France845;845;141;Foncier public ; Logement ; Fiscalité;;Ile-de-France846;846;140;Mobilité durable ; Aménagement urbain ; Espace public;;International847;847;139;Conseil de développement ; lurraldea ; Conseil des élus;;Pays Basque848;848;137;Trame verte et bleue ; SCoT ; Territoire urbain;;France849;849;138;Infrastructures de transport ; LGV ; Aéroport;;Béarn850;850;134;Densité ; Formes urbaines ; Formes urbaines résidentielles;;Martinique851;851;135;Observatoire ; Information statistique ; Géomatique;;France852;852;136;Observatoire ; SIG ; Equipements collectifs;;Calvados853;853;131;écoquartier ; quartier ; lotissement;;France854;854;132;écoquartier ; quartier ; lotissement;;France855;855;130;Urbanisme commercial ; Surface commerciale ; Commerce;;France856;856;129;Eau ; Cycle urbain de l'eau ; Gestion de l'eau;;France857;857;128;Lotissement ; Maison individuelle ; Urbanisme rural;;France858;858;133;Mobilité ; Déplacement ; TIC;;France859;859;133;Mobilité ; Déplacement ; TIC;;France860;860;127;Littoral ; Bande côtière ; érosion;;Aquitaine861;861;126;Observatoire ; Observatoire territorial ; Données statistiques;;France862;862;125;Métropole ; Démarche participative ; Prospective;;Amiens863;863;121;Gare ; Gare multimodale ; Equipements;;Pays d’Amplepuis-Thizy864;864;123;Formes urbaines ; Densité ; Habitat;;France865;865;122;Mobilité douce ; Proximité ; Déplacements;;Europe866;866;118;Travail ; Emploi ; Prospective;;France867;867;119;Population ; Démographie ; Modes de vie;;Béarn868;868;115;Littoral ; Bande côtière ; érosion;;Aquitaine869;869;116;Climat ; Changement climatique ; Plan climat;;France870;870;117;Climat ; Changement climatique ; Plan climat;;France871;871;114;Maison de l'Habitat ; Logement ; PLH;;Caen872;872;113;Mobilité ; Modes de déplacement ; Accessibilité;;Caen873;873;112;Ressources naturelles ; Carrières ; SCoT;;Aquitaine874;874;110;Aménagement du littoral ; Développement économique ; Espaces naturels;;Pays Basque875;875;109;Démographie ; Pôle Métropolitain ; Marché foncier;;Nantes876;876;108;Environnement ; Nuisance ; PDU;;France877;877;107;Architecture ; Logement social ; Habitat;;France878;878;100;Politiques publiques ; Evaluation ; Financement;;France879;879;101;Politiques publiques ; Evaluation ; Action publique;;France880;880;106;Finances locales ; Taxe Professionnelle ; Taxe d'habitation;;France881;881;103;Commerce ; Comportement d'achat ; Ménages;;Rouen882;882;104;Aménagement durable ; Développement durable ; Urbanisme Durable;;Marseille883;883;105;Parking ; Stationnement ; EMD;;Caen884;884;102;Mobilité ; Relations domicile;travail ; Modes de déplacement;Rouen885;885;99;Mobilité ; Zone de rencontre ; Piéton;;France886;886;97;PAO ; Mise en page ; Communication;;Europe887;887;98;PAO ; Mise en page ; Communication;;Europe888;888;95;Métropole ; Territoire ; Organisation territoriale;;France889;889;93;Document d'Urbanisme ; Dessin ; Illustration;;France890;890;96;Agglomération ; Agence d'urbanisme ; Ville;;Bordeaux891;891;94;Logement ; Marché de l'habitat ; Politiques de l'habitat;;France892;892;91;Projet urbain ; PLU ; Aménagement durable;;Bordeaux893;893;92;Aire urbaine ; Systèmes métropolitains ; FNAU;;France894;894;89;SCoT ; Biodiversité ; Trame verte et bleue;;Midi-Pyrénées895;895;90;SCoT ; Biodiversité ; Trame verte et bleue;;Midi-Pyrénées896;896;88;Projet urbain ; Aménagement durable ; Ville durable;;France897;897;86;SCoT ; Planification Territoriale ; Développement économique;;France898;898;82;Construction ; Urbanisme ; Aménagement et ressources naturelles;;France899;899;83;Construction ; Urbanisme ; Aménagement et ressources naturelles;;France900;900;84;Stationnement ; Parking ; Mobilité;;Caen901;901;85;SCoT ; PLU ; Urbanisme;;Caen902;902;81;AEU ; Urbanisme Durable ; ;;Dunkerque903;903;80;Marché de l'habitat ; Logement ; Parc locatif;;France904;904;79;Agence d'urbanisme ; FNAU ; Ingénierie;;France905;905;77;Zone d'activités ; Parcs industriels ; Intercommunalité;;France906;906;78;Zone d'activités ; Parcs industriels ; Intercommunalité;;France907;907;76;Transports ; Trafics ; Mobilité;;Pyrénées908;908;75;SCOT ; Climat ; Energie;;France909;909;74;Marchés publics ; Circulaire ; .;;France910;910;73;SCOT ; Air ; Evaluation environnementale;;France911;911;67;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois912;912;67;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois913;913;70;Aire urbaine ; Métropole ; Ville;;Europe914;914;72;Aire urbaine ; Ville ; Pôle Métropolitain;;France915;915;71;Logement ; Emploi ; Mobilité ;;France916;916;68;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois917;917;69;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois918;918;66;Environnement ; Architecture ; Toit;terrasse;France919;919;63;Accessibilité ; Handicap ; Infrastructure;;France920;920;64;Equipements ; Projet urbain ; Tourisme urbain;;France921;921;65;Habitat ; Logement ; Résidence;;Lille922;922;61;Logement social ; Logement ; Parc locatif;;France923;923;62;Santé ; Projet urbain ; Offre de soins;;Marseille924;924;59;SCoT;Agriculture;;;France925;925;60;Agriculture;Gouvernance alimentaire;;;France926;926;57;Ville durable;Développement durable;;;Europe927;927;58;Aménagement de la ville;Prospective;;;Nantes928;928;56;logement social;Hlm;;;Aquitaine929;929;55;Droit du travail;Social;;;France930;930;54;Mobilité urbaine;Vélo;;;Italie931;931;49;Périurbain;Urbanisation;;;France932;932;50;Construction;Risques naturels;;;France933;933;52;Patrimoine public;Droit de construction;;;France934;934;51;Mobilité;Mobilité urbaine;;;France935;935;46;Coopération transfrontalière;territoires transfrontaliers;;;France936;936;48;Décentralisation;Réforme;;;France937;937;47;Economie sociale et solidaire;Emploi;;;Lyon938;938;44;Mobilité;Transport alternatif;;;Europe939;939;45;Mobilité;Piéton;;;Strasbourg940;940;43;Métropole;Espace transfrontalier;;;Lille941;941;41;Rencontre nationale FNAU;Gouvernance;;;Paris942;942;40;Agence d'urbanisme;Rouen;;;Rouen943;943;39;Aire urbaine;Zone urbanisée;;;Rouen944;944;38;Gare;Train;;;Rouen945;945;36;Métropole;Projet urbain;;;Toulouse946;946;37;Développement durable;Observatoire;;;France947;947;35;EMD;Déplacements;;;France948;948;29;SCOT;Planification Territoriale;;;Artois949;949;25;Projet urbain; Urbanisme Durable;;;Monde950;950;26;Métropole; Développement durable;;;Reims951;951;27;Urbanisme Durable;Projet urbain;;;Rennes952;952;28;Agence d'urbanisme;Histoire;;;Le Havre953;953;30;Marchés publics;Législation;;;France954;954;31;Mobilité;PDU;;;Pau955;955;24;Planification Territoriale;SCOT;;;Rennes956;956;19;Eau;Air;;;France957;957;23;Littoral;Fonds marins;;;Pays Basque et sud des landes958;958;20;Mobilité; Espace péri-urbains;;;Rouen959;959;21;Train;Gare;;;Normandie960;960;22;Train;Gare;;;Normandie961;961;15;Agence d'urbanisme;Agglomération;;;Bordeaux962;962;16;Législation;Marchés publiques;;;France963;963;17;Marchés publiques;Dématérialisation;;;France964;964;18;Aménagement de l'espace public;Ecoquartiers;;;France965;965;18;Aménagement de l'espace public;Ecoquartiers;;;France966;966;12;Agence d'urbanisme;Planification Territoriale;;;France967;967;13;Développement durable;SCOT;;;France968;968;9;Politique de la ville;Politique urbaine;;;France969;969;41;Agence d'urbanisme;Rencontre nationale FNAU;;;France970;970;14;Emploi;Crise économique;;;France971;971;7;Coopération transfrontalière;Territoire;;;Pays Basque972;972;8;Agglomération;Croissance économique;;;France973;973;8;Agglomération;Croissance économique;;;France974;974;6;Agence d'urbanisme;;;;Nancy975;975;4;Erosion côtière;Trait de côte;;;Aquitaine976;976;3;Habitat socialLogement social;;;;France977;977;1;Pôle Métropolitain;Intercommunalité;EPCI;;France978;978;2;Développement durable;Construction;;;France979;979;601;économie ; ménages ; collectivités territoriales;;France980;980;601;économie ; ménages ; collectivités territoriales;;France;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Ôªøid;notice-id;publication-id;Mot cl√© 1;Mot cl√© 2;Mot cl√© 3;Mot cl√© 4;Mot cl√© G√©ographique
+1;1;845;Donn√©e ; cartographie ; planification;;Euskadi
+2;2;844;sant√© ; paysage ; biodiversit√©;;France
+3;3;843;num√©rique ; anthropoc√®ne ; √©conomie circulaire;;Non
+4;4;842;sant√© ; social ; environnement;;International
+5;5;841;habitat ; patrimoine b√¢ti ; Histoire;;Pays basque
+6;6;840;d√©veloppement durable ; prospective ; agences d'urbanisme;;France
+7;7;839;Ville num√©rique ; innovation ; Transition √©nerg√©tique;;France
+8;8;838;Planification ; politique de la ville ; d√©veloppement durable;;Paris
+9;9;838;Planification ; politique de la ville ; d√©veloppement durable;;Paris
+10;10;837;espace public ; ville ; soci√©t√©;;International
+11;11;836;Atlas ; cartographie ; ville;;International
+12;12;835;√©conomie ; Soci√©t√© ; √©cologie;;France
+13;13;834;Politiques de l'habitat ; d√©veloppement durable ; logement;;France
+14;14;833;Politiques publiques ; planification ; collectivit√©s territoriales;;France
+15;15;832;Am√©nagement urbain ; s√©curit√© routi√®re ; voirie urbaine;;France
+16;16;832;Am√©nagement urbain ; s√©curit√© routi√®re ; voirie urbaine;;France
+17;17;830;soci√©t√© ; relations sociales ; histoire;;International
+18;18;830;soci√©t√© ; relations sociales ; histoire;;International
+19;19;829;Prospective ; √©conomie ; r√©gion;;Europe
+20;20;828;construction ; environnement ; innovation;;France
+21;21;827;paysage ; territoires ; ville;;France
+22;22;827;paysage ; territoires ; ville;;France
+23;23;826;artificialisation des sols ; Biodiversit√© ; Politiques publiques;;France
+24;24;825;agence d'urbanisme ; changement climatique ; transition √©nerg√©tique;;France
+25;25;823;m√©tropole ; transport ; territoire;;Europe
+26;26;822;m√©tropole ; emploi ; qualit√© de vie;;France
+27;27;821;agglom√©ration ; loyer ; Parc locatif;;France
+28;28;820;sant√© ; eau potable ; environnement;;France
+29;29;819;Num√©rique ; territoire ; Social;;France
+30;30;818;territoire ; transfrontalier ; m√©tropole;;Europe
+31;31;817;PLU ; planification ; architecture;;France
+32;32;816;agglom√©ration ; sociologie ; ville;;International
+33;33;815;quartier ; Politique de la ville ; renouvellement urbain;;France
+34;34;814;logement ; immobilier ; aire urbaine;;Pays Basque
+35;35;813;agglom√©ration ; centre;ville ; territoire;France
+36;36;812;sant√© ; am√©nagement du territoire ; qualit√© de vie;;France
+37;37;811;ville ; paysage ; d√©veloppement √©conomique;;France
+38;38;810;m√©tropole ; ville ; histoire;;Bordeaux
+39;39;809;sociologie ; soci√©t√© ; d√©mocratie;;France
+40;40;809;sociologie ; soci√©t√© ; d√©mocratie;;France
+41;41;808;sociologie ; Num√©rique ; soci√©t√©;;France
+42;42;807;ville durable ; √©cologie ; eau;;International
+43;43;806;D√©veloppement urbain ; Etalement urbain ; Ville durable;;France
+44;44;805;Environnement ; artificialisation des sols ; Biodiversit√©;;France
+45;45;804;v√©lo ; mobilit√© douce ; modes de d√©placement;;Pyr√©n√©es Atlantiques
+46;46;803;Changement climatique ; citoyennet√© ; Transition √©nerg√©tique;;France
+47;47;802;architecture ; maison individuelle ; ville;;Aquitaine
+48;48;801;PLUi ; SCoT ; Am√©nagement du territoire;;France
+49;49;800;tourisme ; logement ; activit√© √©conomique;;Europe
+50;50;799;Ville ; Strat√©gie urbaine ; Action publique;;France
+51;51;798;Am√©nagement du territoire ; sant√© ; Ville;;France
+52;52;797;Soci√©t√© ; Territoire ; ∆íconomie;;France
+53;53;796;espace public ; sociologie ; Population et modes de vie;;France
+54;54;795;agence d'urbanisme ; changement climatique ; transition √©nerg√©tique;;France
+55;55;794;Mobilit√© ; sociologie ; D√©placement;;Pau
+56;56;785;changement climatique ; d√©mographie ; Biodiversit√©;;Monde
+57;57;785;changement climatique ; d√©mographie ; Biodiversit√©;;Monde
+58;58;783;atlas ; cartographie ; carte;;Monde
+59;59;783;atlas ; cartographie ; carte;;Monde
+60;60;792;agence d'urbanisme ; patrimoine ; paysage;;Bordeaux
+61;61;791;agriculture ; Biodiversit√© ; quartier;;France
+62;62;790;architecture ; innovation ; environnement;;France
+63;63;784;√©cologie ; ressources naturelles ; changement climatique;;International
+64;64;784;√©cologie ; ressources naturelles ; changement climatique;;International
+65;65;789;histoire ; ville ; cartographie;;Bayonne
+66;66;772;paysage urbain ; Ville durable ; Espaces publics;;France
+67;67;772;paysage urbain ; Ville durable ; Espaces publics;;France
+68;68;787;construction ; logement ; ville;;France
+69;69;786;Histoire ; innovation ; Social;;Pays basque
+70;70;786;Histoire ; innovation ; Social;;Pays basque
+71;71;781;Biodiversit√© ; paysage urbain ; ville;;Europe
+72;72;782;changement climatique ; paysage ; ville;;Europe
+73;73;726;Politiques publiques ; innovation ; territoire;;France
+74;74;726;Politiques publiques ; innovation ; territoire;;France
+75;75;779;changement climatique ; eau ; urbanisme;;Aquitaine
+76;76;780;changement climatique ; eau ; urbanisme;;Aquitaine
+77;77;778;PLU ; patrimoine ; histoire;;France
+78;78;777;foncier ; Am√©nagement du territoire ; urbanisme;;Aquitaine
+79;79;777;foncier ; Am√©nagement du territoire ; urbanisme;;Aquitaine
+80;80;775;ville ;aires urbaines ; transition √©cologique;;France
+81;81;774;Zone d'activit√©s √©conomiques ; emploi ; ville;;France
+82;82;773;ville ; innovation ; territoire;;France
+83;83;771; Territoires ; Ville ; Population et modes de vie;;France
+84;84;769;logement ; HLM ; Social;;France
+85;85;768;agence d'urbanisme ; d√©veloppement territorial ; innovation;;France
+86;86;767;architecture ; inondation ; ville;;International
+87;87;765;immobilier ; ville ; innovation;;International
+88;88;766;financement ; logement social ; HLM;;Aquitaine
+89;89;758;r√©gion ; √©conomie ; emploi;;France
+90;90;759;ville ; emploi ; p√©ri;urbain;France
+91;91;760;ville ; emploi ; p√©ri;urbain;France
+92;92;762;d√©veloppement durable ; espace public ; sant√©;;Bordeaux
+93;93;756;immobilier ; logement ; r√©gion;;Pau
+94;94;757;logement ; immobilier ; observatoire;;Aquitaine
+95;95;761;immobilier ; logement social ; commerce;;Bordeaux
+96;96;761;immobilier ; logement social ; commerce;;Bordeaux
+97;97;755;artificialisation des sols ; Biodiversit√© ; habitat;;France
+98;98;753;√©conomie ; foncier ; territoire;;France
+99;99;753;√©conomie ; emploi ; territoire;;France
+100;100;752;eau ; changement climatique ; milieux aquatiques;;Adour-Garonne
+101;101;751;agglom√©ration ; cadre de vie ; sant√©;;France
+102;102;748;commerce ; emploi ; √©conomie;;France
+103;103;749;innovation ; territoire ; Social;;France
+104;104;747;Gare ; r√©habilitation urbaine ; quartier;;France
+105;105;745;Politique de la ville ; emploi ; Quartier;;France
+106;106;746;cadre de vie ; renouvellement urbain ; Politique de la ville;;France
+107;107;744;mobilit√© ; transport ; voiture;;International
+108;108;743;eau ; gestion des risques ; inondation;;Aquitaine
+109;109;742;planification ; agriculture ; am√©nagement rural ;;France
+110;110;740;carte ; cartographie ; topographie;;France
+111;111;741;carte ; cartographie ; topographie;;France
+112;112;735;carte ; cartographie ; topographie;;France
+113;113;736;carte ; cartographie ; topographie;;France
+114;114;737;carte ; cartographie ; topographie;;France
+115;115;738;carte ; cartographie ; topographie;;France
+116;116;739;carte ; cartographie ; topographie;;France
+117;117;734;tourisme ; ville ; Num√©rique;;Aquitaine
+118;118;733;habitat ; mobilit√© ; eau;;Pays Basque
+119;119;732;territoire ; transfrontalier ; ville;;Europe
+120;120;576;centre;ville ; commerce ; modes de d√©placement;France
+121;121;576;centre;ville ; commerce ; modes de d√©placement;France
+122;122;731;droit de l'urbanisme ; loi ; urbanisation;;France
+123;123;730;Politiques publiques ; innovation ; ville;;France
+124;124;717;ville ; commerce ; emploi;;International
+125;125;717;ville ; commerce ; emploi;;International
+126;126;729;Mobilit√© ; Emploi ; Territoire;;France
+127;127;728;urbanisme ; territoire ; innovation;;France
+128;128;725;ville ; mode de vie ; am√©nagement urbain ;;Europe
+129;129;724;ville ; universit√© ; logement;;France
+130;130;722;architecture ; espace public ; ville;;France
+131;131;720;paysage ; √©cologie ; ville;;France
+132;132;721;paysage ; eau ; urbanisme;;Europe
+133;133;723;paysage ; eau ; territoire;;France
+134;134;718;paysage ; urbanisme ; architecture;;France
+135;135;719;paysage ; √©cologie ; ville;;International
+136;136;716;paysage ; Urbaniste ; ville;;Europe
+137;137;715;architecture ; paysage ; urbanisme;;International
+138;138;714;tourisme ; architecture ; urbanisme;;France
+139;139;570;Architecture ; Paysage ; Patrimoine;;B√©arn
+140;140;712;agence d'urbanisme ; eau ; paysage;;Grenoble
+141;141;713;paysage ; eau ; ville;;International
+142;142;710;ville ; culture ; r√©gion;;Europe
+143;143;711;p√©riurbain ; centre;ville ; territoire;France
+144;144;709;√©conomie ; Social ; politique locale;;France
+145;145;708;p√©riurbain ; ville ; urbanisation;;France
+146;146;707;p√©riurbain ; innovation ; territoire;;France
+147;147;699;activit√© √©conomique ; commerce ; rapport centre;p√©riph√©rie ;France
+148;148;699;activit√© √©conomique ; commerce ; rapport centre;p√©riph√©rie ;France
+149;149;703;planification urbaine ; planification ; SIG;;Europe
+150;150;703;planification urbaine ; planification ; SIG;;Europe
+151;151;697;PDU ; stationnement ; parking;;France
+152;152;697;PDU ; stationnement ; parking;;France
+153;153;706;Plan climat ; √©nergie ; innovation;;Pyr√©n√©es Atlantiques
+154;154;706;Plan climat ; √©nergie ; innovation;;Pyr√©n√©es Atlantiques
+155;155;698;citoyennet√© ; territoire ; habitat participatif;;France
+156;156;698;citoyennet√© ; territoire ; habitat participatif;;France
+157;157;704;transfrontalier ; territoire ; Politiques publiques;;Europe
+158;158;704;transfrontalier ; territoire ; Politiques publiques;;Europe
+159;159;705;logement ; innovation ; Social;;France
+160;160;788;Politiques publiques ; Action publique ; m√©tropole;;Lyon
+161;161;701;architecture ; ville ; logement;;International
+162;162;702;Changement climatique ; temp√©rature ; d√©veloppement durable;;France
+163;163;700;paysage ; transition √©nerg√©tique ; renouvellement urbain;;France
+164;164;696;SCoT ; agriculture ; D√©veloppement √©conomique;;Pyr√©n√©es Atlantiques
+165;165;34;Paysage;Espaces naturels;;;Pyr√©n√©es Atlantiques
+166;166;34;Paysage;Espaces naturels;;;Pyr√©n√©es Atlantiques
+167;167;679;Biodiversit√© ; tram verte et bleue ; paysage;;Europe
+168;168;679;Biodiversit√© ; tram verte et bleue ; paysage;;Europe
+169;169;680;territoire ; architecture ; paysage;;France
+170;170;680;territoire ; architecture ; paysage;;France
+171;171;681;p√©ri;urbain ; innovation ; agriculture;France
+172;172;681;p√©ri;urbain ; innovation ; agriculture;France
+173;173;685;urbain ; ville ; Equipements;;International
+174;174;685;urbain ; ville ; Equipements;;International
+175;175;691;eau ; Biodiversit√© ; paysage;;Europe
+176;176;691;eau ; Biodiversit√© ; paysage;;Europe
+177;177;644;P√¥le M√©tropolitain ; coop√©ration intercommunale ; inter;territorialit√©;France
+178;178;644;P√¥le M√©tropolitain ; coop√©ration intercommunale ; inter;territorialit√©;France
+179;179;695;eau ; changement climatique ; milieux aquatiques;;Adour-Garonne
+180;180;694;sant√© ; ville ; environnement;;France
+181;181;543;ville ; d√©veloppement durable ; urbanisme;;Pau
+182;182;543;ville ; d√©veloppement durable ; urbanisme;;Pau
+183;183;692;environnement ; urbanisme ; d√©veloppement √©conomique;;Landes
+184;184;693;Conseil des √©lus ; lurraldea ; d√©veloppement durable;;Pays Basque
+185;185;690;Biodiversit√© ; √©cologie ; milieux aquatiques;;Aquitaine
+186;186;688;logement ; Population ; Soci√©t√©;;France
+187;187;689;logement ; Social ; √©conomie;;France
+188;188;686;SCoT ; territoire ; d√©veloppement √©conomique;;Pyr√©n√©es Atlantiques
+189;189;687;innovation ; territoire ; ville;;France
+190;190;684;FNAU ; territoire ; urbanisme;;Europe
+191;191;683;emploi ; agglom√©ration ; r√©gion;;France
+192;192;682;√©conomie ; histoire ; tourisme;;Pau
+193;193;672;Am√©nagement du territoire ; Paysage ; Espaces naturels;;France
+194;194;672;Am√©nagement du territoire ; Paysage ; Espaces naturels;;France
+195;195;675;Am√©nagement de l'espace public ; Am√©nagement urbain ; Paysage;;France
+196;196;675;Am√©nagement de l'espace public ; Am√©nagement urbain ; Paysage;;France
+197;197;218;mobilit√© ; marche ÀÜ pied ; pi√©ton;;France
+198;198;218;mobilit√© ; marche ÀÜ pied ; pi√©ton;;France
+199;199;645;Architecture ; Ville ; Am√©nagement urbain;;Pau
+200;200;645;Architecture ; Ville ; Am√©nagement urbain;;Pau
+201;201;604;culture ; pays ; histoire;;Pays Basque
+202;202;604;culture ; pays ; histoire;;Pays Basque
+203;203;678;√©nergie ; ville durable ; am√©nagement du territoire;;France
+204;204;673;Am√©nagement urbain ; Paysage ; Am√©nagement de l'espace public;;France
+205;205;674;Am√©nagement urbain ; Paysage ; armature urbaine;;France
+206;206;676;Am√©nagement urbain ; Espaces publics ; Paysage;;International
+207;207;677;Am√©nagement urbain ; Espace public ; paysage urbain;;France
+208;208;671;SCoT ; transition √©nerg√©tique ; intercommunalit√©;;France
+209;209;668;Architecture ; Ville ; projet urbain;;International
+210;210;669;Paysage ; Environnement ; Espaces naturels;;France
+211;211;670;Equipements ; Espace public ; Am√©nagement urbain;;France
+212;212;667;Etalement urbain ; Changement climatique ; Ville durable;;France
+213;213;666;Trame verte et bleue ; Biodiversit√© ; √©cologie;;Aquitaine
+214;214;665;Donn√©e ; innovation ; environnement;;France
+215;215;664;logement ; mal;logement ; logement social;France
+216;216;663;Politique de la ville ; quartier ; ville;;France
+217;217;662;planification ; tourisme ; urbanisme;;France
+218;218;656;activit√© agricole ; construction ; logement;;Pyr√©n√©es Atlantiques
+219;219;656;activit√© agricole ; construction ; logement;;Pyr√©n√©es Atlantiques
+220;220;657;Politique de la ville ; quartier ; Habitat social;;France
+221;221;658;tourisme ; √©conomie r√©sidentielle ; territoire;;France
+222;222;659;Lotissement ; Habitat individuel ; Forme urbaine;;France
+223;223;660;PLH ; Diagnostic ; Logement;;Pays Basque
+224;224;661;PLH ; Logement ; Habitat;;Pays Basque
+225;225;647;patrimoine ; biodiversit√© ; paysage ; audap;Pays Basque
+226;226;647;patrimoine ; biodiversit√© ; paysage ; audap;Pays Basque
+227;227;655;Mobilit√© ; Mobilit√© douce ; voiture;;France
+228;228;654;Num√©rique ; ville ; mode de vie;;Toulouse
+229;229;653;Densit√© ; architecture ; d√©veloppement durable;;Europe
+230;230;639;Projet urbain ; Strat√©gie urbaine ; Attractivit√©;;Berlin
+231;231;639;Projet urbain ; Strat√©gie urbaine ; Attractivit√©;;Berlin
+232;232;652;agence d'urbanisme ; r√©gion ; sch√©ma r√©gional de coh√©rence √©cologique;;France
+233;233;651;mobilit√© ; innovation ; territoire;;Aquitaine
+234;234;650;ville ; territoire ; urbanisme;;Monde
+235;235;649;agriculture ; ville ; urbain;;Europe
+236;236;642;FNAU ; urbanisme ; citoyen;;Europe
+237;237;642;FNAU ; urbanisme ; citoyen;;Europe
+238;238;445;transfrontalier ; logistique ; biodiversit√©;;France
+239;239;445;transfrontalier ; logistique ; biodiversit√©;;France
+240;240;648;logement ; logement social ; handicap;;France
+241;241;648;logement ; logement social ; handicap;;France
+242;242;646;ville ; citoyen ; concertation;;France
+243;243;643;patrimoine ; d√©veloppement √©conomique ; urbanisme;;France
+244;244;641;patrimoine ; biodiversit√© ; paysage ; AUDAP;France
+245;245;640;agglom√©ration ; centre;ville ; espaces publics;France
+246;246;626;cartographie ; Donn√©e ; Territoire;;France
+247;247;626;cartographie ; Donn√©e ; Territoire;;France
+248;248;631;Architecture ; patrimoine ; ville;;Aquitaine
+249;249;631;Architecture ; patrimoine ; ville;;Aquitaine
+250;250;634;PLUi ; PLU ; projet de territoire;;France
+251;251;634;PLUi ; PLU ; projet de territoire;;France
+252;252;627;d√©veloppement √©conomique ; urbanisme ; environnement;;Sud des Landes
+253;253;627;d√©veloppement √©conomique ; urbanisme ; environnement;;Sud des Landes
+254;254;629;Air ; Plan climat ; sant√©;;France
+255;255;629;Air ; Plan climat ; sant√©;;France
+256;256;632; statistiques ; mobilit√© ; am√©nagement urbain;;France
+257;257;632; statistiques ; mobilit√© ; am√©nagement urbain;;France
+258;258;633;statistique ; environnement ; foncier;;France
+259;259;633;statistique ; environnement ; foncier;;France
+260;260;630;d√©chet ; traitement des d√©chets; environnement;;Aquitaine
+261;261;630;d√©chet ; traitement des d√©chets; environnement;;Aquitaine
+262;262;637;gouvernance ; patrimoine ; culture;;Pays Basque
+263;263;638;information ; SIG ; Internet;;France
+264;264;636;SIG ; topographie ; Num√©rique;;France
+265;265;635;immobilier ; ville ; Plan climat;;Pays Basque
+266;266;571;Architecture ; Paysage ; Construction;;B√©arn
+267;267;571;Architecture ; Paysage ; Construction;;B√©arn
+268;268;628;logement social ; observatoire ; territoire;;Europe
+269;269;624;indicateur ; m√©tropole ; qualit√© de vie;;France
+270;270;624;indicateur ; m√©tropole ; qualit√© de vie;;France
+271;271;614;am√©nagement urbain ; √©conomie ; ville num√©rique;;France
+272;272;614;am√©nagement urbain ; √©conomie ; ville num√©rique;;France
+273;273;615;espaces publics ; Politiques publiques ; renouvellement urbain;;France
+274;274;615;espaces publics ; Politiques publiques ; renouvellement urbain;;France
+275;275;617;fnau ; intercommunalit√© ; urbanisme;;France
+276;276;617;fnau ; intercommunalit√© ; urbanisme;;France
+277;277;616;patrimoine ; transport ; ville;;Toulouse
+278;278;616;patrimoine ; transport ; ville;;Toulouse
+279;279;622;habitat ; d√©veloppement local ; citoyennet√©;;Aquitaine
+280;280;622;habitat ; d√©veloppement local ; citoyennet√©;;Aquitaine
+281;281;625;construction ; d√©chets ; gestion des d√©chets;;France
+282;282;623;urbanisme ; ville durable ; logement;;France
+283;283;619;architecture ; paysage ; innovation;;Pau
+284;284;620;trafic ; port ; √©conomie des transports;;Bayonne
+285;285;621;territoire ; transfrontalier ; crise √©conomique;;France
+286;286;618;foncier ; politique fonci√®re ; habitat;;Pyr√©n√©es Atlantiques
+287;287;613;environnement ; urbanisme ; √©conomie;;Pays Basque
+288;288;606;transition √©nerg√©tique ; climat ; √©nergie;;Pyr√©n√©es Atlantiques
+289;289;606;transition √©nerg√©tique ; climat ; √©nergie;;Pyr√©n√©es Atlantiques
+290;290;611;air ; changement climatique ; am√©nagement du territoire;;Pyr√©n√©es Atlantiques
+291;291;612;air ; territoire ; voiture;;Pyr√©n√©es Atlantiques
+292;292;610;histoire ; gare ; urbain;;Pays Basque
+293;293;609;politique de la ville ; r√©novation urbaine ; environnement;;France
+294;294;609;politique de la ville ; r√©novation urbaine ; environnement;;France
+295;295;608;observation ; m√©tropole ; emploi;;France
+296;296;607;r√©gion ; train ; lgv;;Aquitaine
+297;297;605;immobilier ; observatoire ; donn√©e;;Aquitaine
+298;298;603;histoire ; population ; pays;;Pays Basque
+299;299;602;immobilier ; logement ; agglom√©ration;;Pyr√©n√©es Atlantiques & Sud des Landes
+300;300;599;littoral ; √©cologie ; activit√© √©conomique;;France
+301;301;600;ville ; d√©veloppement durable ; espaces publics;;Pau
+302;302;598;ville ; modes de vie ; environnement;;Bordeaux
+303;303;389;transport ÀÜ la demande ; transport urbain ; TAD;;France
+304;304;597;ville ; architecture ; m√©tropole;;Bordeaux
+305;305;595;cartographie ; ville ; territoire;;B√©arn
+306;306;596;loyer ; observatoire ; territoire;;France
+307;307;594;culture ; soci√©t√© ; ville;;France
+308;308;592;foncier agricole ; march√© foncier ; r√©gion;;France
+309;309;591;environnement ; plan local d'urbanisme ; territoire;;France
+310;310;315;m√©tropole ; agglom√©ration ; aire urbaine;;Europe
+311;311;315;m√©tropole ; agglom√©ration ; aire urbaine;;Europe
+312;312;588;mobilit√© ; m√©tropole ; v√©lo;;Bordeaux
+313;313;589;Agglom√©ration ; D√©mographie ; mobilit√©;;France
+314;314;583;ville ; projet urbain ; planification;;France
+315;315;583;ville ; projet urbain ; planification;;France
+316;316;587;dictionnaire ; information ; urbanisme;;France
+317;317;587;dictionnaire ; information ; urbanisme;;France
+318;318;582;urbanisme ; ville ; modes de vie;;Monde
+319;319;582;urbanisme ; ville ; modes de vie;;Monde
+320;320;579;biodiversit√© ; environnement ; √©nergie;;Aquitaine
+321;321;579;biodiversit√© ; environnement ; √©nergie;;Aquitaine
+322;322;578;transport d'√©nergie ; transport de gaz ; canalisation;;Aquitaine
+323;323;578;transport d'√©nergie ; transport de gaz ; canalisation;;Aquitaine
+324;324;586;urbanisme ; ville ; immigration;;International
+325;325;586;urbanisme ; ville ; immigration;;International
+326;326;585;mobilit√© ; urbanisme ; transport;;France
+327;327;585;mobilit√© ; urbanisme ; transport;;France
+328;328;584;innovation ; logement social ; construction;;Aquitaine
+329;329;581;ville ; universit√© ; territoire;;Europe
+330;330;580;ville ; nature ; paysage;;France
+331;331;577;Foncier ; Territoire ; Immobilier;;Pays Basque
+332;332;575;am√©nagement rural  ; d√©veloppement local ; d√©mographie;;Bretagne
+333;333;574;R√©forme territoriale ; R√©gion ; Territoire;;France
+334;334;573;cadre de vie ; urbanisme ; ville;;Bordeaux
+335;335;568;FNAU ; projet urbain ; paysage;;France
+336;336;569;Agence d'urbanisme ; FNAU ; Planification;;France
+337;337;567;Foncier ; Immobilier ; Habitat;;France
+338;338;565;Num√©rique ; ville durable ; innovation;;Toulouse
+339;339;566;Politiques publiques ; paysage ; nature;;France
+340;340;564;ville ; Politiques publiques ; territoire;;France
+341;341;563;emploi ; immobilier ; Zone d'activit√©s √©conomiques;;Bordeaux
+342;342;562;milieux aquatiques ; eau ; inondation;;Adour-Garonne
+343;343;560;Attractivit√© ; mobilit√© ; Politiques publiques;;France
+344;344;561;Agences d'urbanisme ; territoire ; p√©ri;urbain;France
+345;345;559;habitat ; foncier ; immobilier;;Pays Basque
+346;346;558;d√©veloppement territorial ; √©conomie ; comportement social;;France
+347;347;557;Air ; trafic ; transport;;Aquitaine
+348;348;554;intercommunalit√© ; urbanisme ; territoire;;France
+349;349;555;nature ; Biodiversit√© ; eau;;France
+350;350;556;environnement ; logistique ; √©conomie;;France
+351;351;552;√©coquartier ; urbain ; logement;;France
+352;352;553;ville durable ; Planification Territoriale ; qualit√© de vie;;International
+353;353;551;d√©veloppement territorial ; innovation ; √©conomie;;France
+354;354;548;carte ; cartographie ; topographie;;France
+355;355;549;carte ; cartographie ; topographie;;France
+356;356;550;carte ; cartographie ; topographie;;France
+357;357;546;ing√©nierie ; Politiques publiques ; territoire;;France
+358;358;547;carte ; cartographie ; topographie;;France
+359;359;539;Politiques publiques ; urbanisme ; territoire;;Pau
+360;360;539;Politiques publiques ; urbanisme ; territoire;;Pau
+361;361;540;Trame Verte et Bleue ; urbanisme ; territoire;;Pau
+362;362;540;Trame Verte et Bleue ; urbanisme ; territoire;;Pau
+363;363;545;d√©chets ; environnement ; Politiques publiques;;France
+364;364;538;agriculture ; urbain ; territoire;;France
+365;365;538;agriculture ; urbain ; territoire;;France
+366;366;541;planification ; urbanisme ; SRADDET;;France
+367;367;541;planification ; urbanisme ; SRADDET;;France
+368;368;542;rapport d'activit√© ; agence d'urbanisme ; urbanisme;;France
+369;369;542;rapport d'activit√© ; agence d'urbanisme ; urbanisme;;France
+370;370;544;eaux pluviales ; Biodiversit√© ; urbanisme;;France
+371;371;517;tourisme ; urbanisme ; am√©nagement du littoral;;Aquitaine
+372;372;517;tourisme ; urbanisme ; am√©nagement du littoral;;Aquitaine
+373;373;537;am√©nagement du territoire ; centralit√© ; ville;;France
+374;374;536;foncier ; budget ; territoire;;France
+375;375;536;foncier ; budget ; territoire;;France
+376;376;535;carte ; topographie ; cartographie;;Pyr√©n√©es Atlantiques
+377;377;534;projet de territoire ; cadre de vie ; d√©veloppement √©conomique;;France
+378;378;533;transfrontalier ; projet de territoire ; agglom√©ration;;Europe
+379;379;532;climat ; agriculture ; urbanisme;;France
+380;380;512;ing√©nierie ; urbanisme ; g√©nie civile;;France
+381;381;512;ing√©nierie ; urbanisme ; g√©nie civile;;France
+382;382;511;projet urbain ; urbanisme op√©rationnel ; d√©veloppement durable;;France
+383;383;511;projet urbain ; urbanisme op√©rationnel ; d√©veloppement durable;;France
+384;384;513;ville ; mobilit√© ; services;;France
+385;385;513;ville ; mobilit√© ; services;;France
+386;386;523;carte ; cartographie ; topographie;;France
+387;387;524;carte ; cartographie ; topographie;;France
+388;388;525;carte ; cartographie ; topographie;;France
+389;389;526;carte ; cartographie ; topographie;;France
+390;390;527;carte ; cartographie ; topographie;;France
+391;391;528;carte ; cartographie ; topographie;;France
+392;392;529;carte ; cartographie ; topographie;;France
+393;393;530;carte ; cartographie ; topographie;;France
+394;394;531;carte ; cartographie ; topographie;;France
+395;395;532;changement climatique ; habitat ; transports;;France
+396;396;518;collectivit√©s territoriales ; plan local d'urbanisme ; agglom√©ration;;France
+397;397;519;paysage urbain ; ville durable ; am√©nagement urbain;;International
+398;398;520;habitat ; OPAH ; renouvellement urbain;;France
+399;399;521;habitat ; urbanisme ; Politiques publiques;;France
+400;400;516;Trame verte et bleue ; Biodiversit√© ; am√©nagement du territoire;;Aquitaine
+401;401;514;ville ; espace public ; marche;;France
+402;402;515;urbanisme ; d√©cret ; code;;France
+403;403;510;ville ; citoyen ; espaces urbains;;Lyon
+404;404;510;ville ; citoyen ; espaces urbains;;Lyon
+405;405;508;tourisme ; territoire ; projet urbain;;France
+406;406;508;tourisme ; territoire ; projet urbain;;France
+407;407;509;territoire ; intercommunalit√© ; gouvernance;;Pays Basque
+408;408;509;territoire ; intercommunalit√© ; gouvernance;;Pays Basque
+409;409;507;ville ; urbanisme ; projet urbain;;International
+410;410;507;ville ; urbanisme ; projet urbain;;International
+411;411;506;ville ; commerce ; urbanisme;;Europe
+412;412;505;sant√© ; √©ducation ; qualit√© de vie ;;France
+413;413;496;foncier ; renouvellement urbain ; politiques publiques;;International
+414;414;496;foncier ; renouvellement urbain ; politiques publiques;;International
+415;415;502;ville ; architecture ; urbanisme;;Europe
+416;416;502;ville ; architecture ; urbanisme;;Europe
+417;417;494;sur√©l√©vation ; logement ; urbanisme;;France
+418;418;494;sur√©l√©vation ; logement ; urbanisme;;France
+419;419;501;march√© immobilier ; march√© foncier ; politiques publiques;;France
+420;420;501;march√© immobilier ; march√© foncier ; politiques publiques;;France
+421;421;503;march√© immobilier ; foncier ; logement;;France
+422;422;503;march√© immobilier ; foncier ; logement;;France
+423;423;500;march√© foncier ; planification urbaine ; politiques publiques;;International
+424;424;500;march√© foncier ; planification urbaine ; politiques publiques;;International
+425;425;493;copropri√©t√© ; habitat ; politiques publiques;;France
+426;426;493;copropri√©t√© ; habitat ; politiques publiques;;France
+427;427;498;logement ; march√© immobilier ; renouvellement urbain;;Europe
+428;428;498;logement ; march√© immobilier ; renouvellement urbain;;Europe
+429;429;497;logement ; politiques publiques ; am√©nagement du territoire;;France
+430;430;497;logement ; politiques publiques ; am√©nagement du territoire;;France
+431;431;495;mobilit√© ; urbanisme ; planification;;France
+432;432;495;mobilit√© ; urbanisme ; planification;;France
+433;433;504;ville ; habitat ; r√©habilitation urbaine;;France
+434;434;499;tourisme ; environnement ; littoral;;France
+435;435;491;paysage ; architecture ; eau;;France
+436;436;491;paysage ; architecture ; eau;;France
+437;437;492;littoral ; Trait de c√¥te ; observatoire;;France
+438;438;437;Am√©nagement du territoire ; bassin de vie ; m√©tropole;;Ile-de-France
+439;439;437;Am√©nagement du territoire ; bassin de vie ; m√©tropole;;Ile-de-France
+440;440;444;territoire ; D√©centralisation ; D√©mographie;;France
+441;441;444;territoire ; D√©centralisation ; D√©mographie;;France
+442;442;489;ville ; √©conomie ; architecture;;Bayonne
+443;443;490;ville ; architecture ; histoire;;Orthez
+444;444;487;gestion de l'eau ; pouvoirs publics ; innondation;;France
+445;445;487;gestion de l'eau ; pouvoirs publics ; innondation;;France
+446;446;488;histoire ; √©conomie ; architecture;;Anglet
+447;447;488;histoire ; √©conomie ; architecture;;Anglet
+448;448;482;ville ; agriculture ; logistique urbaine;;France
+449;449;482;ville ; agriculture ; logistique urbaine;;France
+450;450;484;ville ; renouvellement urbain ; territoire;;France
+451;451;484;ville ; renouvellement urbain ; territoire;;France
+452;452;486;paysage ; architecture ; environnement;;Anglet
+453;453;486;paysage ; architecture ; environnement;;Anglet
+454;454;485;Observatoire ; Statistiques ; SIG;;Aquitaine
+455;455;485;Observatoire ; Statistiques ; SIG;;Aquitaine
+456;456;481;ville ; innovation ; projet urbain;;Barcelone
+457;457;483;ville ; m√©tropole ; urbanisme;;International
+458;458;478;ville ; strat√©gie urbaine ; urbanisme;;International
+459;459;479;projet urbain ; habitat ; architecture;;France
+460;460;480;ville ; conception ; projet urbain;;France
+461;461;477;am√©nagement urbain ; ville ; nature;;International
+462;462;476;Transports ; Mobilit√© ; D√©placement;;France
+463;463;476;Transports ; Mobilit√© ; D√©placement;;France
+464;464;473;m√©tropole ; planification ; territoire;;Lyon
+465;465;474;Patrimoine ; territoire ; agences d'urbanisme;;Europe
+466;466;475;logement ; urbain ; diagnostic;;France
+467;467;471;architecture ; habitat ; eau;;France
+468;468;471;architecture ; habitat ; eau;;France
+469;469;472;Transports ; ville ; mobilit√©;;France
+470;470;472;Transports ; ville ; mobilit√©;;France
+471;471;245;politique des transports ; intermodalit√© ; aire urbaine;;Aquitaine
+472;472;245;politique des transports ; intermodalit√© ; aire urbaine;;Aquitaine
+473;473;145;Marche ; Pi√©ton ; Ville;;Bordeaux
+474;474;145;Marche ; Pi√©ton ; Ville;;Bordeaux
+475;475;289;p√©riurbain ; ville ; √©talement urbain;;France
+476;476;289;p√©riurbain ; ville ; √©talement urbain;;France
+477;477;366;espace public ; projet urbain ; prospective;;Bordeaux
+478;478;366;espace public ; projet urbain ; prospective;;Bordeaux
+479;479;419;ville ; voiture ; modes de vie;;Europe
+480;480;419;ville ; voiture ; modes de vie;;Europe
+481;481;469;ville ; pi√©ton ; projet urbain;;Europe
+482;482;470;ville ; territoire ; urbanisme;;France
+483;483;120;Mobilit√© ; Travail ; Modes de d√©placement;;Ile-de-France
+484;484;120;Mobilit√© ; Travail ; Modes de d√©placement;;Ile-de-France
+485;485;468;PLU ; d√©placement ; mobilit√©;;France
+486;486;467;t√©l√©travail ; entreprises ; territoires;;France
+487;487;466;√©conomie verte ; prog√©s technologiques ; recherche;;B√©arn
+488;488;464;risques ; transport ; vigilance;;France
+489;489;465;climat ; temp√©rature ; √©conomie;;Pyr√©n√©es Atlantiques
+490;490;463;Ville ; Transports ; urbain;;International
+491;491;462;ville ; changement climatique ; planification;;International
+492;492;461;Front National ; Parti politique ; G√©ographie;;France
+493;493;460;D√©veloppement durable ; Changement climatique ; Biodiversit√©;;Bayonne
+494;494;459;Changement climatique ; ville ; territoires;;France
+495;495;458;cartographie ; √©talement urbain ; territoire;;International
+496;496;457;imperm√©abilisation ; assainissement ; sol;;France
+497;497;456;Organisation de l'espace ; Port ; Ville;;International
+498;498;453;Agences d'urbanisme ; territoire ; offre de services;;France
+499;499;454;architecture ; ville ; am√©nagement urbain;;Pau
+500;500;455;Mobilit√© durable ; voiture ; agglom√©ration;;International
+501;501;451;agriculture ; territoire ; foncier;;Pays Basque
+502;502;452;FNAU ; Agence d'urbanisme ; partenariat;;France
+503;503;448;climat ; planification ; urbanisme;;France
+504;504;449;agriculture ; environnement ; terre;;France
+505;505;449;agriculture ; environnement ; terre;;France
+506;506;450;paysage ; territoire ; projet urbain;;France
+507;507;447;sol ; m√©nages ; logement;;Europe
+508;508;446;Immobilier ; Construction ; Habitat;;Pays Basque
+509;509;443;collectivit√©s territoriales ; r√©gion ; intercommunalit√©;;France
+510;510;441;campagnes urbaines ; p√©riurbain ; mode de vie;;France
+511;511;442;ville ; √©cologie urbaine ; projet urbain;;France
+512;512;438;ville ; mode de vie ; urbanisme;;France
+513;513;439;renouvellement urbain ; Politique de la ville ; agglom√©ration;;France
+514;514;440;Urbanisme commercial ; friche commerciale ; zone commerciale;;France
+515;515;417;urbanisme ; transport ; contrat d'axe;;International
+516;516;417;urbanisme ; transport ; contrat d'axe;;International
+517;517;435;intercommunalit√© ; outils juridiques ; finances locales;;Pyr√©n√©es Atlantiques
+518;518;435;intercommunalit√© ; outils juridiques ; finances locales;;Pyr√©n√©es Atlantiques
+519;519;436;tourisme ; emploi ; chiffre d'affaires;;Pays Basque et sud des Landes
+520;520;434;habitat ; TIC ; transfrontalier;;Pays Basque
+521;521;433;planification ; Trame verte et bleue ; transfrontalier;;Europe
+522;522;432;habitat ; foncier ; immobilier;;B√©arn
+523;523;431;ville ; √©conomie ; formes urbaines;;International
+524;524;430;fili√®re ; technologie ; infrastructure;;Europe
+525;525;304;logistique ; territoire ;   plateforme logistique;;France
+526;526;304;logistique ; territoire ;   plateforme logistique;;France
+527;527;230;trame verte ; PLU ; Projet urbain;;France
+528;528;230;trame verte ; PLU ; Projet urbain;;France
+529;529;427;ville ; innovation ; projet urbain;;Europe
+530;530;429;planification ; SCoT ; Agence d'urbanisme;;France
+531;531;428;territoires ; √©nergie ; D√©mat√©rialisation;;France
+532;532;426;sol ; imperm√©abilisation ; t√©l√©d√©tection;;Europe
+533;533;11;Littoral;Am√©nagement du littoral;;;Aquitaine
+534;534;11;Littoral;Am√©nagement du littoral;;;Aquitaine
+535;535;425;ville ; Vacances ; saison;;Bordeaux
+536;536;420;Ville ; Port ; Espaces maritimes;;Europe
+537;537;420;Ville ; Port ; Espaces maritimes;;Europe
+538;538;423;Commerce ; ville ; √©quipements commerciaux;;Europe
+539;539;423;Commerce ; ville ; √©quipements commerciaux;;Europe
+540;540;421;Territoire ; Trame Verte et Bleue ; Biodiversit√©;;Aquitaine
+541;541;421;Territoire ; Trame Verte et Bleue ; Biodiversit√©;;Aquitaine
+542;542;424;Littoral aquitain ; Lacanau ; tourisme;;Aquitaine
+543;543;422;Littoral aquitain ; Am√©nagement du territoire ; Changement climatique;;Aquitaine
+544;544;422;Littoral aquitain ; Am√©nagement du territoire ; Changement climatique;;Aquitaine
+545;545;53;PLU;Plan local d'urbanisme;;;France
+546;546;53;PLU;Plan local d'urbanisme;;;France
+547;547;418;logement ; logement social ; offre de logement;;France
+548;548;415;projet urbain ; espace public ; gouvernance;;Lisbonne
+549;549;416;tourisme ; culture ; ville;;International
+550;550;414;climat ; √©nergie ; d√©chets;;France
+551;551;413;Logement social ; Co√ªt de la construction ; Financement de la construction;;Aquitaine
+552;552;412;Eau ; Ville ; Gestion de l'eau;;France
+553;553;411;Ville ; Port ; R√©novation urbaine;;France
+554;554;408;Foncier ; Paysage ; Document d'Urbanisme;;France
+555;555;407;Ing√©nierie ; Planification ; Document d'Urbanisme;;France
+556;556;409;Logement ; habitat ; logement ; Plannification;France
+557;557;410;Logement vacant ; March√© de l'habitat ; Vacance;;France
+558;558;406;commerce ; requalification urbaine ; espaces publics;;France
+559;559;405;ing√©nierie territoriale ; D√©veloppement local ; Assistance technique;;France
+560;560;403;eau ; eaux pluviales ; am√©nagement urbain;;France
+561;561;404;Planification ; Prospective ; Am√©nagement urbain;;France
+562;562;401;INTERSCOT ; Transition √©nerg√©tique ; Energie;;Gironde
+563;563;402;SCOT ; Plannification ; Urbanisme;;France
+564;564;397;Climat ; Energie ; sch√©ma r√©gional de coh√©rence √©cologique;;Aquitaine
+565;565;398;Trait de c√¥te ; Risques littoraux ; Activit√©s √©conomiques;;Aquitaine
+566;566;399;Risques littoraux ; Activit√©s √©conomiques ; Trait de c√¥te;;Aquitaine
+567;567;400;Risques littoraux ; Activit√©s √©conomiques ; Trait de c√¥te;;Aquitaine
+568;568;396;ZAE ; requalification ; consommation fonci√®re;;France
+569;569;394;ville ; inondation ; projet urbain;;Europe
+570;570;395;logement ; crise du logement ; logement social;;France
+571;571;392;Territoire ; Bien commun ; collectivit√©s territoriales;;France
+572;572;393;Conf√©rence ; Am√©nagement du littoral ; d√©veloppement durable;;Aquitaine
+573;573;391;Mobilit√© ; P√©ri;urbain ; Milieu rural;France
+574;574;390;projet urbain ; urbanisme ; nature;;Europe
+575;575;387;gestion des risques ; inondation ; climat;;Adour-Garonne
+576;576;388;mobilit√© ; budget ; m√©nages;;France
+577;577;386;quartier ; ville ; ghetto;;International
+578;578;385;transport collectif ; BHNS ; syst√®me de transport;;France
+579;579;381;mobilit√© ; autoroute ; ville;;France
+580;580;382;espace public ; armature urbaine ; eau;;France
+581;581;383;Agence d'urbanisme ; projet urbain ; projet de territoire;;France
+582;582;384;SDAGE ; eau ; milieux aquatiques;;Adour-Garonne
+583;583;380;projet urbain ; urbanisme ; prospective;;Montpellier
+584;584;379;eau ; urbanisme ; √©talement urbain;;Aquitaine
+585;585;371;environnement ; eau ; eaux pluviales;;Bordeaux
+586;586;371;environnement ; eau ; eaux pluviales;;Bordeaux
+587;587;373;urbanisme ; √©nergie ; ville;;International
+588;588;374;urbanisme ; environnement ; mobilit√©;;Montpellier
+589;589;375;projet urbain ; environnement ; urbanisme;;Montpellier
+590;590;376;PLUi ; planification ; intercommunalit√©;;Bayonne
+591;591;377;ville ; d√©veloppement durable ; √©nergie;;France
+592;592;378;risques naturels ; √©rosion c√¥ti√®re ; littoral;;Aquitaine
+593;593;372;observation ; action publique ; SIG;;France
+594;594;368;urbanisme ; droit de l'urbanisme ; instruction;;France
+595;595;369;territoire ; intercommunalit√© ; strat√©gie;;France
+596;596;370;urbanisme ; sant√© ; am√©nagement urbain;;France
+597;597;367;urbanisme ; planification ; PLUi;;France
+598;598;364;logement social ; habitat ; HLM;;Aquitaine
+599;599;365;urbanisme ; construction ; logement;;France
+600;600;363;logistique ; logistique urbaine ; circulation;;France
+601;601;362;nature ; ville ; tourisme;;France
+602;602;360;√©conomie r√©sidentielle ; r√©forme territoriale ; d√©veloppement r√©gional;;France
+603;603;361;PLU ; SCoT ; Urbanisme;;France
+604;604;357;planification ; PLU ; ville;;Bordeaux
+605;605;358;planification ; PLUi ; SCoT;;France
+606;606;359;habitat ; PLU ; intercommunalit√©;;Bordeaux
+607;607;356;mobilit√© ; transport en commun ; covoiturage;;Gironde
+608;608;355;indicateur ; √©talement urbain ;   occupation du sol;;France
+609;609;349;urbanisme ; planification ; logement;;France
+610;610;350;urbanisme ; habitat ; logement;;France
+611;611;352;coop√©ration intercommunale ; ing√©nierie publique ; AUDAP;;Pyr√©n√©es Atlantiques
+612;612;353;gouvernance ; agglom√©ration ; coop√©ration intercommunale;;Bayonne
+613;613;354;paysage ; cadre de vie ; Am√©nagement urbain;;France
+614;614;348;foncier ; agence fonci√®re ; politique fonci√®re;;B√©arn
+615;615;351;MOS ; SIG ;   mode d'occupation du sol;;Ile-de-France
+616;616;326;agglom√©ration ; m√©tropole ; d√©veloppement territorial;;France
+617;617;327;g√©ographie politique ; d√©centralisation ;   am√©nagement du territoire;;France
+618;618;330;am√©nagement du territoire ; coop√©ration intercommunale ; pays;;France
+619;619;332;SCoT ; planification ; PADD;;France
+620;620;333;SCoT ; planification ; document d'urbanisme;;France
+621;621;336;Planification Territoriale ; prospective ; m√©thode;;France
+622;622;342;prospective ; Internet ; d√©veloppement territorial;;France
+623;623;269;ville ; Urbanisme ; territoire;;International
+624;624;269;ville ; Urbanisme ; territoire;;International
+625;625;335;urbanisation ; √©conomie urbaine ; formes urbaines;;France
+626;626;329;d√©centralisation ; d√©partement ; r√©gion;;France
+627;627;339;d√©veloppement durable ; gouvernance ; concertation;;International
+628;628;331;d√©veloppement urbain ; march√© foncier ; planification;;France
+629;629;324;sociologie ; s√©curit√© urbaine ; politique locale;;Italie
+630;630;325;mobilit√© ; modes de vie ; d√©placement;;France
+631;631;325;mobilit√© ; modes de vie ; d√©placement;;France
+632;632;328;gouvernance ; organisation spatiale ; ville;;France
+633;633;328;gouvernance ; organisation spatiale ; ville;;France
+634;634;334;sociologie ; espace public ; voisin;;France
+635;635;337;modes de vie ; ville ; gouvernance;;International
+636;636;338;sociologie ; centre commercial ; comportement social;;France
+637;637;340;d√©veloppement durable ; ville ; √©cologie urbaine;;International
+638;638;341;modes de vie ; ville ; environnement;;International
+639;639;343;modes de vie ; ville ; rythmes urbain;;France
+640;640;347;modes de vie ; d√©placement ; d√©veloppement urbain;;France
+641;641;344;mobilit√© ; espace rural ; p√©riurbain;;France
+642;642;345;am√©nagement du territoire ; chronoam√©nagement ; d√©placement;;Grenoble
+643;643;346;SCoT ; d√©placement ; mobilit√©;;France
+644;644;321;enseignement sup√©rieur ; √©quipement d'enseignement ; universit√©;;Bordeaux
+645;645;323;PLUi ; planification ; urbanisme;;France
+646;646;322;d√©veloppement √©conomique ; d√©mographie ; am√©nagement du territoire;;B√©arn
+647;647;320;paysage urbain ; nature ; ville;;France
+648;648;318;Projet urbain ; renouvellement urbain ; friche urbaine;;Bilbao
+649;649;319;transport collectif ; √©conomie ; financement;;France
+650;650;316;eaux pluviales ; Gestion de l'eau ; eau;;France
+651;651;317;observation ; transfrontalier ; territoire;;International
+652;652;167;Projet urbain ; Renouvellement urbain ; Espaces publics;;France
+653;653;167;Projet urbain ; Renouvellement urbain ; Espaces publics;;France
+654;654;313;d√©veloppement urbain ; d√©veloppement durable ; territoire;;France
+655;655;312;√©conomie ; emploi ; territoire;;France
+656;656;314;TIC ; ville num√©rique ; adaptation √©conomique;;France
+657;657;305;eau ; milieux aquatiques ; rivi√®re;;Adour-Garonne
+658;658;296;t√©l√©travail ; tiers lieux ; TIC;;Pays Basque
+659;659;296;t√©l√©travail ; tiers lieux ; TIC;;Pays Basque
+660;660;311;logement ; urbanisme ; Planification;;France
+661;661;310;d√©placements ; stationnement ; marche;;France
+662;662;309;ville ; urbanisme ; formes urbaines;;France
+663;663;308;eau ; eaux pluviales ; zone humide;;Bordeaux
+664;664;307;atlas ; m√©tropole ; carte;;Paris
+665;665;306;sociologie ; enqu√™te ; questionnaire;;France
+666;666;303;politique fonci√®re ; foncier agricole ; sol;;France
+667;667;302;Tourisme ; Logement ; TIC;;France
+668;668;87;Soci√©t√© ; Quartier ; S√©gr√©gation urbaine;;France
+669;669;87;Soci√©t√© ; Quartier ; S√©gr√©gation urbaine;;France
+670;670;301;Am√©nagement du territoire ; SIG ; MOS;;France
+671;671;293;Agences d'urbanisme ; p√©riurbain ; prospective;;France
+672;672;293;Agences d'urbanisme ; p√©riurbain ; prospective;;France
+673;673;300;habitat ; Agence d'urbanisme ; logement;;France
+674;674;298;sol ; consommation d'espace ; occupation du sol;;France
+675;675;297;habitat collectif ; habitat participatif ; logement;;France
+676;676;299;parcs relais ; parking ; stationnement;;France
+677;677;294;ville ; renouvellement urbain ; Am√©nagement durable;;Bordeaux
+678;678;295;Transports ; Trafics ; mobilit√©;;Pyr√©n√©es
+679;679;292;patrimoine ; patrimoine b√¢ti ; territoire;;France
+680;680;290;ing√©nierie territoriale ; d√©partement ; partenariat;;France
+681;681;291;am√©nagement r√©gionale ; champ de la connaissance ; partenariat;;France
+682;682;288;diagnostic ; territoire ; m√©thodologie;;France
+683;683;287;environnement ; √©nergie ; logement;;France
+684;684;286;v√©lo ; d√©placement domicile;travail ; Mobilit√© douce;France
+685;685;285;d√©veloppement √©conomique ; enseignement sup√©rieur ; innovation;;Normandie
+686;686;284;Transports en commun ; transport en site propre ; Projet urbain;;Pau
+687;687;282;friche urbaine ; reconversion ; r√©habilitation urbaine;;Amiens
+688;688;283;friche urbaine ; reconversion ; r√©habilitation urbaine;;Amiens
+689;689;281;ing√©nierie ; observation ; TIC;;France
+690;690;280;littoral ; √©conomie littoral ; √©conomie;;Aquitaine
+691;691;279;v√©lo ; Stationnement ; espace priv√©;;France
+692;692;162;Territoire ; Dette publique ; Mobilit√©;;France
+693;693;162;Territoire ; Dette publique ; Mobilit√©;;France
+694;694;252;habitat ;   march√© du logement ;   √©volution du parc immobilier;;Aquitaine
+695;695;252;habitat ;   march√© du logement ;   √©volution du parc immobilier;;Aquitaine
+696;696;42;VilleSocial;test;;;Paris
+697;697;42;VilleSocial;test;;;Paris
+698;698;270;Transports ; √©conomie ; lgv;;Aquitaine
+699;699;270;Transports ; √©conomie ; lgv;;Aquitaine
+700;700;271;cartographie ; repr√©sentation graphique ; syst√®me d'information g√©ographique;;France
+701;701;271;cartographie ; repr√©sentation graphique ; syst√®me d'information g√©ographique;;France
+702;702;274;mobilit√© ; transports urbain ; r√©seau de transport;;Bayonne
+703;703;273;immobilier ; logement ; √©conomie;;France
+704;704;272;Trame verte et bleue ; document d'urbanisme ; environnement;;France
+705;705;268;p√©riurbain ; mobilit√© ; Modes de vie;;France
+706;706;268;p√©riurbain ; mobilit√© ; Modes de vie;;France
+707;707;267;Climat ; environnement ; √©conomie;;Aquitaine
+708;708;264;Planification Territoriale ; document d'urbanisme ; bassin de vie;;Rouen
+709;709;265;Agence d'urbanisme ; p√©riurbain ; mode de vie;;Amiens
+710;710;266;ville durable ; Am√©nagement durable ; d√©veloppement durable;;Nantes
+711;711;260;Eau ; Syst√®me d'information ; Donn√©e;;Adour-Garonne
+712;712;261;Eau ; Milieux aquatiques ; eau potable;;Adour-Garonne
+713;713;262;eau ; gestion des eaux pluviales ; Gestion de l'eau;;Adour-Garonne
+714;714;263;eau ; eau potable ; Gestion de l'eau;;Adour-Garonne
+715;715;259;√©talement urbain ; urbanisation ; artificialisation des sols;;France
+716;716;216;√©conomie ; anthropologie ;   migration;;France
+717;717;216;√©conomie ; anthropologie ;   migration;;France
+718;718;257;Urbanisme ; PLUi ; logement;;France
+719;719;258;Ville durable ; √©coquartier ; Am√©nagement durable;;France
+720;720;256;Am√©nagement durable ; Planification ; Urbanisme;;France
+721;721;253;SCoT ; Gouvernance ; Planification Territoriale;;France
+722;722;255;am√©nagement num√©rique ; document d'urbanisme ; TIC;;France
+723;723;254;Bus;Tram ; Transports en commun ; D√©veloppement urbain;Pau
+724;724;251;fiscalit√© ; ressources fiscales ; collectivit√©s territoriales;;France
+725;725;235;P√¥le M√©tropolitain ; Planification Territoriale ; coop√©ration intercommunale;;France
+726;726;332;SCoT ; planification urbaine ; coop√©ration intercommunale;;France
+727;727;111;D√©mographie ; P√©ri;urbain ; Mobilit√© r√©sidentielle;Angers
+728;728;111;D√©mographie ; P√©ri;urbain ; Mobilit√© r√©sidentielle;Angers
+729;729;232;Am√©nagement urbain ; Foncier ; Densification;;Ile-de-France
+730;730;241;cadre juridique ; renouvellement urbain ; SRU;;France
+731;731;243;renouvellement urbain ; politique urbaine ; Projet urbain;;France
+732;732;249;aire urbaine ; ville ; atlas;;France
+733;733;237;Commerce ; SCoT ; planification urbaine;;France
+734;734;250;√©conomie r√©sidentielle ; mobilit√© r√©sidentielle ; migration;;France
+735;735;233;Trame verte et bleue ; politique de l'environnement ; sch√©ma r√©gional de coh√©rence √©cologique;;France
+736;736;240;Agenda 21 ; d√©veloppement durable ; √©cologie;;France
+737;737;236;politique fonci√®re ; Environnement ; d√©veloppement durable;;France
+738;738;231;Habitat ; Logement ; Modes de vie;;France
+739;739;246;am√©nagement du territoire ; planification urbaine ;   vieillissement;;France
+740;740;234;TIC ; ville num√©rique ; d√©veloppement durable;;France
+741;741;247;environnement ; loi ; d√©veloppement durable;;France
+742;742;238;d√©placements ; SCoT ; planification des transports;;France
+743;743;242;d√©placements ; d√©veloppement durable ; mobilit√©;;Angers
+744;744;244;√©conomie des transports ; politique des transports ; Environnement;;France
+745;745;248;d√©placements ; planification des transports ; Am√©nagement urbain;;France
+746;746;32;Environnement;Urbanisme Durable;;;France
+747;747;32;Environnement;Urbanisme Durable;;;France
+748;748;33;Projet urbain;D√©veloppement durable;;;Anvers
+749;749;33;Projet urbain;D√©veloppement durable;;;Anvers
+750;750;229;  conseil de d√©veloppement ; d√©veloppement local ; soci√©t√© civile;;France
+751;751;175;Qualit√© environnementale ; Architecture ; Paysage;;Grenoble
+752;752;175;Qualit√© environnementale ; Architecture ; Paysage;;Grenoble
+753;753;225;march√© foncier ; march√© foncier agricole ; prix du sol;;Pyr√©n√©es Atlantiques
+754;754;225;march√© foncier ; march√© foncier agricole ; prix du sol;;Pyr√©n√©es Atlantiques
+755;755;224;march√© foncier agricole ; march√© de l'urbanisation ; prix des vignes;;France
+756;756;224;march√© foncier agricole ; march√© de l'urbanisation ; prix des vignes;;France
+757;757;228;mobilit√© ; d√©placement ; ing√©nierie;;France
+758;758;211;eau ; assainissement ; SDAGE;;Adour-Garonne
+759;759;211;eau ; assainissement ; SDAGE;;Adour-Garonne
+760;760;227;eau potable ; politique fonci√®re ; r√®glement d'urbanisme;;Adour-Garonne
+761;761;226;tourisme ;   √©quipement touristique ; Am√©nagement du littoral;;Aquitaine
+762;762;223;mobilit√© ; d√©placement ; trafic;;Bordeaux
+763;763;223;mobilit√© ; d√©placement ; trafic;;Bordeaux
+764;764;221;Am√©nagement urbain ; habitat ; mode de vie;;France
+765;765;219;activit√© √©conomique ; √©tat √©conomique ; formation;;Pays Basque
+766;766;220;march√© foncier ; politique fonci√®re ; EPFL;;B√©arn
+767;767;222;am√©nagement rural  ; activit√© agricole ; vigne;;B√©arn
+768;768;215;Ville ; d√©veloppement urbain ; √©talement urbain;;Rennes
+769;769;217;voirie urbaine ; s√©curit√© routi√®re ; √©quipement de la voirie;;France
+770;770;124;Mobilit√© ; Mobilit√© durable ; Modes de d√©placement;;France
+771;771;124;Mobilit√© ; Mobilit√© durable ; Modes de d√©placement;;France
+772;772;213;Am√©nagement urbain ; architecture ;  d√©veloppement durable;;France
+773;773;212;eau ; SDAGE ; milieux aquatiques;;Adour-Garonne
+774;774;210;histoire ; architecture ; paysage;;Seignanx
+775;775;214;√©nergie ; ressources naturelles ; transition √©nerg√©tique;;Aquitaine
+776;776;209;Am√©nagement du territoire ; √©chelle ; territoire;;France
+777;777;379;eau ; assainissement ; zones humides;;Pyr√©n√©es Atlantiques & Sud des Landes
+778;778;205;migration pendulaire ; p√©ri;urbain ; densit√© de population;Nantes
+779;779;206;centre;ville ; espace pi√©tonnier ; espace public;France
+780;780;207;Projet urbain ; Am√©nagement urbain ; Agences d'urbanisme;;France
+781;781;204;habitat ; logement ; document d'urbanisme ; march√© foncier;France
+782;782;203;D√©veloppement √©conomique ; Habitat et logement ; Population et modes de vie;;Ile-de-France
+783;783;202;loyer ; Logement ; observation;;France
+784;784;201;tour ; monument ; ouvrage d'art;;International
+785;785;200;logement ; PLH ; d√©mographie;;Caen
+786;786;195;plan local d'urbanisme ; PLU ; planification urbaine;;France
+787;787;199;d√©mographie ;   infrastructure de transport ; dynamique √©conomique;;B√©arn
+788;788;197;habitat ; formes urbaines ; logement;;Rennes
+789;789;198;formes urbaines ; logement ; quartier;;Rennes
+790;790;196;Fiscalit√© ; loyer ; parc priv√©;;France
+791;791;193;Agences d'urbanisme ; Action publique ; Ing√©ni√®rie;;France
+792;792;194;PLU ; plan local d'urbanisme ; droit de l'urbanisme;;France
+793;793;192;Ing√©ni√®rie territoriale ; D√©centralisation ; R√©forme territoriale;;France
+794;794;191;Projet urbain ; Espace public ; Commerce;;International
+795;795;190;Ing√©ni√®rie territoriale ; D√©centralisation ; R√©forme territoriale;;France
+796;796;189;Immobilier d'entreprise ; March√© ; Bureau;;Rouen
+797;797;188;Marche ; Mobilit√© ; Ville;;Europe
+798;798;187;Urbanisme ; Architecture ; Rivages;;France
+799;799;184;Logement ; Fiscalit√© ; Foncier;;France
+800;800;185;Habitat ; Logement social ; Construction neuve;;Bordeaux
+801;801;186;Gare ; Centralit√© urbaine ; Intermodalit√©;;Caen
+802;802;182;Architecture ; Projet urbain ; Urbanisme;;Bordeaux
+803;803;183;Gare ; Projet urbain ; ligne de chemin de fer;;Rouen
+804;804;181;Am√©nagement durable ; Environnement ; Espaces naturels;;Stockholm
+805;805;178;Projet urbain ; March√© foncier ; Plan des D√©placements Urbains;;Rennes
+806;806;180;Urbaniste ; Ville ; Projet urbain;;France
+807;807;179;Agence d'urbanisme ; Rencontre nationale ; Observatoire;;Bordeaux
+808;808;177;PADD ; Fleuve ; Rade;;France
+809;809;176;TIC ; Diagnostic ; Num√©rique;;Aquitaine
+810;810;173;Projet urbain ; Port ; Fleuve;;Lorient
+811;811;174;Projet urbain ; Fleuve ; Paysage;;Besan√ßon
+812;812;172;Mobilit√© ; D√©placements ; Ville num√©rique;;France
+813;813;171;Urbanisme ; Projet urbain ; Am√©nagement du territoire;;France
+814;814;168;Fleuve ; Projet urbain ; Concertation;;Brest
+815;815;169;Projet urbain ; √©coquartier ; Renouvellement urbain;;Reims
+816;816;170;Projet urbain ; Fleuve ; Infrastructures;;Avignon
+817;817;277;Projet urbain ; centralit√© ; mobilit√©;;Marseille
+818;818;275;Littoral ; Erosion c√¥ti√®re ; pr√©vention;;France
+819;819;278;march√© du logement ; observatoire ; march√© foncier;;France
+820;820;276;transport en site propre ; Transports en commun ; Projet urbain;;Pau
+821;821;163;Urbaniste ; Ville ; Projet urbain;;France
+822;822;164;Projet urbain ; M√©tropole ; Port;;Nantes
+823;823;165;Planification ; Etalement urbain ; Territoire;;Europe
+824;824;166;Observatoire ; Open Data ; Donn√©es statistiques;;France
+825;825;161;Ecoquartier ; Renouvellement urbain ; Biodiversit√©;;Nord-Pas de Calais
+826;826;158;Littoral aquitain ; Energies marines ; Energies renouvelables;;Aquitaine
+827;827;160;A√©ronautique ; Industrie chimique ; Agroalimentaire;;B√©arn
+828;828;157;Environnement ; Eco;responsable ; Budget communal;France
+829;829;159;Habitat individuel ; Densit√© ; Formes urbaines;;France
+830;830;155;Conf√©rence ; M√©tropole ; Paysage;;Le Havre
+831;831;156;PAO ; Mise en page ; In Design;;France
+832;832;5;TIC;Diagnostic;;;Aquitaine
+833;833;153;Planification ; Projet urbain ; Strat√©gie urbaine;;France
+834;834;154;Logiciel ; Dessin ; Informatique;;France
+835;835;152;Donn√©es publiques ; open data ; Action publique;;Aquitaine
+836;836;151;Coop√©ration d√©centralis√©e ; Relations internationales ; D√©veloppement urbain;;France
+837;837;146;Habitat ; Logement ; Habitat urbain;;Bordeaux
+838;838;147;M√©tropole ; Transport ; Habitat;;Bordeaux
+839;839;148;Gare TGV ; M√©tropole ; Zone d'activit√©s √©conomiques;;Clermont-Ferrand
+840;840;149;Ville ; Trame verte et bleue ; Fleuve;;Amiens
+841;841;150;Projet urbain ; Agence d'urbanisme ; Am√©nagement urbain;;France
+842;842;142;D√©veloppement √©conomique ; ZAE ; Foncier;;France
+843;843;144;D√©veloppement √©conomique ; Mobilit√© r√©sidentielle ; Attractivit√©;;France
+844;844;143;Environnement ; Changement climatique ; Vuln√©rabilit√© des zones urbanis√©es;;France
+845;845;141;Foncier public ; Logement ; Fiscalit√©;;Ile-de-France
+846;846;140;Mobilit√© durable ; Am√©nagement urbain ; Espace public;;International
+847;847;139;Conseil de d√©veloppement ; lurraldea ; Conseil des √©lus;;Pays Basque
+848;848;137;Trame verte et bleue ; SCoT ; Territoire urbain;;France
+849;849;138;Infrastructures de transport ; LGV ; A√©roport;;B√©arn
+850;850;134;Densit√© ; Formes urbaines ; Formes urbaines r√©sidentielles;;Martinique
+851;851;135;Observatoire ; Information statistique ; G√©omatique;;France
+852;852;136;Observatoire ; SIG ; Equipements collectifs;;Calvados
+853;853;131;√©coquartier ; quartier ; lotissement;;France
+854;854;132;√©coquartier ; quartier ; lotissement;;France
+855;855;130;Urbanisme commercial ; Surface commerciale ; Commerce;;France
+856;856;129;Eau ; Cycle urbain de l'eau ; Gestion de l'eau;;France
+857;857;128;Lotissement ; Maison individuelle ; Urbanisme rural;;France
+858;858;133;Mobilit√© ; D√©placement ; TIC;;France
+859;859;133;Mobilit√© ; D√©placement ; TIC;;France
+860;860;127;Littoral ; Bande c√¥ti√®re ; √©rosion;;Aquitaine
+861;861;126;Observatoire ; Observatoire territorial ; Donn√©es statistiques;;France
+862;862;125;M√©tropole ; D√©marche participative ; Prospective;;Amiens
+863;863;121;Gare ; Gare multimodale ; Equipements;;Pays d‚ÄôAmplepuis-Thizy
+864;864;123;Formes urbaines ; Densit√© ; Habitat;;France
+865;865;122;Mobilit√© douce ; Proximit√© ; D√©placements;;Europe
+866;866;118;Travail ; Emploi ; Prospective;;France
+867;867;119;Population ; D√©mographie ; Modes de vie;;B√©arn
+868;868;115;Littoral ; Bande c√¥ti√®re ; √©rosion;;Aquitaine
+869;869;116;Climat ; Changement climatique ; Plan climat;;France
+870;870;117;Climat ; Changement climatique ; Plan climat;;France
+871;871;114;Maison de l'Habitat ; Logement ; PLH;;Caen
+872;872;113;Mobilit√© ; Modes de d√©placement ; Accessibilit√©;;Caen
+873;873;112;Ressources naturelles ; Carri√®res ; SCoT;;Aquitaine
+874;874;110;Am√©nagement du littoral ; D√©veloppement √©conomique ; Espaces naturels;;Pays Basque
+875;875;109;D√©mographie ; P√¥le M√©tropolitain ; March√© foncier;;Nantes
+876;876;108;Environnement ; Nuisance ; PDU;;France
+877;877;107;Architecture ; Logement social ; Habitat;;France
+878;878;100;Politiques publiques ; Evaluation ; Financement;;France
+879;879;101;Politiques publiques ; Evaluation ; Action publique;;France
+880;880;106;Finances locales ; Taxe Professionnelle ; Taxe d'habitation;;France
+881;881;103;Commerce ; Comportement d'achat ; M√©nages;;Rouen
+882;882;104;Am√©nagement durable ; D√©veloppement durable ; Urbanisme Durable;;Marseille
+883;883;105;Parking ; Stationnement ; EMD;;Caen
+884;884;102;Mobilit√© ; Relations domicile;travail ; Modes de d√©placement;Rouen
+885;885;99;Mobilit√© ; Zone de rencontre ; Pi√©ton;;France
+886;886;97;PAO ; Mise en page ; Communication;;Europe
+887;887;98;PAO ; Mise en page ; Communication;;Europe
+888;888;95;M√©tropole ; Territoire ; Organisation territoriale;;France
+889;889;93;Document d'Urbanisme ; Dessin ; Illustration;;France
+890;890;96;Agglom√©ration ; Agence d'urbanisme ; Ville;;Bordeaux
+891;891;94;Logement ; March√© de l'habitat ; Politiques de l'habitat;;France
+892;892;91;Projet urbain ; PLU ; Am√©nagement durable;;Bordeaux
+893;893;92;Aire urbaine ; Syst√®mes m√©tropolitains ; FNAU;;France
+894;894;89;SCoT ; Biodiversit√© ; Trame verte et bleue;;Midi-Pyr√©n√©es
+895;895;90;SCoT ; Biodiversit√© ; Trame verte et bleue;;Midi-Pyr√©n√©es
+896;896;88;Projet urbain ; Am√©nagement durable ; Ville durable;;France
+897;897;86;SCoT ; Planification Territoriale ; D√©veloppement √©conomique;;France
+898;898;82;Construction ; Urbanisme ; Am√©nagement et ressources naturelles;;France
+899;899;83;Construction ; Urbanisme ; Am√©nagement et ressources naturelles;;France
+900;900;84;Stationnement ; Parking ; Mobilit√©;;Caen
+901;901;85;SCoT ; PLU ; Urbanisme;;Caen
+902;902;81;AEU ; Urbanisme Durable ; ;;Dunkerque
+903;903;80;March√© de l'habitat ; Logement ; Parc locatif;;France
+904;904;79;Agence d'urbanisme ; FNAU ; Ing√©nierie;;France
+905;905;77;Zone d'activit√©s ; Parcs industriels ; Intercommunalit√©;;France
+906;906;78;Zone d'activit√©s ; Parcs industriels ; Intercommunalit√©;;France
+907;907;76;Transports ; Trafics ; Mobilit√©;;Pyr√©n√©es
+908;908;75;SCOT ; Climat ; Energie;;France
+909;909;74;March√©s publics ; Circulaire ; .;;France
+910;910;73;SCOT ; Air ; Evaluation environnementale;;France
+911;911;67;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois
+912;912;67;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois
+913;913;70;Aire urbaine ; M√©tropole ; Ville;;Europe
+914;914;72;Aire urbaine ; Ville ; P√¥le M√©tropolitain;;France
+915;915;71;Logement ; Emploi ; Mobilit√© ;;France
+916;916;68;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois
+917;917;69;Planification Territoriale ; SCOT ; Trame verte et bleue;;Artois
+918;918;66;Environnement ; Architecture ; Toit;terrasse;France
+919;919;63;Accessibilit√© ; Handicap ; Infrastructure;;France
+920;920;64;Equipements ; Projet urbain ; Tourisme urbain;;France
+921;921;65;Habitat ; Logement ; R√©sidence;;Lille
+922;922;61;Logement social ; Logement ; Parc locatif;;France
+923;923;62;Sant√© ; Projet urbain ; Offre de soins;;Marseille
+924;924;59;SCoT;Agriculture;;;France
+925;925;60;Agriculture;Gouvernance alimentaire;;;France
+926;926;57;Ville durable;D√©veloppement durable;;;Europe
+927;927;58;Am√©nagement de la ville;Prospective;;;Nantes
+928;928;56;logement social;Hlm;;;Aquitaine
+929;929;55;Droit du travail;Social;;;France
+930;930;54;Mobilit√© urbaine;V√©lo;;;Italie
+931;931;49;P√©riurbain;Urbanisation;;;France
+932;932;50;Construction;Risques naturels;;;France
+933;933;52;Patrimoine public;Droit de construction;;;France
+934;934;51;Mobilit√©;Mobilit√© urbaine;;;France
+935;935;46;Coop√©ration transfrontali√®re;territoires transfrontaliers;;;France
+936;936;48;D√©centralisation;R√©forme;;;France
+937;937;47;Economie sociale et solidaire;Emploi;;;Lyon
+938;938;44;Mobilit√©;Transport alternatif;;;Europe
+939;939;45;Mobilit√©;Pi√©ton;;;Strasbourg
+940;940;43;M√©tropole;Espace transfrontalier;;;Lille
+941;941;41;Rencontre nationale FNAU;Gouvernance;;;Paris
+942;942;40;Agence d'urbanisme;Rouen;;;Rouen
+943;943;39;Aire urbaine;Zone urbanis√©e;;;Rouen
+944;944;38;Gare;Train;;;Rouen
+945;945;36;M√©tropole;Projet urbain;;;Toulouse
+946;946;37;D√©veloppement durable;Observatoire;;;France
+947;947;35;EMD;D√©placements;;;France
+948;948;29;SCOT;Planification Territoriale;;;Artois
+949;949;25;Projet urbain; Urbanisme Durable;;;Monde
+950;950;26;M√©tropole; D√©veloppement durable;;;Reims
+951;951;27;Urbanisme Durable;Projet urbain;;;Rennes
+952;952;28;Agence d'urbanisme;Histoire;;;Le Havre
+953;953;30;March√©s publics;L√©gislation;;;France
+954;954;31;Mobilit√©;PDU;;;Pau
+955;955;24;Planification Territoriale;SCOT;;;Rennes
+956;956;19;Eau;Air;;;France
+957;957;23;Littoral;Fonds marins;;;Pays Basque et sud des landes
+958;958;20;Mobilit√©; Espace p√©ri-urbains;;;Rouen
+959;959;21;Train;Gare;;;Normandie
+960;960;22;Train;Gare;;;Normandie
+961;961;15;Agence d'urbanisme;Agglom√©ration;;;Bordeaux
+962;962;16;L√©gislation;March√©s publiques;;;France
+963;963;17;March√©s publiques;D√©mat√©rialisation;;;France
+964;964;18;Am√©nagement de l'espace public;Ecoquartiers;;;France
+965;965;18;Am√©nagement de l'espace public;Ecoquartiers;;;France
+966;966;12;Agence d'urbanisme;Planification Territoriale;;;France
+967;967;13;D√©veloppement durable;SCOT;;;France
+968;968;9;Politique de la ville;Politique urbaine;;;France
+969;969;41;Agence d'urbanisme;Rencontre nationale FNAU;;;France
+970;970;14;Emploi;Crise √©conomique;;;France
+971;971;7;Coop√©ration transfrontali√®re;Territoire;;;Pays Basque
+972;972;8;Agglom√©ration;Croissance √©conomique;;;France
+973;973;8;Agglom√©ration;Croissance √©conomique;;;France
+974;974;6;Agence d'urbanisme;;;;Nancy
+975;975;4;Erosion c√¥ti√®re;Trait de c√¥te;;;Aquitaine
+976;976;3;Habitat socialLogement social;;;;France
+977;977;1;P√¥le M√©tropolitain;Intercommunalit√©;EPCI;;France
+978;978;2;D√©veloppement durable;Construction;;;France
+979;979;601;√©conomie ; m√©nages ; collectivit√©s territoriales;;France
+980;980;601;√©conomie ; m√©nages ; collectivit√©s territoriales;;France

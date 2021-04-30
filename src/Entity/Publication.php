@@ -88,7 +88,7 @@ class Publication
     {
         $this->borrow = new ArrayCollection();
     }
-
+    
     public function getId(): ?int
     {
         return $this->id;

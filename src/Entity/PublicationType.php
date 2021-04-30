@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\EditorRepository;
+use App\Repository\PublicationTypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=EditorRepository::class)
+ * @ORM\Entity(repositoryClass=PublicationTypeRepository::class)
  */
-class Editor
+class PublicationType
 {
     /**
      * @ORM\Id
@@ -22,20 +22,15 @@ class Editor
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $firstname;
+    private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $lastname;
+    private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $address;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Publication::class, mappedBy="editors")
+     * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="type")
      */
     private $publications;
 
@@ -49,38 +44,26 @@ class Editor
         return $this->id;
     }
 
-    public function getFirstname(): ?string
+    public function getName(): ?string
     {
-        return $this->firstname;
+        return $this->name;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setName(string $name): self
     {
-        $this->firstname = $firstname;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getDescription(): ?string
     {
-        return $this->lastname;
+        return $this->description;
     }
 
-    public function setLastname(string $lastname): self
+    public function setDescription(?string $description): self
     {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
+        $this->description = $description;
 
         return $this;
     }
@@ -97,7 +80,7 @@ class Editor
     {
         if (!$this->publications->contains($publication)) {
             $this->publications[] = $publication;
-            $publication->addEditor($this);
+            $publication->setType($this);
         }
 
         return $this;
@@ -106,7 +89,10 @@ class Editor
     public function removePublication(Publication $publication): self
     {
         if ($this->publications->removeElement($publication)) {
-            $publication->removeEditor($this);
+            // set the owning side to null (unless already changed)
+            if ($publication->getType() === $this) {
+                $publication->setType(null);
+            }
         }
 
         return $this;
