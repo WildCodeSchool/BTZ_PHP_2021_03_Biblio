@@ -6,7 +6,6 @@ use App\Entity\Borrow;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class BorrowFixtures extends Fixture
 {
