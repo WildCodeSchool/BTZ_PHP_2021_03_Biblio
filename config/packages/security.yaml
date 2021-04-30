@@ -24,7 +24,7 @@ security:
 
     access_control:
           - { path: ^/admin, roles: ROLE_ADMIN }
-          - { path: ^/edition, roles: ROLE_OPERATOR }
+          - { path: ^/admin/edition, roles: ROLE_OPERATOR }
           - { path: ^/profil, roles: ROLE_PUBLIC }
 
     role_hierarchy:
