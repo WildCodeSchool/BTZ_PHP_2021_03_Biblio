@@ -23,7 +23,7 @@ class Keyword
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean", nullable=true, options={"default"=0})
      */
     private $geolocalisation;
 
