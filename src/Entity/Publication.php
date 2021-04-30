@@ -80,15 +80,43 @@ class Publication
     private $access;
 
     /**
-     * @ORM\OneToMany(targetEntity=Borrow::class, mappedBy="publication")
+     * @ORM\ManyToOne(targetEntity=PublicationType::class, inversedBy="publications")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $borrow;
+    private $type;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Localisation::class, inversedBy="publications")
+     */
+    private $localisation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Thematic::class, inversedBy="publications")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $thematic;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Language::class, inversedBy="publications")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $language;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Editor::class, inversedBy="publications")
+     */
+    private $editors;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=BookCollection::class, inversedBy="publications")
+     */
+    private $bookcollection;
 
     public function __construct()
     {
-        $this->borrow = new ArrayCollection();
+        $this->editors = new ArrayCollection();
     }
-    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -238,32 +266,86 @@ class Publication
         return $this;
     }
 
-    /**
-     * @return Collection|Borrow[]
-     */
-    public function getBorrow(): Collection
+    public function getType(): ?PublicationType
     {
-        return $this->borrow;
+        return $this->type;
     }
 
-    public function addBorrow(Borrow $borrow): self
+    public function setType(?PublicationType $type): self
     {
-        if (!$this->borrow->contains($borrow)) {
-            $this->borrow[] = $borrow;
-            $borrow->setPublication($this);
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getLocalisation(): ?Localisation
+    {
+        return $this->localisation;
+    }
+
+    public function setLocalisation(?Localisation $localisation): self
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    public function getThematic(): ?Thematic
+    {
+        return $this->thematic;
+    }
+
+    public function setThematic(?Thematic $thematic): self
+    {
+        $this->thematic = $thematic;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?Language
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(?Language $language): self
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Editor[]
+     */
+    public function getEditors(): Collection
+    {
+        return $this->editors;
+    }
+
+    public function addEditor(Editor $editor): self
+    {
+        if (!$this->editors->contains($editor)) {
+            $this->editors[] = $editor;
         }
 
         return $this;
     }
 
-    public function removeBorrow(Borrow $borrow): self
+    public function removeEditor(Editor $editor): self
     {
-        if ($this->borrow->removeElement($borrow)) {
-            // set the owning side to null (unless already changed)
-            if ($borrow->getPublication() === $this) {
-                $borrow->setPublication(null);
-            }
-        }
+        $this->editors->removeElement($editor);
+
+        return $this;
+    }
+
+    public function getBookcollection(): ?BookCollection
+    {
+        return $this->bookcollection;
+    }
+
+    public function setBookcollection(?BookCollection $bookcollection): self
+    {
+        $this->bookcollection = $bookcollection;
 
         return $this;
     }
