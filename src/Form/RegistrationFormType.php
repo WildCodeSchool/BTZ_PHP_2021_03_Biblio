@@ -28,7 +28,6 @@ class RegistrationFormType extends AbstractType
             ->add('phone', NumberType::class, [
                 'label' => 'Tel',
                 'invalid_message' => 'Veuillez saisir seulement des chiffres pour votre numéro de téléphone.',
-
             ])
             ->add('address', TextType::class, [
                 'label' => 'Adresse'
