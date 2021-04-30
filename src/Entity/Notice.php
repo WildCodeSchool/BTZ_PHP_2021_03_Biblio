@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\NoticeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,34 @@ class Notice
      * @ORM\Column(type="date")
      */
     private $creation_date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="notices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $publication;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Author::class, inversedBy="notices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="notices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="notice")
+     */
+    private $keywords;
+
+    public function __construct()
+    {
+        $this->keywords = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +82,72 @@ class Notice
     public function setCreationDate(\DateTimeInterface $creation_date): self
     {
         $this->creation_date = $creation_date;
+
+        return $this;
+    }
+
+    public function getPublication(): ?Publication
+    {
+        return $this->publication;
+    }
+
+    public function setPublication(?Publication $publication): self
+    {
+        $this->publication = $publication;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?Author
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?Author $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Keyword[]
+     */
+    public function getKeywords(): Collection
+    {
+        return $this->keywords;
+    }
+
+    public function addKeyword(Keyword $keyword): self
+    {
+        if (!$this->keywords->contains($keyword)) {
+            $this->keywords[] = $keyword;
+            $keyword->setNotice($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeyword(Keyword $keyword): self
+    {
+        if ($this->keywords->removeElement($keyword)) {
+            // set the owning side to null (unless already changed)
+            if ($keyword->getNotice() === $this) {
+                $keyword->setNotice(null);
+            }
+        }
 
         return $this;
     }
