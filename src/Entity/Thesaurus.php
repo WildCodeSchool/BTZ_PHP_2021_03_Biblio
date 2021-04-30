@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ThesaurusRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Thesaurus
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $theme;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Thematic::class, mappedBy="Thesaurus")
+     */
+    private $thematics;
+
+    public function __construct()
+    {
+        $this->thematics = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,36 @@ class Thesaurus
     public function setTheme(?string $theme): self
     {
         $this->theme = $theme;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Thematic[]
+     */
+    public function getThematics(): Collection
+    {
+        return $this->thematics;
+    }
+
+    public function addThematic(Thematic $thematic): self
+    {
+        if (!$this->thematics->contains($thematic)) {
+            $this->thematics[] = $thematic;
+            $thematic->setThesaurus($this);
+        }
+
+        return $this;
+    }
+
+    public function removeThematic(Thematic $thematic): self
+    {
+        if ($this->thematics->removeElement($thematic)) {
+            // set the owning side to null (unless already changed)
+            if ($thematic->getThesaurus() === $this) {
+                $thematic->setThesaurus(null);
+            }
+        }
 
         return $this;
     }

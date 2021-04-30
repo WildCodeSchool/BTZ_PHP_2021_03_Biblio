@@ -107,6 +107,11 @@ class Publication
      */
     private $editors;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=BookCollection::class, inversedBy="publications")
+     */
+    private $bookcollection;
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
@@ -329,6 +334,18 @@ class Publication
     public function removeEditor(Editor $editor): self
     {
         $this->editors->removeElement($editor);
+
+        return $this;
+    }
+
+    public function getBookcollection(): ?BookCollection
+    {
+        return $this->bookcollection;
+    }
+
+    public function setBookcollection(?BookCollection $bookcollection): self
+    {
+        $this->bookcollection = $bookcollection;
 
         return $this;
     }

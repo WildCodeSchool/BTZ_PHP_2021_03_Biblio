@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ThematicRepository;
+use App\Repository\BookCollectionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ThematicRepository::class)
+ * @ORM\Entity(repositoryClass=BookCollectionRepository::class)
  */
-class Thematic
+class BookCollection
 {
     /**
      * @ORM\Id
@@ -25,19 +25,9 @@ class Thematic
     private $name;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $description;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="thematic")
+     * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="bookcollection")
      */
     private $publications;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Thesaurus::class, inversedBy="thematics")
-     */
-    private $Thesaurus;
 
     public function __construct()
     {
@@ -61,18 +51,6 @@ class Thematic
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Publication[]
      */
@@ -85,7 +63,7 @@ class Thematic
     {
         if (!$this->publications->contains($publication)) {
             $this->publications[] = $publication;
-            $publication->setThematic($this);
+            $publication->setBookcollection($this);
         }
 
         return $this;
@@ -95,22 +73,10 @@ class Thematic
     {
         if ($this->publications->removeElement($publication)) {
             // set the owning side to null (unless already changed)
-            if ($publication->getThematic() === $this) {
-                $publication->setThematic(null);
+            if ($publication->getBookcollection() === $this) {
+                $publication->setBookcollection(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getThesaurus(): ?Thesaurus
-    {
-        return $this->Thesaurus;
-    }
-
-    public function setThesaurus(?Thesaurus $Thesaurus): self
-    {
-        $this->Thesaurus = $Thesaurus;
 
         return $this;
     }
