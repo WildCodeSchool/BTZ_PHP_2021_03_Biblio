@@ -35,17 +35,17 @@ class Publication
     private $publication_date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $paging;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $volume_number;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $summary;
 
@@ -112,9 +112,15 @@ class Publication
      */
     private $bookcollection;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Author::class, inversedBy="publications")
+     */
+    private $authors;
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
+        $this->authors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -158,24 +164,24 @@ class Publication
         return $this;
     }
 
-    public function getPaging(): ?string
+    public function getPaging(): ?int
     {
         return $this->paging;
     }
 
-    public function setPaging(string $paging): self
+    public function setPaging(int $paging): self
     {
         $this->paging = $paging;
 
         return $this;
     }
 
-    public function getVolumeNumber(): ?int
+    public function getVolumeNumber(): ?string
     {
         return $this->volume_number;
     }
 
-    public function setVolumeNumber(?int $volume_number): self
+    public function setVolumeNumber(?string $volume_number): self
     {
         $this->volume_number = $volume_number;
 
@@ -346,6 +352,30 @@ class Publication
     public function setBookcollection(?BookCollection $bookcollection): self
     {
         $this->bookcollection = $bookcollection;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Author[]
+     */
+    public function getAuthors(): Collection
+    {
+        return $this->authors;
+    }
+
+    public function addAuthor(Author $author): self
+    {
+        if (!$this->authors->contains($author)) {
+            $this->authors[] = $author;
+        }
+
+        return $this;
+    }
+
+    public function removeAuthor(Author $author): self
+    {
+        $this->authors->removeElement($author);
 
         return $this;
     }

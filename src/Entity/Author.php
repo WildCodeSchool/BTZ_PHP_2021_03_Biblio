@@ -34,9 +34,15 @@ class Author
      */
     private $notices;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Publication::class, mappedBy="authors")
+     */
+    private $publications;
+
     public function __construct()
     {
         $this->notices = new ArrayCollection();
+        $this->publications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,6 +99,33 @@ class Author
             if ($notice->getAuthor() === $this) {
                 $notice->setAuthor(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Publication[]
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): self
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications[] = $publication;
+            $publication->addAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): self
+    {
+        if ($this->publications->removeElement($publication)) {
+            $publication->removeAuthor($this);
         }
 
         return $this;
