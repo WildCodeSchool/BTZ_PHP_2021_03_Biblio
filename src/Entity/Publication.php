@@ -45,7 +45,7 @@ class Publication
     private $volume_number;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $summary;
 

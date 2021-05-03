@@ -1,10 +1,10 @@
 ﻿id;Auteur(s);type;
 1;6-t;publication;228
 2;A'Urba;publication;810
-3;A'URBA, Le Festin;publication;145
+3;A'URBA | Le Festin;publication;145
 4;ACBA;publication;660
 5;ADCF;publication;518
-6;AdCF, FNAU;publication;589
+6;AdCF | FNAU;publication;589
 7;ADEF;publication;496
 8;ADEME;publication;667
 9;ADEUS;publication;560
@@ -22,8 +22,8 @@
 21;Agence d'Urbanisme Oise-la-Vallée;publication;349
 22;Agence d'urbanisme pour le développement de l'agglomération lyonnaise;publication;121
 23;Agence de développement et d'urbanisme de Lille Métropole;publication;768
-24;Agence de l'Eau Adour, Garonne;publication;779
-25;Agence de l'Eau Adour Garonne, Agence de l'Eau Loire Bretagne, Office International de l'Eau;publication;316
+24;Agence de l'Eau Adour | Garonne;publication;779
+25;Agence de l'Eau Adour Garonne | Agence de l'Eau Loire Bretagne | Office International de l'Eau;publication;316
 26;Agence de l'eau Adour-Garonne;publication;752
 27;Agence Régional de Santé Nouvelle-Aquitaine;publication;820
 28;Agence TN PLUS Bruno Tanant et Jean-Christophe Nani;publication;676
@@ -38,11 +38,11 @@
 37;Alain Obadia;publication;513
 38;Allain Provost;publication;719
 39;AMC;publication;701
-40;AMF, AdCF;publication;368
+40;AMF | AdCF;publication;368
 41;Amiens Métropole;publication;125
 42;André Pény et Serge Wachter;publication;472
 43;ANIL;publication;311
-44;ANIL, FNAU;publication;821
+44;ANIL | FNAU;publication;821
 45;ANR;publication;778
 46;ANRU;publication;791
 47;ANTIC;publication;296
@@ -68,12 +68,12 @@
 67;AURG;publication;367
 68;AURH;publication;155
 69;Ausonius;publication;789
-70;Barbara Allen, Michel Bonetti;publication;657
+70;Barbara Allen | Michel Bonetti;publication;657
 71;BEGIRA Observatoire économique du pays basque;publication;436
 72;Belveder;publication;717
 73;Benjamin GAYON;publication;577
-74;Bernard Chocat, Elodie Brelot;publication;129
-75;Bernard Haumont, Alain Morel;publication;334
+74;Bernard Chocat | Elodie Brelot;publication;129
+75;Bernard Haumont | Alain Morel;publication;334
 76;Bernard Trey Navarranne;publication;442
 77;BRGM;publication;275
 78;Catherine Carré et Jean-Claude Deutsch;publication;412
@@ -82,32 +82,32 @@
 81;CDU;publication;504
 82;Cécile Benoit;publication;333
 83;CEREMA;publication;705
-84;CEREMA, Direction technique Territoires et ville;publication;417
+84;CEREMA | Direction technique Territoires et ville;publication;417
 85;CERTU;publication;832
-86;CERTU, ETD;publication;86
-87;CERTU, FNAU;publication;313
-88;CESE, CONSEIL ECONOMIQUE, SOCIAL ET ENVIRONNEMENTAL;publication;803
-89;CESE, Conseil économique, socila et environnemental;publication;796
+86;CERTU | ETD;publication;86
+87;CERTU | FNAU;publication;313
+88;CESE | CONSEIL ECONOMIQUE | SOCIAL ET ENVIRONNEMENTAL;publication;803
+89;CESE | Conseil économique | socila et environnemental;publication;796
 90;CESER Aquitaine;publication;777
 91;CGEDD;publication;556
 92;CGET;publication;745
 93;Chambre d'agriculture des Pyrénées-Atlantiques;publication;656
-94;Chantal Callais, Thierry Jeanmonod;publication;802
+94;Chantal Callais | Thierry Jeanmonod;publication;802
 95;Chantal Deckmyn;publication;837
-96;Charles-François Mathis, Emilie-Anne Pépy;publication;772
+96;Charles-François Mathis | Emilie-Anne Pépy;publication;772
 97;Chia-Ling Chien;publication;491
 98;Chloë Voisin-Bormuth;publication;767
-99;Chris Younès, Alain Maugard;publication;725
+99;Chris Younès | Alain Maugard;publication;725
 100;Christian OURY;publication;156
-101;Christian Ragil, Guillaume Colombo, Claude d'Aura, Michael Duarte, Mathias Mary, Bernard Schéou, Jean-Yves Hégron, Hermine de Saint Albin, Mariannig Ferrari, Alexandra Origet du Cluzeau, Serge Duriavig, Matthieu Laverne;publication;302
+101;Christian Ragil | Guillaume Colombo | Claude d'Aura | Michael Duarte | Mathias Mary | Bernard Schéou | Jean-Yves Hégron | Hermine de Saint Albin | Mariannig Ferrari | Alexandra Origet du Cluzeau | Serge Duriavig | Matthieu Laverne;publication;302
 102;Christine et Michel Péna;publication;675
 103;Christophe Beckerich;publication;501
-104;Christophe Delmar, Anne-Sylvie Bruel;publication;723
-105;Christopher de Laburthe, Vincent Wisner;publication;75
+104;Christophe Delmar | Anne-Sylvie Bruel;publication;723
+105;Christopher de Laburthe | Vincent Wisner;publication;75
 106;Cistude Nature et LPO Aquitaine;publication;690
 107;Cité de l'Architecture et du Patrimoine;publication;107
-108;Claude Augris, Nathalie Caill-Milly, Marie-Noëlle de Casamajor;publication;23
-109;Claude LACOUR, Evelyne PERRIN, Nicole ROUSIER;publication;335
+108;Claude Augris | Nathalie Caill-Milly | Marie-Noëlle de Casamajor;publication;23
+109;Claude LACOUR | Evelyne PERRIN | Nicole ROUSIER;publication;335
 110;CNFPT;publication;443
 111;Comité de bassin Adour-Garonne;publication;384
 112;Commissariat général au developpement durable;publication;82
@@ -136,7 +136,7 @@
 135;David Mangin;publication;431
 136;DDTM/ORECCA;publication;401
 137;Délégation interministerielle à l'aménagement et à la compétitivité des territoires (DIACT);publication;342
-138;Delphine Désveaux, Véronique Siron;publication;146
+138;Delphine Désveaux | Véronique Siron;publication;146
 139;DGALN;publication;346
 140;DIACT;publication;95
 141;Diagonal;publication;775
@@ -144,10 +144,10 @@
 143;Didier Cornuel;publication;273
 144;Didier Lapeyronnie;publication;87
 145;Didier Tcherkachine et Franck Dupessey;publication;753
-146;Direction de l'Urbanisme, Ville de Grenoble;publication;175
-147;Direction générale de l'aménagement, du logement et de la nature;publication;408
+146;Direction de l'Urbanisme | Ville de Grenoble;publication;175
+147;Direction générale de l'aménagement | du logement et de la nature;publication;408
 148;Dolores Thion Soriano-Mollà et Rosa de Diego;publication;502
-149;Dominique Bidot-Germa, Cécile Devos, Christine Juliat ;publication;645
+149;Dominique Bidot-Germa | Cécile Devos | Christine Juliat ;publication;645
 150;DREAL Aquitaine;publication;252
 151;DREAL Midi-Pyrénées;publication;89
 152;Ecole Nationale sSupérieure de Paysage;publication;844
@@ -155,26 +155,26 @@
 154;eke icb;publication;637
 155;Emmanuel Jalbert;publication;716
 156;Emmanuel roux et Grégoire Feyt;publication;126
-157;Emre Korsu, Marie-Hélène Massot, Jean-Pierre Orfeuil;publication;120
+157;Emre Korsu | Marie-Hélène Massot | Jean-Pierre Orfeuil;publication;120
 158;EPFL;publication;536
-159;EPFL, SAFER;publication;592
+159;EPFL | SAFER;publication;592
 160;EPFL Béarn Pyrénées;publication;618
 161;Eric Charmes;publication;708
-162;Eric Charmes, Taoufik Souami;publication;25
-163;Eric Verdeil, atelier de cartographie de Sciences Po;publication;836
+162;Eric Charmes | Taoufik Souami;publication;25
+163;Eric Verdeil | atelier de cartographie de Sciences Po;publication;836
 164;Espaces Naturels Régionaux Nord-Pas de Calais;publication;233
 165;Espaces tourisme et loisirs;publication;800
 166;Esri France;publication;458
 167;Etat;publication;247
 168;ETD;publication;405
-169;EUSKO JAURLARITZA, GOBIERNO VASCO;publication;845
+169;EUSKO JAURLARITZA | GOBIERNO VASCO;publication;845
 170;Fabienne Keller;publication;19
-171;Fanch, Josiane et Denis Ruellan;publication;575
+171;Fanch | Josiane et Denis Ruellan;publication;575
 172;Florence Mercier;publication;677
 173;Florian Muzard et Sylvain Allemand;publication;707
 174;FNAU;publication;840
-175;FNAU, AFD;publication;569
-176;FNAU, AURAN;publication;347
+175;FNAU | AFD;publication;569
+176;FNAU | AURAN;publication;347
 177;FNAUT;publication;310
 178;Fondation Abbé Pierre;publication;814
 179;Fondation Nicolas Hulot;publication;391
@@ -183,31 +183,31 @@
 182;Franck Gintrand;publication;699
 183;François Ascher;publication;478
 184;François de Singly;publication;306
-185;François Gemenne, Aleksandar Rankovic ;publication;785
+185;François Gemenne | Aleksandar Rankovic ;publication;785
 186;François Grether;publication;187
 187;François Mancebo;publication;339
-188;François-Xavier ROUSSEL, Dominique SCHAUSS;publication;243
+188;François-Xavier ROUSSEL | Dominique SCHAUSS;publication;243
 189;Françoise LE GUERN;publication;359
-190;Françoise Rouxel, Dominique Rist;publication;240
+190;Françoise Rouxel | Dominique Rist;publication;240
 191;Frédéric Bonnet;publication;390
 192;Frédéric Saunier;publication;28
 193;GART;publication;455
 194;GAYON Benjamin;publication;7
 195;Gérard Pénot & associés;publication;722
-196;Gérard Pénot, Ariella Masboungi;publication;469
+196;Gérard Pénot | Ariella Masboungi;publication;469
 197;Gilles Rey-GIRAUD;publication;192
 198;GIP Littoral Aquitain;publication;517
-199;Groupement de recherche sur les institutions et le droit de l'aménagement, de l'urbanisme et de l'habitat (Gridauh);publication;194
+199;Groupement de recherche sur les institutions et le droit de l'aménagement | de l'urbanisme et de l'habitat (Gridauh);publication;194
 200;Guy Lalanne;publication;610
-201;Henri Bava, Michel Hoessler, Olivier Philippe;publication;713
-202;Hervé Alexandre, François Cusin, Claire Juillard;publication;250
+201;Henri Bava | Michel Hoessler | Olivier Philippe;publication;713
+202;Hervé Alexandre | François Cusin | Claire Juillard;publication;250
 203;Hervé le Bras;publication;461
-204;Hervé Le Bras, Emmanuel Todd;publication;216
+204;Hervé Le Bras | Emmanuel Todd;publication;216
 205;Hervé LE TREUT;publication;267
 206;IAU;publication;203
 207;IAU Ile-De-France;publication;292
 208;IAU île-de-France;publication;437
-209;IAU Ile-De-France, ORS îdF;publication;370
+209;IAU Ile-De-France | ORS îdF;publication;370
 210;IAU-IDF;publication;351
 211;IGN;publication;740
 212;INFLUENCIA;publication;172
@@ -220,13 +220,13 @@
 219;Isabelle LASTERNAS;publication;161
 220;Ivan Illich;publication;830
 221;Izpegi;publication;710
-222;Jacques Coulon, Linda Leblanc;publication;674
-223;Jacques Lévy, Jean-Nicolas Fauchille, Ana PÛvoas;publication;711
+222;Jacques Coulon | Linda Leblanc;publication;674
+223;Jacques Lévy | Jean-Nicolas Fauchille | Ana PÛvoas;publication;711
 224;Jacques Simon;publication;672
-225;Jacques THEYS, Eric VIDALENC;publication;377
+225;Jacques THEYS | Eric VIDALENC;publication;377
 226;Jean Attali;publication;595
 227;Jean Cabanel;publication;669
-228;Jean Pluvinage, Xavier Guiomar, Valérie Rosenwald, Jean-Pierre Boinon;publication;303
+228;Jean Pluvinage | Xavier Guiomar | Valérie Rosenwald | Jean-Pierre Boinon;publication;303
 229;Jean Ruegg;publication;500
 230;Jean Viard;publication;809
 231;Jean-Claude Driant;publication;94
@@ -236,7 +236,7 @@
 235;Jean-Luc Marchal;publication;45
 236;Jean-Marc Bouillon;publication;715
 237;Jean-Marc Gaulier;publication;718
-238;Jean-Marc Offner, Olivier Gerstlé;publication;147
+238;Jean-Marc Offner | Olivier Gerstlé;publication;147
 239;Jean-Marc POUPARD;publication;338
 240;Jean-Paul Lacaze;publication;497
 241;Jean-Pierre COUWENBERGH;publication;154
@@ -249,19 +249,19 @@
 248;Joseph Nogaret;publication;604
 249;Julien DAMON;publication;337
 250;Julien Fosse;publication;755
-251;Juliette Bailly-Maître, Roman Gallais;publication;720
+251;Juliette Bailly-Maître | Roman Gallais;publication;720
 252;L'Anton Jean_Marc;publication;673
 253;La 27e Région;publication;730
 254;La DépÍche du Midi;publication;36
 255;La Gazette des communes;publication;106
 256;La République des Pyrénées;publication;682
-257;La République des Pyrénées, L'ECLAIR;publication;465
-258;La République des Pyrénées, SUD OUEST, L'ECLAIR;publication;466
+257;La République des Pyrénées | L'ECLAIR;publication;465
+258;La République des Pyrénées | SUD OUEST | L'ECLAIR;publication;466
 259;La revue urbanisme;publication;795
 260;Lauburu;publication;841
 261;Laurence MONNET;publication;157
 262;Laurent DAVEZIES;publication;558
-263;Laurent Davezies, Thierry Pech;publication;360
+263;Laurent Davezies | Thierry Pech;publication;360
 264;Laurent Théry;publication;483
 265;Le COL;publication;584
 266;Le Courrier du CNRS;publication;507
@@ -269,40 +269,40 @@
 268;Le District BAYONNE ANGLET BIARRITZ;publication;435
 269;Le Moniteir;publication;827
 270;Le Moniteur;publication;625
-271;Le Moniteur, L'Usine Nouvelle, La Gazette des Communes, L'Usine Digitale;publication;839
+271;Le Moniteur | L'Usine Nouvelle | La Gazette des Communes | L'Usine Digitale;publication;839
 272;Les ateliers maîtrise d'úuvre urbaine;publication;774
 273;Les entretiens d'INXAUSETA;publication;834
 274;Lionel KERDOMMAREC (Insee),Stéphane BOIS (Pôle métropolitain Nantes Saint-Nazaire),Patrick PAILLOUX (Auran);publication;109
 275;Lionel Rougé;publication;268
-276;Louise Haran, Mathieu Garnier;publication;759
-277;Ludovic Bu, Marc Fontanès, Olivier Razemon;publication;124
-278;Ludovic Halbert, Patricia Cicille, Céline Rozenblat;publication;315
-279;Ludovic Halbert, Patricia Cicille, Denise Pumain, Céline Rozenblat;publication;70
+276;Louise Haran | Mathieu Garnier;publication;759
+277;Ludovic Bu | Marc Fontanès | Olivier Razemon;publication;124
+278;Ludovic Halbert | Patricia Cicille | Céline Rozenblat;publication;315
+279;Ludovic Halbert | Patricia Cicille | Denise Pumain | Céline Rozenblat;publication;70
 280;Manex Goyhenetche;publication;488
 281;Marc Wiel;publication;655
 282;Maria Gravari-Barbas;publication;416
-283;Marie Delaplace, Gwendal Simon;publication;658
+283;Marie Delaplace | Gwendal Simon;publication;658
 284;Marie-Hélène Massot;publication;325
-285;Marius Thériault, François Des Rosiers;publication;632
+285;Marius Thériault | François Des Rosiers;publication;632
 286;Martin VANIER;publication;444
 287;Maryvonne BONNARD;publication;329
-288;Masboungi Ariella, Raphaël Crespin, Sylvie Groueff;publication;163
-289;Massimo BRICOCALI, Paola SAVOLDI;publication;324
-290;Maurice BASLE, Jérôme DUPUIS, Sylviane LE GUYADER;publication;101
+288;Masboungi Ariella | Raphaël Crespin | Sylvie Groueff;publication;163
+289;Massimo BRICOCALI | Paola SAVOLDI;publication;324
+290;Maurice BASLE | Jérôme DUPUIS | Sylviane LE GUYADER;publication;101
 291;MEDDTL;publication;63
-292;Mélanie BABES, Régis BIGOT, Sandra HOIBIAN;publication;71
+292;Mélanie BABES | Régis BIGOT | Sandra HOIBIAN;publication;71
 293;Michel Chiappero;publication;93
-294;Michel Garicoix, Philippe Velche;publication;786
+294;Michel Garicoix | Philippe Velche;publication;786
 295;Michel JALLAS;publication;77
 296;Michel Kotas;publication;330
 297;Michel Savy;publication;304
 298;Michèle LARUÀ-CHARLUS;publication;182
-299;Ministère de l'écologie, du Développement durable et de l'Energie;publication;398
+299;Ministère de l'écologie | du Développement durable et de l'Energie;publication;398
 300;Ministère de l'égalité des territoires et du Logement;publication;180
 301;Ministère de l'égalité des Territoires et du Logement;publication;258
-302;Ministère de l'égalité des Territoires et du Logement / Ministère de l'…cologie, du Développement Durable et de l'…nergie;publication;279
-303;Ministère de líEquipement des Transports, de líAménagement du Territoire, du Tourisme et de la Mer (France), Ministerio de Fomento (Espagne);publication;76
-304;Ministère des transports, de l'équipement, du tourisme et de la mer, Conseil général des ponts et chaussées;publication;244
+302;Ministère de l'égalité des Territoires et du Logement / Ministère de l'…cologie | du Développement Durable et de l'…nergie;publication;279
+303;Ministère de líEquipement des Transports | de líAménagement du Territoire | du Tourisme et de la Mer (France) | Ministerio de Fomento (Espagne);publication;76
+304;Ministère des transports | de l'équipement | du tourisme et de la mer | Conseil général des ponts et chaussées;publication;244
 305;Ministère du logement et de l'égalité des territoires;publication;552
 306;Ministère du logement et de l'habitat durable;publication;634
 307;MIQCP;publication;769
@@ -310,11 +310,11 @@
 309;Monique Larran et Raymond Chabaud;publication;489
 310;Morel Delaigue Paysagistes;publication;34
 311;MOT;publication;317
-312;Nathalie Blanc, Philippe Clergeau;publication;230
+312;Nathalie Blanc | Philippe Clergeau;publication;230
 313;Nathalie Torrejon et Paul Canet;publication;631
-314;Nicolas Lambert, Christine Zanin;publication;783
+314;Nicolas Lambert | Christine Zanin;publication;783
 315;Nicolas OLSZAK-François BENECH-Anna VALLEJO;publication;801
-316;Nicole Mathieu, Yves Guermond;publication;340
+316;Nicole Mathieu | Yves Guermond;publication;340
 317;NOBATEK/INEF4;publication;828
 318;Observatoire franco-espagnol des trafics dans les pyrénées;publication;295
 319;Observatoire Immobilier du Sud-Ouest;publication;605
@@ -349,11 +349,11 @@
 348;PQA;publication;485
 349;Préfecture de la Région Midi-Pyrénées;publication;387
 350;PULSE;publication;744
-351;Rébecca Gallardo, Cristina Garcez;publication;309
+351;Rébecca Gallardo | Cristina Garcez;publication;309
 352;REDVERT EUROCITE BASQUE;publication;433
 353;REGION AQUITAINE;publication;475
 354;Région Aquitaine;publication;516
-355;Région Aquitaine, Dreal Aquitaine;publication;421
+355;Région Aquitaine | Dreal Aquitaine;publication;421
 356;Région Nouvelle-Aquitaine;publication;666
 357;Rémi Janin;publication;649
 358;Rennes Métropole;publication;197
@@ -363,10 +363,10 @@
 362;RFSC;publication;57
 363;Richard Sennett;publication;816
 364;Rob Hopkins;publication;842
-365;Robin Rivaton, Vincent Pavanello;publication;765
+365;Robin Rivaton | Vincent Pavanello;publication;765
 366;SAFER;publication;225
-367;Sandra HOIBIAN, avec la collaboration de Thibault Briera, Patricia Croutte, Romain Gauthier, Pauline Jauneau-Cottet, Jorg Muller;publication;797
-368;Sandrine Berroir, Nadine Cattan, Marianne Guérois, Fabien Paulus, Céline Vacchiani-Marcuzzo;publication;72
+367;Sandra HOIBIAN | avec la collaboration de Thibault Briera | Patricia Croutte | Romain Gauthier | Pauline Jauneau-Cottet | Jorg Muller;publication;797
+368;Sandrine Berroir | Nadine Cattan | Marianne Guérois | Fabien Paulus | Céline Vacchiani-Marcuzzo;publication;72
 369;Sciences humaines;publication;807
 370;Sénat;publication;532
 371;Silvie FOL;publication;799
@@ -392,7 +392,7 @@
 391;Tisséo-SMTC;publication;44
 392;Traits d'agence;publication;585
 393;Traits urbains;publication;599
-394;Traverses architecture et urbanisme, Lortie et Schall, Atelier de paysage BKM, Atis Conseil, Agence AVEC;publication;110
+394;Traverses architecture et urbanisme | Lortie et Schall | Atelier de paysage BKM | Atis Conseil | Agence AVEC;publication;110
 395;UNICEM;publication;743
 396;Unicem Aquitaine;publication;112
 397;Union Régionale Hlm en Nouvelle-Aquitaine;publication;766
@@ -405,13 +405,13 @@
 404;Ville de Stockholm;publication;181
 405;Villes et Pays d'Art et d'Histoire;publication;454
 406;Vincent Bénard;publication;184
-407;Vincent BONNEFOY, Laurence COCHET (Insee), Patrick PAILLOUX, Cécile MICHAUT (Auran);publication;205
+407;Vincent BONNEFOY | Laurence COCHET (Insee) | Patrick PAILLOUX | Cécile MICHAUT (Auran);publication;205
 408;Vincent Bradel;publication;679
 409;Vincent Caumont;publication;355
 410;VTIF;publication;463
 411;Wenyi Zhou et Pierre Chambon;publication;668
 412;Yann Sinic;publication;128
-413;Yoan Ollivier, Romain Beaucher;publication;788
+413;Yoan Ollivier | Romain Beaucher;publication;788
 414;Yves Lacoste;publication;487
 415;ETCHARREN Maité;notice;845
 416;CARRIZO Amélie;notice;832

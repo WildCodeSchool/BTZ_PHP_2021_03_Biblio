@@ -20,12 +20,11 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
             echo $i;
             if ($i > 0) {
                 $data =  explode(";", $data[0]);
-                // var_dump($data);
                 $publication = new Publication();
                 // $slug = $this->slugify->generate($data[0]);
                 // $publication->setSlug($slug);
-                echo '-----' . $i . "----";
-                var_dump($data);
+                // echo '-----' . $i . "----";
+                // var_dump($data);
                 $datePub = str_replace('/', '-', $data[7]);
                 $datePub =  date('Y-m-d', strtotime($datePub));
                 $datePub = new DateTime($datePub);
@@ -47,6 +46,7 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
                 $publication->setLocalisation($this->getReference('localisation_' . $data[16]));
                 $publication->setCote($data[17]);
                 $publication->setSummary($data[18]);
+                $publication->setAccess('public');
                 $this->addReference('publication_' . $data[0], $publication);
                 $manager->persist($publication);
             }
