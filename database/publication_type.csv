@@ -1,12 +1,12 @@
-id;Type
+﻿id;Type
 1;Actes
 2;Atlas
 3;Bibliographie
 4;Carte
-5;C�d�rom
+5;Cédérom
 6;Charte
 7;Compte-rendu
-8;Congr�s
+8;Congrés
 9;Dossier Documentaire
 10;DvD
 11;Essai
@@ -14,15 +14,15 @@ id;Type
 13;Guide
 14;Monographie
 15;Note d'Analyse
-16;Note de Synth�se
-17;P�riodique
+16;Note de Synthèse
+17;Périodique
 18;Plaquette
 19;Powerpoint
 20;Projet
 21;Publication
 22;Rapport
 23;Recueil
-24;Synth�se
+24;Synthèse
 25;Texte Juridique
-26;Th�se
+26;Thèse
 27;Usuel
