@@ -83,6 +83,11 @@ class User implements UserInterface
      */
     private $borrow;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->borrow = new ArrayCollection();
@@ -190,6 +195,11 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getFullname(): ?string
+    {
+        return $this->getFirstname(). ' ' .$this->getLastname();
+    }
+
     public function getPhone(): ?int
     {
         return $this->phone;
@@ -252,6 +262,18 @@ class User implements UserInterface
                 $borrow->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

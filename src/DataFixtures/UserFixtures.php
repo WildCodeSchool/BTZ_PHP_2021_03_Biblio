@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -10,10 +11,12 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserFixtures extends Fixture
 {
     private $passwordEncoder;
+    private $slugify;
     
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify)
     {
         $this->passwordEncoder = $passwordEncoder;
+        $this->slugify = $slugify;
     }
 
     public function load(ObjectManager $manager)
@@ -27,6 +30,7 @@ class UserFixtures extends Fixture
         $admin->setPassword($this->passwordEncoder->encodePassword($admin,'admin'));
         $admin->setFirstname('admin_firstname');
         $admin->setLastname('admin_lastname');
+        $admin->setSlug('admin_slug');
         $admin->setPhone('0600000000');
         $admin->setAddress('3 rue des Admins 64200 Bayonne');
         $admin->setNewsletter(false);
@@ -42,6 +46,7 @@ class UserFixtures extends Fixture
         $operator->setPassword($this->passwordEncoder->encodePassword($operator,'operator'));
         $operator->setFirstname('operator_firstname');
         $operator->setLastname('operator_lastname');
+        $admin->setSlug('operator_slug');
         $operator->setPhone('0600000000');
         $operator->setAddress('3 rue des Operators 64200 Bayonne');
         $operator->setNewsletter(false);
@@ -57,6 +62,7 @@ class UserFixtures extends Fixture
         $audap_member->setPassword($this->passwordEncoder->encodePassword($audap_member,'member'));
         $audap_member->setFirstname('member_firstname');
         $audap_member->setLastname('member_lastname');
+        $admin->setSlug('operator_slug');
         $audap_member->setPhone('0600000000');
         $audap_member->setAddress('3 rue des Members 64200 Bayonne');
         $audap_member->setNewsletter(true);
@@ -72,6 +78,7 @@ class UserFixtures extends Fixture
         $audap_partner->setPassword($this->passwordEncoder->encodePassword($audap_partner,'partner'));
         $audap_partner->setFirstname('partner_firstname');
         $audap_partner->setLastname('partner_lastname');
+        $admin->setSlug('partner_slug');
         $audap_partner->setPhone('0600000000');
         $audap_partner->setAddress('3 rue des Partners 64200 Bayonne');
         $audap_partner->setNewsletter(false);
@@ -87,6 +94,7 @@ class UserFixtures extends Fixture
         $public->setPassword($this->passwordEncoder->encodePassword($public,'public'));
         $public->setFirstname('public_firstname');
         $public->setLastname('public_lastname');
+        $admin->setSlug('public_slug');
         $public->setPhone('0600000000');
         $public->setAddress('3 rue des Publics 64200 Bayonne');
         $public->setNewsletter(true);
