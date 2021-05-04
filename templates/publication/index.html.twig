@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication index{% endblock %}
+
+{% block body %}
+    <h1>Publication index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Mention</th>
+                <th>Publication_date</th>
+                <th>Paging</th>
+                <th>Volume_number</th>
+                <th>Summary</th>
+                <th>Issn_isbn</th>
+                <th>Support</th>
+                <th>Source_address</th>
+                <th>Url</th>
+                <th>Cote</th>
+                <th>Access</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publication in publications %}
+            <tr>
+                <td>{{ publication.id }}</td>
+                <td>{{ publication.title }}</td>
+                <td>{{ publication.mention }}</td>
+                <td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ publication.paging }}</td>
+                <td>{{ publication.volumeNumber }}</td>
+                <td>{{ publication.summary }}</td>
+                <td>{{ publication.issnIsbn }}</td>
+                <td>{{ publication.support }}</td>
+                <td>{{ publication.sourceAddress }}</td>
+                <td>{{ publication.url }}</td>
+                <td>{{ publication.cote }}</td>
+                <td>{{ publication.access }}</td>
+                <td>
+                    <a href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
+                    <a href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_new') }}">Create new</a>
+{% endblock %}

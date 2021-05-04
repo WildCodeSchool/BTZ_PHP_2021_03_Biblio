@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication{% endblock %}
+
+{% block body %}
+    <h1>Publication</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publication.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ publication.title }}</td>
+            </tr>
+            <tr>
+                <th>Mention</th>
+                <td>{{ publication.mention }}</td>
+            </tr>
+            <tr>
+                <th>Publication_date</th>
+                <td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Paging</th>
+                <td>{{ publication.paging }}</td>
+            </tr>
+            <tr>
+                <th>Volume_number</th>
+                <td>{{ publication.volumeNumber }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ publication.summary }}</td>
+            </tr>
+            <tr>
+                <th>Issn_isbn</th>
+                <td>{{ publication.issnIsbn }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ publication.support }}</td>
+            </tr>
+            <tr>
+                <th>Source_address</th>
+                <td>{{ publication.sourceAddress }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ publication.url }}</td>
+            </tr>
+            <tr>
+                <th>Cote</th>
+                <td>{{ publication.cote }}</td>
+            </tr>
+            <tr>
+                <th>Access</th>
+                <td>{{ publication.access }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_index') }}">back to list</a>
+
+    <a href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+
+    {{ include('publication/_delete_form.html.twig') }}
+{% endblock %}
