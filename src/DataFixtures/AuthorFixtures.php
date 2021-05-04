@@ -25,9 +25,14 @@ class AuthorFixtures extends Fixture
             if ($i > 0) {
                 $data =  explode(";", $data[0]);
                 $author = new Author();
-                $author->setName($data[1]);
-                $author->setAddress($faker->address);
-                // $author->addPublication($this->getReference('publication_' . $data[3]));
+                if (strpos($data[1], '|')) {
+                    $authorNames = explode('|', $data[1]);
+                    $author->setName(trim($authorNames[0]));
+                } else {
+                    $author->setName(trim($data[1]));
+                }
+                
+                // $author->setAddress($faker->address);
                 $this->addReference('author_' . $data[0], $author);
                 $manager->persist($author);
             }

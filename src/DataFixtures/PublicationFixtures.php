@@ -17,7 +17,6 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
         $i = 0;
         foreach ($csvFile as $line) {
             $data = str_getcsv($line);
-            echo $i;
             if ($i > 0) {
                 $data =  explode(";", $data[0]);
                 $publication = new Publication();
@@ -59,6 +58,7 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
+            AuthorFixtures::class,
             PublicationTypeFixtures::class,
             LocalisationFixtures::class,
             ThematicFixtures::class,
