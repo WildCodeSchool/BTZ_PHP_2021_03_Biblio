@@ -3,6 +3,22 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Welcome on your project 3</h1>
-    <img src="https://media.giphy.com/media/hS58Kb2OOCMPS/giphy.gif" alt="Dewey dancing">
+    <section>
+    <div>
+      <!-- Item -->
+      <div class="w-100 h-100 banner-accueil" style="background-image: url({{ asset('build/images/pexels-expect-best-323705.jpg') }});">
+        <div class="container d-flex flex-column">
+          <div class="row align-items-center justify-content-center text-left vh-100">
+            <div class="col-12 col-md-6 col-lg-9 text-white">
+              <h1 class="display-4">Lorem ipsum dolor sit amet</h1>
+              <p class="pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro non ea consectetur.
+                Voluptatibus labore placeat totam aliquid porro maxime magni voluptate, ducimus minima ab impedit beatae
+                omnis ut quis nesciunt?</p>
+              <button type="button" class="btn btn-outline-light mt-4">contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
