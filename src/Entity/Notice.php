@@ -43,7 +43,7 @@ class Notice
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="notices")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
