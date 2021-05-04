@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # grumphp:
 #     tasks:
 #         phpcs:
@@ -10,3 +11,17 @@
 #                 - 'src'
 #             ruleset:
 #                 - 'phpmd.xml'
+=======
+#grumphp:
+#    tasks:
+#        phpcs:
+#            standard: ~
+#        phpstan:
+#            configuration: ./phpstan.neon
+#            level: max
+#        phpmd:
+#            whitelist_patterns:
+#                - 'src'
+#            ruleset:
+#                - 'phpmd.xml'
+>>>>>>> 0713d83f14c005ebb2f50389c432f7686e4cdbf3

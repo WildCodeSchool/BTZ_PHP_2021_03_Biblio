@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\AuthorRepository;
+use App\Repository\EditorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AuthorRepository::class)
+ * @ORM\Entity(repositoryClass=EditorRepository::class)
  */
-class Author
+class Editor
 {
     /**
      * @ORM\Id
@@ -25,23 +25,17 @@ class Author
     private $name;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
-     * @ORM\OneToMany(targetEntity=Notice::class, mappedBy="author")
-     */
-    private $notices;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Publication::class, mappedBy="authors")
+     * @ORM\ManyToMany(targetEntity=Publication::class, mappedBy="editors")
      */
     private $publications;
 
     public function __construct()
     {
-        $this->notices = new ArrayCollection();
         $this->publications = new ArrayCollection();
     }
 
@@ -75,36 +69,6 @@ class Author
     }
 
     /**
-     * @return Collection|Notice[]
-     */
-    public function getNotices(): Collection
-    {
-        return $this->notices;
-    }
-
-    public function addNotice(Notice $notice): self
-    {
-        if (!$this->notices->contains($notice)) {
-            $this->notices[] = $notice;
-            $notice->setAuthor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNotice(Notice $notice): self
-    {
-        if ($this->notices->removeElement($notice)) {
-            // set the owning side to null (unless already changed)
-            if ($notice->getAuthor() === $this) {
-                $notice->setAuthor(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Publication[]
      */
     public function getPublications(): Collection
@@ -116,7 +80,7 @@ class Author
     {
         if (!$this->publications->contains($publication)) {
             $this->publications[] = $publication;
-            $publication->addAuthor($this);
+            $publication->addEditor($this);
         }
 
         return $this;
@@ -125,7 +89,7 @@ class Author
     public function removePublication(Publication $publication): self
     {
         if ($this->publications->removeElement($publication)) {
-            $publication->removeAuthor($this);
+            $publication->removeEditor($this);
         }
 
         return $this;

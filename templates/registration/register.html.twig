@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{# {% form_theme form 'bootstrap_4_layout.html.twig' %} #}
+
+{% block body %}
+         {# TODO FORM error {% for message in app.flashes('notice') %}
+        	<div class="alert alert-info">{{ message }}</div>
+        {% endfor %} #}
+	<div class="formulaire">
+		<h4>Inscription</h4>
+		<br>
+		{{ form_start(form) }}
+		<br>
+		{{ form_row(form.firstname) }}
+		<br>
+		{{ form_row(form.lastname) }}
+		<br>
+		{{ form_row(form.email) }}
+		<br>
+		{{ form_row(form.address) }}
+		<br>
+		{{ form_row(form.phone) }}
+		<br>
+		{{ form_row(form.password) }}
+		<br>
+		{{ form_row(form.newsletter) }}
+		<br>
+		{{ form_row(form.submit) }}
+		<br>
+		{{ form_row(form.slug) }}	
+		{{ form_end(form) }}
+	</div>
+{% endblock %}
