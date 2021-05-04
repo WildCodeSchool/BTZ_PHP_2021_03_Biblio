@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -11,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Un compte est déjà existant avec cette addresse e-mail")
  */
 class User implements UserInterface
 {
@@ -73,9 +74,24 @@ class User implements UserInterface
     private $address;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true, options={"default"=0})
      */
     private $newsletter;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Borrow::class, mappedBy="user")
+     */
+    private $borrow;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    public function __construct()
+    {
+        $this->borrow = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -179,6 +195,11 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getFullname(): ?string
+    {
+        return $this->getFirstname(). ' ' .$this->getLastname();
+    }
+
     public function getPhone(): ?int
     {
         return $this->phone;
@@ -211,6 +232,48 @@ class User implements UserInterface
     public function setNewsletter(bool $newsletter): self
     {
         $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|borrow[]
+     */
+    public function getBorrow(): Collection
+    {
+        return $this->borrow;
+    }
+
+    public function addBorrow(borrow $borrow): self
+    {
+        if (!$this->borrow->contains($borrow)) {
+            $this->borrow[] = $borrow;
+            $borrow->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBorrow(borrow $borrow): self
+    {
+        if ($this->borrow->removeElement($borrow)) {
+            // set the owning side to null (unless already changed)
+            if ($borrow->getUser() === $this) {
+                $borrow->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

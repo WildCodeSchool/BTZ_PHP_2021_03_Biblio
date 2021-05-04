@@ -4,10 +4,13 @@
 /.env.local.php
 /.env.*.local
 /.env
+/grumphp.yml
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
+/.yml/
+/migrations/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -27,5 +30,10 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
-
+/.env
 /grumphp.yml
+<<<<<<< HEAD
+=======
+
+>>>>>>> Anne
+/migrations/

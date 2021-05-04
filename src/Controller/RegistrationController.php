@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthenticator;
+use App\Service\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,33 +26,29 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/inscription", name="register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, UserAuthenticator $authenticator, Slugify $slugify): Response
     {
-        $notification = null;
         
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
+        $form->handleRequest($request); 
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user = $form->getData();
-
-            $search_email = $this->em->getRepository(User::class)->findOneByEmail($user->getEmail);
-
-            if($user->getPassword() != $search_email ){
                 
-                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($password);
-                $this->em->persist($user);
-                $this->em->flush();
-                $this->addFlash('notice', 'Inscription validée');
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+            $fullname = $user->getFirstname().' '.$user->getLastname();
+            $user->setSlug($slugify->generate($fullname));      
+            $user->setRoles(["ROLE_PUBLIC"]);
+            $this->em->persist($user);
+            $this->em->flush();
+            $this->addFlash('notice', 'Inscription validée');
 
-                $guardHandler->authenticateUserAndHandleSuccess($user, $request, $authenticator,'main');
+            $guardHandler->authenticateUserAndHandleSuccess($user, $request, $authenticator,'main');
 
-                return $this->redirectToRoute('home');
-            }
-            
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('registration/register.html.twig', [
