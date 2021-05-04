@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/dashboard", name="admin")
      */
     public function index(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/testContent.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
