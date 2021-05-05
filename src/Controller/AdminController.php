@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AuthorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,10 +12,12 @@ class AdminController extends AbstractController
     /**
      * @Route("/dashboard", name="admin")
      */
-    public function index(): Response
+    public function index(AuthorRepository $authorRepository): Response
     {
-        return $this->render('admin/testContent.html.twig', [
+
+        return $this->render('admin/dashboard/panel.html.twig', [
             'controller_name' => 'AdminController',
+            'authors' => $authorRepository->findAll(),
         ]);
     }
 }
