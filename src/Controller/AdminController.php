@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Keyword;
 use App\Entity\User;
+use App\Form\KeywordType;
 use App\Form\UserType;
 use App\Entity\Thematic;
 use App\Form\ThematicType;
@@ -30,6 +32,7 @@ class AdminController extends AbstractController
     }
 
     ///////////////////// USER /////////////////////
+
     /**
      * @Route("/admin/utilisateurs", name="user_list", methods={"GET"})
      */
