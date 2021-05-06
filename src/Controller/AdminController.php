@@ -36,9 +36,9 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs/creation", name="user_new", methods={"GET","POST"})
+     * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function userAdd(Request $request): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
