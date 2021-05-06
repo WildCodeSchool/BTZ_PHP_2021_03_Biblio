@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Keyword;
 use App\Entity\User;
+use App\Form\KeywordType;
 use App\Form\UserType;
-use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
+use App\Repository\KeywordRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-
 
 class AdminController extends AbstractController
 {
@@ -25,6 +27,7 @@ class AdminController extends AbstractController
     }
 
     ///////////////////// USER /////////////////////
+
     /**
      * @Route("/admin/utilisateurs", name="user_list", methods={"GET"})
      */
@@ -36,9 +39,9 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs/creation", name="user_new", methods={"GET","POST"})
+     * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function userAdd(Request $request): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -61,7 +64,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/utilisateur/{id}", name="user_show", methods={"GET"})
      */
-    public function show(User $user): Response
+    public function userShow(User $user): Response
     {
         return $this->render('/admin/user/show.html.twig', [
             'user' => $user,
@@ -71,7 +74,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/utilisateur/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function userEdit(Request $request, User $user): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -91,7 +94,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, User $user): Response
+    public function userDelete(Request $request, User $user): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -104,4 +107,84 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////KEYWORD/////////////////////////////////////////////
+
+    /**
+     * @Route("/admin/keyword", name="keyword_list", methods={"GET"})
+     */
+    public function keywordList(KeywordRepository $keywordRepository): Response
+    {
+        return $this->render('/admin/keyword/index.html.twig', [
+            'keywords' => $keywordRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword/creation", name="keyword_add", methods={"GET","POST"})
+     */
+    public function keywordAdd(Request $request): Response
+    {
+        $keyword = new Keyword();
+        $form = $this->createForm(KeywordType::class, $keyword);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($keyword);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('keyword_list');
+        }
+
+        return $this->render('/admin/keyword/new.html.twig', [
+            'keyword' => $keyword,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword/{id}", name="keyword_show", methods={"GET"})
+     */
+    public function keywordShow(Keyword $keyword): Response
+    {
+        return $this->render('/admin/keyword/show.html.twig', [
+            'keyword' => $keyword,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword/{id}/edit", name="keyword_edit", methods={"GET","POST"})
+     */
+    public function keywordEdit(Request $request, Keyword $keyword): Response
+    {
+        $form = $this->createForm(KeywordType::class, $keyword);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('keyword_list');
+        }
+
+        return $this->render('/admin/keyword/edit.html.twig', [
+            'keyword' => $keyword,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="keyword_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Keyword $keyword): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$keyword->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($keyword);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('keyword_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
 }
