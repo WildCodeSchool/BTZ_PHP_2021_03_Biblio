@@ -1,6 +1,7 @@
 {
     "devDependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "@symfony/webpack-encore": "^0.31.0",
         "bootstrap": "^4.6.0",
         "core-js": "^3.0.0",
@@ -11,6 +12,8 @@
         "eslint-plugin-react": "^7.21.5",
         "node-sass": "^5.0.0",
 =======
+=======
+>>>>>>> e75419a5a32bfa624a53650a2cf6784a2f4079a0
         "@fortawesome/fontawesome-free": "^5.15.3",
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.2.0",
@@ -18,7 +21,10 @@
         "core-js": "^3.0.0",
         "jquery": "^3.6.0",
         "node-sass": "^4.0.0",
+<<<<<<< HEAD
 >>>>>>> 23f2af0ec00f29394a423f82a19da78036a70d92
+=======
+>>>>>>> e75419a5a32bfa624a53650a2cf6784a2f4079a0
         "popper.js": "^1.16.1",
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.32.8",
