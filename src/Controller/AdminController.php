@@ -24,7 +24,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    /** USER  */
+    ///////////////////// USER /////////////////////
     /**
      * @Route("/admin/utilisateurs", name="user_list", methods={"GET"})
      */
@@ -101,4 +101,7 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('user_list');
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
 }
