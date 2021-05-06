@@ -10,12 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="admin")
+     * @Route("/admin", name="admin")
      */
     public function index(AuthorRepository $authorRepository): Response
     {
         return $this->render('admin/dashboard/panel.html.twig', [
-            'controller_name' => 'AdminController',
             'authors' => $authorRepository->findAll(),
         ]);
     }
