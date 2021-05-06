@@ -1,6 +1,13 @@
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+@import "admin.scss";
+
 @import 'variables.scss';
 
+
 body {
+<<<<<<< HEAD
     background-color: $wild-color;
     color: $light-color;
 }
@@ -10283,4 +10290,8 @@ body {
 }
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
+=======
+  // background-color: $wild-color;
+  // color: $light-color;
+>>>>>>> 23f2af0ec00f29394a423f82a19da78036a70d92
 }
