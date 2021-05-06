@@ -20,4 +20,5 @@ class AdminController extends AbstractController
             'authors' => $authorRepository->findAll(),
         ]);
     }
+    
 }
