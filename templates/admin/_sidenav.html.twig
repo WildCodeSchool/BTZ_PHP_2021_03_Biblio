@@ -2,9 +2,10 @@
 	<div class="sb-sidenav-menu">
 		<div class="nav">
 			<div class="sb-sidenav-menu-heading">Core</div>
-			<a class="nav-link" href="index.html">
+			<a class="nav-link" href="{{ path('admin') }}">
 				<div class="sb-nav-link-icon">
-					<i class="fas fa-tachometer-alt"></i>
+					<i class="fas fa-tachometer-alt"></i>				
+					Dashboard
 				</div>
 			</a>
 			<div class="sb-sidenav-menu-heading">Gestion des oeuvres</div>
@@ -19,15 +20,16 @@
 			</a>
 			<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 				<nav class="sb-sidenav-menu-nested nav">
-					<a class="nav-link" href="layout-static.html">Thématique</a>
-					<a class="nav-link" href="layout-sidenav-light.html">Auteurs</a>
-					<a class="nav-link" href="layout-sidenav-light.html">Notice</a>
-					<a class="nav-link" href="layout-sidenav-light.html">Publication</a>
-					<a class="nav-link" href="layout-sidenav-light.html">Languages</a>
+					<a class="nav-link" href="{{ path('thematic_list')}}">Thématique</a>
+					<a class="nav-link" href="TODO">Auteurs</a>
+					<a class="nav-link" href="TODO">Notice</a>
+					<a class="nav-link" href="TODO">Publication</a>
+					<a class="nav-link" href="TODO">Languages</a>
+					<a class="nav-link" href=" {{ path('localisation_list') }}">Localisation</a>
 				</nav>
 			</div>
 			<div class="sb-sidenav-menu-heading">Gestion des utilisateurs</div>
-			<a class="nav-link collapsed" href="#"  aria-expanded="false" aria-controls="collapsePages">
+			<a class="nav-link collapsed" href="{{ path('user_list') }}"  aria-expanded="false" aria-controls="collapsePages">
 				<div class="sb-nav-link-icon">
 					<i class="fas fa-users"></i>
 				</div>
@@ -51,6 +53,7 @@
 	</div>
 	<div class="sb-sidenav-footer">
 		<div class="small">Connecté avec:</div>
+
 		XXX@mail.com
 	</div>
 </nav>

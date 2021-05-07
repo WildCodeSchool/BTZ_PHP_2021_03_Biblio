@@ -9,6 +9,7 @@ use App\Form\UserType;
 use App\Entity\Thematic;
 use App\Form\ThematicType;
 use App\Entity\Localisation;
+use App\Service\Slugify;
 use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\ThematicRepository;
@@ -17,6 +18,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 
 class AdminController extends AbstractController
@@ -46,13 +49,18 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
      */
-    public function userAdd(Request $request): Response
+    public function userAdd(Request $request, UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()) {
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+            $fullname = $user->getFirstname().' '.$user->getLastname();
+            $user->setSlug($slugify->generate($fullname)); 
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -97,7 +105,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/admin/utilisateur/{id}", name="user_delete")
      */
     public function userDelete(Request $request, User $user): Response
     {
@@ -276,6 +284,8 @@ class AdminController extends AbstractController
 
 
     ////////////////////////////////////////////////////////////////////////////////////
+
+    
 
 
 }
