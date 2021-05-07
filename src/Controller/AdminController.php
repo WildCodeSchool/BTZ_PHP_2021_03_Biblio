@@ -9,6 +9,7 @@ use App\Entity\Thematic;
 use App\Entity\User;
 use App\Form\EditorType;
 use App\Form\KeywordType;
+use App\Form\LocalisationType;
 use App\Form\ThematicType;
 use App\Form\UserType;
 use App\Repository\AuthorRepository;
