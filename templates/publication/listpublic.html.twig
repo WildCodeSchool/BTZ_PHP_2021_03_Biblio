@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication index{% endblock %}
+
+{% block body %}
+    <h1>Publication index</h1>
+    {{ include('publication/_formSearch.html.twig', {'button_label': 'Rechercher'}) }}
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Title</th>
+                <th>Type</th>
+                <th>Thématique</th>
+                <th>Publication_date</th>
+                <th>Support</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publication in publications %}
+            <tr>
+                
+                <td>{{ publication.title }}</td>
+                <td>{{ publication.type.name }}</td>
+                <td>{{ publication.thematic.name }}</td>
+                <td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</td>
+                <td>{{ publication.support }}</td>         
+                <td>
+                    <a href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_list') }}">Retour</a>
+{% endblock %}

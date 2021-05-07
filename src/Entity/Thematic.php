@@ -39,6 +39,11 @@ class Thematic
      */
     private $Thesaurus;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cote;
+
     public function __construct()
     {
         $this->publications = new ArrayCollection();
@@ -118,5 +123,17 @@ class Thematic
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getCote(): ?string
+    {
+        return $this->cote;
+    }
+
+    public function setCote(?string $cote): self
+    {
+        $this->cote = $cote;
+
+        return $this;
     }
 }

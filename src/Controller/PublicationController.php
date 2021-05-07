@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Publication;
+use App\Entity\Author;
 use App\Form\PublicationType;
+use App\Form\SearchPublicationFormType;
 use App\Repository\PublicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +24,37 @@ class PublicationController extends AbstractController
     {
         return $this->render('publication/index.html.twig', [
             'publications' => $publicationRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/list", name="publication_list")
+     */
+    public function list(Request $request, PublicationRepository $publicationRepository): Response
+    {
+        $form = $this->createForm(SearchPublicationFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $typeSearch = $form->getData() ['type_search'];
+            $thematicSearch = $form->getData() ['thematic_search'];
+            $authorSearch = $form->getData() ['author_search'];
+            
+            // $keywordSearch = $form->getData() ['keyword_search'];
+            // $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            // $dateStartSearch = $form->getData() ['dateStart_search'];
+            // $dateEndSearch = $form->getData() ['dateEnd_search'];
+            $publications = $publicationRepository->findByCriteria([
+                'type' => $typeSearch,
+                'thematic' => $thematicSearch,
+                'author' => $authorSearch->getName()
+                ]);
+        } else {
+            $publications = $publicationRepository->findAll();
+        }
+        
+        return $this->render('publication/listpublic.html.twig', [
+            'publications' => $publications,
+            'form' => $form->createView(),
         ]);
     }
 
