@@ -197,7 +197,7 @@ class User implements UserInterface
 
     public function getFullname(): ?string
     {
-        return $this->getFirstname(). ' ' .$this->getLastname();
+        return $this->getFirstname() . ' ' . $this->getLastname();
     }
 
     public function getPhone(): ?int
@@ -277,4 +277,9 @@ class User implements UserInterface
 
         return $this;
     }
+
+    // public function __tostring()
+    // {
+    //     return $this->firstname;
+    // }
 }
