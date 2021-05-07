@@ -4,18 +4,25 @@ namespace App\Controller;
 
 use App\Entity\Editor;
 use App\Entity\Keyword;
+use App\Entity\Localisation;
+use App\Entity\Thematic;
 use App\Entity\User;
 use App\Form\EditorType;
 use App\Form\KeywordType;
+use App\Form\ThematicType;
 use App\Form\UserType;
 use App\Repository\AuthorRepository;
 use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
+use App\Repository\LocalisationRepository;
+use App\Repository\ThematicRepository;
 use App\Repository\UserRepository;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminController extends AbstractController
 {
@@ -44,13 +51,18 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
      */
-    public function userAdd(Request $request): Response
+    public function userAdd(Request $request, UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+            $fullname = $user->getFirstname().' '.$user->getLastname();
+            $user->setSlug($slugify->generate($fullname));
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -95,7 +107,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/admin/utilisateur/{id}", name="user_delete")
      */
     public function userDelete(Request $request, User $user): Response
     {
@@ -106,6 +118,168 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('user_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////// THEMATIC /////////////////////
+
+    /**
+     * @Route("/admin/thematic", name="thematic_list", methods={"GET"})
+     */
+    public function thematicList(ThematicRepository $thematicRepository): Response
+    {
+        return $this->render('/admin/thematic/index.html.twig', [
+            'thematics' => $thematicRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/thematic/creation", name="thematic_add", methods={"GET","POST"})
+     */
+    public function thematicAdd(Request $request): Response
+    {
+        $thematic = new Thematic();
+        $form = $this->createForm(ThematicType::class, $thematic);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($thematic);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('thematic_list');
+        }
+
+        return $this->render('/admin/thematic/new.html.twig', [
+            'thematic' => $thematic,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/thematic/{id}", name="thematic_show", methods={"GET"})
+     */
+    public function thematicShow(Thematic $thematic): Response
+    {
+        return $this->render('/admin/thematic/show.html.twig', [
+            'thematic' => $thematic,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/thematic/{id}/edit", name="thematic_edit", methods={"GET","POST"})
+     */
+    public function thematicEdit(Request $request, Thematic $thematic): Response
+    {
+        $form = $this->createForm(ThematicType::class, $thematic);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('thematic_list');
+        }
+
+        return $this->render('/admin/thematic/edit.html.twig', [
+            'thematic' => $thematic,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="thematic_delete", methods={"DELETE"})
+     */
+    public function thematicDelete(Request $request, Thematic $thematic): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$thematic->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($thematic);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('thematic_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////// LOCALISATION /////////////////////
+
+    /**
+     * @Route("/admin/localisation", name="localisation_list", methods={"GET"})
+     */
+    public function localisationList(LocalisationRepository $localisationRepository): Response
+    {
+        return $this->render('/admin/localisation/index.html.twig', [
+            'localisations' => $localisationRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/localisation/creation", name="localisation_add", methods={"GET","POST"})
+     */
+    public function localisationAdd(Request $request): Response
+    {
+        $localisation = new Localisation();
+        $form = $this->createForm(LocalisationType::class, $localisation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($localisation);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('localisation_list');
+        }
+
+        return $this->render('/admin/localisation/new.html.twig', [
+            'localisation' => $localisation,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/localisation/{id}", name="localisation_show", methods={"GET"})
+     */
+    public function show(Localisation $localisation): Response
+    {
+        return $this->render('/admin/localisation/show.html.twig', [
+            'localisation' => $localisation,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/localisation/{id}/edit", name="localisation_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Localisation $localisation): Response
+    {
+        $form = $this->createForm(LocalisationType::class, $localisation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('localisation_list');
+        }
+
+        return $this->render('/admin/localisation/edit.html.twig', [
+            'localisation' => $localisation,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="localisation_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Localisation $localisation): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$localisation->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($localisation);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('localisation_list');
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -178,7 +352,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}", name="keyword_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Keyword $keyword): Response
+    public function keywordDelete(Request $request, Keyword $keyword): Response
     {
         if ($this->isCsrfTokenValid('delete'.$keyword->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

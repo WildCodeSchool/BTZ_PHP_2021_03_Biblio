@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Localisation index
+{% endblock %}
+
+{% block body %}
+	<h1>Localisation index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for localisation in localisations %}
+				<tr>
+					<td>{{ localisation.id }}</td>
+					<td>{{ localisation.name }}</td>
+					<td>
+						<a href="{{ path('localisation_show', {'id': localisation.id}) }}">show</a>
+						<a href="{{ path('localisation_edit', {'id': localisation.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('localisation_add') }}">Create new</a>
+{% endblock %}
