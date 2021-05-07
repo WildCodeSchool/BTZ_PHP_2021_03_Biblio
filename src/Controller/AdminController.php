@@ -52,11 +52,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
      */
-<<<<<<< HEAD
-    public function userAdd(Request $request): Response
-=======
     public function userAdd(Request $request, UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify): Response
->>>>>>> crud-admin
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -440,7 +436,6 @@ class AdminController extends AbstractController
      */
     public function editorDelete(Request $request, Editor $editor): Response
     {
-        var_dump('ts');
         if ($this->isCsrfTokenValid('delete' . $editor->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($editor);
