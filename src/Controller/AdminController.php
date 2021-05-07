@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Editor;
 use App\Entity\Keyword;
 use App\Entity\User;
+use App\Form\EditorType;
 use App\Form\KeywordType;
 use App\Form\UserType;
 use App\Repository\AuthorRepository;
+use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -184,6 +187,88 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('keyword_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////EDITOR///////////////////////////////////////
+
+    /**
+     * @Route("/admin/editor", name="editor_list", methods={"GET"})
+     */
+    public function editorList(EditorRepository $editorRepository): Response
+    {
+        return $this->render('/admin/editor/index.html.twig', [
+            'editors' => $editorRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/creation", name="editor_add", methods={"GET","POST"})
+     */
+    public function editorAdd(Request $request): Response
+    {
+        $editor = new Editor();
+        $form = $this->createForm(EditorType::class, $editor);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($editor);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('editor_list');
+        }
+
+        return $this->render('/admin/editor/new.html.twig', [
+            'editor' => $editor,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/{id}", name="editor_show", methods={"GET"})
+     */
+    public function editorShow(Editor $editor): Response
+    {
+        return $this->render('/admin/editor/show.html.twig', [
+            'editor' => $editor,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/{id}/edit", name="editor_edit", methods={"GET","POST"})
+     */
+    public function editorEdit(Request $request, Editor $editor): Response
+    {
+        $form = $this->createForm(EditorType::class, $editor);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('editor_list');
+        }
+
+        return $this->render('/admin/editor/edit.html.twig', [
+            'editor' => $editor,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/{id}", name="editor_delete", methods={"DELETE"})
+     */
+    public function editorDelete(Request $request, Editor $editor): Response
+    {
+        var_dump('ts');
+        if ($this->isCsrfTokenValid('delete'.$editor->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($editor);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('editor_list');
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
