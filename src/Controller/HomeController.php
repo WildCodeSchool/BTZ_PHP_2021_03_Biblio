@@ -14,7 +14,11 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig');
+        $user = $this->getUser();
+
+        return $this->render('admin/dashboard/layout.html.twig', [
+            'user' => $this->getUser()
+        ]);
     }
 
 }
