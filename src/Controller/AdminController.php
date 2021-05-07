@@ -242,7 +242,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/localisation/{id}", name="localisation_show", methods={"GET"})
      */
-    public function show(Localisation $localisation): Response
+    public function localisationShow(Localisation $localisation): Response
     {
         return $this->render('/admin/localisation/show.html.twig', [
             'localisation' => $localisation,
@@ -252,7 +252,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/localisation/{id}/edit", name="localisation_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Localisation $localisation): Response
+    public function localisationEdit(Request $request, Localisation $localisation): Response
     {
         $form = $this->createForm(LocalisationType::class, $localisation);
         $form->handleRequest($request);
@@ -270,9 +270,9 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="localisation_delete", methods={"DELETE"})
+     * @Route("/admin/localisation/{id}", name="localisation_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Localisation $localisation): Response
+    public function localisationDelete(Request $request, Localisation $localisation): Response
     {
         if ($this->isCsrfTokenValid('delete'.$localisation->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
