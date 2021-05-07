@@ -2,25 +2,28 @@
 
 namespace App\Controller;
 
+use App\Entity\Editor;
 use App\Entity\Keyword;
-use App\Entity\User;
-use App\Form\KeywordType;
-use App\Form\UserType;
-use App\Entity\Thematic;
-use App\Form\ThematicType;
 use App\Entity\Localisation;
-use App\Service\Slugify;
-use App\Repository\UserRepository;
+use App\Entity\Thematic;
+use App\Entity\User;
+use App\Form\EditorType;
+use App\Form\KeywordType;
+use App\Form\LocalisationType;
+use App\Form\ThematicType;
+use App\Form\UserType;
 use App\Repository\AuthorRepository;
-use App\Repository\ThematicRepository;
+use App\Repository\EditorRepository;
+use App\Repository\KeywordRepository;
 use App\Repository\LocalisationRepository;
+use App\Repository\ThematicRepository;
+use App\Repository\UserRepository;
+use App\Service\Slugify;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
-
 
 class AdminController extends AbstractController
 {
@@ -55,11 +58,11 @@ class AdminController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
-            $fullname = $user->getFirstname().' '.$user->getLastname();
-            $user->setSlug($slugify->generate($fullname)); 
+            $fullname = $user->getFirstname() . ' ' . $user->getLastname();
+            $user->setSlug($slugify->generate($fullname));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -119,7 +122,6 @@ class AdminController extends AbstractController
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
-
 
     ///////////////////// THEMATIC /////////////////////
 
@@ -240,7 +242,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/localisation/{id}", name="localisation_show", methods={"GET"})
      */
-    public function show(Localisation $localisation): Response
+    public function localisationShow(Localisation $localisation): Response
     {
         return $this->render('/admin/localisation/show.html.twig', [
             'localisation' => $localisation,
@@ -250,7 +252,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/localisation/{id}/edit", name="localisation_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Localisation $localisation): Response
+    public function localisationEdit(Request $request, Localisation $localisation): Response
     {
         $form = $this->createForm(LocalisationType::class, $localisation);
         $form->handleRequest($request);
@@ -268,9 +270,9 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="localisation_delete", methods={"DELETE"})
+     * @Route("/admin/localisation/{id}", name="localisation_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Localisation $localisation): Response
+    public function localisationDelete(Request $request, Localisation $localisation): Response
     {
         if ($this->isCsrfTokenValid('delete' . $localisation->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -281,11 +283,168 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('localisation_list');
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////KEYWORD/////////////////////////////////////////////
+
+    /**
+     * @Route("/admin/keyword", name="keyword_list", methods={"GET"})
+     */
+    public function keywordList(KeywordRepository $keywordRepository): Response
+    {
+        return $this->render('/admin/keyword/index.html.twig', [
+            'keywords' => $keywordRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword/creation", name="keyword_add", methods={"GET","POST"})
+     */
+    public function keywordAdd(Request $request): Response
+    {
+        $keyword = new Keyword();
+        $form = $this->createForm(KeywordType::class, $keyword);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($keyword);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('keyword_list');
+        }
+
+        return $this->render('/admin/keyword/new.html.twig', [
+            'keyword' => $keyword,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword/{id}", name="keyword_show", methods={"GET"})
+     */
+    public function keywordShow(Keyword $keyword): Response
+    {
+        return $this->render('/admin/keyword/show.html.twig', [
+            'keyword' => $keyword,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword/{id}/edit", name="keyword_edit", methods={"GET","POST"})
+     */
+    public function keywordEdit(Request $request, Keyword $keyword): Response
+    {
+        $form = $this->createForm(KeywordType::class, $keyword);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('keyword_list');
+        }
+
+        return $this->render('/admin/keyword/edit.html.twig', [
+            'keyword' => $keyword,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="keyword_delete", methods={"DELETE"})
+     */
+    public function keywordDelete(Request $request, Keyword $keyword): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $keyword->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($keyword);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('keyword_list');
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    
+    ///////////////////////////////////////EDITOR///////////////////////////////////////
 
+    /**
+     * @Route("/admin/editor", name="editor_list", methods={"GET"})
+     */
+    public function editorList(EditorRepository $editorRepository): Response
+    {
+        return $this->render('/admin/editor/index.html.twig', [
+            'editors' => $editorRepository->findAll(),
+        ]);
+    }
 
+    /**
+     * @Route("/admin/editor/creation", name="editor_add", methods={"GET","POST"})
+     */
+    public function editorAdd(Request $request): Response
+    {
+        $editor = new Editor();
+        $form = $this->createForm(EditorType::class, $editor);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($editor);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('editor_list');
+        }
+
+        return $this->render('/admin/editor/new.html.twig', [
+            'editor' => $editor,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/{id}", name="editor_show", methods={"GET"})
+     */
+    public function editorShow(Editor $editor): Response
+    {
+        return $this->render('/admin/editor/show.html.twig', [
+            'editor' => $editor,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/{id}/edit", name="editor_edit", methods={"GET","POST"})
+     */
+    public function editorEdit(Request $request, Editor $editor): Response
+    {
+        $form = $this->createForm(EditorType::class, $editor);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('editor_list');
+        }
+
+        return $this->render('/admin/editor/edit.html.twig', [
+            'editor' => $editor,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/editor/{id}", name="editor_delete", methods={"DELETE"})
+     */
+    public function editorDelete(Request $request, Editor $editor): Response
+    {
+        var_dump('ts');
+        if ($this->isCsrfTokenValid('delete' . $editor->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($editor);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('editor_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
 }
