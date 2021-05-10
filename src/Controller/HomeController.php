@@ -17,5 +17,14 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig');
     }
 
+    /**
+     * @Route("/all_publications")
+     */
+    public function publications(): Response
+    {
+        return $this->render('home/publications.html.twig');
+    }
+    
+
 }
 
