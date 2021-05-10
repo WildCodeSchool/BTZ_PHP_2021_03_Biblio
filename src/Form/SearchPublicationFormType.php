@@ -5,9 +5,11 @@ namespace App\Form;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\Author;
+use App\Entity\Keyword;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceLabel;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,16 +34,21 @@ class SearchPublicationFormType extends AbstractType
                 'required' => false,
                 'choice_label' => 'name',
             ])
-            ->add('keyword_search', SearchType::class, [
+            ->add('keyword_search', EntityType::class, [
+                'class' => Keyword::class,
+                'required' => false,
+                'choice_label' => 'name',
+            ])
+            ->add('keywordGeo_search', EntityType::class, [
+                'class' => Keyword::class,
+                'required' => false,
+                'choice_label' => 'name',
+            ])
+            ->add('dateStart_search', DateType::class, [
+                'widget' => 'choice',
                 'required' => false,
             ])
-            ->add('keywordGeo_search', SearchType::class, [
-                'required' => false,
-            ])
-            ->add('dateStart_search', SearchType::class, [
-                'required' => false,
-            ])
-            ->add('dateEnd_search', SearchType::class, [
+            ->add('dateEnd_search', DateType::class, [
                 'required' => false,
             ])
         ;

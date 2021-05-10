@@ -38,16 +38,31 @@ class PublicationController extends AbstractController
             $typeSearch = $form->getData() ['type_search'];
             $thematicSearch = $form->getData() ['thematic_search'];
             $authorSearch = $form->getData() ['author_search'];
+            $keywordSearch = $form->getData() ['keyword_search'];
+            $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            $dateStartSearch = $form->getData() ['dateStart_search'];
+            $dateEndSearch = $form->getData() ['dateEnd_search'];
             
-            // $keywordSearch = $form->getData() ['keyword_search'];
-            // $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
-            // $dateStartSearch = $form->getData() ['dateStart_search'];
-            // $dateEndSearch = $form->getData() ['dateEnd_search'];
-            $publications = $publicationRepository->findByCriteria([
-                'type' => $typeSearch,
-                'thematic' => $thematicSearch,
-                'author' => $authorSearch->getName()
-                ]);
+            $tabSearch = [];
+            foreach ($_POST['search_publication_form'] as $key => $value) {
+                if (!empty($value) && $key !== '_token' && $value !== null) {
+                    if ($key === 'keyword_search' || $key === 'author_search') {
+                        $tabSearch[$key] = $form->getData() [$key]->getName();
+                    } else {
+                        $tabSearch[$key] = $form->getData() [$key];
+                    }
+                }
+            };
+            // dd($tabSearch);
+            $publications = $publicationRepository->findByCriteria($tabSearch);
+        // $publications = $publicationRepository->findByCriteria([
+            //     'type' => $typeSearch,
+            //     'thematic' => $thematicSearch,
+            //     'author' => $authorSearch->getName(),
+            //     'keyword' => $keywordSearch,
+            //     'dateStart' => $dateStartSearch,
+            //     'dateEnd' => $dateEndSearch,
+            //     ]);
         } else {
             $publications = $publicationRepository->findAll();
         }
