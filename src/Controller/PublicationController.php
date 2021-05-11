@@ -3,13 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Publication;
+use App\Entity\Author;
 use App\Form\PublicationType;
+use App\Form\SearchPublicationFormType;
 use App\Repository\PublicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Knp\Component\Pager\PaginatorInterface;
 /**
  * @Route("/publication")
  */
@@ -22,6 +24,62 @@ class PublicationController extends AbstractController
     {
         return $this->render('publication/index.html.twig', [
             'publications' => $publicationRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/list", name="publication_list")
+     */
+    public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator): Response
+    {
+        $form = $this->createForm(SearchPublicationFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $typeSearch = $form->getData() ['type_search'];
+            $thematicSearch = $form->getData() ['thematic_search'];
+            $authorSearch = $form->getData() ['author_search'];
+            $keywordSearch = $form->getData() ['keyword_search'];
+            $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            $dateStartSearch = $form->getData() ['dateStart_search'];
+            $dateEndSearch = $form->getData() ['dateEnd_search'];
+            
+            $tabSearch = [];
+            foreach ($_POST['search_publication_form'] as $key => $value) {
+                if (!empty($value) && $key !== '_token' && $value !== null) {
+                    if ($key === 'keyword_search' || $key === 'author_search') {
+                        $tabSearch[$key] = $form->getData() [$key]->getName();
+                    } else {
+                        $tabSearch[$key] = $form->getData() [$key];
+                    }
+                }
+            };
+            // dd($tabSearch);
+            $publications = $publicationRepository->findByCriteria($tabSearch);
+        // $publications = $publicationRepository->findByCriteria([
+            //     'type' => $typeSearch,
+            //     'thematic' => $thematicSearch,
+            //     'author' => $authorSearch->getName(),
+            //     'keyword' => $keywordSearch,
+            //     'dateStart' => $dateStartSearch,
+            //     'dateEnd' => $dateEndSearch,
+            //     ]);
+
+            
+        } else {
+            $publications = $publicationRepository->findAll();
+        }
+
+        $pagination = $paginator->paginate(
+            $publications, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+        
+        return $this->render('publication/listpublic.html.twig', [
+            // 'publications' => $publications,
+            'pagination' => $pagination,
+            'form' => $form->createView(),
         ]);
     }
 

@@ -117,6 +117,22 @@ class Publication
      */
     private $authors;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="publication")
+     */
+    private $keywords;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity=Notice::class, mappedBy="publication")
+     */
+    private $notices;
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
@@ -380,8 +396,80 @@ class Publication
         return $this;
     }
 
+    /**
+         * @return Collection|Keyword[]
+         */
+    public function getKeywords(): Collection
+    {
+        return $this->keywords;
+    }
+
+    public function addKeyword(Keyword $keyword): self
+    {
+        if (!$this->keywords->contains($keyword)) {
+            $this->keywords[] = $keyword;
+            $keyword->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeyword(Keyword $keyword): self
+    {
+        if ($this->keywords->removeElement($keyword)) {
+            // set the owning side to null (unless already changed)
+            if ($keyword->getPublication() === $this) {
+                $keyword->setPublication(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+         * @return Collection|Notice[]
+         */
+    public function getNotice(): Collection
+    {
+        return $this->notices;
+    }
+    
+    public function addNotice(Notice $notice): self
+    {
+        if (!$this->notices->contains($notice)) {
+            $this->notices[] = $notice;
+            $notice->setPublication($this);
+        }
+    
+        return $this;
+    }
+    
+    public function removeNotice(Notice $notice): self
+    {
+        if ($this->notices->removeElement($notice)) {
+            // set the owning side to null (unless already changed)
+            if ($notice->getPublication() === $this) {
+                $notice->setPublication(null);
+            }
+        }
+    
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

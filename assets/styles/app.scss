@@ -1,12 +1,7 @@
-
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import 'spacers.scss';
 @import "admin.scss";
-
 @import 'variables.scss';
-
-
-body {
-  // background-color: $wild-color;
-  // color: $light-color;
-}
+@import 'user_custom.scss';
