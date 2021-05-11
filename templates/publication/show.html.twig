@@ -1,70 +1,161 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Publication{% endblock %} {%
+block body %}
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-5 text-center">
+        <nav
+          class="py-2"
+          style="--bs-breadcrumb-divider: '>'"
+          aria-label="breadcrumb"
+        >
+          <ol class="breadcrumb bg-transparent">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+        </nav>
+        <p>Publication</p>
+        <h1 class="h2">
+          {{ publication.title }}
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
 
-{% block title %}Publication{% endblock %}
+<section>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-12 py-15"
+        style="background-position: center; background-image: url({{
+          asset('build/images/pexels-cottonbro-4861362.jpg')
+        }})"
+      ></div>
+    </div>
+  </div>
+</section>
 
-{% block body %}
-    <h1>Publication</h1>
+<div class="container py-8">
+  <div class="row">
+    <div class="col-12">
+      <!-- Nav -->
+      <div
+        class="
+          nav nav-tabs nav-overflow
+          justify-content-start justify-content-md-center
+          border-bottom
+        "
+      >
+        <a class="nav-link active" data-toggle="tab" href="#descriptionTab">
+          Description
+        </a>
+        <a class="nav-link" data-toggle="tab" href="#sizeTab"> Lorem ipsum </a>
+        <a class="nav-link" data-toggle="tab" href="#shippingTab"> Docs </a>
+      </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ publication.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ publication.title }}</td>
-            </tr>
-            <tr>
-                <th>Mention</th>
-                <td>{{ publication.mention }}</td>
-            </tr>
-            <tr>
-                <th>Publication_date</th>
-                <td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Paging</th>
-                <td>{{ publication.paging }}</td>
-            </tr>
-            <tr>
-                <th>Volume_number</th>
-                <td>{{ publication.volumeNumber }}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
-                <td>{{ publication.summary }}</td>
-            </tr>
-            <tr>
-                <th>Issn_isbn</th>
-                <td>{{ publication.issnIsbn }}</td>
-            </tr>
-            <tr>
-                <th>Support</th>
-                <td>{{ publication.support }}</td>
-            </tr>
-            <tr>
-                <th>Source_address</th>
-                <td>{{ publication.sourceAddress }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ publication.url }}</td>
-            </tr>
-            <tr>
-                <th>Cote</th>
-                <td>{{ publication.cote }}</td>
-            </tr>
-            <tr>
-                <th>Access</th>
-                <td>{{ publication.access }}</td>
-            </tr>
-        </tbody>
-    </table>
+      <!-- Content -->
+      <div class="tab-content">
+        <div class="tab-pane fade active show" id="descriptionTab">
+          <div class="row justify-content-center py-9">
+            <div class="col-12 col-lg-10 col-xl-8">
+              <div class="row">
+                <div class="col-12">
+                  <!-- Text -->
+                  <p>
+                    {{ publication.summary }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="sizeTab">
+          <div class="row justify-content-center py-9">
+            <div class="col-12 col-lg-10 col-xl-8">
+              <div class="row">
+                <div class="col-12">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <span class="strong">ID:</span> {{ publication.id }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Title:</span> {{ publication.title }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Mention:</span>
+                      {{ publication.mention }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Publication_date:</span>
+                      {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Paging:</span>
+                      {{ publication.paging }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Volume_number:</span>
+                      {{ publication.volumeNumber }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Summary:</span>
+                      {{ publication.summary }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Issn_isbn:</span>
+                      {{ publication.issnIsbn }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Support:</span>
+                      {{ publication.volumeNumber }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Volume_number:</span>
+                      {{ publication.support }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Source_address:</span>
+                      {{ publication.sourceAddress }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Url:</span> {{ publication.url }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Cote:</span> {{ publication.cote }}
+                    </li>
+                    <li class="list-group-item">
+                      <span class="strong">Access:</span>
+                      {{ publication.access }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="shippingTab">
+          <div class="row justify-content-center py-9">
+            <div class="col-12 col-lg-10 col-xl-8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <a href="{{ path('publication_index') }}">back to list</a>
+<section class="pb-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <a class="btn btn-outline-success" href="{{ path('publication_index') }}">back to list</a>
 
-    <a href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+        <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
 
-    {{ include('publication/_delete_form.html.twig') }}
+        {{ include("publication/_delete_form.html.twig") }}
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

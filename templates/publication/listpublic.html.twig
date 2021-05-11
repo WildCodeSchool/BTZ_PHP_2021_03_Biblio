@@ -38,7 +38,7 @@ Publications
     <p class="card-text">{{ publication.thematic.name }}</p>
         <p class="card-text">{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</p>
         <p class="card-text">{{ publication.support }}</p>
-    <button class="btn btn-outline-success" href="{{ path('publication_show', {'id': publication.id}) }}">consulter</button>
+    <a class="btn btn-outline-success" href="{{ path('publication_show', {'id': publication.id}) }}">consulter</a>
   </div>
 </div>
 </div>
