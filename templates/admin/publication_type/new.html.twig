@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PublicationType{% endblock %}
+
+{% block body %}
+    <h1>Create new PublicationType</h1>
+
+    {{ include('publication_type/_form.html.twig') }}
+
+    <a href="{{ path('publication_type_index') }}">back to list</a>
+{% endblock %}
