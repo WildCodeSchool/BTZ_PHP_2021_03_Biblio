@@ -35,7 +35,6 @@ class PublicationController extends AbstractController
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()) {
             $typeSearch = $form->getData() ['type_search'];
             $thematicSearch = $form->getData() ['thematic_search'];
