@@ -2,20 +2,37 @@
 
 namespace App\Controller;
 
+use App\Entity\Author;
+use App\Entity\BookCollection;
+use App\Entity\Borrow;
 use App\Entity\Editor;
 use App\Entity\Keyword;
+use App\Entity\Language;
 use App\Entity\Localisation;
+use App\Entity\Notice;
+use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\User;
+use App\Form\AuthorType;
+use App\Form\BookCollectionType;
+use App\Form\BorrowType;
 use App\Form\EditorType;
 use App\Form\KeywordType;
+use App\Form\LanguageType;
 use App\Form\LocalisationType;
+use App\Form\NoticeType;
+use App\Form\PublicationTypeType;
 use App\Form\ThematicType;
 use App\Form\UserType;
 use App\Repository\AuthorRepository;
+use App\Repository\BookCollectionRepository;
+use App\Repository\BorrowRepository;
 use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
+use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
+use App\Repository\NoticeRepository;
+use App\Repository\PublicationTypeRepository;
 use App\Repository\ThematicRepository;
 use App\Repository\UserRepository;
 use App\Service\Slugify;
@@ -444,6 +461,489 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('editor_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////BOOK COLLECTION//////////////////////////////////////////
+
+    /**
+     * @Route("/admin/bookcollection", name="book_collection_list", methods={"GET"})
+     */
+    public function bookCollectionList(BookCollectionRepository $bookCollectionRepository): Response
+    {
+        return $this->render('/admin/book_collection/index.html.twig', [
+            'book_collections' => $bookCollectionRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/bookcollection/creation", name="book_collection_add", methods={"GET","POST"})
+     */
+    public function bookCollectionAdd(Request $request): Response
+    {
+        $bookCollection = new BookCollection();
+        $form = $this->createForm(BookCollectionType::class, $bookCollection);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($bookCollection);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('book_collection_list');
+        }
+
+        return $this->render('/admin/book_collection/new.html.twig', [
+            'book_collection' => $bookCollection,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/bookcollection/{id}", name="book_collection_show", methods={"GET"})
+     */
+    public function bookCollectionShow(BookCollection $bookCollection): Response
+    {
+        return $this->render('/admin/book_collection/show.html.twig', [
+            'book_collection' => $bookCollection,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/bookCollection/{id}/edit", name="book_collection_edit", methods={"GET","POST"})
+     */
+    public function bookCollectionEdit(Request $request, BookCollection $bookCollection): Response
+    {
+        $form = $this->createForm(BookCollectionType::class, $bookCollection);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('book_collection_list');
+        }
+
+        return $this->render('/admin/book_collection/edit.html.twig', [
+            'book_collection' => $bookCollection,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/bookCollection/{id}", name="book_collection_delete", methods={"DELETE"})
+     */
+    public function bookCollectionDelete(Request $request, BookCollection $bookCollection): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$bookCollection->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($bookCollection);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('book_collection_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////NOTICE/////////////////////////////////////////
+
+    /**
+     * @Route("/admin/notice", name="notice_list", methods={"GET"})
+     */
+    public function noticeList(NoticeRepository $noticeRepository): Response
+    {
+        return $this->render('/admin/notice/index.html.twig', [
+            'notices' => $noticeRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/notice/creation", name="notice_add", methods={"GET","POST"})
+     */
+    public function noticeAdd(Request $request): Response
+    {
+        $notice = new Notice();
+        $form = $this->createForm(NoticeType::class, $notice);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($notice);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('notice_list');
+        }
+
+        return $this->render('/admin/notice/new.html.twig', [
+            'notice' => $notice,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/notice/{id}", name="notice_show", methods={"GET"})
+     */
+    public function noticeShow(Notice $notice): Response
+    {
+        return $this->render('admin/notice/show.html.twig', [
+            'notice' => $notice,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/notice/{id}/edit", name="notice_edit", methods={"GET","POST"})
+     */
+    public function noticeEdit(Request $request, Notice $notice): Response
+    {
+        $form = $this->createForm(NoticeType::class, $notice);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('notice_list');
+        }
+
+        return $this->render('/admin/notice/edit.html.twig', [
+            'notice' => $notice,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/notice/{id}", name="notice_delete", methods={"DELETE"})
+     */
+    public function noticeDelete(Request $request, Notice $notice): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$notice->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($notice);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('notice_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////PUBLICATION TYPE///////////////////////////////////////
+
+    /**
+     * @Route("/admin/publicationType", name="publication_type_list", methods={"GET"})
+     */
+    public function publicationTypeList(PublicationTypeRepository $publicationTypeRepository): Response
+    {
+        return $this->render('/admin/publication_type/index.html.twig', [
+            'publication_types' => $publicationTypeRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/publicationType/creation", name="publication_type_add", methods={"GET","POST"})
+     */
+    public function publicationTypeAdd(Request $request): Response
+    {
+        $publicationType = new PublicationType();
+        $form = $this->createForm(PublicationTypeType::class, $publicationType);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($publicationType);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('publication_type_list');
+        }
+
+        return $this->render('/admin/publication_type/new.html.twig', [
+            'publication_type' => $publicationType,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/publicationType/{id}", name="publication_type_show", methods={"GET"})
+     */
+    public function publicationTypeShow(PublicationType $publicationType): Response
+    {
+        return $this->render('/admin/publication_type/show.html.twig', [
+            'publication_type' => $publicationType,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/publicationType/{id}/edit", name="publication_type_edit", methods={"GET","POST"})
+     */
+    public function publicationTypeEdit(Request $request, PublicationType $publicationType): Response
+    {
+        $form = $this->createForm(PublicationTypeType::class, $publicationType);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('publication_type_list');
+        }
+
+        return $this->render('/admin/publication_type/edit.html.twig', [
+            'publication_type' => $publicationType,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/publicationType/{id}", name="publication_type_delete", methods={"DELETE"})
+     */
+    public function publicattionTypeDelete(Request $request, PublicationType $publicationType): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$publicationType->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($publicationType);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('publication_type_list');
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    /////////////////////////// LANGUAGE ////////////////////////////////////
+
+    /**
+     * @Route("/admin/language", name="language_list", methods={"GET"})
+     */
+    public function languageList(LanguageRepository $languageRepository): Response
+    {
+        return $this->render('/admin/language/index.html.twig', [
+            'languages' => $languageRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/language/creation", name="language_add", methods={"GET","POST"})
+     */
+    public function languageAdd(Request $request): Response
+    {
+        $language = new Language();
+        $form = $this->createForm(LanguageType::class, $language);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($language);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('language_list');
+        }
+
+        return $this->render('/admin/language/new.html.twig', [
+            'language' => $language,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/language/{id}", name="language_show", methods={"GET"})
+     */
+    public function languageShow(Language $language): Response
+    {
+        return $this->render('/admin/language/show.html.twig', [
+            'language' => $language,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/language/{id}/edit", name="language_edit", methods={"GET","POST"})
+     */
+    public function languageEdit(Request $request, Language $language): Response
+    {
+        $form = $this->createForm(LanguageType::class, $language);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('language_list');
+        }
+
+        return $this->render('/admin/language/edit.html.twig', [
+            'language' => $language,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     *  @Route("/admin/language/{id}", name="language_delete", methods={"DELETE"})
+     */
+    public function LanguageDelete(Request $request, Language $language): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$language->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($language);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('language_list');
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////EMPRUNT//START/////////////////////////////////////////////////////////
+
+    /**
+     * @Route("/admin/emprunt", name="emprunt_list", methods={"GET"})
+     */
+    public function empruntList(BorrowRepository $borrowRepository): Response
+    {
+        return $this->render('/admin/borrow/index.html.twig', [
+            'borrows' => $borrowRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/emprunt/creation", name="emprunt_add", methods={"GET","POST"})
+     */
+    public function empruntAdd(Request $request): Response
+    {
+        $borrow = new Borrow();
+        $form = $this->createForm(BorrowType::class, $borrow);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($borrow);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('emprunt_list');
+        }
+
+        return $this->render('/admin/borrow/new.html.twig', [
+            'borrow' => $borrow,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/emprunt/{id}", name="emprunt_show", methods={"GET"})
+     */
+    public function empruntShow(Borrow $borrow): Response
+    {
+        return $this->render('/admin/borrow/show.html.twig', [
+            'borrow' => $borrow,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/emprunt/{id}/edit", name="emprunt_edit", methods={"GET","POST"})
+     */
+    public function empruntEdit(Request $request, Borrow $borrow): Response
+    {
+        $form = $this->createForm(BorrowType::class, $borrow);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('emprunt_list');
+        }
+
+        return $this->render('/admin/borrow/edit.html.twig', [
+            'borrow' => $borrow,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/emprunt/{id}", name="emprunt_delete", methods={"DELETE"})
+     */
+    public function empruntDelete(Request $request, Borrow $borrow): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$borrow->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($borrow);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('emprunt_list');
+    }
+
+    //////////////////////////EMPRUNT END/////////////////////////////////////////////
+
+    //////////////////////////AUTEUR START///////////////////////////////////////////////
+
+    /**
+     * @Route("/admin/auteur", name="auteur_list", methods={"GET"})
+     */
+    public function auteurList(AuthorRepository $authorRepository): Response
+    {
+        return $this->render('/admin/author/index.html.twig', [
+            'authors' => $authorRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/auteur/creation", name="auteur_add", methods={"GET","POST"})
+     */
+    public function auteurAdd(Request $request): Response
+    {
+        $author = new Author();
+        $form = $this->createForm(AuthorType::class, $author);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($author);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('auteur_list');
+        }
+
+        return $this->render('/admin/author/new.html.twig', [
+            'author' => $author,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/auteur/{id}", name="auteur_show", methods={"GET"})
+     */
+    public function auteurShow(Author $author): Response
+    {
+        return $this->render('/admin/author/show.html.twig', [
+            'author' => $author,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="author_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Author $author): Response
+    {
+        $form = $this->createForm(AuthorType::class, $author);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('author_index');
+        }
+
+        return $this->render('/admin/author/edit.html.twig', [
+            'author' => $author,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/auteur/{id}", name="auteur_delete", methods={"DELETE"})
+     */
+    public function auteurDelete(Request $request, Author $author): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$author->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($author);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('auteur_list');
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
