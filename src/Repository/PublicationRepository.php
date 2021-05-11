@@ -8,6 +8,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Validator\Constraints\Date;
 
+
 /**
  * @method Publication|null find($id, $lockMode = null, $lockVersion = null)
  * @method Publication|null findOneBy(array $criteria, array $orderBy = null)
@@ -61,6 +62,17 @@ class PublicationRepository extends ServiceEntityRepository
         return $kb->getQuery()->getResult();
         
         
+        // $paginator = new PaginatorInterface();
+        // $request = new Request();
+        // $pagination = $paginator->paginate(
+        //     $kb, /* query NOT result */
+        //     $request->query->getInt('page', 1), /*page number*/
+        //     10 /*limit per page*/
+        // );
+
+        // return $pagination;
+
+    
 
         // return $this->createQueryBuilder('p')
         //     // ->Join('p.keywords', 'k')
