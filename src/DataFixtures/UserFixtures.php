@@ -6,13 +6,14 @@ use App\Entity\User;
 use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Faker;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
     private $passwordEncoder;
     private $slugify;
-    
+
     public function __construct(UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify)
     {
         $this->passwordEncoder = $passwordEncoder;
@@ -22,14 +23,15 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         /**
-         * Admin
+         * Admin.
          */
+        $faker = Faker\Factory::create('us_US');
         $admin = new User();
         $admin->setEmail('admin@yopmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setPassword($this->passwordEncoder->encodePassword($admin,'admin'));
-        $admin->setFirstname('admin_firstname');
-        $admin->setLastname('admin_lastname');
+        $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'admin'));
+        $admin->setFirstname($faker->firstName);
+        $admin->setLastname($faker->lastName);
         $admin->setPhone('0600000000');
         $admin->setAddress('3 rue des Admins 64200 Bayonne');
         $admin->setNewsletter(false);
@@ -38,14 +40,14 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         /**
-         * Opérateur d'édition
+         * Opérateur d'édition.
          */
         $operator = new User();
         $operator->setEmail('operator@yopmail.com');
         $operator->setRoles(['ROLE_OPERATOR']);
-        $operator->setPassword($this->passwordEncoder->encodePassword($operator,'operator'));
-        $operator->setFirstname('operator_firstname');
-        $operator->setLastname('operator_lastname');
+        $operator->setPassword($this->passwordEncoder->encodePassword($operator, 'operator'));
+        $operator->setFirstname($faker->firstName);
+        $operator->setLastname($faker->lastName);
         $operator->setPhone('0600000000');
         $operator->setAddress('3 rue des Operators 64200 Bayonne');
         $operator->setNewsletter(false);
@@ -54,14 +56,14 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         /**
-         * Membres équipe Audap
+         * Membres équipe Audap.
          */
         $audap_member = new User();
         $audap_member->setEmail('member@yopmail.com');
         $audap_member->setRoles(['ROLE_AUDAP_MEMBER']);
-        $audap_member->setPassword($this->passwordEncoder->encodePassword($audap_member,'member'));
-        $audap_member->setFirstname('member_firstname');
-        $audap_member->setLastname('member_lastname');
+        $audap_member->setPassword($this->passwordEncoder->encodePassword($audap_member, 'member'));
+        $audap_member->setFirstname($faker->firstName);
+        $audap_member->setLastname($faker->lastName);
         $audap_member->setSlug($this->slugify->generate('equipe-audap-slug'));
         $audap_member->setPhone('0600000000');
         $audap_member->setAddress('3 rue des Members 64200 Bayonne');
@@ -71,14 +73,14 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         /**
-         * Partenaire Audap
+         * Partenaire Audap.
          */
         $audap_partner = new User();
         $audap_partner->setEmail('partner@yopmail.com');
         $audap_partner->setRoles(['ROLE_AUDAP_PARTNER']);
-        $audap_partner->setPassword($this->passwordEncoder->encodePassword($audap_partner,'partner'));
-        $audap_partner->setFirstname('partner_firstname');
-        $audap_partner->setLastname('partner_lastname');
+        $audap_partner->setPassword($this->passwordEncoder->encodePassword($audap_partner, 'partner'));
+        $audap_partner->setFirstname($faker->firstName);
+        $audap_partner->setLastname($faker->lastName);
         $audap_partner->setPhone('0600000000');
         $audap_partner->setAddress('3 rue des Partners 64200 Bayonne');
         $audap_partner->setNewsletter(false);
@@ -87,12 +89,12 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         /**
-         * Public
+         * Public.
          */
         $public = new User();
         $public->setEmail('public@yopmail.com');
         $public->setRoles(['ROLE_PUBLIC']);
-        $public->setPassword($this->passwordEncoder->encodePassword($public,'public'));
+        $public->setPassword($this->passwordEncoder->encodePassword($public, 'public'));
         $public->setFirstname('public_firstname');
         $public->setLastname('public_lastname');
         $public->setSlug($this->slugify->generate('public-slug'));

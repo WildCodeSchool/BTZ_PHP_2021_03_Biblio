@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emprunt{% endblock %}
+
+{% block body %}
+    <h1>Emprunt</h1>
+
+    <table class="table">
+        <tbody>
+            {# <tr>
+                <th>Id</th>
+                <td>{{ borrow.id }}</td>
+            </tr> #}
+            <tr>
+                <th>Date de Réservation</th>
+                <td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date d'Emprunt</th>
+                <td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Limite</th>
+                <td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ borrow.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('emprunt_list') }}">Retour à la Liste</a>
+ <div></div>
+    <a href="{{ path('emprunt_edit', {'id': borrow.id}) }}">Edition</a>
+
+    {{ include('/admin/borrow/_delete_form.html.twig') }}
+{% endblock %}
