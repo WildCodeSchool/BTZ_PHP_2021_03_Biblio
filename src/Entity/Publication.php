@@ -133,6 +133,11 @@ class Publication
     private $notices;
 
     /**
+     * @ORM\OneToMany(targetEntity=Borrow::class, mappedBy="publication")
+     */
+    private $borrows;
+
+    /**
      * @ORM\ManyToMany(targetEntity=KeywordRef::class, mappedBy="publication")
      */
     private $keywordRefs;
@@ -458,6 +463,36 @@ class Publication
             }
         }
     
+        return $this;
+    }
+
+    /**
+     * @return Collection|Borrow[]
+     */
+    public function getBorrows(): Collection
+    {
+        return $this->borrows;
+    }
+        
+    public function addBorrow(Borrow $borrow): self
+    {
+        if (!$this->borrows->contains($borrow)) {
+            $this->borrows[] = $borrow;
+            $borrow->setPublication($this);
+        }
+        
+        return $this;
+    }
+        
+    public function removeBorrow(Borrow $borrow): self
+    {
+        if ($this->borrows->removeElement($borrow)) {
+            // set the owning side to null (unless already changed)
+            if ($borrow->getPublication() === $this) {
+                $borrow->setPublication(null);
+            }
+        }
+        
         return $this;
     }
 

@@ -42,6 +42,7 @@ class PublicationController extends AbstractController
             $authorSearch = $form->getData() ['author_search'];
             $keywordSearch = $form->getData() ['keyword_search'];
             $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            $borrowerSearch = $form->getData() ['borrower_search'];
             $dateStartSearch = $form->getData() ['dateStart_search'];
             $dateEndSearch = $form->getData() ['dateEnd_search'];
             

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\Author;
+use App\Entity\Borrow;
 use App\Entity\Keyword;
 use App\Entity\KeywordRef;
 use Symfony\Component\Form\AbstractType;
@@ -44,6 +45,11 @@ class SearchPublicationFormType extends AbstractType
                 'class' => KeywordRef::class,
                 'required' => false,
                 'choice_label' => 'name',
+            ])
+            ->add('borrower_search', EntityType::class, [
+                'class' => Borrow::class,
+                'required' => false,
+                'choice_label' => 'user',
             ])
             ->add('dateStart_search', DateType::class, [
                 'widget' => 'choice',

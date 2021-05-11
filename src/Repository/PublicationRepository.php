@@ -30,8 +30,9 @@ class PublicationRepository extends ServiceEntityRepository
         $tab = [
             'type_search' => '=',
             'thematic_search' => '=',
-            'author_search' => ['=', 'p.authors', 'a'],
-            'keyword_search' => ['=', 'p.keywords', 'k'],
+            'author_search' => ['=', 'p.authors', 'a', 'name'],
+            'keyword_search' => ['=', 'p.keywords', 'k', 'name'],
+            'borrow_search' => ['=', 'p.borrows', 'b', 'user'],
             'dateStart_search' => '>=',
             'dateEnd_search' => '<=',
         ];
@@ -43,7 +44,7 @@ class PublicationRepository extends ServiceEntityRepository
                 
                 if (is_array($value)) {
                     $op = " " . $value[0] .  " :";
-                    $criteria = $value[2] . ".name" . $op . $field;
+                    $criteria = $value[2] . "." . $value[3] . $op . $field;
                     $kb->join($value[1], $value[2]);
                 } elseif ($value === '=') {
                     $op = " = :";
