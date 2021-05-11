@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Publication;
+use App\Entity\Author;
+use App\Entity\Notice;
 use App\Form\PublicationType;
+use App\Form\SearchPublicationFormType;
+use App\Repository\NoticeRepository;
 use App\Repository\PublicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +26,52 @@ class PublicationController extends AbstractController
     {
         return $this->render('publication/index.html.twig', [
             'publications' => $publicationRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/list", name="publication_list")
+     */
+    public function list(Request $request, PublicationRepository $publicationRepository): Response
+    {
+        $form = $this->createForm(SearchPublicationFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $typeSearch = $form->getData() ['type_search'];
+            $thematicSearch = $form->getData() ['thematic_search'];
+            $authorSearch = $form->getData() ['author_search'];
+            $keywordSearch = $form->getData() ['keyword_search'];
+            $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            $dateStartSearch = $form->getData() ['dateStart_search'];
+            $dateEndSearch = $form->getData() ['dateEnd_search'];
+            
+            $tabSearch = [];
+            foreach ($_POST['search_publication_form'] as $key => $value) {
+                if (!empty($value) && $key !== '_token' && $value !== null) {
+                    if ($key === 'keyword_search' || $key === 'author_search') {
+                        $tabSearch[$key] = $form->getData() [$key]->getName();
+                    } else {
+                        $tabSearch[$key] = $form->getData() [$key];
+                    }
+                }
+            };
+            // dd($tabSearch);
+            $publications = $publicationRepository->findByCriteria($tabSearch);
+        // $publications = $publicationRepository->findByCriteria([
+            //     'type' => $typeSearch,
+            //     'thematic' => $thematicSearch,
+            //     'author' => $authorSearch->getName(),
+            //     'keyword' => $keywordSearch,
+            //     'dateStart' => $dateStartSearch,
+            //     'dateEnd' => $dateEndSearch,
+            //     ]);
+        } else {
+            $publications = $publicationRepository->findAll();
+        }
+        
+        return $this->render('publication/listpublic.html.twig', [
+            'publications' => $publications,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -53,15 +103,24 @@ class PublicationController extends AbstractController
      */
     public function show(Publication $publication): Response
     {
-        return $this->render('publication/show.html.twig', [
+        return $this->render('publication/showPub.html.twig', [
             'publication' => $publication,
         ]);
     }
 
     /**
+     * @Route("/pub{id}", name="publication_showpub", methods={"GET"})
+     */
+    public function showPub(Publication $publication): Response
+    {
+        return $this->render('publication/showPub.html.twig', [
+            'publication' => $publication,
+        ]);
+    }
+    /**
      * @Route("/{id}/edit", name="publication_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Publication $publication): Response
+    public function edit(Request $request, Publication $publication, NoticeRepository $noticeRepository): Response
     {
         $form = $this->createForm(PublicationType::class, $publication);
         $form->handleRequest($request);
@@ -71,9 +130,10 @@ class PublicationController extends AbstractController
 
             return $this->redirectToRoute('publication_index');
         }
-
+        
         return $this->render('publication/edit.html.twig', [
             'publication' => $publication,
+            'notices' => $noticeRepository->findBy(['publication' => $publication]),
             'form' => $form->createView(),
         ]);
     }
