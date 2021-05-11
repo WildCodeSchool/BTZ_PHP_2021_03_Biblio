@@ -78,7 +78,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
-            $fullname = $user->getFirstname() . ' ' . $user->getLastname();
+            $fullname = $user->getFirstname().' '.$user->getLastname();
             $user->setSlug($slugify->generate($fullname));
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -129,7 +129,7 @@ class AdminController extends AbstractController
      */
     public function userDelete(Request $request, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
@@ -210,7 +210,7 @@ class AdminController extends AbstractController
      */
     public function thematicDelete(Request $request, Thematic $thematic): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $thematic->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$thematic->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($thematic);
             $entityManager->flush();
@@ -291,7 +291,7 @@ class AdminController extends AbstractController
      */
     public function localisationDelete(Request $request, Localisation $localisation): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $localisation->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$localisation->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($localisation);
             $entityManager->flush();
@@ -372,7 +372,7 @@ class AdminController extends AbstractController
      */
     public function keywordDelete(Request $request, Keyword $keyword): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $keyword->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$keyword->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($keyword);
             $entityManager->flush();
@@ -454,7 +454,7 @@ class AdminController extends AbstractController
     public function editorDelete(Request $request, Editor $editor): Response
     {
         var_dump('ts');
-        if ($this->isCsrfTokenValid('delete' . $editor->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$editor->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($editor);
             $entityManager->flush();
@@ -464,7 +464,6 @@ class AdminController extends AbstractController
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
-<<<<<<< HEAD
     ///////////////////////////////BOOK COLLECTION//////////////////////////////////////////
 
     /**
@@ -949,6 +948,3 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 }
-=======
-}
->>>>>>> f7217eda196702f41d652eae000985faf2bf6dbe
