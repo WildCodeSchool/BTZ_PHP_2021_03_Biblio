@@ -1,8 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Accueil - Audap{% endblock %}
 
 {% block body %}
-    <h1>Welcome on your project 3</h1>
-    <img src="https://media.giphy.com/media/hS58Kb2OOCMPS/giphy.gif" alt="Dewey dancing">
+
+    <h1>Bonjour </h1>
+    {% if app.user %}
+    Salut {{ user.firstname }}
+    {% else %}
+    Salut vous n'etes pas connecté
+    {% endif %}
 {% endblock %}
