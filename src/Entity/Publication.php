@@ -117,6 +117,16 @@ class Publication
      */
     private $authors;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $update_date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="publications")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
@@ -383,5 +393,29 @@ class Publication
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(?\DateTimeInterface $update_date): self
+    {
+        $this->update_date = $update_date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
