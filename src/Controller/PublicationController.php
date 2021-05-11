@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Publication;
 use App\Entity\Author;
+use App\Entity\Notice;
 use App\Form\PublicationType;
 use App\Form\SearchPublicationFormType;
+use App\Repository\NoticeRepository;
 use App\Repository\PublicationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -101,15 +103,24 @@ class PublicationController extends AbstractController
      */
     public function show(Publication $publication): Response
     {
-        return $this->render('publication/show.html.twig', [
+        return $this->render('publication/showPub.html.twig', [
             'publication' => $publication,
         ]);
     }
 
     /**
+     * @Route("/pub{id}", name="publication_showpub", methods={"GET"})
+     */
+    public function showPub(Publication $publication): Response
+    {
+        return $this->render('publication/showPub.html.twig', [
+            'publication' => $publication,
+        ]);
+    }
+    /**
      * @Route("/{id}/edit", name="publication_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Publication $publication): Response
+    public function edit(Request $request, Publication $publication, NoticeRepository $noticeRepository): Response
     {
         $form = $this->createForm(PublicationType::class, $publication);
         $form->handleRequest($request);
@@ -119,9 +130,10 @@ class PublicationController extends AbstractController
 
             return $this->redirectToRoute('publication_index');
         }
-
+        
         return $this->render('publication/edit.html.twig', [
             'publication' => $publication,
+            'notices' => $noticeRepository->findBy(['publication' => $publication]),
             'form' => $form->createView(),
         ]);
     }

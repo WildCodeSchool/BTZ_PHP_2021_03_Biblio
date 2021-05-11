@@ -3,14 +3,21 @@
 namespace App\DataFixtures;
 
 use App\Entity\Keyword;
+use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Faker;
 
-
 class KeyWordFixtures extends Fixture implements DependentFixtureInterface
 {
+    protected $slugify;
+
+    public function __construct(Slugify $slugify)
+    {
+        $this->slugify = $slugify;
+    }
+    
     public function load(ObjectManager $manager)
     {
         ini_set("auto_detect_line_endings", true);
@@ -21,7 +28,7 @@ class KeyWordFixtures extends Fixture implements DependentFixtureInterface
         foreach ($csvFile as $line) {
             $keywordArray[] = str_getcsv($line);
         }
-    $j=0;
+        $j=0;
         foreach ($keywordArray as $data) {
             if ($j > 0) {
                 $data = explode(';', $data[0]);
@@ -33,6 +40,8 @@ class KeyWordFixtures extends Fixture implements DependentFixtureInterface
                     $keyword = new keyword();
                     if ($data[$i]) {
                         $keyword->setName(trim($data[$i]));
+                        $slug = $this->slugify->generate($data[$i]);
+                        $keyword->setSlug($slug);
 
                         $keyword->setPublication($publication);
                         $keyword->setNotice($notice);

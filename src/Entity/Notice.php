@@ -151,4 +151,9 @@ class Notice
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getCreationDate()->format('d/m/Y');
+    }
 }

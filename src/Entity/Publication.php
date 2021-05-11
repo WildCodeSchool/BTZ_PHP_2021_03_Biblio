@@ -128,15 +128,20 @@ class Publication
     private $keywords;
 
     /**
-     *
      * @ORM\OneToMany(targetEntity=Notice::class, mappedBy="publication")
      */
     private $notices;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=KeywordRef::class, mappedBy="publication")
+     */
+    private $keywordRefs;
 
     public function __construct()
     {
         $this->editors = new ArrayCollection();
         $this->authors = new ArrayCollection();
+        $this->keywordRefs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -429,7 +434,7 @@ class Publication
     /**
          * @return Collection|Notice[]
          */
-    public function getNotice(): Collection
+    public function getNotices(): Collection
     {
         return $this->notices;
     }
@@ -469,6 +474,33 @@ class Publication
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|KeywordRef[]
+     */
+    public function getKeywordRefs(): Collection
+    {
+        return $this->keywordRefs;
+    }
+
+    public function addKeywordRef(KeywordRef $keywordRef): self
+    {
+        if (!$this->keywordRefs->contains($keywordRef)) {
+            $this->keywordRefs[] = $keywordRef;
+            $keywordRef->addPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeywordRef(KeywordRef $keywordRef): self
+    {
+        if ($this->keywordRefs->removeElement($keywordRef)) {
+            $keywordRef->removePublication($this);
+        }
 
         return $this;
     }
