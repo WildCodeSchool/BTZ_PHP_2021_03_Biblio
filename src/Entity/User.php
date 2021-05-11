@@ -3,12 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -29,7 +29,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json") 
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
@@ -59,7 +59,6 @@ class User implements UserInterface
      *     min=3, minMessage="3 caractères minimum sont requis",
      *     max=20, maxMessage="20 caractères maximum sont requis"
      *     )
-     * 
      */
     private $lastname;
 
@@ -197,7 +196,7 @@ class User implements UserInterface
 
     public function getFullname(): ?string
     {
-        return $this->getFirstname(). ' ' .$this->getLastname();
+        return $this->getFirstname().' '.$this->getLastname();
     }
 
     public function getPhone(): ?int
@@ -237,7 +236,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|borrow[]
+     * @return borrow[]|Collection
      */
     public function getBorrow(): Collection
     {
@@ -277,4 +276,14 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getDisplayName(): string
+    {
+        return $this->getFirstname().' '.$this->getLastname();
+    }
+
+    // public function __tostring()
+    // {
+    //     return $this->firstname;
+    // }
 }
