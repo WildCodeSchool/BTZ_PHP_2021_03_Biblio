@@ -6,13 +6,15 @@ use App\Entity\Notice;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class NoticeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('summary')
+            // ->add('summary')
+            ->add('summary', CKEditorType::class)
             ->add('creation_date')
             ->add('publication')
             ->add('author')
