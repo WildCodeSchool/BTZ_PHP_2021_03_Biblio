@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Knp\Component\Pager\PaginatorInterface;
 /**
  * @Route("/publication")
  */
@@ -32,10 +32,11 @@ class PublicationController extends AbstractController
     /**
      * @Route("/list", name="publication_list")
      */
-    public function list(Request $request, PublicationRepository $publicationRepository): Response
+    public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator): Response
     {
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $typeSearch = $form->getData() ['type_search'];
             $thematicSearch = $form->getData() ['thematic_search'];
@@ -65,12 +66,21 @@ class PublicationController extends AbstractController
             //     'dateStart' => $dateStartSearch,
             //     'dateEnd' => $dateEndSearch,
             //     ]);
+
+            
         } else {
             $publications = $publicationRepository->findAll();
         }
+
+        $pagination = $paginator->paginate(
+            $publications, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
         
         return $this->render('publication/listpublic.html.twig', [
-            'publications' => $publications,
+            // 'publications' => $publications,
+            'pagination' => $pagination,
             'form' => $form->createView(),
         ]);
     }
