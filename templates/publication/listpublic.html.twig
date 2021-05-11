@@ -29,25 +29,22 @@ Publications
 </section>
 <div class="container">
 <div class="row">
-<div class="col-12 col-md-4">
-      {% for publication in publications %}
-<div class="card">
+  {% for publication in publications %}
+  <div class="col-12 col-md-4">
+<div class="card mb-6">
   <div class="card-body">
     <h5 class="card-title">{{ publication.title }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ publication.type.name }}</h6>
     <p class="card-text">{{ publication.thematic.name }}</p>
         <p class="card-text">{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</p>
-            <p class="card-text">{{ publication.support }}</p>
-    <a href="#" class="card-link">Card link</a>
-    <a class="card-link" href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
+        <p class="card-text">{{ publication.support }}</p>
+    <button class="btn btn-outline-success" href="{{ path('publication_show', {'id': publication.id}) }}">consulter</button>
   </div>
 </div>
-        {% else %}
-            <p>no records found</p>
-        {% endfor %}
 </div>
-</div>
-</div>
+{% else %}
+    <p>no records found</p>
+{% endfor %}
 </div>
 </div>
     <a href="{{ path('publication_list') }}">Retour</a>
