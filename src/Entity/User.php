@@ -87,9 +87,15 @@ class User implements UserInterface
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="user")
+     */
+    private $publications;
+
     public function __construct()
     {
         $this->borrow = new ArrayCollection();
+        $this->publications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -199,6 +205,16 @@ class User implements UserInterface
         return $this->getFirstname().' '.$this->getLastname();
     }
 
+    public function setFullname(string $fullName): self
+    {
+        $lastName = trim(substr($fullName, 0, strpos($fullName, ' ')));
+        $firstName = trim(substr($fullName, strpos($fullName, ' ')+1));
+        $this->firstname = $firstName;
+        $this->lastname = $lastName;
+
+        return $this;
+    }
+
     public function getPhone(): ?int
     {
         return $this->phone;
@@ -286,4 +302,34 @@ class User implements UserInterface
     // {
     //     return $this->firstname;
     // }
+
+    /**
+     * @return Collection|Publication[]
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): self
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications[] = $publication;
+            $publication->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): self
+    {
+        if ($this->publications->removeElement($publication)) {
+            // set the owning side to null (unless already changed)
+            if ($publication->getUser() === $this) {
+                $publication->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 }

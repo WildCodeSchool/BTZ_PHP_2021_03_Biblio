@@ -128,11 +128,6 @@ class Publication
     private $keywords;
 
     /**
-     * @ORM\OneToMany(targetEntity=Notice::class, mappedBy="publication")
-     */
-    private $notices;
-
-    /**
      * @ORM\OneToMany(targetEntity=Borrow::class, mappedBy="publication")
      */
     private $borrows;
@@ -141,6 +136,16 @@ class Publication
      * @ORM\ManyToMany(targetEntity=KeywordRef::class, mappedBy="publication")
      */
     private $keywordRefs;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $update_date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="publications")
+     */
+    private $user;
 
     public function __construct()
     {
@@ -437,36 +442,6 @@ class Publication
     }
 
     /**
-         * @return Collection|Notice[]
-         */
-    public function getNotices(): Collection
-    {
-        return $this->notices;
-    }
-    
-    public function addNotice(Notice $notice): self
-    {
-        if (!$this->notices->contains($notice)) {
-            $this->notices[] = $notice;
-            $notice->setPublication($this);
-        }
-    
-        return $this;
-    }
-    
-    public function removeNotice(Notice $notice): self
-    {
-        if ($this->notices->removeElement($notice)) {
-            // set the owning side to null (unless already changed)
-            if ($notice->getPublication() === $this) {
-                $notice->setPublication(null);
-            }
-        }
-    
-        return $this;
-    }
-
-    /**
      * @return Collection|Borrow[]
      */
     public function getBorrows(): Collection
@@ -536,6 +511,30 @@ class Publication
         if ($this->keywordRefs->removeElement($keywordRef)) {
             $keywordRef->removePublication($this);
         }
+
+        return $this;
+    }
+
+    public function getUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(?\DateTimeInterface $update_date): self
+    {
+        $this->update_date = $update_date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

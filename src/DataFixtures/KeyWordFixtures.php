@@ -34,7 +34,6 @@ class KeyWordFixtures extends Fixture implements DependentFixtureInterface
                 $data = explode(';', $data[0]);
 
                 $publication = $this->getReference('publication_'.$data[2]);
-                $notice = $this->getReference('notice_'.$data[1]);
 
                 for ($i = 3; $i < 8; ++$i) {
                     $keyword = new keyword();
@@ -44,7 +43,6 @@ class KeyWordFixtures extends Fixture implements DependentFixtureInterface
                         $keyword->setSlug($slug);
 
                         $keyword->setPublication($publication);
-                        $keyword->setNotice($notice);
 
                         if ($i < 7) {
                             $keyword->setGeolocalisation(false);

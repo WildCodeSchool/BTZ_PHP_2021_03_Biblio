@@ -24,9 +24,12 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
                 // $publication->setSlug($slug);
                 // echo '-----' . $i . "----";
                 // var_dump($data);
-                $datePub = str_replace('/', '-', $data[7]);
-                $datePub =  date('Y-m-d', strtotime($datePub));
-                $datePub = new DateTime($datePub);
+                // $datePub = str_replace('/', '-', $data[7]);
+                
+                $dateMod = DateTime::createFromFormat('d/m/y', $data[20]);
+                // $dateMod = new DateTime(date('d/m/Y', strtotime($data[20])));
+                $datePub = DateTime::createFromFormat('d/m/y', $data[7]);
+                // $datePub = new DateTime(date('d/m/Y', strtotime($data[7])));
                 $publication->setType($this->getReference('type_' . $data[1]));
                 $publication->setThematic($this->getReference('thematic_' . $data[2]));
                 $publication->setTitle($data[3]);
@@ -44,7 +47,9 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
                 $publication->setUrl($data[15]);
                 $publication->setLocalisation($this->getReference('localisation_' . $data[16]));
                 $publication->setCote($data[17]);
-                $publication->setSummary($data[18]);
+                $publication->setUser($this->getReference('user_' . $data[18]));
+                $publication->setUpdateDate($dateMod);
+                $publication->setSummary($data[21]);
                 $publication->setAccess('public');
                 $this->addReference('publication_' . $data[0], $publication);
                 $manager->persist($publication);
@@ -63,7 +68,8 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
             LocalisationFixtures::class,
             ThematicFixtures::class,
             BookCollectionFixtures::class,
-            LanguageFixtures::class
+            LanguageFixtures::class,
+            UserFixtures::class
         ];
     }
 }

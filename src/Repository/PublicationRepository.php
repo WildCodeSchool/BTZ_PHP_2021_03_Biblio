@@ -33,13 +33,14 @@ class PublicationRepository extends ServiceEntityRepository
             'author_search' => ['=', 'p.authors', 'a', 'name'],
             'keyword_search' => ['=', 'p.keywords', 'k', 'name'],
             'borrow_search' => ['=', 'p.borrows', 'b', 'user'],
+            'cote_search' => 'cote',
             'dateStart_search' => '>=',
             'dateEnd_search' => '<=',
         ];
         
         $kb = $this->createQueryBuilder('p');
         foreach ($tab as $key => $value) {
-            if (isset($tabCriteria[$key])) {
+            if ($tabCriteria[$key] !== '' && $tabCriteria[$key] !== null) {
                 $field = str_replace('_search', '', $key);
                 
                 if (is_array($value)) {
@@ -49,6 +50,9 @@ class PublicationRepository extends ServiceEntityRepository
                 } elseif ($value === '=') {
                     $op = " = :";
                     $criteria = "p." . $field . $op . $field;
+                } elseif ($value === 'cote') {
+                    $op = " = :";
+                    $criteria = "p.cote" . $op . $field;
                 } else {
                     $op = " " . $value . " :";
                     $criteria = "p.publication_date" . $op . $field;
@@ -59,6 +63,8 @@ class PublicationRepository extends ServiceEntityRepository
             }
         }
         $kb->orderBy('p.title', 'ASC');
+        
+        // dd($kb->getQuery());
         return $kb->getQuery()->getResult();
         
         

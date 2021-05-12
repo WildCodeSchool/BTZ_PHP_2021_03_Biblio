@@ -22,6 +22,41 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $csvFile = file(__DIR__.'./../../database/user.csv');
+
+        $userArray = [];
+        foreach ($csvFile as $line) {
+            $userArray[] = str_getcsv($line);
+        }
+        $i = 0;
+        $faker = Faker\Factory::create('us_US');
+        foreach ($userArray as $data) {
+            if ($i > 0) {
+                $data =  explode(";", $data[0]);
+                $user = new User();
+                $user->setEmail($faker->email);
+                if ($data[0] > 400) {
+                    $user->setRoles(['ROLE_OPERATOR']);
+                    $user->setPassword($this->passwordEncoder->encodePassword($user, 'operator'));
+                    $user->setNewsletter(false);
+                    $user->setSlug($this->slugify->generate('operator-slug'));
+                } else {
+                    $user->setRoles(['ROLE_PUBLIC']);
+                    $user->setPassword($this->passwordEncoder->encodePassword($user, 'public'));
+                    $user->setNewsletter(true);
+                    $user->setSlug($this->slugify->generate('public-slug'));
+                }
+                $user->setFullName($data[1]);
+                $user->setPhone('0600000000');
+                $user->setAddress($faker->address);
+
+                $this->addReference('user_' . $data[0], $user);
+                $manager->persist($user);
+            }
+            $i++;
+        }
+
+        $manager->flush();
         /**
          * Admin.
          */

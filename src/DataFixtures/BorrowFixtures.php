@@ -12,7 +12,6 @@ class BorrowFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-
         $csvFile = file(__DIR__.'./../../database/pub_user.csv');
 
         $borrowArray = [];
@@ -25,8 +24,7 @@ class BorrowFixtures extends Fixture implements DependentFixtureInterface
                 $data =  explode(";", $data[0]);
                 $borrow = new Borrow();
                 $borrow->setPublication($this->getReference('publication_' . $data[1]));
-                //$borrow->setUser($this->getReference('user_' . $data[2]));
-                $borrow->setUser(null);
+                $borrow->setUser($this->getReference('user_' . $data[2]));
                 $borrow->setReservationDate(new DateTime('1970-01-01 00:00:01'));
                 
                 $dateTmp = str_replace('/', '-', $data[3]);
