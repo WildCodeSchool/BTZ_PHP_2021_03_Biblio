@@ -1,13 +1,112 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - Audap{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
 
-    <h1>Bonjour </h1>
-    {% if app.user %}
-    Salut {{ user.firstname }}
-    {% else %}
-    Salut vous n'etes pas connecté
-    {% endif %}
+<section>
+      <!-- Item -->
+      <div class="vh-75 mt-lg-n10 banner-accueil" style="background-image: url({{ asset('build/images/pexels-scott-webb-1029606.jpg') }});">
+        <div class="container d-flex flex-column">
+          <div class="row align-items-center justify-content-left text-left vh-75">
+            <div class="col-12 col-md-6 col-lg-9 text-white">
+              <h1 class="display-4">Lorem ipsum dolor sit amet</h1>
+              <p class="pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro non ea consectetur.
+                Voluptatibus labore placeat totam aliquid porro maxime magni voluptate, ducimus minima ab impedit beatae
+                omnis ut quis nesciunt?</p>
+              <button type="button" class="btn btn-outline-light mt-4">contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="container">
+      <div class="row text-center justify-content-center">
+        <div class="col-12">
+        <h2 class="pb-6">Recherche par mots clés</h2>
+      </div>
+        <div class="col-12 col-md-8">
+
+    <form id="searchForm" action="{{ path('publication_index') }}" method="get">
+        <div id="searchBox">
+          <input type="text" class="form-control" placeholder="mots clé" aria-label="Recipient's username" aria-describedby="button-addon2" name="q" id="searchField" autocomplete="off">
+          <div class="pt-4 text-left">
+            <button class="btn btn-outline-success">Recherché</button>
+            <a class="btn btn-outline-secondary mx-2" href="/publication/list" role="button">Recherché avancee</a>
+          </div>
+          <ul id="autocomplete"></ul>
+        </div>
+    </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center pb-10">
+          <h3 class="h2">Dernières publications</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('build/images/pexels-emily-768125.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('build/images/pexels-emily-768125.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ asset('build/images/pexels-zhang-kaiyv-1168940.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-12 bg-light">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-12 pb-4">
+          <h4>Newsletter
+          </h4>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="email" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2">s'abonner</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

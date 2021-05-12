@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+
+    <div class="row justify-content-center">
+    <div class="col-6">
+       {{ form_row(form.type_search, {label_attr: {class: 'switch-custom'} }) }}
+        </div>
+    <div class="col-6">
+        {{ form_row(form.thematic_search) }}
+        </div>
+    <div class="col-6">
+                {{ form_row(form.author_search) }}
+    </div>
+        <div class="col-6">
+    {{ form_row(form.keyword_search) }}
+    </div>
+            <div class="col-6">
+     {{ form_row(form.keywordGeo_search) }}
+    </div>
+    <div class="col-3">
+                {{ form_row(form.dateStart_search) }}
+    </div>
+        <div class="col-3">
+                    {{ form_row(form.dateEnd_search) }}
+    </div>
+
+    </div>
+
+
+
+    <button class="btn btn-outline-success">{{ button_label|default('Rechercher') }}</button>
+{{ form_end(form) }}

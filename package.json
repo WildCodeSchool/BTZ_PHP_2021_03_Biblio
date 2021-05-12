@@ -3,6 +3,7 @@
         "@fortawesome/fontawesome-free": "^5.15.3",
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.2.0",
+        "@types/bootstrap": "^5.0.13",
         "bootstrap": "^4.6.0",
         "core-js": "^3.0.0",
         "jquery": "^3.6.0",

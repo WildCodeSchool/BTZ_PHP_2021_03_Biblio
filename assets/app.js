@@ -15,8 +15,8 @@ require("@fortawesome/fontawesome-free/css/all.min.css");
 // global.$ = $;
 
 var $ = require("jquery");
-window.$ = $;
-window.jQuery = $;
+// window.$ = $;
+// window.jQuery = $;
 
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
@@ -24,40 +24,46 @@ require("bootstrap");
 // import 'bootstrap/dist/js/bootstrap.bundle';
 
 // or you can include specific pieces
-// require('bootstrap/js/dist/tooltip');
-// require('bootstrap/js/dist/popover');
+require('bootstrap/js/dist/tooltip');
+require('bootstrap/js/dist/popover');
 
-$(".dropdown-menu a").click(function (e) {
-  $(".active").removeClass("active");
-});
 
-$(".dropdown").click(function () {
-  $(".dropdown-menu").toggleClass("show");
-});
 
-$(document).ready(function () {
-  // Show hide popover
-  $(".dropdown").click(function () {
-    $(this).find(".dropdown-menu").slideToggle("fast");
-  });
-});
-$(document).on("click", function (event) {
-  var $trigger = $(".dropdown");
-  if ($trigger !== event.target && !$trigger.has(event.target).length) {
-    $(".dropdown-menu").slideUp("fast");
-  }
-});
+      /*!
+       * Start Bootstrap - SB Admin v6.0.3 (https://startbootstrap.com/template/sb-admin)
+       * Copyright 2013-2021 Start Bootstrap
+       * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
+       */
+
+       
+
+      // $(".dropdown-menu a").click(function (e) {
+      //   $(".active").removeClass("active");
+      // });
+
+      // $(".dropdown").click(function () {
+      //   $(".dropdown-menu").toggleClass("show");
+      // });
+
+// $(document).ready(function () {
+//   // Show hide popover
+//   $(".dropdown").click(function () {
+//     $(this).find(".dropdown-menu").slideToggle("fast");
+//   });
+// });
+// $(document).on("click", function (event) {
+//   var $trigger = $(".dropdown");
+//   if ($trigger !== event.target && !$trigger.has(event.target).length) {
+//     $(".dropdown-menu").slideUp("fast");
+//   }
+// });
 
 $(".carousel").carousel({
   interval: 2000,
 });
 
+import "./test.js";
 
-/*!
- * Start Bootstrap - SB Admin v6.0.3 (https://startbootstrap.com/template/sb-admin)
- * Copyright 2013-2021 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
- */
 (function ($) {
   "use strict";
 
@@ -75,3 +81,7 @@ $(".carousel").carousel({
     $("body").toggleClass("sb-sidenav-toggled");
   });
 })(jQuery);
+
+
+
+import './autocomplete.js'

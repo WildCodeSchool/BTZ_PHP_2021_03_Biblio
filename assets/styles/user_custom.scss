@@ -1,0 +1,230 @@
+//positions
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vh-75 {
+  height: 75vh !important;
+}
+
+.vh-95 {
+    height: 96vh !important;
+  }
+
+.cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// z-index
+
+.z-index-1 {
+  z-index: 10;
+}
+
+.z-index-2 {
+  z-index: 20;
+}
+
+.z-index-3 {
+  z-index: 30;
+}
+
+.z-index-4 {
+  z-index: 40;
+}
+
+.z-index-5 {
+  z-index: 50;
+}
+
+// Typo-config
+
+.font1 {
+  font-family: $font-family-sans-serif;
+}
+
+.font2 {
+  font-family: $headings-font-family;
+}
+
+// Letter spacing
+.letter-spacing-sm {
+  letter-spacing: $letter-spacing-sm !important;
+}
+
+.letter-spacing-lg {
+  letter-spacing: $letter-spacing-lg !important;
+}
+
+.letter-spacing-xl {
+  letter-spacing: $letter-spacing-xl !important;
+}
+
+.letter-spacing-xxl {
+  letter-spacing: $letter-spacing-xxl !important;
+}
+
+.p {
+  font-size: $font-size-base !important;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+}
+
+.heading-xxxs {
+  font-size: $font-size-xxxs;
+  font-weight: $headings-font-weight;
+  letter-spacing: $letter-spacing-lg;
+  text-transform: uppercase;
+}
+
+.heading-xxs {
+  font-size: $font-size-xxs;
+  font-weight: $headings-font-weight;
+  letter-spacing: $letter-spacing-lg;
+  text-transform: uppercase;
+}
+
+small {
+  font-weight: inherit;
+}
+
+.strong {
+  font-weight: $font-weight-bold;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.font-size-lg {
+  font-size: $font-size-lg !important;
+}
+
+.font-size-base {
+  font-size: $font-size-base !important;
+}
+
+.font-size-sm {
+  font-size: $font-size-sm !important;
+}
+
+.font-size-xs {
+  font-size: $font-size-xs !important;
+}
+
+.font-size-xxs {
+  font-size: $font-size-xxs !important;
+}
+
+.font-size-xxxs {
+  font-size: $font-size-xxxs !important;
+}
+
+.font-size-h1 {
+  font-size: $h1-font-size !important;
+}
+
+.font-size-h2 {
+  font-size: $h2-font-size !important;
+}
+
+.font-size-h3 {
+  font-size: $h3-font-size !important;
+}
+
+.font-size-h4 {
+  font-size: $h4-font-size !important;
+}
+
+.font-size-h5 {
+  font-size: $h5-font-size !important;
+}
+
+.font-size-h6 {
+  font-size: $h6-font-size !important;
+}
+
+.font-max {
+  @include media-breakpoint-down(sm) {
+    font-size: 4rem;
+  }
+  @include media-breakpoint-up(sm) {
+    font-size: 7rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 10rem;
+  }
+}
+
+// lineheight
+
+.lh-100 {
+  line-height: 100;
+}
+
+.banner-accueil{
+    background-repeat: round;
+    margin-top: -3.5rem;
+}
+
+// navbar
+
+// .navbar {
+//   @include media-breakpoint-down(sm) {
+//     background-color: white!important;
+//   }
+// }
+
+
+// .navbar {
+//   > .navbar-toggler.collapsed {
+//     @include media-breakpoint-down(md) {
+//       background-color: rebeccapurple;
+//     }
+//   }
+// }
+
+.navbar {
+  @include media-breakpoint-down(lg) {
+    background-color:white;
+  }
+}
+
+
+.card {
+  box-shadow: 0px 0px 10px 0px rgba(198, 235, 170, 0.378);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(147, 147, 147, 0.274);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(147, 147, 147, 0.274);
+  -ms-box-shadow: 0px 0px 10px 0px rgba(147, 147, 147, 0.274);
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ffffff;
+  background-clip: border-box;
+  border: 0;
+  border-radius: 30 !important;
+}
+
+ul#autocomplete {
+  padding-top: 20px!important;
+  text-align: left;
+  li {
+    a {
+      color: black !important;
+    }
+  }
+}
+

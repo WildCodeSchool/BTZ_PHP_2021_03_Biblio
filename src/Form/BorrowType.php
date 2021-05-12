@@ -12,10 +12,10 @@ class BorrowType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('reservation_date')
-            ->add('borrowed_date')
-            ->add('limit_date')
-            ->add('comment')
+            ->add('reservation_date',null, ['label' =>  'Date de Réservation',])
+            ->add('borrowed_date',null, ['label' =>  'Date d\'emprunt',])
+            ->add('limit_date',null, ['label' =>  'Date de retour',])
+            ->add('comment',null, ['label' =>  'Commentaire',])
             ->add('user',null, 
                     ['choice_label' => function ($user) {return $user->getFullname();
                 },

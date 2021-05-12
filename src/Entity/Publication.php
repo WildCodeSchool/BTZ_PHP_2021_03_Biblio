@@ -127,6 +127,17 @@ class Publication
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="publication")
+     */
+    private $keywords;
+
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
@@ -390,6 +401,36 @@ class Publication
         return $this;
     }
 
+    /**
+     * @return Collection|Keyword[]
+     */
+    public function getKeywords(): Collection
+    {
+        return $this->keywords;
+    }
+
+    public function addKeyword(Keyword $keyword): self
+    {
+        if (!$this->keywords->contains($keyword)) {
+            $this->keywords[] = $keyword;
+            $keyword->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeyword(Keyword $keyword): self
+    {
+        if ($this->keywords->removeElement($keyword)) {
+            // set the owning side to null (unless already changed)
+            if ($keyword->getPublication() === $this) {
+                $keyword->setPublication(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->title;
@@ -412,9 +453,19 @@ class Publication
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(?User $user): void
     {
         $this->user = $user;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
