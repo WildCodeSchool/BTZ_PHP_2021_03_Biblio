@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edition des Auteurs{% endblock %}
+{% block title %}Edition des Auteurs
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Author</h1>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
 
-    {{ include('author/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('author_index') }}">back to list</a>
+				<h2>Edition Auteur</h2>
 
-    {{ include('author/_delete_form.html.twig') }}
+				{{ include('/admin/author/_form.html.twig', {'button_label': 'Mise à Jour'}) }}
+
+				{{ include('/admin/author/_delete_form.html.twig') }}
+				<div></div>
+				<a href="{{ path('auteur_list') }}">Retour à la liste</a>
+
+
+			</table>
+		</div>
+	</div>
+
 {% endblock %}

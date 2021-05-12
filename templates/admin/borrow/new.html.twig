@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvel Emprunt{% endblock %}
+{% block title %}Nouvel Emprunt
+{% endblock %}
 
 {% block body %}
-    <h1>Creation nouvel Emprunt</h1>
+	<h2>Creation nouvel Emprunt</h2>
 
-    {{ include('admin/borrow/_form.html.twig') }}
-
-    <a href="{{ path('emprunt_list') }}">Retour à la liste</a>
+	{{ include('admin/borrow/_form.html.twig') }}
+	<button>
+		<a href="{{ path('emprunt_list') }}">Retour à la liste</a>
+	</button>
 {% endblock %}
