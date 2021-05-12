@@ -81,3 +81,7 @@ import "./test.js";
     $("body").toggleClass("sb-sidenav-toggled");
   });
 })(jQuery);
+
+
+
+import './autocomplete.js'
