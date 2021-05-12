@@ -206,7 +206,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="thematic_delete", methods={"DELETE"})
+     * @Route("/admin/thematic/{id}", name="thematic_delete", methods={"DELETE"})
      */
     public function thematicDelete(Request $request, Thematic $thematic): Response
     {
@@ -368,7 +368,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="keyword_delete", methods={"DELETE"})
+     * @Route("/admin/keyword/{id}", name="keyword_delete", methods={"DELETE"})
      */
     public function keywordDelete(Request $request, Keyword $keyword): Response
     {
@@ -912,7 +912,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="author_edit", methods={"GET","POST"})
+     * @Route("/admin/auteur/{id}/edit", name="auteur_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Author $author): Response
     {

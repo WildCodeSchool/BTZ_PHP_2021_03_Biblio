@@ -1,40 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Auteurs{% endblock %}
+{% block title %}Liste des Auteurs
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des Auteurs</h1>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for author in authors %}
-            <tr>
-                <td>{{ author.id }}</td>
-                <td>{{ author.name }}</td>
-                <td>{{ author.address }}</td>
-                <td>
-                    <a href="{{ path('auteur_show', {'id': author.id}) }}">Vue</a>
-                    <a href="{{ path('auteur_edit', {'id': author.id}) }}">Edition</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">Aucun Enregistrement</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+				<h1>Liste des Auteurs</h1>
+				<thead>
+					<tr class="table-active">
+						<th>Nom</th>
+						<th>Adresse</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
 
-    <a href="{{ path('author_new') }}">Création Nouvel Auteur</a>
-<div></div>
-    <a href="{{ path('admin') }}">Retour Menu Admin</a>
+					{% for author in authors %}
 
-{% endblock %}
+						<tr>
+							<td>{{ author.name }}</td>
+							<td>{{ author.address }}</td>
+							<td>
+								<a href="{{ path('auteur_show', {'id': author.id}) }}">Détail /
+								</a>
+								<a href="{{ path('auteur_edit', {'id': author.id}) }}">Edition</a>
+							</td>
+						</tr>
+
+					{% else %}
+						<tr>
+							<td colspan="4">Aucun Enregistrement</td>
+						</tr>
+					{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+		<a href="{{ path('auteur_add') }}">Création Nouvel Auteur</a>
+		<div></div>
+		<a href="{{ path('admin') }}">Retour Menu Admin</a>
+
+	{% endblock %}
