@@ -127,7 +127,7 @@ class PublicationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('publication_index');
+            return $this->redirectToRoute('publication_list');
         }
 
         return $this->render('publication/edit.html.twig', [
