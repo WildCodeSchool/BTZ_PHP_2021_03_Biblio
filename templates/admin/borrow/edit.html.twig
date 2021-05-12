@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edition des Emprunts{% endblock %}
+{% block title %}Edition des Emprunts
+{% endblock %}
 
 {% block body %}
-    <h1>Edition des Emprunts</h1>
+	<h2>Edition des Emprunts</h2>
 
-    {{ include('admin/borrow/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('admin/borrow/_form.html.twig', {'button_label': 'Mis à Jour'}) }}
+	{{ include('admin/borrow/_delete_form.html.twig') }}
+	<button>
+		<a href="{{ path('emprunt_list') }}">Retour à la liste</a>
+	</button>
 
-    <a href="{{ path('emprunt_list') }}">Retour à la liste</a>
 
-    {{ include('admin/borrow/_delete_form.html.twig') }}
 {% endblock %}

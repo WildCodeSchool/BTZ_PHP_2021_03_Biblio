@@ -4,11 +4,10 @@
 {% endblock %}
 
 {% block body %}
-	<div class="card-body">
-		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-				<h1>Liste des Auteurs</h1>
+	<h2>Liste des Auteurs</h2>
+	<div class="table-responsive">
+		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+		
 				<thead>
 					<tr class="table-active">
 						<th>Nom</th>
@@ -18,7 +17,7 @@
 				</thead>
 				<tbody>
 
-					{% for author in authors %}
+					{% for author in authors |sort %}
 
 						<tr>
 							<td>{{ author.name }}</td>
@@ -38,9 +37,10 @@
 
 				</tbody>
 			</table>
-		</div>
-		<a href="{{ path('auteur_add') }}">Création Nouvel Auteur</a>
-		<div></div>
-		<a href="{{ path('admin') }}">Retour Menu Admin</a>
 
-	{% endblock %}
+	</div>
+	<a href="{{ path('auteur_add') }}">Création Nouvel Auteur</a>
+	<div></div>
+	<a href="{{ path('admin') }}">Retour Menu Admin</a>
+
+{% endblock %}
