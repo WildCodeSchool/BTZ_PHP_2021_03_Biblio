@@ -19,32 +19,19 @@ class BorrowRepository extends ServiceEntityRepository
         parent::__construct($registry, Borrow::class);
     }
 
-    // /**
-    //  * @return Borrow[] Returns an array of Borrow objects
-    //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findLikeCote($cote)
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+            ->leftJoin('publication', 'p', 'ON', 'p.id = b.publication_id')
+            ->andWhere('p.cote LIKE :cote')
+            ->setParameter('cote', '%' . $cote . '%')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Borrow
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+
+    
+
 }

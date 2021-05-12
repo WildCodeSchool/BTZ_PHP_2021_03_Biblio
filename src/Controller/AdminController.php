@@ -20,6 +20,7 @@ use App\Form\KeywordType;
 use App\Form\LanguageType;
 use App\Form\LocalisationType;
 use App\Form\PublicationTypeType;
+use App\Form\SearchAdminBorrowFormType;
 use App\Form\ThematicType;
 use App\Form\UserType;
 use App\Repository\AuthorRepository;
@@ -48,6 +49,7 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/dashboard/panel.html.twig', [
             'authors' => $authorRepository->findAll(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -466,7 +468,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/bookcollection", name="book_collection_list", methods={"GET"})
      */
-    public function bookCollectionList(BookCollectionRepository $bookCollectionRepository): Response
+    public function bookCollectionList(Request $request, BookCollectionRepository $bookCollectionRepository): Response
     {
         return $this->render('/admin/book_collection/index.html.twig', [
             'book_collections' => $bookCollectionRepository->findAll(),
@@ -610,7 +612,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/publicationType/{id}", name="publication_type_delete", methods={"DELETE"})
      */
-    public function publicattionTypeDelete(Request $request, PublicationType $publicationType): Response
+    public function publicationTypeDelete(Request $request, PublicationType $publicationType): Response
     {
         if ($this->isCsrfTokenValid('delete'.$publicationType->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -703,22 +705,34 @@ class AdminController extends AbstractController
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
+
     /////////////////////EMPRUNT//START/////////////////////////////////////////////////////////
 
     /**
      * @Route("/admin/emprunt", name="emprunt_list", methods={"GET"})
      */
-    public function empruntList(BorrowRepository $borrowRepository): Response
+    public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
+
+        $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
+
+
+        if($form->isSubmitted() && $form->isValid()){
+            $search = $form->getData()['search'];
+            $borrowRepository->findBy(['cote' => $search]);
+        }else{
+            $borrowRepository->findAll();
+        }
         return $this->render('/admin/borrow/index.html.twig', [
             'borrows' => $borrowRepository->findAll(),
+            'form' => $form->createView()
         ]);
     }
 
     /**
      * @Route("/admin/emprunt/creation", name="emprunt_add", methods={"GET","POST"})
      */
-    public function empruntAdd(Request $request): Response
+    public function borrowAdd(Request $request): Response
     {
         $borrow = new Borrow();
         $form = $this->createForm(BorrowType::class, $borrow);
@@ -741,7 +755,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/emprunt/{id}", name="emprunt_show", methods={"GET"})
      */
-    public function empruntShow(Borrow $borrow): Response
+    public function borrowShow(Borrow $borrow): Response
     {
         return $this->render('/admin/borrow/show.html.twig', [
             'borrow' => $borrow,
@@ -751,7 +765,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/emprunt/{id}/edit", name="emprunt_edit", methods={"GET","POST"})
      */
-    public function empruntEdit(Request $request, Borrow $borrow): Response
+    public function borrowEdit(Request $request, Borrow $borrow): Response
     {
         $form = $this->createForm(BorrowType::class, $borrow);
         $form->handleRequest($request);
@@ -771,7 +785,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/emprunt/{id}", name="emprunt_delete", methods={"DELETE"})
      */
-    public function empruntDelete(Request $request, Borrow $borrow): Response
+    public function borrowDelete(Request $request, Borrow $borrow): Response
     {
         if ($this->isCsrfTokenValid('delete'.$borrow->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -789,7 +803,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur", name="auteur_list", methods={"GET"})
      */
-    public function auteurList(AuthorRepository $authorRepository): Response
+    public function authorList(AuthorRepository $authorRepository): Response
     {
         return $this->render('/admin/author/index.html.twig', [
             'authors' => $authorRepository->findAll(),
@@ -799,7 +813,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/creation", name="auteur_add", methods={"GET","POST"})
      */
-    public function auteurAdd(Request $request): Response
+    public function authorAdd(Request $request): Response
     {
         $author = new Author();
         $form = $this->createForm(AuthorType::class, $author);
@@ -822,7 +836,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/{id}", name="auteur_show", methods={"GET"})
      */
-    public function auteurShow(Author $author): Response
+    public function authorShow(Author $author): Response
     {
         return $this->render('/admin/author/show.html.twig', [
             'author' => $author,
@@ -832,7 +846,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/{id}/edit", name="auteur_edit", methods={"GET","POST"})
      */
-    public function auteurEdit(Request $request, Author $author): Response
+    public function authorEdit(Request $request, Author $author): Response
     {
         $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
@@ -852,7 +866,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/{id}", name="auteur_delete", methods={"DELETE"})
      */
-    public function auteurDelete(Request $request, Author $author): Response
+    public function authorDelete(Request $request, Author $author): Response
     {
         if ($this->isCsrfTokenValid('delete'.$author->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

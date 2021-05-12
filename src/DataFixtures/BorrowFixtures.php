@@ -2,10 +2,11 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Borrow;
 use DateTime;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\User;
+use App\Entity\Borrow;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class BorrowFixtures extends Fixture implements DependentFixtureInterface
@@ -26,7 +27,8 @@ class BorrowFixtures extends Fixture implements DependentFixtureInterface
                 $borrow = new Borrow();
                 $borrow->setPublication($this->getReference('publication_' . $data[1]));
                 //$borrow->setUser($this->getReference('user_' . $data[2]));
-                $borrow->setUser(null);
+                $user = new User();
+                $borrow->setUser($user->getId(1));
                 $borrow->setReservationDate(new DateTime('1970-01-01 00:00:01'));
                 
                 $dateTmp = str_replace('/', '-', $data[3]);

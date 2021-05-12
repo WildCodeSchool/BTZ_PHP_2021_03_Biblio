@@ -4,28 +4,38 @@
 
 {% block body %}
     <h1>Liste des Emprunts</h1>
+    
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button>Search</button>
+    {{ form_end(form) }}
 
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
+                <th>Côte</th>
                 <th>Titre de Publication<th>
-                <th>Date de Reservation </th>
+                <th>Date de réservation</th>
                 <th>Date d'Emprunt</th>
                 <th>Date Limite</th>
                 <th>Commentaire</th>
+                <th>Emprunteur</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for borrow in borrows %}
-            <tr>
-                {# <td>{{ borrow.id }}</td> #}
+            <tr> 
+                <td>{{ borrow.publication.cote }}</td>
                 <td>{{ borrow.publication.title }}</td> 
+                <td></td>
                 <td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
                 <td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
                 <td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
                 <td>{{ borrow.comment }}</td>
+                <td>
+                    {{ borrow.user.fullname }} 
+                </td>
                 <td>
                     <a href="{{ path('emprunt_show', {'id': borrow.id}) }}">Vue</a>
                     <a href="{{ path('emprunt_edit', {'id': borrow.id}) }}">Edition</a>
