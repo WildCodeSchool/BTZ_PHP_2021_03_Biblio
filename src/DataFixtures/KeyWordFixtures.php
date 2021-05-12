@@ -35,7 +35,6 @@ class KeyWordFixtures extends Fixture implements DependentFixtureInterface
                         $keyword->setName(trim($data[$i]));
 
                         $keyword->setPublication($publication);
-                        $keyword->setNotice($notice);
 
                         if ($i < 7) {
                             $keyword->setGeolocalisation(false);
@@ -57,7 +56,6 @@ class KeyWordFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             PublicationFixtures::class,
-            NoticeFixtures::class,
         ];
     }
 }

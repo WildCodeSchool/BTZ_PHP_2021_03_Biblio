@@ -9,7 +9,6 @@ use App\Entity\Editor;
 use App\Entity\Keyword;
 use App\Entity\Language;
 use App\Entity\Localisation;
-use App\Entity\Notice;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\User;
@@ -20,7 +19,6 @@ use App\Form\EditorType;
 use App\Form\KeywordType;
 use App\Form\LanguageType;
 use App\Form\LocalisationType;
-use App\Form\NoticeType;
 use App\Form\PublicationTypeType;
 use App\Form\ThematicType;
 use App\Form\UserType;
@@ -31,7 +29,6 @@ use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
-use App\Repository\NoticeRepository;
 use App\Repository\PublicationTypeRepository;
 use App\Repository\ThematicRepository;
 use App\Repository\UserRepository;
@@ -545,86 +542,6 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////NOTICE/////////////////////////////////////////
-
-    /**
-     * @Route("/admin/notice", name="notice_list", methods={"GET"})
-     */
-    public function noticeList(NoticeRepository $noticeRepository): Response
-    {
-        return $this->render('/admin/notice/index.html.twig', [
-            'notices' => $noticeRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/creation", name="notice_add", methods={"GET","POST"})
-     */
-    public function noticeAdd(Request $request): Response
-    {
-        $notice = new Notice();
-        $form = $this->createForm(NoticeType::class, $notice);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($notice);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('notice_list');
-        }
-
-        return $this->render('/admin/notice/new.html.twig', [
-            'notice' => $notice,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/{id}", name="notice_show", methods={"GET"})
-     */
-    public function noticeShow(Notice $notice): Response
-    {
-        return $this->render('admin/notice/show.html.twig', [
-            'notice' => $notice,
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/{id}/edit", name="notice_edit", methods={"GET","POST"})
-     */
-    public function noticeEdit(Request $request, Notice $notice): Response
-    {
-        $form = $this->createForm(NoticeType::class, $notice);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('notice_list');
-        }
-
-        return $this->render('/admin/notice/edit.html.twig', [
-            'notice' => $notice,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/{id}", name="notice_delete", methods={"DELETE"})
-     */
-    public function noticeDelete(Request $request, Notice $notice): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$notice->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($notice);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('notice_list');
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////PUBLICATION TYPE///////////////////////////////////////
 
     /**
