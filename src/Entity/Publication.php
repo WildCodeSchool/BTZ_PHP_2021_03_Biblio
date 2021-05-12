@@ -147,11 +147,17 @@ class Publication
      */
     private $user;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=KeywordGeo::class, mappedBy="publication")
+     */
+    private $keywordGeos;
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
         $this->authors = new ArrayCollection();
         $this->keywordRefs = new ArrayCollection();
+        $this->keywordGeos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -535,6 +541,33 @@ class Publication
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|KeywordGeo[]
+     */
+    public function getKeywordGeos(): Collection
+    {
+        return $this->keywordGeos;
+    }
+
+    public function addKeywordGeo(KeywordGeo $keywordGeo): self
+    {
+        if (!$this->keywordGeos->contains($keywordGeo)) {
+            $this->keywordGeos[] = $keywordGeo;
+            $keywordGeo->addPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeywordGeo(KeywordGeo $keywordGeo): self
+    {
+        if ($this->keywordGeos->removeElement($keywordGeo)) {
+            $keywordGeo->removePublication($this);
+        }
 
         return $this;
     }
