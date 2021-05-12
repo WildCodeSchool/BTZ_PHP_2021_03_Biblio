@@ -21,20 +21,36 @@
 			<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 				<nav class="sb-sidenav-menu-nested nav">
 					<a class="nav-link" href="{{ path('thematic_list')}}">Thématique</a>
-					<a class="nav-link" href="TODO">Auteurs</a>
-					<a class="nav-link" href="TODO">Notice</a>
-					<a class="nav-link" href="TODO">Publication</a>
-					<a class="nav-link" href="TODO">Languages</a>
+					<a class="nav-link" href="{{ path('auteur_list')}}">Auteurs</a>
+					{# <a class="nav-link" href="{{ path('publication_list')}}">Publication</a> #}
+					<a class="nav-link" href="{{ path('language_list')}}">Languages</a>
 					<a class="nav-link" href=" {{ path('localisation_list') }}">Localisation</a>
 				</nav>
 			</div>
-			<div class="sb-sidenav-menu-heading">Gestion des utilisateurs</div>
-			<a class="nav-link collapsed" href="{{ path('user_list') }}"  aria-expanded="false" aria-controls="collapsePages">
+
+		{# <div class="sb-sidenav-menu-heading">Gestion des mots-clés</div> #}
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-1" aria-expanded="false" aria-controls="collapseLayouts">
 				<div class="sb-nav-link-icon">
-					<i class="fas fa-users"></i>
+					<i class="fas fa-file-word"></i>
 				</div>
-				Utilisateurs
+				Mots-Clés
+				<div class="sb-sidenav-collapse-arrow">
+					<i class="fas fa-angle-down"></i>
+				</div>
 			</a>
+			<div class="collapse" id="collapseLayouts-1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+				<nav class="sb-sidenav-menu-nested nav">
+					<a class="nav-link" href="XXX">Mots-Clés</a>
+					<a class="nav-link" href="XXXX">Mots-Clés Géolocalisation</a>
+				</nav>
+			</div>
+
+
+
+
+
+
+
 			<div class="sb-sidenav-menu-heading">Gestion des emprunts</div>
 			<a class="nav-link collapsed" href="{{ path('emprunt_list') }}"  aria-expanded="false" aria-controls="collapseLayouts">
 				<div class="sb-nav-link-icon">
@@ -42,17 +58,17 @@
 				</div>
 				Emprunts
 			</a>
-			<div class="sb-sidenav-menu-heading">Gestion des mots-clés</div>
-			<a class="nav-link collapsed" href="#"  aria-expanded="false" aria-controls="collapseLayouts">
+			<div class="sb-sidenav-menu-heading">Gestion des utilisateurs</div>
+			<a class="nav-link collapsed" href="{{ path('user_list') }}"  aria-expanded="false" aria-controls="collapsePages">
 				<div class="sb-nav-link-icon">
-					<i class="fas fa-file-word"></i>
+					<i class="fas fa-users"></i>
 				</div>
-				Mots-Clés
+				Utilisateurs
 			</a>
 		</div>
 	</div>
-	<div class="sb-sidenav-footer">
+	{# <div class="sb-sidenav-footer">
 		<div class="small">Connecté avec:</div>
 		XXX
-	</div>
+	</div> #}
 </nav>

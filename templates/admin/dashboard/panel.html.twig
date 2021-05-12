@@ -3,7 +3,7 @@
 
 {% block content %}
 	<div class="container-fluid">
-		<h1 class="mt-4">Bonjour John Doe, <small>nous sommes le
+		<h1 class="mt-4">Bonjour {{ user.fullname }}, <small>nous sommes le
 			{{ "now"|date("d/m/Y") }}</small>
 		</h1>
 		<ol class="breadcrumb mb-4">

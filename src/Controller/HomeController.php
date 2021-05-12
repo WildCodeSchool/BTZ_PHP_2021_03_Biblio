@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class HomeController extends AbstractController
 {
     /**
@@ -16,7 +17,6 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-
         return $this->render('home/index.html.twig', [
             'user' => $this->getUser(),
         ]);

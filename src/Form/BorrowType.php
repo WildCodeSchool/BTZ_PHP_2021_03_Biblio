@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Borrow;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,8 +17,8 @@ class BorrowType extends AbstractType
             ->add('limit_date',null, ['label' =>  'Date de retour',])
             ->add('comment',null, ['label' =>  'Commentaire',])
             ->add('user',null, 
-            ['choice_label' => function ($user) {return $user->getFullname();
-            },
+                    ['choice_label' => function ($user) {return $user->getFullname();
+                },
             'label' => 'Attribuer un utilisateur a l emprunt : ',
             'required' => true,
             ])
