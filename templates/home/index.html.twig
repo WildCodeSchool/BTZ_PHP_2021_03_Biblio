@@ -6,9 +6,9 @@
 
 <section>
       <!-- Item -->
-      <div class="vh-100 mt-lg-n10 banner-accueil" style="background-image: url({{ asset('build/images/pexels-scott-webb-1029606.jpg') }});">
+      <div class="vh-75 mt-lg-n10 banner-accueil" style="background-image: url({{ asset('build/images/pexels-scott-webb-1029606.jpg') }});">
         <div class="container d-flex flex-column">
-          <div class="row align-items-center justify-content-left text-left vh-100">
+          <div class="row align-items-center justify-content-left text-left vh-75">
             <div class="col-12 col-md-6 col-lg-9 text-white">
               <h1 class="display-4">Lorem ipsum dolor sit amet</h1>
               <p class="pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro non ea consectetur.
@@ -28,10 +28,13 @@
         <div class="col-12">
         <h2 class="pb-6">Recherche par mots clés</h2>
       </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-8">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="mots clé" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
+
+              <button class="btn btn-outline-success" type="button" id="button-addon2">Recherché</button>
+
               <button class="btn btn-outline-secondary" type="button" id="button-addon2">Recherché</button>
             </div>
           </div>
@@ -66,72 +69,10 @@
                   consulter <i class="pl-3 fas fa-arrow-right"></i>
                 </a>
               </div>
+
             </div>
+            <a class="btn btn-outline-secondary mx-2" href="/publication/list" role="button">Recherché avancee</a>
           </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column px-1">
-
-          <!-- Card -->
-          <div class="card mb-2 text-body" style="min-height: 300px; background-size: cover; ;background-image: url({{ asset('build/images/pexels-emily-768125.jpg') }})" >
-            <!-- Body -->
-            <div class="card-body pl-10 pl-md-0 pt-md-12 bottom my-auto d-flex flex-column flex-auto">
-              <div class="mt-auto px-md-9 text-white">
-                <!-- Heading -->
-                <h3 class="h3">Notices</h3>
-                <a class="btn btn-link pl-0" href="">
-                  consulter <i class="pl-2 fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-         <!-- Card -->
-         <div class="card mb-2 text-body" style="min-height: 300px; background-size: cover; ;background-image: url({{ asset('build/images/pexels-cottonbro-4937197.jpg') }})" >
-          <!-- Body -->
-          <div class="card-body pl-10 pl-md-0 pt-md-12 bottom my-auto d-flex flex-column flex-auto">
-            <div class="mt-auto px-md-3 text-white">
-              <!-- Heading -->
-              <h3 class="h3">études<br> 
-                « privées »</h3>
-              <a class="btn btn-link pl-0" href="">
-                consulter <i class="pl-2 fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column px-1">
-
-         <!-- Card -->
-         <div class="card mb-2 text-body" style="min-height: 300px; background-size: cover; ;background-image: url({{ asset('build/images/pexels-cottonbro-4861362.jpg') }})" >
-          <!-- Body -->
-          <div class="card-body pl-10 pl-md-0 pt-md-12 bottom my-auto d-flex flex-column flex-auto">
-            <div class="mt-auto px-md-9 text-white">
-              <!-- Heading -->
-              <h3 class="h3">études<br> 
-                « membre »</h3>
-              <a class="btn btn-link pl-0" href="">
-                consulter <i class="pl-2 fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-         <!-- Card -->
-         <div class="card mb-2 text-body" style="min-height: 300px; background-size: cover; ;background-image: url({{ asset('build/images/pexels-tima-miroshnichenko-5198235.jpg') }})" >
-          <!-- Body -->
-          <div class="card-body pl-10 pl-md-0 pt-md-12 bottom my-auto d-flex flex-column flex-auto">
-            <div class="mt-auto px-md-9 text-white">
-              <!-- Heading -->
-              <h3 class="h3">études libres</h3>
-              <a class="btn btn-link pl-0" href="">
-                consulter <i class="pl-2 fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
     </div>

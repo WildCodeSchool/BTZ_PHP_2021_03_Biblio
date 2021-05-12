@@ -4,14 +4,11 @@ block body %}
   <div class="container">
     <div class="row">
       <div class="col-12 py-5 text-center">
-        <nav
-          class="py-2"
-          style="--bs-breadcrumb-divider: '>'"
-          aria-label="breadcrumb"
-        >
+        <nav class="py-2" style="--bs-breadcrumb-divider: '>'"aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="/publication/list">Publications</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ publication.title }}</li>
           </ol>
         </nav>
         <p>Publication</p>
@@ -36,126 +33,74 @@ block body %}
   </div>
 </section>
 
-<div class="container py-8">
-  <div class="row">
-    <div class="col-12">
-      <!-- Nav -->
-      <div
-        class="
-          nav nav-tabs nav-overflow
-          justify-content-start justify-content-md-center
-          border-bottom
-        "
-      >
-        <a class="nav-link active" data-toggle="tab" href="#descriptionTab">
-          Description
-        </a>
-        <a class="nav-link" data-toggle="tab" href="#sizeTab"> Lorem ipsum </a>
-        <a class="nav-link" data-toggle="tab" href="#shippingTab"> Docs </a>
-      </div>
-
-      <!-- Content -->
-      <div class="tab-content">
-        <div class="tab-pane fade active show" id="descriptionTab">
-          <div class="row justify-content-center py-9">
-            <div class="col-12 col-lg-10 col-xl-8">
-              <div class="row">
-                <div class="col-12">
-                  <!-- Text -->
-                  <p>
-                    {{ publication.summary }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="container py-4">
+  <div class="row justify-content-center py-9">
+    <div class="col-12 col-lg-10 col-xl-8">
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <span class="strong">Id:</span> {{ publication.id }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Title:</span> {{ publication.title }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mention:</span>
+              {{ publication.mention }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Publication_date:</span>
+              {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Paging:</span>
+              {{ publication.paging }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Volume_number:</span>
+              {{ publication.volumeNumber }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Summary:</span>
+              {{ publication.summary }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Issn_isbn:</span>
+              {{ publication.issnIsbn }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Support:</span>
+              {{ publication.volumeNumber }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Volume_number:</span>
+              {{ publication.support }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Source_address:</span>
+              {{ publication.sourceAddress }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Url:</span> {{ publication.url }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Cote:</span> {{ publication.cote }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Access:</span>
+              {{ publication.access }}
+            </li>
+          </ul>
         </div>
-        <div class="tab-pane fade" id="sizeTab">
-          <div class="row justify-content-center py-9">
-            <div class="col-12 col-lg-10 col-xl-8">
-              <div class="row">
-                <div class="col-12">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <span class="strong">ID:</span> {{ publication.id }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Title:</span> {{ publication.title }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Mention:</span>
-                      {{ publication.mention }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Publication_date:</span>
-                      {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Paging:</span>
-                      {{ publication.paging }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Volume_number:</span>
-                      {{ publication.volumeNumber }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Summary:</span>
-                      {{ publication.summary }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Issn_isbn:</span>
-                      {{ publication.issnIsbn }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Support:</span>
-                      {{ publication.volumeNumber }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Volume_number:</span>
-                      {{ publication.support }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Source_address:</span>
-                      {{ publication.sourceAddress }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Url:</span> {{ publication.url }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Cote:</span> {{ publication.cote }}
-                    </li>
-                    <li class="list-group-item">
-                      <span class="strong">Access:</span>
-                      {{ publication.access }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="shippingTab">
-          <div class="row justify-content-center py-9">
-            <div class="col-12 col-lg-10 col-xl-8"></div>
-          </div>
+        <div class="col-12 py-3">
+          <a class="btn btn-outline-success" href="{{ path('publication_list') }}">back to list</a>
+          <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
+          {{ include("publication/_delete_form.html.twig") }}
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<section class="pb-12">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <a class="btn btn-outline-success" href="{{ path('publication_list') }}">back to list</a>
-
-        <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
-
-        {{ include("publication/_delete_form.html.twig") }}
-      </div>
-    </div>
-  </div>
-</section>
 
 {% endblock %}
