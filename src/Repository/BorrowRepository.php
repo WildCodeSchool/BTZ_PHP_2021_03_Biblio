@@ -22,13 +22,17 @@ class BorrowRepository extends ServiceEntityRepository
 
     public function findLikeCote($cote)
     {
-        return $this->createQueryBuilder('b')
-            ->leftJoin('publication', 'p', 'ON', 'p.id = b.publication_id')
-            ->andWhere('p.cote LIKE :cote')
-            ->setParameter('cote', '%' . $cote . '%')
-            ->getQuery()
-            ->getResult()
-        ;
+        // return $this->createQueryBuilder('b')
+        //     ->leftJoin('publication', 'p', 'ON', 'p.id = b.publication_id')
+        //     ->andWhere('p.cote LIKE :cote')
+        //     ->setParameter('cote', '%' . $cote . '%')
+        //     ->getQuery()
+        //     ->getResult()
+        //;
+
+        $em = $this->getEntityManager()->getConnection();
+        $query = "SELECT p.cote, p.title, b.reservation_date, b.borrowed_date, b.limit_date, b.comment, u.firstname, u.lastname FROM `borrow` AS b LEFT JOIN `publication` AS p ON p.id = b.publication_id INNER JOIN `user` AS u ON u.id = b.user_id WHERE p.cote = $cote";
+        
     }
 
 

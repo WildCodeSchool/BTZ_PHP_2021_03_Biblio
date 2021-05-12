@@ -708,7 +708,7 @@ class AdminController extends AbstractController
     /////////////////////EMPRUNT//START/////////////////////////////////////////////////////////
 
     /**
-     * @Route("/admin/emprunt", name="emprunt_list", methods={"GET"})
+     * @Route("/admin/emprunt", name="emprunt_list", methods={"GET", "POST"})
      */
     public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
@@ -718,7 +718,7 @@ class AdminController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $search = $form->getData()['search'];
-            $borrowRepository->findBy(['cote' => $search]);
+            $borrowRepository->findLikeCote($search);
         }else{
             $borrowRepository->findAll();
         }
