@@ -32,11 +32,6 @@ class Keyword
      */
     private $publication;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Notice::class, inversedBy="keywords")
-     */
-    private $notice;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -74,18 +69,6 @@ class Keyword
     public function setPublication(?Publication $publication): self
     {
         $this->publication = $publication;
-
-        return $this;
-    }
-
-    public function getNotice(): ?Notice
-    {
-        return $this->notice;
-    }
-
-    public function setNotice(?Notice $notice): self
-    {
-        $this->notice = $notice;
 
         return $this;
     }
