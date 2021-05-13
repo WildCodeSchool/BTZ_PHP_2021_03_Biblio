@@ -21,8 +21,14 @@
             </tr>
             <tr>
                 <th>Mot clé</th>
-                {% for keyword in publication.keywords %}
-                    <td>{{ keyword.name }}</td>
+                {% for keywordRef in publication.keywordRefs %}
+                    <td>{{ keywordRef.name }}</td>
+                {% endfor %}  
+            </tr>
+            <tr>
+                <th>Mot clé Geographique</th>
+                {% for keywordGeo in publication.keywordGeos %}
+                    <td>{{ keywordGeo.name }}</td>
                 {% endfor %}  
             </tr>
             {% if is_granted('ROLE_AUDAP_MEMBER') %}
@@ -52,7 +58,7 @@
                 <td>{{ publication.mention }}</td>
             </tr>
             <tr>
-                <th>Oeuvre</th>
+                <th>Date publication</th>
                 <td>{{ publication.publicationDate ? publication.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
             </tr>
             <tr>
@@ -83,11 +89,22 @@
                 </tr>
                 <tr>
                     <th>Auteur Notice</th>
-                    {% for notice in publication.notices %}
-                        <td>{{ notice.author }}</td>
-                        <td>{{ notice.creationdate | date("d/m/Y") }}</td>
+                    <td>{{ publication.user.fullname }}</td>
+                </tr>
+                <tr>
+                    <th>Date de mise a jour Notice</th>
+                    <td>{{ publication.updateDate | date("d/m/Y")}}</td>
+                </tr>
+                <tr>
+                    <th>Emprunt</th>
+                    {% for borrow in publication.borrows %}
+                        <td>{{ borrow.user.fullname }}</td>
+                        <td>{{ borrow.borrowedDate | date("d/m/Y")}}</td>
+                    {% else %}
+                        <td> jamais emprunté </td>
                     {% endfor %}  
                 </tr>
+                
             {% endif %}
                         
         </tbody>

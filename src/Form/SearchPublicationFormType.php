@@ -6,7 +6,7 @@ use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\Author;
 use App\Entity\User;
-use App\Entity\Keyword;
+use App\Entity\KeywordGeo;
 use App\Entity\KeywordRef;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceLabel;
@@ -36,13 +36,13 @@ class SearchPublicationFormType extends AbstractType
                 'required' => false,
                 'choice_label' => 'name',
             ])
-            ->add('keyword_search', EntityType::class, [
+            ->add('keywordRef_search', EntityType::class, [
                 'class' => KeywordRef::class,
                 'required' => false,
                 'choice_label' => 'name',
             ])
             ->add('keywordGeo_search', EntityType::class, [
-                'class' => KeywordRef::class,
+                'class' => KeywordGeo::class,
                 'required' => false,
                 'choice_label' => 'name',
             ])

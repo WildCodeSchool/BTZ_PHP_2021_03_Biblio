@@ -40,7 +40,7 @@ class PublicationController extends AbstractController
             $typeSearch = $form->getData() ['type_search'];
             $thematicSearch = $form->getData() ['thematic_search'];
             $authorSearch = $form->getData() ['author_search'];
-            $keywordSearch = $form->getData() ['keyword_search'];
+            $keywordRefSearch = $form->getData() ['keywordRef_search'];
             $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
             $borrowSearch = $form->getData() ['borrow_search'];
             $coteSearch = $form->getData() ['cote_search'];
@@ -50,7 +50,7 @@ class PublicationController extends AbstractController
             $tabSearch = [];
             foreach ($_POST['search_publication_form'] as $key => $value) {
                 if (!empty($value) && $key !== '_token' && $value !== null) {
-                    if ($key === 'keyword_search' || $key === 'author_search') {
+                    if ($key === 'keywordRef_search' || $key === 'keywordGeo_search' || $key === 'author_search') {
                         $tabSearch[$key] = $form->getData() [$key]->getName();
                     } elseif ($key === 'borrow_search') {
                         $tabSearch[$key] = $form->getData() [$key]->getId();
@@ -63,16 +63,6 @@ class PublicationController extends AbstractController
             };
             // dd($tabSearch);
             $publications = $publicationRepository->findByCriteria($tabSearch);
-        // $publications = $publicationRepository->findByCriteria([
-            //     'type_search' => $typeSearch,
-            //     'thematic_search' => $thematicSearch,
-            //     'author_search' => $authorSearch->getName(),
-            //     'keyword_search' => $keywordSearch->getName(),
-            //     'borrow_search' => $borrowSearch->getId(),
-            //     'cote_search' => $coteSearch,
-            //     'dateStart_search' => $dateStartSearch,
-            //     'dateEnd_search' => $dateEndSearch,
-            //     ]);
         } else {
             $publications = $publicationRepository->findAll();
         }

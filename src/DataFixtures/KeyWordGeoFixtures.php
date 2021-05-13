@@ -2,13 +2,13 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\KeywordRef;
+use App\Entity\KeywordGeo;
 use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class KeyWordRefFixtures extends Fixture
+class KeyWordGeoFixtures extends Fixture
 {
     protected $slugify;
 
@@ -19,25 +19,25 @@ class KeyWordRefFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $csvFile = file(__DIR__.'./../../database/keywordref.csv');
+        $csvFile = file(__DIR__.'./../../database/keywordgeo.csv');
 
-        $keywordRefArray = [];
+        $keywordGeoArray = [];
         foreach ($csvFile as $line) {
-            $keywordRefArray[] = str_getcsv($line);
+            $keywordGeoArray[] = str_getcsv($line);
         }
         $i = 0;
         $slugTab= [];
-        foreach ($keywordRefArray as $data) {
+        foreach ($keywordGeoArray as $data) {
             if ($i > 0) {
                 $data =  explode(";", $data[0]);
-                $keywordRef = new KeywordRef();
+                $keywordGeo = new KeywordGeo();
                 $slug = $this->slugify->generate($data[1]);
                 
                 if (!in_array($slug, $slugTab)) {
-                    $keywordRef->setName($data[1]);
-                    $keywordRef->setSlug($slug);
-                    $this->addReference('keywordref_' . $slug, $keywordRef);
-                    $manager->persist($keywordRef);
+                    $keywordGeo->setSlug($slug);
+                    $keywordGeo->setName($data[1]);
+                    $this->addReference('keywordgeo_' . $slug, $keywordGeo);
+                    $manager->persist($keywordGeo);
                     $slugTab[] = $slug;
                 } else {
                     echo "doublon $slug \n";
