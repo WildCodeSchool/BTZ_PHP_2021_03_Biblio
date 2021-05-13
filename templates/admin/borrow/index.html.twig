@@ -23,15 +23,12 @@
 					<tr>
 						<td>{{ borrow.publication.title }}</td>
 						<td></td>
-
 						<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
 						<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
 						<td></td>
 						<td>
-
 							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_show', {'id': borrow.id}) }}" role="button">Détail</a>
 							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a>
-
 						</td>
 					</tr>
 				{% else %}
@@ -40,12 +37,11 @@
 					</tr>
 				{% endfor %}
 			</tbody>
-
 		</table>
 	</div>
 
-		<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_add') }}" role="button">Création Nouvel Emprunt</a>
+	<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_add') }}" role="button">Création Nouvel Emprunt</a>
 	<div></div>
-		<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 
 {% endblock %}
