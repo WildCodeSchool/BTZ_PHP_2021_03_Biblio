@@ -9,8 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Validator\Constraints\Date;
 
 /**
- * @method Publication|null find($id, $lockMode = null, $lockVersion = null)
- * @method Publication|null findOneBy(array $criteria, array $orderBy = null)
+ * @method null|Publication find($id, $lockMode = null, $lockVersion = null)
+ * @method null|Publication findOneBy(array $criteria, array $orderBy = null)
  * @method Publication[]    findAll()
  * @method Publication[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -22,9 +22,10 @@ class PublicationRepository extends ServiceEntityRepository
     }
 
     /**
-    * @return Publication[] Returns an array of Publication objects
-    */
-
+     * @param mixed $tabCriteria
+     *
+     * @return Publication[] Returns an array of Publication objects
+     */
     public function findByCriteria($tabCriteria)
     {
         $tab = [
@@ -38,12 +39,12 @@ class PublicationRepository extends ServiceEntityRepository
             'dateStart_search' => '>=',
             'dateEnd_search' => '<=',
         ];
-        
+
         $kb = $this->createQueryBuilder('p');
         foreach ($tab as $key => $value) {
             if ($tabCriteria[$key] !== '' && $tabCriteria[$key] !== null) {
                 $field = str_replace('_search', '', $key);
-                
+
                 if (is_array($value)) {
                     $op = " " . $value[0] .  " :";
                     $criteria = $value[2] . "." . $value[3] . $op . $field;
@@ -55,10 +56,10 @@ class PublicationRepository extends ServiceEntityRepository
                     $op = " = :";
                     $criteria = "p.cote" . $op . $field;
                 } else {
-                    $op = " " . $value . " :";
-                    $criteria = "p.publication_date" . $op . $field;
-                };
-                
+                    $op = ' '.$value.' :';
+                    $criteria = 'p.publication_date'.$op.$field;
+                }
+
                 $kb->andWhere($criteria);
                 $kb->setParameter($field, $tabCriteria[$key]);
             }
@@ -70,6 +71,7 @@ class PublicationRepository extends ServiceEntityRepository
         
         
 
+        return $kb->getQuery()->getResult();
         // return $this->createQueryBuilder('p')
         //     // ->Join('p.keywords', 'k')
         //     // ->Join('p.authors', 'a')
@@ -84,7 +86,7 @@ class PublicationRepository extends ServiceEntityRepository
         //     // ->setParameter('keyword', $tabCriteria['keyword_search'])
         //     ->setParameter('datePub', 'p.publication_date')
         //     ->setParameter('dateStart', new dateTime($tabCriteria['dateStart_search']))
-            
+
         //     ->orderBy('p.title', 'ASC')
         //     ->setMaxResults(10)
         //     ->getQuery()
@@ -103,4 +105,33 @@ class PublicationRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByQuery($query)
+    {
+        $query = "%{$query}%";
+
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.title LIKE :query')
+            ->setParameter('query', $query)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByQueryAuto($query)
+    {
+        $query = "%{$query}%";
+
+        return $this->createQueryBuilder('p')
+            ->select(['p.id', 'p.title'])
+            ->andWhere('p.title LIKE :query')
+            ->setParameter('query', $query)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

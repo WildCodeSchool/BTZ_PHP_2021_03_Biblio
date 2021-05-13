@@ -1,45 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Emprunts{% endblock %}
+{% block title %}Liste des Emprunts
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des Emprunts</h1>
+	<h2>Liste des Emprunts</h2>
+	<div class="table-responsive">
+		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
 
-    <table class="table">
-        <thead>
-            <tr>
-                {# <th>Id</th> #}
-                <th>Titre de Publication<th>
-                <th>Date de Reservation </th>
-                <th>Date d'Emprunt</th>
-                <th>Date Limite</th>
-                <th>Commentaire</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for borrow in borrows %}
-            <tr>
-                {# <td>{{ borrow.id }}</td> #}
-                <td>{{ borrow.publication.title }}</td> 
-                <td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
-                <td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
-                <td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
-                <td>{{ borrow.comment }}</td>
-                <td>
-                    <a href="{{ path('emprunt_show', {'id': borrow.id}) }}">Vue</a>
-                    <a href="{{ path('emprunt_edit', {'id': borrow.id}) }}">Edition</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucun Enregistrement</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+			<thead>
+				<tr class="table-active">
+					<th>Titre de Publication</th>
+					<th></th>
+					<th>Date d'Emprunt</th>
+					<th>Date Limite</th>
+					<th>Utilisateur</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for borrow in borrows %}
+					<tr>
+						<td>{{ borrow.publication.title }}</td>
+						<td></td>
 
-    <a href="{{ path('emprunt_add') }}">Création Nouvel Emprunt</a>
-    <div></div>
-    <a href="{{ path('admin') }}">Retour Menu Admin</a>
+						<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
+						<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
+						<td></td>
+						<td>
+							<button>
+								<a href="{{ path('emprunt_show', {'id': borrow.id}) }}">Détail</a>
+							</button>
+							<button>
+								<a href="{{ path('emprunt_edit', {'id': borrow.id}) }}">Edition</a>
+							</button>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">Aucun Enregistrement</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+	</div>
+	<button>
+		<a href="{{ path('emprunt_add') }}">Création Nouvel Emprunt</a>
+	</button>
+	<div></div>
+	<button>
+		<a href="{{ path('admin') }}">Retour Menu Admin</a>
+	</button>
 {% endblock %}

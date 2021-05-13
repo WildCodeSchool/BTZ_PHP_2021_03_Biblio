@@ -65,8 +65,8 @@ class UserFixtures extends Fixture
         $admin->setEmail('admin@yopmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'admin'));
-        $admin->setFirstname($faker->firstName);
-        $admin->setLastname($faker->lastName);
+        $admin->setFirstname('ADMIN FIRSTNAME');
+        $admin->setLastname('ADMIN LASTNAME');
         $admin->setPhone('0600000000');
         $admin->setAddress('3 rue des Admins 64200 Bayonne');
         $admin->setNewsletter(false);

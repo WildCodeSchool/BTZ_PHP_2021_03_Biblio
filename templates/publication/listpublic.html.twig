@@ -1,42 +1,72 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Publication index{% endblock %}
-
+{% extends 'base.html.twig' %} {% block title %}Publication index {% endblock %}
 {% block body %}
-    <h1>Publication index</h1>
-    {{ include('publication/_formSearch.html.twig', {'button_label': 'Rechercher'}) }}
-    <table class="table">
-        <thead>
-            <tr>
-                
-                <th>Title</th>
-                <th>Type</th>
-                <th>Thématique</th>
-                <th>Publication_date</th>
-                <th>Support</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for publication in publications %}
-            <tr>
-                
-                <td>{{ publication.title }}</td>
-                <td>{{ publication.type.name }}</td>
-                <td>{{ publication.thematic.name }}</td>
-                <td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</td>
-                <td>{{ publication.support }}</td>         
-                <td>
-                    <a href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="14">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-5 text-center">
+        <nav class="py-2" style="--bs-breadcrumb-divider: '>'"aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent">
+            <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Publications</li>
+          </ol>
+        </nav>
+        <h1>Publications</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container pb-12">
+    {{
+      include("publication/_formSearch.html.twig", {
+        button_label: "Rechercher"
+      })
+    }}
+    <a class="btn btn-outline-success mt-2" href="{{ path('publication_list') }}">Anuller</a>
+  </div>
+</section>
 
-    <a href="{{ path('publication_list') }}">Retour</a>
+{# AFFICHAGE Résulats #}
+<div class="container my-4">
+  <div class="count">
+    La recherche a trouvé :
+    {{ pagination.getTotalItemCount }}
+    {% if pagination.getTotalItemCount > 1 %} publications {% else %}
+    publication {% endif %}
+  </div>
+</div>
+
+{# AFFICHAGE DES CARTES DES RESULTATS #}
+<div class="container">
+  <div class="row">
+    {% for publication in pagination %}
+    <div class="col-12 col-md-4">
+      <div class="card mb-6">
+        <div class="card-body">
+          <h5 class="card-title">{{ publication.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ publication.type.name }}
+          </h6>
+          <p class="card-text">{{ publication.thematic.name }}</p>
+          <p class="card-text">
+            {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}
+          </p>
+          <p class="card-text">{{ publication.support }}</p>
+          <a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">consulter</a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <p>no records found</p>
+    {% endfor %}
+  </div>
+  <div class="row justify-content-center py-5">
+    <div class="col-4 text-center">
+      {# display navigation #}
+      <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

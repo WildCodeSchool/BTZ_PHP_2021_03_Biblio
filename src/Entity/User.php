@@ -298,10 +298,10 @@ class User implements UserInterface
         return $this->getFirstname().' '.$this->getLastname();
     }
 
-    // public function __tostring()
-    // {
-    //     return $this->firstname;
-    // }
+    public function __tostring()
+    {
+        return $this->firstname;
+    }
 
     /**
      * @return Collection|Publication[]

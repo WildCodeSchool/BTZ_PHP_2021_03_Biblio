@@ -3,7 +3,18 @@
 {% block title %}Edit Publication{% endblock %}
 
 {% block body %}
-    <h1>Edit Publication</h1>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-8">
+                <h1>Edit Publication</h1>
+            </div>
+            <div class="col-12">
+                    {{ include('publication/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+</section>
 
     {{ include('publication/_form.html.twig', {'button_label': 'Update'}) }}
 

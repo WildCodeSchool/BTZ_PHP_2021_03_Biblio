@@ -36,7 +36,6 @@ class Author
 
     public function __construct()
     {
-        $this->notices = new ArrayCollection();
         $this->publications = new ArrayCollection();
     }
 

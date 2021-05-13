@@ -2,10 +2,11 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Borrow;
 use DateTime;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\User;
+use App\Entity\Borrow;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class BorrowFixtures extends Fixture implements DependentFixtureInterface

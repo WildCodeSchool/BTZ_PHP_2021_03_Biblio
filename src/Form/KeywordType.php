@@ -15,7 +15,6 @@ class KeywordType extends AbstractType
             ->add('name')
             ->add('geolocalisation')
             ->add('publication')
-            //->add('notice', null, ['choice_label' => 'title'])
         ;
     }
 
