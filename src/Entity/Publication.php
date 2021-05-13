@@ -118,16 +118,6 @@ class Publication
     private $authors;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $update_date;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="publications")
-     */
-    private $user;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;

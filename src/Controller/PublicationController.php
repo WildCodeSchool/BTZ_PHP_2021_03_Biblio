@@ -6,7 +6,6 @@ use App\Entity\Author;
 use App\Entity\Publication;
 use App\Form\PublicationType;
 use App\Form\SearchPublicationFormType;
-use App\Repository\NoticeRepository;
 use App\Repository\PublicationRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
