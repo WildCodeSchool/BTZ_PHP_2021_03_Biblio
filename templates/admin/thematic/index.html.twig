@@ -1,38 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Thematic index
+{% block title %}Liste des Thématiques
 {% endblock %}
 
 {% block body %}
-	<h1>Thematic index</h1>
-
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for thematic in thematics %}
-				<tr>
-					<td>{{ thematic.id }}</td>
-					<td>{{ thematic.name }}</td>
-					<td>{{ thematic.description }}</td>
-					<td>
-						<a href="{{ path('thematic_show', {'id': thematic.id}) }}">show</a>
-						<a href="{{ path('thematic_edit', {'id': thematic.id}) }}">edit</a>
-					</td>
+	<h2>Liste des Thématiques</h2>
+	<div class="table-responsive">
+		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<tr class="table-active">
+					<th>Nom</th>
+					<th>Description</th>
+					<th>Actions</th>
 				</tr>
-			{% else %}
-				<tr>
-					<td colspan="4">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	<a href="{{ path('thematic_add') }}">Create new</a>
+			</thead>
+			<tbody>
+				{% for thematic in thematics %}
+					<tr>
+						<td>{{ thematic.name }}</td>
+						<td>{{ thematic.description }}</td>
+						<td>
+							<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_show', {'id': thematic.id}) }}" role="button">Détail</a>
+							<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">Aucun Enregistrement</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Création Nouveau Thématique</a>
+	<div></div>
+	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 {% endblock %}
