@@ -3,19 +3,18 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-<section class="px-0">
-    <div class="container-fluid px-0">
-      <div class="row py-10">
-        <div class="col-md-6 px-md-12 pt-5">
-            <h1 class="pb-8">Contact</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque molestias magni natus dolorem nesciunt aperiam odit, earum amet ullam? Vero labore, iure unde atque expedita mollitia ipsam est sunt inventore!</p>
-            <p>Petite Caserne
-        2 allée des Platanes - BP628</p>
-        <p>64106 BAYONNE cedex</p>
-        <p>05 59 46 50 10</p>
 
-
-
+    <div class="container-fluid">
+      <div class="row py-8">
+        <div class="col-12 col-md-6 px-md-12 pb-8 pb-md-0 pt-md-5">
+            <div>
+                <h1 class="pb-8">Contact</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque molestias magni natus dolorem nesciunt aperiam odit, earum amet ullam? Vero labore, iure unde atque expedita mollitia ipsam est sunt inventore!</p>
+                <p>Petite Caserne
+            2 allée des Platanes - BP628</p>
+            <p>64106 BAYONNE cedex</p>
+            <p>05 59 46 50 10</p>
+            </div>
 
           <!--Grid column-->
           <div class="col-md-9"></div>
@@ -27,8 +26,8 @@
                       <!--Grid column-->
                       <div class="col-md-6">
                           <div class="md-form mb-0">
-                              <input type="text" id="name" name="name" class="form-control">
-                              <label for="name" class="">Your name</label>
+                            {{ form_start(our_form) }}
+                            {{ form_row(our_form.fullName, {'attr': {'class': 'form-control'}}) }}                        
                           </div>
                       </div>
                       <!--Grid column-->
@@ -36,8 +35,7 @@
                       <!--Grid column-->
                       <div class="col-md-6">
                           <div class="md-form mb-0">
-                              <input type="text" id="email" name="email" class="form-control">
-                              <label for="email" class="">Your email</label>
+                            {{ form_row(our_form.email, {'attr': {'class': 'form-control'}}) }}
                           </div>
                       </div>
                       <!--Grid column-->
@@ -49,8 +47,7 @@
                   <div class="row">
                       <div class="col-md-12">
                           <div class="md-form mb-0">
-                              <input type="text" id="subject" name="subject" class="form-control">
-                              <label for="subject" class="">Subject</label>
+                            {{ form_row(our_form.message, {'attr': {'class': 'form-control'}}) }}
                           </div>
                       </div>
                   </div>
@@ -63,25 +60,16 @@
                       <div class="col-md-12">
   
                           <div class="md-form">
-                              <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                              <label for="message">Your message</label>
+                            <input type="submit" value="Send" class="btn btn-primary px-5">
                           </div>
-  
+                          {{ form_end(our_form) }}
                       </div>
                   </div>
                   <!--Grid row-->
   
               </form>
-  
-              <div class="text-center text-md-left">
-                  <a class="btn btn-primary">Send</a>
-              </div>
-
 
           </div>
-
-
-
 
           <div class="col-md-6">
             <iframe src="https://www.google.com/maps/d/embed?mid=1g6iJEvA6xL7J0c5FQsrb3--u5S1GsI-A" width="100%" height="100%"></iframe>
@@ -89,7 +77,5 @@
         </div>
       </div>
     </div>
-  </section>
-
 
 {% endblock %}
