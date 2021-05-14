@@ -116,20 +116,11 @@ class PublicationController extends AbstractController
      */
     public function show(Publication $publication): Response
     {
-        return $this->render('publication/showPub.html.twig', [
+        return $this->render('publication/show.html.twig', [
             'publication' => $publication,
         ]);
     }
 
-    /**
-     * @Route("/pub{id}", name="publication_showpub", methods={"GET"})
-     */
-    public function showPub(Publication $publication): Response
-    {
-        return $this->render('publication/showPub.html.twig', [
-            'publication' => $publication,
-        ]);
-    }
     /**
      * @Route("/{id}/edit", name="publication_edit", methods={"GET","POST"})
      */

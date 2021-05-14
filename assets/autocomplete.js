@@ -9,19 +9,15 @@ document.getElementById('searchField').addEventListener('input', function(event)
             var li = document.createElement("li");
 
              // Create anchor element.
-             var a = document.createElement('a'); 
-                  
+            var a = document.createElement('a');       
              // Create the text node for anchor element.
-             var link = document.createTextNode(element.title);
-               
+            var link = document.createTextNode(element.title);
              // Append the text node to anchor element.
-             a.appendChild(link); 
-               
+            a.appendChild(link); 
              // Set the title.
              //a.title = "This is Link"; 
-               
              // Set the href property.
-             a.href = "/publication/"+element.id; 
+            a.href = "/publication/"+element.id; 
             li.appendChild(a);
             ul.appendChild(li);
 

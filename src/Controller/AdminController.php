@@ -716,7 +716,6 @@ class AdminController extends AbstractController
 
         $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
 
-
         if($form->isSubmitted() && $form->isValid()){
             $search = $form->getData()['search'];
             $borrowRepository->findBy(['cote' => $search]);
