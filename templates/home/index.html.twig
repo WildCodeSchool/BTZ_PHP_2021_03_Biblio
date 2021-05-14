@@ -54,41 +54,31 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="{{ asset('build/images/pexels-emily-768125.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+{% for publication in publications %}
+    <div class="col-12 col-md-4">
+      <div class="card mb-6">
+        <div class="card-body">
+          <h5 class="card-title">{{ publication.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ publication.type.name }}
+          </h6>
+          <p class="card-text">{{ publication.thematic.name }}</p>
+          <p class="card-text">
+            {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}
+          </p>
+          <p class="card-text">{{ publication.support }}</p>
+          <a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">consulter</a>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="{{ asset('build/images/pexels-emily-768125.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="{{ asset('build/images/pexels-zhang-kaiyv-1168940.jpg') }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+    {% else %}
+    <p>no records found</p>
+    {% endfor %}
 
       </div>
     </div>
   </section>
+
 
 
   <section class="py-12 bg-light">
