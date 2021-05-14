@@ -28,13 +28,13 @@ class HomeController extends AbstractController
         ]);
     }
 
-        /**
-     * @Route("/contact", name="contact")
-     */
-    public function contact(): Response
-    {
-        return $this->render('home/contact.html.twig');
-    }
+    //     /**
+    //  * @Route("/contact", name="contact")
+    //  */
+    // public function contact(): Response
+    // {
+    //     return $this->render('home/contact.html.twig');
+    // }
 
 
     /**
