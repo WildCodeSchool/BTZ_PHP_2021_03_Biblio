@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\Author;
-use App\Entity\Keyword;
+use App\Entity\User;
+use App\Entity\KeywordGeo;
+use App\Entity\KeywordRef;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceLabel;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
@@ -34,15 +36,23 @@ class SearchPublicationFormType extends AbstractType
                 'required' => false,
                 'choice_label' => 'name',
             ])
-            ->add('keyword_search', EntityType::class, [
-                'class' => Keyword::class,
+            ->add('keywordRef_search', EntityType::class, [
+                'class' => KeywordRef::class,
                 'required' => false,
                 'choice_label' => 'name',
             ])
             ->add('keywordGeo_search', EntityType::class, [
-                'class' => Keyword::class,
+                'class' => KeywordGeo::class,
                 'required' => false,
                 'choice_label' => 'name',
+            ])
+            ->add('borrow_search', EntityType::class, [
+                'class' => User::class,
+                'required' => false,
+                'choice_label' => 'fullname',
+            ])
+            ->add('cote_search', null, [
+                'required' => false,
             ])
             ->add('dateStart_search', DateType::class, [
                 'widget' => 'choice',

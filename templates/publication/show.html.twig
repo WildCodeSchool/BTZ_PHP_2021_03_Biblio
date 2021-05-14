@@ -39,9 +39,11 @@ block body %}
       <div class="row">
         <div class="col-12">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <span class="strong">Id:</span> {{ publication.id }}
-            </li>
+            {% if is_granted('ROLE_AUDAP_MEMBER') %}
+              <li class="list-group-item">
+                <span class="strong">Id:</span> {{ publication.id }}
+              </li>
+            {% endif %}
             <li class="list-group-item">
               <span class="strong">Title:</span> {{ publication.title }}
             </li>
@@ -77,6 +79,7 @@ block body %}
               <span class="strong">Volume_number:</span>
               {{ publication.support }}
             </li>
+            {% if is_granted('ROLE_AUDAP_MEMBER') %}
             <li class="list-group-item">
               <span class="strong">Source_address:</span>
               {{ publication.sourceAddress }}
@@ -88,9 +91,31 @@ block body %}
               <span class="strong">Cote:</span> {{ publication.cote }}
             </li>
             <li class="list-group-item">
+              <span class="strong">Auteur Notice:</span> {{ publication.user.fullname }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Date de mise a jour Notice:</span> {{ publication.updateDate | date("d/m/Y")}}
+            </li>
+            <li class="list-group-item">
+                <span class="strong">Emprunt:</span>
+            </li>
+            {% for borrow in publication.borrows %}
+              <li class="list-group-item">
+                <span class="strong">Nom emprunteur:</span> {{ borrow.user.fullname }}
+              </li>
+              <li class="list-group-item">
+                <span class="strong">date emprunté:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
+              </li>
+            {% else %}
+              <li class="list-group-item">
+              <span>jamais emprunté </span> 
+               </li>
+            {% endfor %}  
+            <li class="list-group-item">
               <span class="strong">Access:</span>
               {{ publication.access }}
             </li>
+            {% endif %}
           </ul>
         </div>
         <div class="col-12 py-3">
