@@ -13,14 +13,29 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     *
+     * @param mixed $publicationRepository
      */
-    public function index(): Response
+    public function index(PublicationRepository $publicationRepository): Response
     {
         $user = $this->getUser();
+
+        $lastPublications = $publicationRepository->findBy([], ['id' => 'DESC'], 3);
+
         return $this->render('home/index.html.twig', [
             'user' => $this->getUser(),
+            'publications' => $lastPublications,
         ]);
     }
+
+        /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact(): Response
+    {
+        return $this->render('home/contact.html.twig');
+    }
+
 
     /**
      * @Route("/autocomplete", name="autocomplete", methods={"GET"})
