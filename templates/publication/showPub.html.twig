@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication{% endblock %}
+
+{% block body %}
+    <h1>Publication</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ publication.title }}</td>
+            </tr>
+            <tr>
+                <th>Thématique</th>
+                <td>{{ publication.thematic.name }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ publication.Type.name }}</td>
+            </tr>
+            <tr>
+                <th>Mot clé</th>
+                {% for keywordRef in publication.keywordRefs %}
+                    <td>{{ keywordRef.name }}</td>
+                {% endfor %}  
+            </tr>
+            <tr>
+                <th>Mot clé Geographique</th>
+                {% for keywordGeo in publication.keywordGeos %}
+                    <td>{{ keywordGeo.name }}</td>
+                {% endfor %}  
+            </tr>
+            {% if is_granted('ROLE_AUDAP_MEMBER') %}
+            <tr>
+                <th>Cote</th>
+                <td>{{ publication.cote }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th>Localisation</th>
+                <td>{{ publication.Localisation.name }}</td>
+            </tr>
+            <tr>
+                <th>Collection</th>
+                <td>{{ publication.BookCollection.name }}</td>
+            </tr>
+            <tr>
+                <th>Langue</th>
+                <td>{{ publication.Language.name }}</td>
+            </tr>
+            <tr>
+                <th>Résumé</th>
+                <td>{{ publication.summary }}</td>
+            </tr>
+            <tr>
+                <th>Mention</th>
+                <td>{{ publication.mention }}</td>
+            </tr>
+            <tr>
+                <th>Date publication</th>
+                <td>{{ publication.publicationDate ? publication.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pagination</th>
+                <td>{{ publication.paging }}</td>
+            </tr>
+            <tr>
+                <th>Tomaison</th>
+                <td>{{ publication.volumeNumber }}</td>
+            </tr>
+            <tr>
+                <th>ISSN / ISBN</th>
+                <td>{{ publication.issnIsbn }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ publication.support }}</td>
+            </tr>
+
+            {% if is_granted('ROLE_AUDAP_MEMBER') %}
+                <tr>
+                    <th>Source_address</th>
+                    <td>{{ publication.sourceAddress }}</td>
+                </tr>
+                <tr>
+                    <th>Url</th>
+                    <td>{{ publication.url }}</td>
+                </tr>
+                <tr>
+                    <th>Auteur Notice</th>
+                    <td>{{ publication.user.fullname }}</td>
+                </tr>
+                <tr>
+                    <th>Date de mise a jour Notice</th>
+                    <td>{{ publication.updateDate | date("d/m/Y")}}</td>
+                </tr>
+                <tr>
+                    <th>Emprunt</th>
+                    {% for borrow in publication.borrows %}
+                        <td>{{ borrow.user.fullname }}</td>
+                        <td>{{ borrow.borrowedDate | date("d/m/Y")}}</td>
+                    {% else %}
+                        <td> jamais emprunté </td>
+                    {% endfor %}  
+                </tr>
+                
+            {% endif %}
+                        
+        </tbody>
+    </table>
+
+    <a href="{{ path('publication_list') }}">back to list</a>
+
+    {% if is_granted('ROLE_AUDAP_MEMBER') %}
+        <a href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+        {{ include('publication/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

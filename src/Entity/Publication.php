@@ -118,6 +118,26 @@ class Publication
     private $authors;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="publication")
+     */
+    private $keywords;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Borrow::class, mappedBy="publication")
+     */
+    private $borrows;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=KeywordRef::class, mappedBy="publication")
+     */
+    private $keywordRefs;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_date;
@@ -128,20 +148,17 @@ class Publication
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToMany(targetEntity=KeywordGeo::class, mappedBy="publications")
      */
-    private $image;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="publication")
-     */
-    private $keywords;
-
+    private $keywordGeos;
 
     public function __construct()
     {
         $this->editors = new ArrayCollection();
         $this->authors = new ArrayCollection();
+        $this->keywordRefs = new ArrayCollection();
+        $this->keywordGeos = new ArrayCollection();
+        $this->borrows = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -431,20 +448,33 @@ class Publication
         return $this;
     }
 
-    public function __toString()
+    /**
+     * @return Collection|Borrow[]
+     */
+    public function getBorrows(): Collection
     {
-        return $this->title;
+        return $this->borrows;
     }
-
-    public function getUpdateDate(): ?\DateTimeInterface
+        
+    public function addBorrow(Borrow $borrow): self
     {
-        return $this->update_date;
+        if (!$this->borrows->contains($borrow)) {
+            $this->borrows[] = $borrow;
+            $borrow->setPublication($this);
+        }
+        
+        return $this;
     }
-
-    public function setUpdateDate(?\DateTimeInterface $update_date): self
+        
+    public function removeBorrow(Borrow $borrow): self
     {
-        $this->update_date = $update_date;
-
+        if ($this->borrows->removeElement($borrow)) {
+            // set the owning side to null (unless already changed)
+            if ($borrow->getPublication() === $this) {
+                $borrow->setPublication(null);
+            }
+        }
+        
         return $this;
     }
 
@@ -466,6 +496,72 @@ class Publication
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|KeywordRef[]
+     */
+    public function getKeywordRefs(): Collection
+    {
+        return $this->keywordRefs;
+    }
+
+    public function addKeywordRef(KeywordRef $keywordRef): self
+    {
+        if (!$this->keywordRefs->contains($keywordRef)) {
+            $this->keywordRefs[] = $keywordRef;
+            $keywordRef->addPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeywordRef(KeywordRef $keywordRef): self
+    {
+        if ($this->keywordRefs->removeElement($keywordRef)) {
+            $keywordRef->removePublication($this);
+        }
+
+        return $this;
+    }
+
+    public function getUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(?\DateTimeInterface $update_date): self
+    {
+        $this->update_date = $update_date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|KeywordGeo[]
+     */
+    public function getKeywordGeos(): Collection
+    {
+        return $this->keywordGeos;
+    }
+
+    public function addKeywordGeo(KeywordGeo $keywordGeo): self
+    {
+        if (!$this->keywordGeos->contains($keywordGeo)) {
+            $this->keywordGeos[] = $keywordGeo;
+            $keywordGeo->addPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeKeywordGeo(KeywordGeo $keywordGeo): self
+    {
+        if ($this->keywordGeos->removeElement($keywordGeo)) {
+            $keywordGeo->removePublication($this);
+        }
 
         return $this;
     }

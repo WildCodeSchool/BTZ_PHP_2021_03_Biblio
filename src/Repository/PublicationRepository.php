@@ -31,24 +31,30 @@ class PublicationRepository extends ServiceEntityRepository
         $tab = [
             'type_search' => '=',
             'thematic_search' => '=',
-            'author_search' => ['=', 'p.authors', 'a'],
-            'keyword_search' => ['=', 'p.keywords', 'k'],
+            'author_search' => ['=', 'p.authors', 'a', 'name'],
+            'keywordRef_search' => ['=', 'p.keywordRefs', 'kr', 'name'],
+            'keywordGeo_search' => ['=', 'p.keywordGeos', 'kg', 'name'],
+            'borrow_search' => ['=', 'p.borrows', 'b', 'user'],
+            'cote_search' => 'cote',
             'dateStart_search' => '>=',
             'dateEnd_search' => '<=',
         ];
 
         $kb = $this->createQueryBuilder('p');
         foreach ($tab as $key => $value) {
-            if (isset($tabCriteria[$key])) {
+            if ($tabCriteria[$key] !== '' && $tabCriteria[$key] !== null) {
                 $field = str_replace('_search', '', $key);
 
                 if (is_array($value)) {
-                    $op = ' '.$value[0].' :';
-                    $criteria = $value[2].'.name'.$op.$field;
+                    $op = " " . $value[0] .  " :";
+                    $criteria = $value[2] . "." . $value[3] . $op . $field;
                     $kb->join($value[1], $value[2]);
-                } elseif ('=' === $value) {
-                    $op = ' = :';
-                    $criteria = 'p.'.$field.$op.$field;
+                } elseif ($value === '=') {
+                    $op = " = :";
+                    $criteria = "p." . $field . $op . $field;
+                } elseif ($value === 'cote') {
+                    $op = " = :";
+                    $criteria = "p.cote" . $op . $field;
                 } else {
                     $op = ' '.$value.' :';
                     $criteria = 'p.publication_date'.$op.$field;
@@ -59,6 +65,11 @@ class PublicationRepository extends ServiceEntityRepository
             }
         }
         $kb->orderBy('p.title', 'ASC');
+        
+        // dd($kb->getQuery());
+        return $kb->getQuery()->getResult();
+        
+        
 
         return $kb->getQuery()->getResult();
         // return $this->createQueryBuilder('p')

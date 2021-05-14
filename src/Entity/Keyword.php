@@ -32,6 +32,11 @@ class Keyword
      */
     private $publication;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slug;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Keyword
     public function setPublication(?Publication $publication): self
     {
         $this->publication = $publication;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
