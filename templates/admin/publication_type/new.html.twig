@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Create new PublicationType</h1>
 
-    {{ include('publication_type/_form.html.twig') }}
+    {{ include('/admin/publication_type/_form.html.twig') }}
 
-    <a href="{{ path('publication_type_index') }}">back to list</a>
+    <a href="{{ path('publication_type_list') }}">back to list</a>
 {% endblock %}

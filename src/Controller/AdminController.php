@@ -9,7 +9,6 @@ use App\Entity\Editor;
 use App\Entity\Keyword;
 use App\Entity\Language;
 use App\Entity\Localisation;
-use App\Entity\Notice;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\User;
@@ -20,8 +19,8 @@ use App\Form\EditorType;
 use App\Form\KeywordType;
 use App\Form\LanguageType;
 use App\Form\LocalisationType;
-use App\Form\NoticeType;
 use App\Form\PublicationTypeType;
+use App\Form\SearchAdminBorrowFormType;
 use App\Form\ThematicType;
 use App\Form\UserType;
 use App\Repository\AuthorRepository;
@@ -31,7 +30,6 @@ use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
-use App\Repository\NoticeRepository;
 use App\Repository\PublicationTypeRepository;
 use App\Repository\ThematicRepository;
 use App\Repository\UserRepository;
@@ -51,6 +49,7 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/dashboard/panel.html.twig', [
             'authors' => $authorRepository->findAll(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -206,7 +205,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="thematic_delete", methods={"DELETE"})
+     * @Route("/admin/thematic/{id}", name="thematic_delete", methods={"DELETE"})
      */
     public function thematicDelete(Request $request, Thematic $thematic): Response
     {
@@ -368,7 +367,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="keyword_delete", methods={"DELETE"})
+     * @Route("/admin/keyword/{id}", name="keyword_delete", methods={"DELETE"})
      */
     public function keywordDelete(Request $request, Keyword $keyword): Response
     {
@@ -468,7 +467,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/bookcollection", name="book_collection_list", methods={"GET"})
      */
-    public function bookCollectionList(BookCollectionRepository $bookCollectionRepository): Response
+    public function bookCollectionList(Request $request, BookCollectionRepository $bookCollectionRepository): Response
     {
         return $this->render('/admin/book_collection/index.html.twig', [
             'book_collections' => $bookCollectionRepository->findAll(),
@@ -544,86 +543,6 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////NOTICE/////////////////////////////////////////
-
-    /**
-     * @Route("/admin/notice", name="notice_list", methods={"GET"})
-     */
-    public function noticeList(NoticeRepository $noticeRepository): Response
-    {
-        return $this->render('/admin/notice/index.html.twig', [
-            'notices' => $noticeRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/creation", name="notice_add", methods={"GET","POST"})
-     */
-    public function noticeAdd(Request $request): Response
-    {
-        $notice = new Notice();
-        $form = $this->createForm(NoticeType::class, $notice);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($notice);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('notice_list');
-        }
-
-        return $this->render('/admin/notice/new.html.twig', [
-            'notice' => $notice,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/{id}", name="notice_show", methods={"GET"})
-     */
-    public function noticeShow(Notice $notice): Response
-    {
-        return $this->render('admin/notice/show.html.twig', [
-            'notice' => $notice,
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/{id}/edit", name="notice_edit", methods={"GET","POST"})
-     */
-    public function noticeEdit(Request $request, Notice $notice): Response
-    {
-        $form = $this->createForm(NoticeType::class, $notice);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('notice_list');
-        }
-
-        return $this->render('/admin/notice/edit.html.twig', [
-            'notice' => $notice,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/notice/{id}", name="notice_delete", methods={"DELETE"})
-     */
-    public function noticeDelete(Request $request, Notice $notice): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$notice->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($notice);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('notice_list');
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////PUBLICATION TYPE///////////////////////////////////////
 
     /**
@@ -692,7 +611,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/publicationType/{id}", name="publication_type_delete", methods={"DELETE"})
      */
-    public function publicattionTypeDelete(Request $request, PublicationType $publicationType): Response
+    public function publicationTypeDelete(Request $request, PublicationType $publicationType): Response
     {
         if ($this->isCsrfTokenValid('delete'.$publicationType->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -785,22 +704,34 @@ class AdminController extends AbstractController
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
+
     /////////////////////EMPRUNT//START/////////////////////////////////////////////////////////
 
     /**
      * @Route("/admin/emprunt", name="emprunt_list", methods={"GET"})
      */
-    public function empruntList(BorrowRepository $borrowRepository): Response
+    public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
+
+        $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
+
+
+        if($form->isSubmitted() && $form->isValid()){
+            $search = $form->getData()['search'];
+            $borrowRepository->findBy(['cote' => $search]);
+        }else{
+            $borrowRepository->findAll();
+        }
         return $this->render('/admin/borrow/index.html.twig', [
             'borrows' => $borrowRepository->findAll(),
+            'form' => $form->createView()
         ]);
     }
 
     /**
      * @Route("/admin/emprunt/creation", name="emprunt_add", methods={"GET","POST"})
      */
-    public function empruntAdd(Request $request): Response
+    public function borrowAdd(Request $request): Response
     {
         $borrow = new Borrow();
         $form = $this->createForm(BorrowType::class, $borrow);
@@ -823,7 +754,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/emprunt/{id}", name="emprunt_show", methods={"GET"})
      */
-    public function empruntShow(Borrow $borrow): Response
+    public function borrowShow(Borrow $borrow): Response
     {
         return $this->render('/admin/borrow/show.html.twig', [
             'borrow' => $borrow,
@@ -833,7 +764,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/emprunt/{id}/edit", name="emprunt_edit", methods={"GET","POST"})
      */
-    public function empruntEdit(Request $request, Borrow $borrow): Response
+    public function borrowEdit(Request $request, Borrow $borrow): Response
     {
         $form = $this->createForm(BorrowType::class, $borrow);
         $form->handleRequest($request);
@@ -853,7 +784,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/emprunt/{id}", name="emprunt_delete", methods={"DELETE"})
      */
-    public function empruntDelete(Request $request, Borrow $borrow): Response
+    public function borrowDelete(Request $request, Borrow $borrow): Response
     {
         if ($this->isCsrfTokenValid('delete'.$borrow->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -871,7 +802,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur", name="auteur_list", methods={"GET"})
      */
-    public function auteurList(AuthorRepository $authorRepository): Response
+    public function authorList(AuthorRepository $authorRepository): Response
     {
         return $this->render('/admin/author/index.html.twig', [
             'authors' => $authorRepository->findAll(),
@@ -881,7 +812,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/creation", name="auteur_add", methods={"GET","POST"})
      */
-    public function auteurAdd(Request $request): Response
+    public function authorAdd(Request $request): Response
     {
         $author = new Author();
         $form = $this->createForm(AuthorType::class, $author);
@@ -904,7 +835,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/{id}", name="auteur_show", methods={"GET"})
      */
-    public function auteurShow(Author $author): Response
+    public function authorShow(Author $author): Response
     {
         return $this->render('/admin/author/show.html.twig', [
             'author' => $author,
@@ -912,9 +843,9 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="author_edit", methods={"GET","POST"})
+     * @Route("/admin/auteur/{id}/edit", name="auteur_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Author $author): Response
+    public function authorEdit(Request $request, Author $author): Response
     {
         $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
@@ -922,7 +853,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('author_index');
+            return $this->redirectToRoute('auteur_list');
         }
 
         return $this->render('/admin/author/edit.html.twig', [
@@ -934,7 +865,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/auteur/{id}", name="auteur_delete", methods={"DELETE"})
      */
-    public function auteurDelete(Request $request, Author $author): Response
+    public function authorDelete(Request $request, Author $author): Response
     {
         if ($this->isCsrfTokenValid('delete'.$author->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

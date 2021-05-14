@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class HomeController extends AbstractController
 {
     /**
@@ -18,6 +19,7 @@ class HomeController extends AbstractController
     public function index(PublicationRepository $publicationRepository): Response
     {
         $user = $this->getUser();
+
         $lastPublications = $publicationRepository->findBy([], ['id' => 'DESC'], 3);
 
         return $this->render('home/index.html.twig', [

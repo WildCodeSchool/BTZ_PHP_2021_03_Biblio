@@ -118,6 +118,16 @@ class Publication
     private $authors;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $update_date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="publications")
+     */
+    private $user;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
@@ -127,11 +137,6 @@ class Publication
      */
     private $keywords;
 
-    /**
-     *
-     * @ORM\OneToMany(targetEntity=Notice::class, mappedBy="publication")
-     */
-    private $notices;
 
     public function __construct()
     {
@@ -397,8 +402,8 @@ class Publication
     }
 
     /**
-         * @return Collection|Keyword[]
-         */
+     * @return Collection|Keyword[]
+     */
     public function getKeywords(): Collection
     {
         return $this->keywords;
@@ -426,39 +431,31 @@ class Publication
         return $this;
     }
 
-    /**
-         * @return Collection|Notice[]
-         */
-    public function getNotice(): Collection
-    {
-        return $this->notices;
-    }
-    
-    public function addNotice(Notice $notice): self
-    {
-        if (!$this->notices->contains($notice)) {
-            $this->notices[] = $notice;
-            $notice->setPublication($this);
-        }
-    
-        return $this;
-    }
-    
-    public function removeNotice(Notice $notice): self
-    {
-        if ($this->notices->removeElement($notice)) {
-            // set the owning side to null (unless already changed)
-            if ($notice->getPublication() === $this) {
-                $notice->setPublication(null);
-            }
-        }
-    
-        return $this;
-    }
-
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(?\DateTimeInterface $update_date): self
+    {
+        $this->update_date = $update_date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): void
+    {
+        $this->user = $user;
     }
 
     public function getImage(): ?string
