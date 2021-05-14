@@ -34,7 +34,6 @@ class PublicationType extends AbstractType
             ->add('url')
             ->add('editors')
             ->add('authors')
-            ->add('notices')
             ->add('access')
         ;
     }

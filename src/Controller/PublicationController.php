@@ -133,9 +133,10 @@ class PublicationController extends AbstractController
     /**
      * @Route("/{id}/edit", name="publication_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Publication $publication, NoticeRepository $noticeRepository): Response
+    public function edit(Request $request, Publication $publication): Response
     {
         $form = $this->createForm(PublicationType::class, $publication);
+    
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -146,7 +147,6 @@ class PublicationController extends AbstractController
         
         return $this->render('publication/edit.html.twig', [
             'publication' => $publication,
-            'notices' => $noticeRepository->findBy(['publication' => $publication]),
             'form' => $form->createView(),
         ]);
     }
