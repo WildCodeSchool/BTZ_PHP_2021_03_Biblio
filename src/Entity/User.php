@@ -205,6 +205,16 @@ class User implements UserInterface
         return $this->getFirstname().' '.$this->getLastname();
     }
 
+    public function setFullname(string $fullName): self
+    {
+        $lastName = trim(substr($fullName, 0, strpos($fullName, ' ')));
+        $firstName = trim(substr($fullName, strpos($fullName, ' ')+1));
+        $this->firstname = $firstName;
+        $this->lastname = $lastName;
+
+        return $this;
+    }
+
     public function getPhone(): ?int
     {
         return $this->phone;
