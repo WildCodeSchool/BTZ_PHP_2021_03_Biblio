@@ -19,7 +19,7 @@ class PublicationType extends AbstractType
             ->add('thematic')
             ->add('type')
             ->add('cote')
-            ->add('keywords', null, ['choice_label' => 'name'])
+            // ->add('keywords', null, ['choice_label' => 'name'])
             ->add('localisation')
             ->add('bookcollection')
             ->add('language')
@@ -35,7 +35,11 @@ class PublicationType extends AbstractType
             ->add('editors')
             ->add('authors')
             ->add('access')
-        ;
+            ->add('image')
+            ->add('borrows')
+            ->add('keywordRefs')
+            ->add('user')
+            ->add('keywordGeos');
     }
 
     public function configureOptions(OptionsResolver $resolver)

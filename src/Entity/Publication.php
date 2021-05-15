@@ -455,17 +455,17 @@ class Publication
     {
         return $this->borrows;
     }
-        
+
     public function addBorrow(Borrow $borrow): self
     {
         if (!$this->borrows->contains($borrow)) {
             $this->borrows[] = $borrow;
             $borrow->setPublication($this);
         }
-        
+
         return $this;
     }
-        
+
     public function removeBorrow(Borrow $borrow): self
     {
         if ($this->borrows->removeElement($borrow)) {
@@ -474,7 +474,7 @@ class Publication
                 $borrow->setPublication(null);
             }
         }
-        
+
         return $this;
     }
 
