@@ -3,13 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\PublicationRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=PublicationRepository::class)
+ * @Vich\Uploadable
  */
 class Publication
 {
@@ -124,6 +128,12 @@ class Publication
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="publication_image", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\OneToMany(targetEntity=Keyword::class, mappedBy="publication")
      */
     private $keywords;
@@ -161,6 +171,17 @@ class Publication
         $this->keywordGeos = new ArrayCollection();
         $this->borrows = new ArrayCollection();
         $this->publication_date = new DateTime('now');
+    }
+
+    public function setImageFile(File $image = null): Publication
+    {
+        $this->imageFile = $image;
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getId(): ?int

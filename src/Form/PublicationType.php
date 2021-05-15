@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Keyword;
 use App\Entity\Publication;
 use Symfony\Component\Form\AbstractType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,9 +24,14 @@ class PublicationType extends AbstractType
                 'label' => 'Titre de la publication',
                 'attr' => ['placeholder' => 'Entrez le nom de la publication']
             ])
-            ->add('image', UrlType::class, [
-                'label' => 'Image principale',
-                'attr' => ['placeholder' => 'Tapez une URL d\'image ']
+            // ->add('image', UrlType::class, [
+            //     'label' => 'Image principale',
+            //     'attr' => ['placeholder' => 'Tapez une URL d\'image ']
+            // ])
+            ->add('imageFile', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
             ])
             // ->add('publication_date')
             ->add('thematic')
