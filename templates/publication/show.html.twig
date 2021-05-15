@@ -41,31 +41,65 @@ block body %}
           <ul class="list-group list-group-flush">
             {% if is_granted('ROLE_AUDAP_MEMBER') %}
               <li class="list-group-item">
-                <span class="strong">Id:</span> {{ publication.id }}
+                <span class="strong">Id:</span> 
+                {{ publication.id }}
               </li>
             {% endif %}
             <li class="list-group-item">
-              <span class="strong">Title:</span> {{ publication.title }}
+              <span class="strong">Title:</span> 
+              {{ publication.title }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Mention:</span>
+              <span class="strong">Thématique:</span> 
+              {{ publication.thematic.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Type:</span> 
+              {{ publication.Type.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mot clé(s):</span> 
+              {% for keywordRef in publication.keywordRefs %}
+                {{ keywordRef.name }},
+              {% endfor %}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mot clé géographique:</span> 
+              {% for keywordGeo in publication.keywordGeos %}
+                {{ keywordGeo.name }},
+              {% endfor %}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Résumé:</span>
+              {{ publication.summary }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Localisation:</span>
+              {{ publication.Localisation.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Collection:</span>
+              {{ publication.BookCollection.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Langue:</span>
+              {{ publication.Language.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mention légale:</span>
               {{ publication.mention }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Publication_date:</span>
+              <span class="strong">Date de publication:</span>
               {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Paging:</span>
+              <span class="strong">Pagination:</span>
               {{ publication.paging }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Volume_number:</span>
+              <span class="strong">Tomaison</span>
               {{ publication.volumeNumber }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Summary:</span>
-              {{ publication.summary }}
             </li>
             <li class="list-group-item">
               <span class="strong">Issn_isbn:</span>
@@ -73,15 +107,11 @@ block body %}
             </li>
             <li class="list-group-item">
               <span class="strong">Support:</span>
-              {{ publication.volumeNumber }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Volume_number:</span>
               {{ publication.support }}
             </li>
             {% if is_granted('ROLE_AUDAP_MEMBER') %}
             <li class="list-group-item">
-              <span class="strong">Source_address:</span>
+              <span class="strong">Adresse source:</span>
               {{ publication.sourceAddress }}
             </li>
             <li class="list-group-item">
@@ -92,9 +122,7 @@ block body %}
             </li>
             <li class="list-group-item">
               <span class="strong">Auteur Notice:</span> {{ publication.user.fullname }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Date de mise a jour Notice:</span> {{ publication.updateDate | date("d/m/Y")}}
+              <span class="strong">Date de mise a jour:</span> {{ publication.updateDate | date("d/m/Y")}}
             </li>
             <li class="list-group-item">
                 <span class="strong">Emprunt:</span>
@@ -102,9 +130,7 @@ block body %}
             {% for borrow in publication.borrows %}
               <li class="list-group-item">
                 <span class="strong">Nom emprunteur:</span> {{ borrow.user.fullname }}
-              </li>
-              <li class="list-group-item">
-                <span class="strong">date emprunté:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
+                <span class="strong">Emprunté le:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
               </li>
             {% else %}
               <li class="list-group-item">
@@ -112,7 +138,7 @@ block body %}
                </li>
             {% endfor %}  
             <li class="list-group-item">
-              <span class="strong">Access:</span>
+              <span class="strong">Accès:</span>
               {{ publication.access }}
             </li>
             {% endif %}
@@ -120,8 +146,10 @@ block body %}
         </div>
         <div class="col-12 py-3">
           <a class="btn btn-outline-success" href="{{ path('publication_list') }}">back to list</a>
-          <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
-          {{ include("publication/_delete_form.html.twig") }}
+          {% if is_granted('ROLE_AUDAP_MEMBER') %}
+            <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
+            {{ include("publication/_delete_form.html.twig") }}
+          {% endif %}
         </div>
       </div>
     </div>
