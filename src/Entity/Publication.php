@@ -6,6 +6,7 @@ use App\Repository\PublicationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=PublicationRepository::class)
@@ -159,6 +160,7 @@ class Publication
         $this->keywordRefs = new ArrayCollection();
         $this->keywordGeos = new ArrayCollection();
         $this->borrows = new ArrayCollection();
+        $this->publication_date = new DateTime('now');
     }
 
     public function getId(): ?int
