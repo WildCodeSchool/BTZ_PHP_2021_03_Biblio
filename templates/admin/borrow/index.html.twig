@@ -10,6 +10,7 @@
 
 			<thead>
 				<tr class="table-active">
+					<th>Côte</th>
 					<th>Titre de Publication</th>
 					<th></th>
 					<th>Date d'Emprunt</th>
@@ -21,11 +22,12 @@
 			<tbody>
 				{% for borrow in borrows %}
 					<tr>
+						<td>{{ borrow.publication.cote }}</td>
 						<td>{{ borrow.publication.title }}</td>
 						<td></td>
 						<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
 						<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
-						<td></td>
+						<td>{{borrow.user.fullname}}</td>
 						<td>
 							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_show', {'id': borrow.id}) }}" role="button">Détail</a>
 							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a>
