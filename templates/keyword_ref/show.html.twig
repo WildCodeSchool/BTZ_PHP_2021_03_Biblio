@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KeywordRef
+{% endblock %}
+
+{% block body %}
+	<h2>KeywordRef</h2>
+	<div class="table-responsive">
+		<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+			<tbody>
+
+				<tr>
+					<th>Nom</th>
+					<td>{{ keyword_ref.name }}</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Edition</a>
+		{{ include('keyword_ref/_delete_form.html.twig') }}
+		<a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_ref_index') }}" role="button">Retour à la Liste</a>
+
+
+	{% endblock %}
