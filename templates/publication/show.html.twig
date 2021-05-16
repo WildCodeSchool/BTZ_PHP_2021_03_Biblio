@@ -70,6 +70,12 @@ block body %}
               {% endfor %}
             </li>
             <li class="list-group-item">
+              <span class="strong">Auteur(s):</span> 
+              {% for author in publication.authors %}
+                {{ author.name }},
+              {% endfor %}
+            </li>
+            <li class="list-group-item">
               <span class="strong">Résumé:</span>
               {{ publication.summary }}
             </li>
@@ -91,7 +97,7 @@ block body %}
             </li>
             <li class="list-group-item">
               <span class="strong">Date de publication:</span>
-              {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}
+              {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}
             </li>
             <li class="list-group-item">
               <span class="strong">Pagination:</span>
@@ -109,38 +115,38 @@ block body %}
               <span class="strong">Support:</span>
               {{ publication.support }}
             </li>
-            {% if is_granted('ROLE_AUDAP_MEMBER') %}
-            <li class="list-group-item">
-              <span class="strong">Adresse source:</span>
-              {{ publication.sourceAddress }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Url:</span> {{ publication.url }}
-            </li>
             <li class="list-group-item">
               <span class="strong">Cote:</span> {{ publication.cote }}
             </li>
-            <li class="list-group-item">
-              <span class="strong">Auteur Notice:</span> {{ publication.user.fullname }}
-              <span class="strong">Date de mise a jour:</span> {{ publication.updateDate | date("d/m/Y")}}
-            </li>
-            <li class="list-group-item">
-                <span class="strong">Emprunt:</span>
-            </li>
-            {% for borrow in publication.borrows %}
+            {% if is_granted('ROLE_AUDAP_MEMBER') %}
               <li class="list-group-item">
-                <span class="strong">Nom emprunteur:</span> {{ borrow.user.fullname }}
-                <span class="strong">Emprunté le:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
+                <span class="strong">Adresse source:</span>
+                {{ publication.sourceAddress }}
               </li>
-            {% else %}
               <li class="list-group-item">
-              <span>jamais emprunté </span> 
-               </li>
-            {% endfor %}  
-            <li class="list-group-item">
-              <span class="strong">Accès:</span>
-              {{ publication.access }}
-            </li>
+                <span class="strong">Url:</span> {{ publication.url }}
+              </li>
+              <li class="list-group-item">
+                <span class="strong">Auteur Notice:</span> {{ publication.user.fullname }}
+                <span class="strong">Date de mise a jour:</span> {{ publication.updateDate | date("d/m/Y")}}
+              </li>
+              <li class="list-group-item">
+                  <span class="strong">Emprunt:</span>
+              </li>
+              {% for borrow in publication.borrows %}
+                <li class="list-group-item">
+                  <span class="strong">Nom emprunteur:</span> {{ borrow.user.fullname }}
+                  <span class="strong">Emprunté le:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
+                </li>
+              {% else %}
+                <li class="list-group-item">
+                <span>jamais emprunté </span> 
+                </li>
+              {% endfor %}  
+              <li class="list-group-item">
+                <span class="strong">Accès:</span>
+                {{ publication.access }}
+              </li>
             {% endif %}
           </ul>
         </div>

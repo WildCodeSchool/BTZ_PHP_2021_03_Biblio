@@ -42,7 +42,7 @@ class PublicationRepository extends ServiceEntityRepository
 
         $kb = $this->createQueryBuilder('p');
         foreach ($tab as $key => $value) {
-            if ($tabCriteria[$key] !== '' && $tabCriteria[$key] !== null) {
+            if (isset($tabCriteria[$key]) && $tabCriteria[$key] !== null) {
                 $field = str_replace('_search', '', $key);
 
                 if (is_array($value)) {
@@ -66,32 +66,7 @@ class PublicationRepository extends ServiceEntityRepository
         }
         $kb->orderBy('p.title', 'ASC');
         
-        // dd($kb->getQuery());
         return $kb->getQuery()->getResult();
-        
-        
-
-        return $kb->getQuery()->getResult();
-        // return $this->createQueryBuilder('p')
-        //     // ->Join('p.keywords', 'k')
-        //     // ->Join('p.authors', 'a')
-        //     // ->Where('p.type = :type')
-        //     // ->andWhere('p.thematic = :thematic')
-        //     // ->andWhere('a.name = :author')
-        //     // ->andWhere('k.name = :keyword')
-        //     ->andWhere(':datePub > :dateStart')
-        //     // ->setParameter('type', $tabCriteria['type_search'])
-        //     // ->setParameter('thematic', $tabCriteria['thematic_search'])
-        //     // ->setParameter('author', $tabCriteria['author_search'])
-        //     // ->setParameter('keyword', $tabCriteria['keyword_search'])
-        //     ->setParameter('datePub', 'p.publication_date')
-        //     ->setParameter('dateStart', new dateTime($tabCriteria['dateStart_search']))
-
-        //     ->orderBy('p.title', 'ASC')
-        //     ->setMaxResults(10)
-        //     ->getQuery()
-        //     ->getResult()
-        // ;
     }
 
     /*

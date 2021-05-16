@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
@@ -30,6 +31,10 @@ class SearchPublicationFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+
+        // }));
+        
         $builder->add('type_search', EntityType::class, [
                  'class' => PublicationType::class,
                  'label' => 'Type de publication',
@@ -74,13 +79,16 @@ class SearchPublicationFormType extends AbstractType
         }
         
         $builder->add('dateStart_search', DateType::class, [
-                'widget' => 'choice',
+                'widget' => 'single_text',
                 'label' => 'Date publication début',
                 'required' => false,
+                'format' => 'yyyy-MM-dd',
             ]);
         $builder->add('dateEnd_search', DateType::class, [
+                'widget' => 'single_text',
                 'label' => 'Date de publication fin',
                 'required' => false,
+                'format' => 'yyyy-MM-dd',
             ]);
     }
 

@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * @Route("/publication")
@@ -42,7 +43,7 @@ class PublicationController extends AbstractController
     /**
          * @Route("/list", name="publication_list")
          */
-    public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator): Response
+    public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator, SessionInterface $session): Response
     {
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
@@ -70,14 +71,17 @@ class PublicationController extends AbstractController
                     } else {
                         $tabSearch[$key] = $form->getData()[$key];
                     }
-                } else {
-                    $tabSearch[$key] = '';
                 }
             }
-            // dd($tabSearch);
+            $session->set('search_pub', $tabSearch);
             $publications = $publicationRepository->findByCriteria($tabSearch);
         } else {
-            $publications = $publicationRepository->findAll();
+            // $query = $request->getQueryString();
+            if ($session->has('search_pub')) {
+                $publications = $publicationRepository->findByCriteria($session->get('search_pub'));
+            } else {
+                $publications = $publicationRepository->findAll();
+            }
         }
 
         $pagination = $paginator->paginate(
