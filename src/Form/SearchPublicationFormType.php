@@ -32,45 +32,54 @@ class SearchPublicationFormType extends AbstractType
     {
         $builder->add('type_search', EntityType::class, [
                  'class' => PublicationType::class,
+                 'label' => 'Type de publication',
                  'required' => false,
                  'choice_label' => 'name',
              ]);
         $builder->add('thematic_search', EntityType::class, [
                 'class' => Thematic::class,
+                'label' => 'Thématique',
                 'required' => false,
                 'choice_label' => 'name',
             ]);
         $builder->add('author_search', EntityType::class, [
                 'class' => Author::class,
+                'label' => 'Auteur',
                 'required' => false,
                 'choice_label' => 'name',
             ]);
         $builder->add('keywordRef_search', EntityType::class, [
                 'class' => KeywordRef::class,
+                'label' => 'Mot clé',
                 'required' => false,
                 'choice_label' => 'name',
             ]);
         $builder->add('keywordGeo_search', EntityType::class, [
                 'class' => KeywordGeo::class,
+                'label' => 'Mot clé géographique',
                 'required' => false,
                 'choice_label' => 'name',
             ]);
         if ($this->authorizationChecker->isGranted('ROLE_AUDAP_MEMBER')) {
             $builder->add('borrow_search', EntityType::class, [
                     'class' => User::class,
+                    'label' => 'Emprunteur',
                     'required' => false,
                     'choice_label' => 'fullname',
                 ]);
             $builder->add('cote_search', null, [
+                    'label' => 'Cote',
                     'required' => false,
                 ]);
         }
         
         $builder->add('dateStart_search', DateType::class, [
                 'widget' => 'choice',
+                'label' => 'Date publication début',
                 'required' => false,
             ]);
         $builder->add('dateEnd_search', DateType::class, [
+                'label' => 'Date de publication fin',
                 'required' => false,
             ]);
     }
