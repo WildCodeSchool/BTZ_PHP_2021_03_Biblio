@@ -37,31 +37,31 @@ class PublicationController extends AbstractController
     }
 
     /**
-         * @Route("/list", name="publication_list")
-         */
+     * @Route("/list", name="publication_list")
+     */
     public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator): Response
     {
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $typeSearch = $form->getData() ['type_search'];
-            $thematicSearch = $form->getData() ['thematic_search'];
-            $authorSearch = $form->getData() ['author_search'];
-            $keywordRefSearch = $form->getData() ['keywordRef_search'];
-            $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
-            $borrowSearch = $form->getData() ['borrow_search'];
-            $coteSearch = $form->getData() ['cote_search'];
-            $dateStartSearch = $form->getData() ['dateStart_search'];
-            $dateEndSearch = $form->getData() ['dateEnd_search'];
-            
+            $typeSearch = $form->getData()['type_search'];
+            $thematicSearch = $form->getData()['thematic_search'];
+            $authorSearch = $form->getData()['author_search'];
+            $keywordRefSearch = $form->getData()['keywordRef_search'];
+            $keywordGeoSearch = $form->getData()['keywordGeo_search'];
+            $borrowSearch = $form->getData()['borrow_search'];
+            $coteSearch = $form->getData()['cote_search'];
+            $dateStartSearch = $form->getData()['dateStart_search'];
+            $dateEndSearch = $form->getData()['dateEnd_search'];
+
             $tabSearch = [];
             foreach ($_POST['search_publication_form'] as $key => $value) {
                 if (!empty($value) && $key !== '_token' && $value !== null) {
                     if ($key === 'keywordRef_search' || $key === 'keywordGeo_search' || $key === 'author_search') {
-                        $tabSearch[$key] = $form->getData() [$key]->getName();
+                        $tabSearch[$key] = $form->getData()[$key]->getName();
                     } elseif ($key === 'borrow_search') {
-                        $tabSearch[$key] = $form->getData() [$key]->getId();
+                        $tabSearch[$key] = $form->getData()[$key]->getId();
                     } else {
                         $tabSearch[$key] = $form->getData()[$key];
                     }
@@ -146,7 +146,7 @@ class PublicationController extends AbstractController
      */
     public function delete(Request $request, Publication $publication): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$publication->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $publication->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($publication);
             $entityManager->flush();
