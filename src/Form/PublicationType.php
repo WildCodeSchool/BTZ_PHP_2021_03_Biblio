@@ -29,6 +29,7 @@ class PublicationType extends AbstractType
             //     'attr' => ['placeholder' => 'Tapez une URL d\'image ']
             // ])
             ->add('imageFile', VichFileType::class, [
+                'attr' => ['placeholder' => 'Veulliez télécharger une image'],
                 'required'      => false,
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
