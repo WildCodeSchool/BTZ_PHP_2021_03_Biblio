@@ -7,6 +7,7 @@ use App\Entity\BookCollection;
 use App\Entity\Borrow;
 use App\Entity\Editor;
 use App\Entity\Keyword;
+use App\Entity\KeywordRef;
 use App\Entity\Language;
 use App\Entity\Localisation;
 use App\Entity\PublicationType;
@@ -17,6 +18,7 @@ use App\Form\BookCollectionType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
 use App\Form\KeywordType;
+use App\Form\KeywordRefType;
 use App\Form\LanguageType;
 use App\Form\LocalisationType;
 use App\Form\PublicationTypeType;
@@ -28,6 +30,7 @@ use App\Repository\BookCollectionRepository;
 use App\Repository\BorrowRepository;
 use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
+use App\Repository\KeywordRefRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
 use App\Repository\PublicationTypeRepository;
@@ -876,5 +879,86 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('auteur_list');
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////KEYWORD REF START/////////////////////////////////
+
+ /**
+     * @Route("/admin/keyword_ref", name="keyword_ref_list", methods={"GET"})
+     */
+    public function keywordRefList(KeywordRefRepository $keywordRefRepository): Response
+    {
+        return $this->render('/admin/keyword_ref/index.html.twig', [
+            'keyword_refs' => $keywordRefRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_ref/creation", name="keyword_ref_add", methods={"GET","POST"})
+     */
+    public function keywordRefAdd(Request $request): Response
+    {
+        $keywordRef = new KeywordRef();
+        $form = $this->createForm(KeywordRefType::class, $keywordRef);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($keywordRef);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('keyword_ref_list');
+        }
+
+        return $this->render('/admin/keyword_ref/new.html.twig', [
+            'keyword_ref' => $keywordRef,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_ref/{id}", name="keyword_ref_show", methods={"GET"})
+     */
+    public function keywordRefShow(KeywordRef $keywordRef): Response
+    {
+        return $this->render('/admin/keyword_ref/show.html.twig', [
+            'keyword_ref' => $keywordRef,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_ref/{id}/edit", name="keyword_ref_edit", methods={"GET","POST"})
+     */
+    public function keywordRefEdit(Request $request, KeywordRef $keywordRef): Response
+    {
+        $form = $this->createForm(KeywordRefType::class, $keywordRef);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('keyword_ref_list');
+        }
+
+        return $this->render('/admin/keyword_ref/edit.html.twig', [
+            'keyword_ref' => $keywordRef,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_ref/{id}", name="keyword_ref_delete", methods={"POST"})
+     */
+    public function keywordRefDelete(Request $request, KeywordRef $keywordRef): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$keywordRef->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($keywordRef);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('keyword_ref_list');
+    }
+
+  //////////////////////////////KEYWORD REF END/////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
+
 }
