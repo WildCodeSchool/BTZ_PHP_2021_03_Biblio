@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Liste des Auteurs
 {% endblock %}
 
-{% block body %}
-	<h2>Liste des Auteurs</h2>
+{% block content %}
+	<h2 style="padding-top:2%">Liste des Auteurs</h2>
 	<a class="btn btn-outline-primary btn-sm" href="{{ path('auteur_add') }}" role="button">Création Nouvel Auteur</a>
 	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 

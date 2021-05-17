@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Liste des Langues
 {% endblock %}
 
-{% block body %}
-	<h2>Liste des Langues</h2>
+{% block content %}
+	<h2 style="padding-top:2%">Liste des Langues</h2>
 	<a class="btn btn-outline-primary btn-sm" href="{{ path('language_add') }}" role="button">Création Nouvelle Langue</a>
 	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 

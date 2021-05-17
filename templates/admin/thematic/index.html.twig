@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Liste des Thématiques
 {% endblock %}
 
-{% block body %}
-	<h2>Liste des Thématiques</h2>
+{% block content %}
+	<h2 style="padding-top: 2%">Liste des Thématiques</h2>
 	<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Création Nouveau Thématique</a>
 	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 
