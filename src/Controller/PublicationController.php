@@ -9,9 +9,13 @@ use App\Form\SearchPublicationFormType;
 use App\Repository\PublicationRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * @Route("/publication")
@@ -39,12 +43,24 @@ class PublicationController extends AbstractController
     /**
      * @Route("/list", name="publication_list")
      */
-    public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator): Response
+    public function list(Request $request, PublicationRepository $publicationRepository, PaginatorInterface $paginator, SessionInterface $session): Response
     {
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            $typeSearch = $form->getData() ['type_search'];
+            $thematicSearch = $form->getData() ['thematic_search'];
+            $authorSearch = $form->getData() ['author_search'];
+            $keywordRefSearch = $form->getData() ['keywordRef_search'];
+            $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            if ($this->isGranted('ROLE_AUDAP_MEMBER')) {
+                $borrowSearch = $form->getData() ['borrow_search'];
+                $coteSearch = $form->getData() ['cote_search'];
+            };
+            $dateStartSearch = $form->getData() ['dateStart_search'];
+            $dateEndSearch = $form->getData() ['dateEnd_search'];
+            
             $typeSearch = $form->getData()['type_search'];
             $thematicSearch = $form->getData()['thematic_search'];
             $authorSearch = $form->getData()['author_search'];
@@ -65,14 +81,17 @@ class PublicationController extends AbstractController
                     } else {
                         $tabSearch[$key] = $form->getData()[$key];
                     }
-                } else {
-                    $tabSearch[$key] = '';
                 }
             }
-            // dd($tabSearch);
+            $session->set('search_pub', $tabSearch);
             $publications = $publicationRepository->findByCriteria($tabSearch);
         } else {
-            $publications = $publicationRepository->findAll();
+            // $query = $request->getQueryString();
+            if ($session->has('search_pub')) {
+                $publications = $publicationRepository->findByCriteria($session->get('search_pub'));
+            } else {
+                $publications = $publicationRepository->findAll();
+            }
         }
 
         $pagination = $paginator->paginate(
