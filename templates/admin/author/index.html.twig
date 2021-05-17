@@ -5,6 +5,9 @@
 
 {% block body %}
 	<h2>Liste des Auteurs</h2>
+	<a class="btn btn-outline-primary btn-sm" href="{{ path('auteur_add') }}" role="button">Création Nouvel Auteur</a>
+	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+
 	<div class="table-responsive">
 		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
 
@@ -41,7 +44,6 @@
 
 	</div>
 	<a class="btn btn-outline-primary btn-sm" href="{{ path('auteur_add') }}" role="button">Création Nouvel Auteur</a>
-	<div></div>
 	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 
 {% endblock %}
