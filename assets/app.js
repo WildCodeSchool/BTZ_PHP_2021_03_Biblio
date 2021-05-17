@@ -15,8 +15,7 @@ require("@fortawesome/fontawesome-free/css/all.min.css");
 // global.$ = $;
 
 var $ = require("jquery");
-// window.$ = $;
-// window.jQuery = $;
+
 
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
@@ -28,35 +27,6 @@ require('bootstrap/js/dist/tooltip');
 require('bootstrap/js/dist/popover');
 
 
-
-      /*!
-       * Start Bootstrap - SB Admin v6.0.3 (https://startbootstrap.com/template/sb-admin)
-       * Copyright 2013-2021 Start Bootstrap
-       * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-       */
-
-       
-
-      // $(".dropdown-menu a").click(function (e) {
-      //   $(".active").removeClass("active");
-      // });
-
-      // $(".dropdown").click(function () {
-      //   $(".dropdown-menu").toggleClass("show");
-      // });
-
-// $(document).ready(function () {
-//   // Show hide popover
-//   $(".dropdown").click(function () {
-//     $(this).find(".dropdown-menu").slideToggle("fast");
-//   });
-// });
-// $(document).on("click", function (event) {
-//   var $trigger = $(".dropdown");
-//   if ($trigger !== event.target && !$trigger.has(event.target).length) {
-//     $(".dropdown-menu").slideUp("fast");
-//   }
-// });
 
 $(".carousel").carousel({
   interval: 2000,
