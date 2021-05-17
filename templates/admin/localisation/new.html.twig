@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Localisation
+{% block title %}Nouvelle Localisation
 {% endblock %}
 
 {% block body %}
-	<h1>Create new Localisation</h1>
+	<h2>Création Nouvelle Localisation</h2>
 
 	{{ include('/admin/localisation/_form.html.twig') }}
 
-	<a href="{{ path('localisation_list') }}">back to list</a>
+	<a class="btn btn-outline-secondary btn-sm" href="{{ path('localisation_list') }}" role="button">Retour à la liste</a>
 {% endblock %}

@@ -8,23 +8,13 @@
 		<div class="table-responsive">
 			<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
 
-
 				<h2>Edition Auteur</h2>
 
 				{{ include('/admin/author/_form.html.twig', {'button_label': 'Mise à Jour'}) }}
-
 				{{ include('/admin/author/_delete_form.html.twig') }}
-				<div></div>
-				<a href="{{ path('auteur_list') }}">Retour à la liste</a>
-
-    {{ include('/admin/author/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('auteur_list') }}">back to list</a>
-
-    {{ include('/admin/author/_delete_form.html.twig') }}
-
 			</table>
+
+			<a class="btn btn-outline-secondary btn-sm" href="{{ path('auteur_list') }}" role="button">Retour à la liste</a>
 		</div>
 	</div>
-
 {% endblock %}
