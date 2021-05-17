@@ -10,10 +10,10 @@
         <div class="col-md-6">
             {{ form_row(form.author_search) }}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
             {{ form_row(form.keywordRef_search) }}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
             {{ form_row(form.keywordGeo_search) }}
         </div>
         <div class="col-md-3">
@@ -22,12 +22,14 @@
         <div class="col-md-3">
             {{ form_row(form.dateEnd_search) }}
         </div>
-         <div class="col-md-6">
-            {{ form_row(form.borrow_search) }}
-        </div>
-        <div class="col-md-6">
-            {{ form_row(form.cote_search) }}
-        </div>
+        {% if is_granted('ROLE_AUDAP_MEMBER') %}
+            <div class="col-md-3">
+                {{ form_row(form.borrow_search) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(form.cote_search) }}
+            </div>
+        {% endif %}
     </div>
 
 
