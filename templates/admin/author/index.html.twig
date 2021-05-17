@@ -7,40 +7,41 @@
 	<h2>Liste des Auteurs</h2>
 	<div class="table-responsive">
 		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
-		
-				<thead>
-					<tr class="table-active">
-						<th>Nom</th>
-						<th>Adresse</th>
-						<th>actions</th>
+
+			<thead>
+				<tr class="table-active">
+					<th>Nom</th>
+					<th>Adresse</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for author in authors |sort %}
+
+					<tr>
+						<td>{{ author.name }}</td>
+						<td>{{ author.address }}</td>
+						<td>
+
+							<a class="btn btn-outline-primary btn-sm" href="{{ path('auteur_show', {'id': author.id}) }}" role="button">Détail</a>
+							<a class="btn btn-outline-primary btn-sm" href="{{ path('auteur_edit', {'id': author.id}) }}" role="button">Edition</a>
+
+						</td>
 					</tr>
-				</thead>
-				<tbody>
 
-					{% for author in authors |sort %}
+				{% else %}
+					<tr>
+						<td colspan="4">Aucun Enregistrement</td>
+					</tr>
+				{% endfor %}
 
-						<tr>
-							<td>{{ author.name }}</td>
-							<td>{{ author.address }}</td>
-							<td>
-								<a href="{{ path('auteur_show', {'id': author.id}) }}">Détail /
-								</a>
-								<a href="{{ path('auteur_edit', {'id': author.id}) }}">Edition</a>
-							</td>
-						</tr>
-
-					{% else %}
-						<tr>
-							<td colspan="4">Aucun Enregistrement</td>
-						</tr>
-					{% endfor %}
-
-				</tbody>
-			</table>
+			</tbody>
+		</table>
 
 	</div>
-	<a href="{{ path('auteur_add') }}">Création Nouvel Auteur</a>
+	<a class="btn btn-outline-primary btn-sm" href="{{ path('auteur_add') }}" role="button">Création Nouvel Auteur</a>
 	<div></div>
-	<a href="{{ path('admin') }}">Retour Menu Admin</a>
+	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 
 {% endblock %}

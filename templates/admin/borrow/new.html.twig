@@ -7,7 +7,7 @@
 	<h2>Creation nouvel Emprunt</h2>
 
 	{{ include('admin/borrow/_form.html.twig') }}
-	<button>
-		<a href="{{ path('emprunt_list') }}">Retour à la liste</a>
-	</button>
+
+	<a class="btn btn-outline-secondary btn-sm" href="{{ path('emprunt_list') }}" role="button">Retour à la liste</a>
+
 {% endblock %}

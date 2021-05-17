@@ -5,35 +5,35 @@
 
 {% block body %}
 	<h2>Détail Emprunt</h2>
+	<div class="table-responsive">
+		<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
 
-	<table class="table">
-		<tbody>
-			<tr>
-				<th>Utilisateur</th>
-				<td></td>
-			</tr>
-			<tr>
-				<th>Date de Réservation</th>
-				<td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
-			</tr>
-			<tr>
-				<th>Date d'Emprunt</th>
-				<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
-			</tr>
-			<tr>
-				<th>Date Limite</th>
-				<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
-			</tr>
-			<tr>
-				<th>Commentaire</th>
-				<td>{{ borrow.comment }}</td>
-			</tr>
-		</tbody>
-	</table>
+			<tbody>
+				<tr>
+					<th>Utilisateur</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>Date de Réservation</th>
+					<td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Date d'Emprunt</th>
+					<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Date Limite</th>
+					<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Commentaire</th>
+					<td>{{ borrow.comment }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-
-	<button> <a href="{{ path('emprunt_edit', {'id': borrow.id}) }}">Edition</a></button>
-  {{ include('/admin/borrow/_delete_form.html.twig') }} 
-	<div></div>
-	<button> <a href="{{ path('emprunt_list') }}">Retour à la Liste</a> </button>
+		<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a>
+		{{ include('/admin/borrow/_delete_form.html.twig') }}
+		<a class="btn btn-outline-secondary btn-sm" href="{{ path('emprunt_list') }}" role="button">Retour à la Liste</a>
+	</div>
 {% endblock %}

@@ -202,13 +202,13 @@ class User implements UserInterface
 
     public function getFullname(): ?string
     {
-        return $this->getFirstname().' '.$this->getLastname();
+        return $this->getFirstname() . ' ' . $this->getLastname();
     }
 
     public function setFullname(string $fullName): self
     {
         $lastName = trim(substr($fullName, 0, strpos($fullName, ' ')));
-        $firstName = trim(substr($fullName, strpos($fullName, ' ')+1));
+        $firstName = trim(substr($fullName, strpos($fullName, ' ') + 1));
         $this->firstname = $firstName;
         $this->lastname = $lastName;
 
@@ -295,7 +295,7 @@ class User implements UserInterface
 
     public function getDisplayName(): string
     {
-        return $this->getFirstname().' '.$this->getLastname();
+        return $this->getFirstname() . ' ' . $this->getLastname();
     }
 
     /**
@@ -326,5 +326,12 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        $prenom = $this->firstname;
+        $nom =  $this->lastname;
+        return $prenom . " " . $nom;
     }
 }
