@@ -1,14 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Localisation
+{% block title %}Edition des Localisation
 {% endblock %}
 
 {% block body %}
-	<h1>Edit Localisation</h1>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
 
-	{{ include('/admin/localisation/_form.html.twig', {'button_label': 'Update'}) }}
+				<h2>Edition Localisation</h2>
 
-	<a href="{{ path('localisation_list') }}">back to list</a>
-
-	{{ include('/admin/localisation/_delete_form.html.twig') }}
+				{{ include('/admin/localisation/_form.html.twig', {'button_label': 'Mise à Jour'}) }}
+				{{ include('/admin/localisation/_delete_form.html.twig') }}
+			</table>
+			<a class="btn btn-outline-secondary btn-sm" href="{{ path('localisation_list') }}" role="button">Retour à la liste</a>
+		</div>
+	</div>
 {% endblock %}
