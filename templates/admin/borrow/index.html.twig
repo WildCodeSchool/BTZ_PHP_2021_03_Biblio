@@ -5,7 +5,7 @@
 
 {% block content %}
 	<h2 style="padding-top: 2%">Liste des Emprunts</h2>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_add') }}" role="button">Création Nouvel Emprunt</a>
+	{# <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_add') }}" role="button">Création Nouvel Emprunt</a> #}
 	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
 
 	<div class="table-responsive">
@@ -33,7 +33,7 @@
 						<td>{{borrow.user.fullname}}</td>
 						<td>
 							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_show', {'id': borrow.id}) }}" role="button">Détail</a>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a>
+							{# <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a> #}
 						</td>
 					</tr>
 				{% else %}
