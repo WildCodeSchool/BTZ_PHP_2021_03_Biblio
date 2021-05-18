@@ -6,15 +6,15 @@
 
 <section>
       <!-- Item -->
-      <div class="vh-75 mt-lg-n10 banner-accueil" style="background-image: url({{ asset('build/images/pexels-scott-webb-1029606.jpg') }});">
+      <div class="vh-75 mt-lg-n13 banner-accueil" style="background-image: url({{ asset('build/images/pexels-scott-webb-1029606.jpg') }});">
         <div class="container d-flex flex-column">
           <div class="row align-items-center justify-content-left text-left vh-75">
             <div class="col-12 col-md-6 col-lg-9 text-white">
-              <h1 class="display-4">Lorem ipsum dolor sit amet</h1>
-              <p class="pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro non ea consectetur.
+              <h1 class="display-md-4 text-dark">Lorem ipsum dolor sit amet</h1>
+              <p class="pt-4 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro non ea consectetur.
                 Voluptatibus labore placeat totam aliquid porro maxime magni voluptate, ducimus minima ab impedit beatae
                 omnis ut quis nesciunt?</p>
-              <a  href="/contact" type="button" class="btn btn-outline-light mt-4">contact</a>
+              <a  href="/contact" type="button" class="btn btn-outline-dark mt-4">contact</a>
             </div>
           </div>
         </div>
@@ -56,6 +56,9 @@
       <div class="row">
 {% for publication in publications %}
     <div class="col-12 col-md-4">
+      <img src="{{
+        asset('build/images/pexels-emily-768125.jpg')
+      }}" class="card-img-top" alt="...">
       <div class="card mb-6">
         <div class="card-body">
           <h5 class="card-title">{{ publication.title }}</h5>
@@ -81,18 +84,18 @@
 
 
 
-  <section class="py-12 bg-light">
+  <section class="py-12 bg-green">
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-12 pb-4">
-          <h4>Newsletter
+          <h4 class="text-dark">S'inscrire à la newsletter
           </h4>
         </div>
         <div class="col-12 col-md-6">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="email" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">s'abonner</button>
+              <button class="btn btn-outline-dark" type="button" id="button-addon2">s'abonner</button>
             </div>
           </div>
         </div>

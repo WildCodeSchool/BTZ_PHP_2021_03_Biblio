@@ -1,4 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.breadcrumb-item {
+  &a {
+    color: #C6D402 !important;
+  }
+}
+
+.border-top-custom {
+  border-top: 1.5px solid #C6D402 !important;
+}
+
+.btn-outline-success {
+  color:  #C6D402 !important;
+  border-color:  #C6D402 !important;
+  &:hover {
+background-color: #C6D402 !important ;
+color: white !important;
+  }
+}
+
+.text-violet {
+  color: #3D2683 !important;
+}
+
+.bg-green {
+  background-color: #C6D402 !important;
+}
+
+.bg-grey-audap {
+  background-color: #222222;
+}
+
+.bg-grey-light {
+  background-color:#EEEEEE;
+}
+
+.fa-twitter:before {
+  content: "\f099";
+  color: #222222;
+}
+.fa-youtube:before {
+  content: "\f167";
+  color: #222222;
+}
+
+.fa-plus-square:before {
+  content: "\f0fe";
+  color: #222222;
+}
+
+.fa-linkedin:before {
+  content: "\f08c";
+  color: #222222;
+}
+
 //positions
+
 
 .center {
   position: absolute;
@@ -45,16 +106,6 @@
   z-index: 50;
 }
 
-// Typo-config
-
-.font1 {
-  font-family: $font-family-sans-serif;
-}
-
-.font2 {
-  font-family: $headings-font-family;
-}
-
 // Letter spacing
 .letter-spacing-sm {
   letter-spacing: $letter-spacing-sm !important;
@@ -93,9 +144,10 @@
   text-transform: uppercase;
 }
 
-small {
-  font-weight: inherit;
-}
+.small {
+  font-size: 80%;
+  font-weight: 400;
+  }
 
 .strong {
   font-weight: $font-weight-bold;
