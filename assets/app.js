@@ -83,5 +83,5 @@ import "./test.js";
 })(jQuery);
 
 
-
+import './vich.js'
 import './autocomplete.js'
