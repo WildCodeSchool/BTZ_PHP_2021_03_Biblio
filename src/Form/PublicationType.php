@@ -55,6 +55,7 @@ class PublicationType extends AbstractType
             ->add('mention')
             ->add('paging', NumberType::class, [
                 'label' => 'Nombre de pages',
+                'required' => false,
                 'attr' => ['placeholder' => 'Veuillez préciser le nombre de pages']
             ])
             ->add('volume_number', TextType::class, [
@@ -67,11 +68,13 @@ class PublicationType extends AbstractType
             ])
             ->add('source_address', TextType::class, [
                 'label' => 'Support physique: adresse',
+                'required' => false,
                 'attr' => ['placeholder' => 'Adresse de l\'endroit ou se trouve l\'oeuvre']
             ])
             ->add('url', TextType::class, [
                 'label' => 'Url de la publication',
-                'attr' => ['placeholder' => 'Entrez le lien vers la publication']
+                'attr' => ['placeholder' => 'Entrez le lien vers la publication'],
+                'required' => false
             ])
             ->add('editors')
             ->add('authors')

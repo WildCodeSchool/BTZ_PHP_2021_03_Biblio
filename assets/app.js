@@ -33,5 +33,5 @@ $(".carousel").carousel({
 });
 
 import "./test.js";
-
+import './vich.js'
 import './autocomplete.js'
