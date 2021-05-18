@@ -49,6 +49,7 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+            $fieldsSearch = $form->getData();
             $typeSearch = $form->getData() ['type_search'];
             $thematicSearch = $form->getData() ['thematic_search'];
             $authorSearch = $form->getData() ['author_search'];
@@ -60,16 +61,10 @@ class PublicationController extends AbstractController
             };
             $dateStartSearch = $form->getData() ['dateStart_search'];
             $dateEndSearch = $form->getData() ['dateEnd_search'];
-            
-            $typeSearch = $form->getData()['type_search'];
-            $thematicSearch = $form->getData()['thematic_search'];
-            $authorSearch = $form->getData()['author_search'];
-            $keywordRefSearch = $form->getData()['keywordRef_search'];
-            $keywordGeoSearch = $form->getData()['keywordGeo_search'];
-            $borrowSearch = $form->getData()['borrow_search'];
-            $coteSearch = $form->getData()['cote_search'];
-            $dateStartSearch = $form->getData()['dateStart_search'];
-            $dateEndSearch = $form->getData()['dateEnd_search'];
+            // $em = $this->getDoctrine()->getManager();
+            // $em->persist($typeSearch);
+            // $em->persist($thematicSearch);
+            // $em->flush();
 
             $tabSearch = [];
             foreach ($_POST['search_publication_form'] as $key => $value) {
@@ -83,10 +78,10 @@ class PublicationController extends AbstractController
                     }
                 }
             }
+            // sauvegarde du tableau de recherche pour ne pas la perdre dans le selecteur de pagination
             $session->set('search_pub', $tabSearch);
             $publications = $publicationRepository->findByCriteria($tabSearch);
         } else {
-            // $query = $request->getQueryString();
             if ($session->has('search_pub')) {
                 $publications = $publicationRepository->findByCriteria($session->get('search_pub'));
             } else {

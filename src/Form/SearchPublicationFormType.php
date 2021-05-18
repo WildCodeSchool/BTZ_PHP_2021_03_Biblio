@@ -19,14 +19,34 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class SearchPublicationFormType extends AbstractType
 {
     private $authorizationChecker;
+    private $tabSearch = [
+        'type_search' => null,
+        'thematic_search' => null,
+        'author_search' => null,
+        'keywordRef_search' => null,
+        'keywordGeo_search' => null,
+        'borrow_search' => null,
+        'cote_search' => null,
+        'dateStart_search' => null,
+        'dateEnd_search' => null,
+    ];
 
-    public function __construct(AuthorizationCheckerInterface $AuthorizationChecker)
+    public function __construct(AuthorizationCheckerInterface $AuthorizationChecker, SessionInterface $session)
     {
         $this->authorizationChecker = $AuthorizationChecker;
+        if ($session->has('search_pub')) {
+            $tab = $session->get('search_pub');
+            foreach ($this->tabSearch as $key => $value) {
+                if (isset($tab[$key]) && $tab[$key] !== null) {
+                    $this->tabSearch[$key] = $tab[$key];
+                }
+            }
+        };
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -34,16 +54,18 @@ class SearchPublicationFormType extends AbstractType
         // $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
 
         // }));
-        
+
         $builder->add('type_search', EntityType::class, [
                  'class' => PublicationType::class,
                  'label' => 'Type de publication',
                  'required' => false,
+                //  'placeholder' => $this->tabSearch['type_search'] !== null ? $this->tabSearch['type_search']->getName(): ' ',
                  'choice_label' => 'name',
              ]);
         $builder->add('thematic_search', EntityType::class, [
                 'class' => Thematic::class,
                 'label' => 'Thématique',
+                // 'placeholder' => $this->tabSearch['thematic_search'] !== null ? $this->tabSearch['thematic_search']->getName(): ' ',
                 'required' => false,
                 'choice_label' => 'name',
             ]);
