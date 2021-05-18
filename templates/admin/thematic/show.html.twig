@@ -17,9 +17,10 @@
 					<td>{{ thematic.description }}</td>
 				</tr>
 			</tbody>
-		</table>
-		<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
-		{{ include('/admin/thematic/_delete_form.html.twig') }}
-		<a class="btn btn-outline-secondary btn-sm" href="{{ path('thematic_list') }}" role="button">Retour à la Liste</a>
 
-	{% endblock %}
+			<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
+			{{ include('/admin/thematic/_delete_form.html.twig') }}
+			<a class="btn btn-outline-secondary btn-sm" href="{{ path('thematic_list') }}" role="button">Retour à la Liste</a>
+		</table>
+	</div>
+{% endblock %}
