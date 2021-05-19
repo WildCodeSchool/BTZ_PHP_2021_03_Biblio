@@ -33,6 +33,7 @@ use App\Repository\KeywordRepository;
 use App\Repository\KeywordRefRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
+use App\Repository\PublicationRepository;
 use App\Repository\PublicationTypeRepository;
 use App\Repository\ThematicRepository;
 use App\Repository\UserRepository;
@@ -48,11 +49,12 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(AuthorRepository $authorRepository): Response
+    public function index(AuthorRepository $authorRepository, PublicationRepository $publicationRepository): Response
     {
         return $this->render('admin/dashboard/panel.html.twig', [
             'authors' => $authorRepository->findAll(),
-            'user' => $this->getUser()
+            'user' => $this->getUser(),
+            'publications_dashboard' => $publicationRepository->findBy([], ['update_date' => 'DESC'], 5)
         ]);
     }
 
