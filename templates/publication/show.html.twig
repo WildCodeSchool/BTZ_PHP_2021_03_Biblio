@@ -61,18 +61,24 @@ block body %}
               <span class="strong">Mot clé(s):</span> 
               {% for keywordRef in publication.keywordRefs %}
                 {{ keywordRef.name }},
+              {% else %}
+                Pas de mot clé!
               {% endfor %}
             </li>
             <li class="list-group-item">
               <span class="strong">Mot clé géographique:</span> 
               {% for keywordGeo in publication.keywordGeos %}
                 {{ keywordGeo.name }},
+              {% else %}
+                Pas de mot clé géographique!
               {% endfor %}
             </li>
             <li class="list-group-item">
               <span class="strong">Auteur(s):</span> 
               {% for author in publication.authors %}
                 {{ author.name }},
+              {% else %}
+                Pas d'auteur!
               {% endfor %}
             </li>
             <li class="list-group-item">
@@ -81,11 +87,11 @@ block body %}
             </li>
             <li class="list-group-item">
               <span class="strong">Localisation:</span>
-              {{ publication.Localisation.name }}
+              {{ publication.Localisation ? publication.Localisation.name : 'Pas de localisation!' }}
             </li>
             <li class="list-group-item">
               <span class="strong">Collection:</span>
-              {{ publication.BookCollection.name }}
+              {{ publication.BookCollection ? publication.BookCollection.name : 'Pas de collection!' }}
             </li>
             <li class="list-group-item">
               <span class="strong">Langue:</span>
