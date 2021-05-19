@@ -1,5 +1,5 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-	<a class="navbar-brand" href="index.html">Espace Admin</a>
+	<a class="navbar-brand" href="{{ path('admin') }}">Espace Admin</a>
 	<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!">
 		<i class="fas fa-bars"></i>
 	</button>
@@ -15,7 +15,7 @@
 		</div> #}
 	</form>
 	<!-- Navbar-->				
-	<small style="color: white">XXX</small>
+	<small style="color: white">{{ app.user.fullname }}</small>
 	<ul class="navbar-nav ml-auto ml-md-0">
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

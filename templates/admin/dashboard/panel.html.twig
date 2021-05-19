@@ -107,7 +107,7 @@
 								<tr>
 									<td>{{ publication.title }}</a></td>
 									<td>{{ publication.user.fullname }}</td>
-									<td>{{ publication.updatedate | date("d/m/Y") }}</td>
+									<td>{{ publication.updatedate | date("d/m/Y h:i") }}</td>
 								</tr>
 								{% endfor %} 
 						</tbody>
