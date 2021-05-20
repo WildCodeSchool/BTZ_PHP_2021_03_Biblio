@@ -86,7 +86,67 @@
 				</div>
 			</div>
 </div> #}						
-
+<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table mr-1"></i>
+				Dernières demandes d'emprunt
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Titre</th>
+								<td>Emprunté par</td>
+								<th>Date</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for borrow in last_borrows %}
+							<tr>
+								<td>{{ borrow.publication.title }}</td>
+								<td>{{ borrow.user.fullname }}</td>
+								<td>{{ borrow.reservationdate|date("d/m/Y") }}</td>
+								<td><a class="btn btn-outline-success" href="{{ path('borrow_show', { id: borrow.publication.id }) }}">Consulter</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table mr-1"></i>
+				Dernières Publications ajoutées
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Titre</th>
+								<td>Ajouté par</td>
+								<th>Date</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for publication in publications %}
+							<tr>
+								<td>{{ publication.title }}</td>
+								<td>{{ user.fullname }}</td>
+								<td>{{ publication.publicationDate ? publication.publicationDate|date("d/m/Y h:i") : '' }}</td>
+								<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 		<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table mr-1"></i>
@@ -112,27 +172,6 @@
 									<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
 								</tr>
 								{% endfor %} 
-								<td><strong>Ajouté par</strong></td>
-								{# <th>Type</th>
-								<th>Thematique</th>
-								<th>Support</th> #}
-								<th>Date</th>
-								<th></th>
-								
-							</tr>
-						</thead>
-						<tbody>
-						{% for publication in publications %}
-							<tr>
-								<td>{{ publication.title }}</td>
-								<td>{{ user.fullname }}</td>
-								{# <td>{{ publication.type.name }}</td>
-								<td>{{ publication.thematic.name }}</td>
-								<td>{{ publication.support }}</td> #}
-								<td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</td>
-								<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
-							</tr>
-							{% endfor %}
 						</tbody>
 					</table>
 				</div>
