@@ -7,11 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center py-8">
-                <h1>Demande d'emprunt envoyée </h1>
+                <h1>Demande d'emprunt {{ borrow.id }} envoyée !</h1>
             </div>
 
             <div class="col-12 py-3">
-                <h2> pour la publication : {{ publication.Title}} </h2>
+                <h2> Publication : {{ publication.Title}} </h2>
+                <h3> Date de réservation : {{ borrow.reservationDate | date("d/m/Y") }} </h3>
                 <h3> Cote : {{ publication.Cote }}  </h3>
                 <h3> Un e-mail vous sera envoyé prochainement à votre adresse mail pour que vous puissiez récupérer l'ouvrage </h3>
                 <h3> à {{ publication.Localisation}} </h3>
