@@ -28,9 +28,10 @@ class BorrowFixtures extends Fixture implements DependentFixtureInterface
                 $borrow->setUser($this->getReference('user_' . $data[2]));
                 $borrow->setReservationDate(new DateTime('1970-01-01 00:00:01'));
                 
-                $dateTmp = str_replace('/', '-', $data[3]);
-                $dateTmp = date('Y-m-d', strtotime($dateTmp));
-                $dateBorrow = new DateTime($dateTmp);
+                $dateBorrow = DateTime::createFromFormat('d/m/y', $data[3]);
+                // $dateTmp = str_replace('/', '-', $data[3]);
+                // $dateTmp = date('Y-m-d', strtotime($dateTmp));
+                // $dateBorrow = new DateTime($dateBorrow);
                 $borrow->setBorrowedDate($dateBorrow);
 
                 $borrow->setLimitDate(new DateTime('1970-01-01 00:00:01'));
