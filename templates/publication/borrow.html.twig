@@ -10,6 +10,9 @@
                 <h1>Emprunter une Publication</h1>
             </div>
             <div class="col-12">
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-info">{{ message }}</div>
+                {% endfor %}
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <span class="strong">Titre :</span> 

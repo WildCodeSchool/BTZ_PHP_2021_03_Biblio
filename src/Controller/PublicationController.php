@@ -183,8 +183,6 @@ class PublicationController extends AbstractController
     {
         if ($this->getUser() !== null) {
             $borrow = new Borrow();
-            // $form = $this->createForm(BorrowType::class, $borrow);
-            // $form->handleRequest($request);
             $borrow->setReservationDate(new DateTime());
             $borrow->setPublication($publication);
             $borrow->setUser($this->getUser());
@@ -210,10 +208,8 @@ class PublicationController extends AbstractController
                 ));
 
                 $mailer->send($email);
-                return $this->render('publication/showBorrowed.html.twig', [
-                    'borrow' => $borrow,
-                    'publication' => $publication,
-                    ]);
+                $this->addFlash('notice', 'Votre demande d\'emprunt a bien été envoyée !');
+                return $this->redirectToRoute('publication_show', [ 'id' => $publication->getId()]);
             }
 
             return $this->render('publication/borrow.html.twig', [

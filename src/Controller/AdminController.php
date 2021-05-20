@@ -715,14 +715,13 @@ class AdminController extends AbstractController
      */
     public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
-
         $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
 
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $search = $form->getData()['search'];
             $borrowRepository->findBy(['cote' => $search]);
-        }else{
+        } else {
             $borrowRepository->findAll();
         }
         return $this->render('/admin/borrow/index.html.twig', [
@@ -881,9 +880,9 @@ class AdminController extends AbstractController
 
     //////////////////////////////KEYWORD REF START/////////////////////////////////
 
- /**
-     * @Route("/admin/keyword_ref", name="keyword_ref_list", methods={"GET"})
-     */
+    /**
+        * @Route("/admin/keyword_ref", name="keyword_ref_list", methods={"GET"})
+        */
     public function keywordRefList(KeywordRefRepository $keywordRefRepository): Response
     {
         return $this->render('/admin/keyword_ref/index.html.twig', [
@@ -958,7 +957,6 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('keyword_ref_list');
     }
 
-  //////////////////////////////KEYWORD REF END/////////////////////////////////
+    //////////////////////////////KEYWORD REF END/////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
 }
