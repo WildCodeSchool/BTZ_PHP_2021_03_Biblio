@@ -11,10 +11,14 @@ block body %}
             <li class="breadcrumb-item active" aria-current="page">{{ publication.title }}</li>
           </ol>
         </nav>
+        
         <p>Publication</p>
         <h1 class="h2">
           {{ publication.title }}
         </h1>
+        {% for message in app.flashes('notice') %}
+              <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -38,6 +42,7 @@ block body %}
     <div class="col-12 col-lg-10 col-xl-8">
       <div class="row">
         <div class="col-12">
+          
           <ul class="list-group list-group-flush">
             {% if is_granted('ROLE_AUDAP_MEMBER') %}
               <li class="list-group-item">
