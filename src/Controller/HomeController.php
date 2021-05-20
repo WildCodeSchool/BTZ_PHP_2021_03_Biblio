@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class HomeController extends AbstractController
 {
     /**
@@ -20,7 +19,7 @@ class HomeController extends AbstractController
     {
         $user = $this->getUser();
 
-        $lastPublications = $publicationRepository->findBy([], ['id' => 'DESC'], 3);
+        $lastPublications = $publicationRepository->findBy([], ['publication_date' => 'DESC'], 3);
 
         return $this->render('home/index.html.twig', [
             'user' => $this->getUser(),
@@ -35,7 +34,6 @@ class HomeController extends AbstractController
     // {
     //     return $this->render('home/contact.html.twig');
     // }
-
 
     /**
      * @Route("/autocomplete", name="autocomplete", methods={"GET"})

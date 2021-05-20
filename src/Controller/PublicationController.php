@@ -19,10 +19,10 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/publication")
@@ -54,20 +54,20 @@ class PublicationController extends AbstractController
     {
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $fieldsSearch = $form->getData();
-            $typeSearch = $form->getData() ['type_search'];
-            $thematicSearch = $form->getData() ['thematic_search'];
-            $authorSearch = $form->getData() ['author_search'];
-            $keywordRefSearch = $form->getData() ['keywordRef_search'];
-            $keywordGeoSearch = $form->getData() ['keywordGeo_search'];
+            $typeSearch = $form->getData()['type_search'];
+            $thematicSearch = $form->getData()['thematic_search'];
+            $authorSearch = $form->getData()['author_search'];
+            $keywordRefSearch = $form->getData()['keywordRef_search'];
+            $keywordGeoSearch = $form->getData()['keywordGeo_search'];
             if ($this->isGranted('ROLE_AUDAP_MEMBER')) {
-                $borrowSearch = $form->getData() ['borrow_search'];
-                $coteSearch = $form->getData() ['cote_search'];
-            };
-            $dateStartSearch = $form->getData() ['dateStart_search'];
-            $dateEndSearch = $form->getData() ['dateEnd_search'];
+                $borrowSearch = $form->getData()['borrow_search'];
+                $coteSearch = $form->getData()['cote_search'];
+            }
+            $dateStartSearch = $form->getData()['dateStart_search'];
+            $dateEndSearch = $form->getData()['dateEnd_search'];
             // $em = $this->getDoctrine()->getManager();
             // $em->persist($typeSearch);
             // $em->persist($thematicSearch);
@@ -75,10 +75,10 @@ class PublicationController extends AbstractController
 
             $tabSearch = [];
             foreach ($_POST['search_publication_form'] as $key => $value) {
-                if (!empty($value) && $key !== '_token' && $value !== null) {
-                    if ($key === 'keywordRef_search' || $key === 'keywordGeo_search' || $key === 'author_search') {
+                if (!empty($value) && '_token' !== $key && null !== $value) {
+                    if ('keywordRef_search' === $key || 'keywordGeo_search' === $key || 'author_search' === $key) {
                         $tabSearch[$key] = $form->getData()[$key]->getName();
-                    } elseif ($key === 'borrow_search') {
+                    } elseif ('borrow_search' === $key) {
                         $tabSearch[$key] = $form->getData()[$key]->getId();
                     } else {
                         $tabSearch[$key] = $form->getData()[$key];
@@ -167,7 +167,7 @@ class PublicationController extends AbstractController
      */
     public function delete(Request $request, Publication $publication): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $publication->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$publication->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($publication);
             $entityManager->flush();
