@@ -3,12 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\Publication;
+use Cocur\Slugify\Slugify;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method null|Publication find($id, $lockMode = null, $lockVersion = null)
- * @method null|Publication findOneBy(array $criteria, array $orderBy = null)
+ * @method Publication|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Publication|null findOneBy(array $criteria, array $orderBy = null)
  * @method Publication[]    findAll()
  * @method Publication[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -95,11 +96,12 @@ class PublicationRepository extends ServiceEntityRepository
 
     public function findByQueryAuto($query)
     {
-        $query = "%{$query}%";
+        $slugify = new Slugify();
+        $query = "%{$slugify->slugify($query)}%";
 
         return $this->createQueryBuilder('p')
             ->select(['p.id', 'p.title'])
-            ->andWhere('p.title LIKE :query')
+            ->andWhere('p.slug LIKE :query')
             ->setParameter('query', $query)
             ->orderBy('p.id', 'ASC')
             ->setMaxResults(10)
