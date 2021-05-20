@@ -1,11 +1,50 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}New Editor{% endblock %}
 
-{% block body %}
-    <h1>Create new Editor</h1>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h1>Editor index</h1>
 
-    {{ include('/admin/editor/_form.html.twig') }}
-
-    <a href="{{ path('editor_list') }}">back to list</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for editor in editors %}
+                        <tr>
+                            <td>{{ editor.id }}</td>
+                            <td>{{ editor.name }}</td>
+                            <td>{{ editor.address }}</td>
+                            <td>
+                                <a href="{{ path('editor_show', {'id': editor.id}) }}">show</a>
+                                <a href="{{ path('editor_edit', {'id': editor.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                
+                <a href="{{ path('editor_add') }}">Create new</a>
+                    <h1>Create new Editor</h1>
+                
+                    {{ include('/admin/editor/_form.html.twig') }}
+                
+                    <a href="{{ path('editor_list') }}">back to list</a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

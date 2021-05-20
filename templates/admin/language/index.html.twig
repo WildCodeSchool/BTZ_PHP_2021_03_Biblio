@@ -4,36 +4,42 @@
 {% endblock %}
 
 {% block content %}
-	<h2 style="padding-top:2%">Liste des Langues</h2>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('language_add') }}" role="button">Création Nouvelle Langue</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-
-	<div class="table-responsive">
-		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
-			<thead>
-				<tr class="table-active">
-					<th>Nom</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for language in languages %}
-					<tr>
-						<td>{{ language.name }}</td>
-						<td>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('language_show', {'id': language.id}) }}" role="button">Détail</a>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('language_edit', {'id': language.id}) }}" role="button">Edition</a>
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="3">Aucun Enregistrement</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('language_add') }}" role="button">Création Nouvelle Langue</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<h2>Liste des Langues</h2>
+				<div class="py-3">
+					<a class="btn btn-outline-primary btn-sm" href="{{ path('language_add') }}" role="button">Création Nouvelle Langue</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr class="table-active">
+								<th>Nom</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for language in languages %}
+								<tr>
+									<td>{{ language.name }}</td>
+									<td>
+										<a class="btn btn-outline-primary btn-sm" href="{{ path('language_show', {'id': language.id}) }}" role="button">Détail</a>
+										<a class="btn btn-outline-primary btn-sm" href="{{ path('language_edit', {'id': language.id}) }}" role="button">Edition</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="3">Aucun Enregistrement</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

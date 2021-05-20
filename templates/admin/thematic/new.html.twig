@@ -1,12 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Création Nouveau Thématique
 {% endblock %}
 
-{% block body %}
-	<h2>Création Nouveau Thématique</h2>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
 
-	{{ include('/admin/thematic/_form.html.twig') }}
+				<h2>Création Nouveau Thématique</h2>
 
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('thematic_list') }}" role="button">Retour à la liste</a>
+				{{ include('/admin/thematic/_form.html.twig') }}
+			
+				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('thematic_list') }}" role="button">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

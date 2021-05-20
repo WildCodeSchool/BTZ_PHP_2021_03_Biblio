@@ -1,13 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Nouvel Emprunt
 {% endblock %}
 
-{% block body %}
-	<h2>Creation nouvel Emprunt</h2>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+				<h2>Creation nouvel Emprunt</h2>
 
-	{{ include('admin/borrow/_form.html.twig') }}
-
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('emprunt_list') }}" role="button">Retour à la liste</a>
-
+				{{ include('admin/borrow/_form.html.twig') }}
+			
+				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('emprunt_list') }}" role="button">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
