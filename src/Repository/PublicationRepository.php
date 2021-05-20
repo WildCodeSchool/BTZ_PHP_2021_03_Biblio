@@ -3,10 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Publication;
-use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @method null|Publication find($id, $lockMode = null, $lockVersion = null)
@@ -42,19 +40,19 @@ class PublicationRepository extends ServiceEntityRepository
 
         $kb = $this->createQueryBuilder('p');
         foreach ($tab as $key => $value) {
-            if (isset($tabCriteria[$key]) && $tabCriteria[$key] !== null) {
+            if (isset($tabCriteria[$key]) && null !== $tabCriteria[$key]) {
                 $field = str_replace('_search', '', $key);
 
                 if (is_array($value)) {
-                    $op = " " . $value[0] .  " :";
-                    $criteria = $value[2] . "." . $value[3] . $op . $field;
+                    $op = ' '.$value[0].' :';
+                    $criteria = $value[2].'.'.$value[3].$op.$field;
                     $kb->join($value[1], $value[2]);
-                } elseif ($value === '=') {
-                    $op = " = :";
-                    $criteria = "p." . $field . $op . $field;
-                } elseif ($value === 'cote') {
-                    $op = " = :";
-                    $criteria = "p.cote" . $op . $field;
+                } elseif ('=' === $value) {
+                    $op = ' = :';
+                    $criteria = 'p.'.$field.$op.$field;
+                } elseif ('cote' === $value) {
+                    $op = ' = :';
+                    $criteria = 'p.cote'.$op.$field;
                 } else {
                     $op = ' '.$value.' :';
                     $criteria = 'p.publication_date'.$op.$field;
@@ -65,7 +63,7 @@ class PublicationRepository extends ServiceEntityRepository
             }
         }
         $kb->orderBy('p.title', 'ASC');
-        
+
         return $kb->getQuery()->getResult();
     }
 
