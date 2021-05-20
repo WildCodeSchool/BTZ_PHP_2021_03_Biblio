@@ -32,8 +32,8 @@
 						<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
 						<td>{{borrow.user.fullname}}</td>
 						<td>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_show', {'id': borrow.id}) }}" role="button">Détail</a>
-							{# <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a> #}
+							<a class="btn btn-outline-primary btn-sm" href="{{ path('borrow_show', {'id': borrow.id}) }}" role="button">Détail</a>
+							 <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a> 
 						</td>
 					</tr>
 				{% else %}
