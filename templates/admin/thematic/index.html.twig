@@ -4,11 +4,12 @@
 {% endblock %}
 
 {% block content %}
-	<h2 style="padding-top: 2%">Liste des Thématiques</h2>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Création Nouveau Thématique</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-
-	<div class="table-responsive">
+		<h2 style="padding-top:2%;padding-left:1% ">Liste des Thématiques</h2>
+		<div style="padding-left:1%;padding-bottom:0.5%">
+			<a class="btn btn-outline-primary btn-sm"  href="{{ path('user_add') }}" role="button">Ajouter</a>
+			<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+		</div>
+	<div class="table-responsive" style="padding-left:1%;padding-right:1%">
 		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
 			<thead>
 				<tr class="table-active">
