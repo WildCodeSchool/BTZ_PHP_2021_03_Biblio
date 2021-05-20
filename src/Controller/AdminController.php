@@ -7,9 +7,11 @@ use App\Entity\BookCollection;
 use App\Entity\Borrow;
 use App\Entity\Editor;
 use App\Entity\Keyword;
+use App\Entity\KeywordGeo;
 use App\Entity\KeywordRef;
 use App\Entity\Language;
 use App\Entity\Localisation;
+use App\Entity\Publication;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\User;
@@ -17,8 +19,9 @@ use App\Form\AuthorType;
 use App\Form\BookCollectionType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
-use App\Form\KeywordType;
+use App\Form\KeywordGeoType;
 use App\Form\KeywordRefType;
+use App\Form\KeywordType;
 use App\Form\LanguageType;
 use App\Form\LocalisationType;
 use App\Form\PublicationTypeType;
@@ -29,8 +32,9 @@ use App\Repository\AuthorRepository;
 use App\Repository\BookCollectionRepository;
 use App\Repository\BorrowRepository;
 use App\Repository\EditorRepository;
-use App\Repository\KeywordRepository;
+use App\Repository\KeywordGeoRepository;
 use App\Repository\KeywordRefRepository;
+use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
 use App\Repository\PublicationRepository;
@@ -49,12 +53,15 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(AuthorRepository $authorRepository, PublicationRepository $publicationRepository): Response
+    public function index(PublicationRepository $publicationRepository, AuthorRepository $authorRepository): Response
     {
+        $lastPublications = $publicationRepository->findBy([], ['publication_date' => 'DESC'], 5);
+
         return $this->render('admin/dashboard/panel.html.twig', [
             'authors' => $authorRepository->findAll(),
             'user' => $this->getUser(),
-            'publications_dashboard' => $publicationRepository->findBy([], ['update_date' => 'DESC'], 5)
+            'publications_dashboard' => $publicationRepository->findBy([], ['update_date' => 'DESC'], 5),
+            'publications' => $lastPublications,
         ]);
     }
 
@@ -717,19 +724,18 @@ class AdminController extends AbstractController
      */
     public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
-
         $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
 
-
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $search = $form->getData()['search'];
             $borrowRepository->findBy(['cote' => $search]);
-        }else{
+        } else {
             $borrowRepository->findAll();
         }
+
         return $this->render('/admin/borrow/index.html.twig', [
             'borrows' => $borrowRepository->findAll(),
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
@@ -883,7 +889,7 @@ class AdminController extends AbstractController
 
     //////////////////////////////KEYWORD REF START/////////////////////////////////
 
- /**
+    /**
      * @Route("/admin/keyword_ref", name="keyword_ref_list", methods={"GET"})
      */
     public function keywordRefList(KeywordRefRepository $keywordRefRepository): Response
@@ -960,7 +966,85 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('keyword_ref_list');
     }
 
-  //////////////////////////////KEYWORD REF END/////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////KEYWORD REF END/////////////////////////////////
+    //////////////////////////////KEYWORD GEO START///////////////////////////////
 
+    /**
+     * @Route("/admin/keyword_geo", name="keyword_geo_list", methods={"GET"})
+     */
+    public function keywordGeoList(KeywordGeoRepository $keywordGeoRepository): Response
+    {
+        return $this->render('/admin/keyword_geo/index.html.twig', [
+            'keyword_geos' => $keywordGeoRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_geo/creation", name="keyword_geo_add", methods={"GET","POST"})
+     */
+    public function keywordGeoAdd(Request $request): Response
+    {
+        $keywordGeo = new KeywordGeo();
+        $form = $this->createForm(KeywordGeoType::class, $keywordGeo);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($keywordGeo);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('keyword_geo_list');
+        }
+
+        return $this->render('/admin/keyword_geo/new.html.twig', [
+            'keyword_geo' => $keywordGeo,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_geo/{id}", name="keyword_geo_show", methods={"GET"})
+     */
+    public function keywordGeoShow(KeywordGeo $keywordGeo): Response
+    {
+        return $this->render('/admin/keyword_geo/show.html.twig', [
+            'keyword_geo' => $keywordGeo,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_geo/{id}/edit", name="keyword_geo_edit", methods={"GET","POST"})
+     */
+    public function keywordGeoEdit(Request $request, KeywordGeo $keywordGeo): Response
+    {
+        $form = $this->createForm(KeywordGeoType::class, $keywordGeo);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('keyword_geo_list');
+        }
+
+        return $this->render('/admin/keyword_geo/edit.html.twig', [
+            'keyword_geo' => $keywordGeo,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/keyword_geo/{id}", name="keyword_geo_delete", methods={"POST"})
+     */
+    public function keywordGeoDelete(Request $request, KeywordGeo $keywordGeo): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$keywordGeo->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($keywordGeo);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('keyword_geo_list');
+    }
+
+    //////////////////////////////KEYWORD GEO END/////////////////////////////////
 }

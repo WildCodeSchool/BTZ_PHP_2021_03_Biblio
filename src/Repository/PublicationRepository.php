@@ -3,11 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Publication;
-use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @method null|Publication find($id, $lockMode = null, $lockVersion = null)
@@ -43,19 +41,19 @@ class PublicationRepository extends ServiceEntityRepository
 
         $kb = $this->createQueryBuilder('p');
         foreach ($tab as $key => $value) {
-            if ($tabCriteria[$key] !== '' && $tabCriteria[$key] !== null) {
+            if (isset($tabCriteria[$key]) && null !== $tabCriteria[$key]) {
                 $field = str_replace('_search', '', $key);
 
                 if (is_array($value)) {
-                    $op = " " . $value[0] .  " :";
-                    $criteria = $value[2] . "." . $value[3] . $op . $field;
+                    $op = ' '.$value[0].' :';
+                    $criteria = $value[2].'.'.$value[3].$op.$field;
                     $kb->join($value[1], $value[2]);
-                } elseif ($value === '=') {
-                    $op = " = :";
-                    $criteria = "p." . $field . $op . $field;
-                } elseif ($value === 'cote') {
-                    $op = " = :";
-                    $criteria = "p.cote" . $op . $field;
+                } elseif ('=' === $value) {
+                    $op = ' = :';
+                    $criteria = 'p.'.$field.$op.$field;
+                } elseif ('cote' === $value) {
+                    $op = ' = :';
+                    $criteria = 'p.cote'.$op.$field;
                 } else {
                     $op = ' '.$value.' :';
                     $criteria = 'p.publication_date'.$op.$field;
@@ -66,33 +64,8 @@ class PublicationRepository extends ServiceEntityRepository
             }
         }
         $kb->orderBy('p.title', 'ASC');
-        
-        // dd($kb->getQuery());
-        return $kb->getQuery()->getResult();
-        
-        
 
         return $kb->getQuery()->getResult();
-        // return $this->createQueryBuilder('p')
-        //     // ->Join('p.keywords', 'k')
-        //     // ->Join('p.authors', 'a')
-        //     // ->Where('p.type = :type')
-        //     // ->andWhere('p.thematic = :thematic')
-        //     // ->andWhere('a.name = :author')
-        //     // ->andWhere('k.name = :keyword')
-        //     ->andWhere(':datePub > :dateStart')
-        //     // ->setParameter('type', $tabCriteria['type_search'])
-        //     // ->setParameter('thematic', $tabCriteria['thematic_search'])
-        //     // ->setParameter('author', $tabCriteria['author_search'])
-        //     // ->setParameter('keyword', $tabCriteria['keyword_search'])
-        //     ->setParameter('datePub', 'p.publication_date')
-        //     ->setParameter('dateStart', new dateTime($tabCriteria['dateStart_search']))
-
-        //     ->orderBy('p.title', 'ASC')
-        //     ->setMaxResults(10)
-        //     ->getQuery()
-        //     ->getResult()
-        // ;
     }
 
     /*

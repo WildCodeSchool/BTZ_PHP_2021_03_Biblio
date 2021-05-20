@@ -112,6 +112,27 @@
 									<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
 								</tr>
 								{% endfor %} 
+								<td><strong>Ajouté par</strong></td>
+								{# <th>Type</th>
+								<th>Thematique</th>
+								<th>Support</th> #}
+								<th>Date</th>
+								<th></th>
+								
+							</tr>
+						</thead>
+						<tbody>
+						{% for publication in publications %}
+							<tr>
+								<td>{{ publication.title }}</td>
+								<td>{{ user.fullname }}</td>
+								{# <td>{{ publication.type.name }}</td>
+								<td>{{ publication.thematic.name }}</td>
+								<td>{{ publication.support }}</td> #}
+								<td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</td>
+								<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
+							</tr>
+							{% endfor %}
 						</tbody>
 					</table>
 				</div>

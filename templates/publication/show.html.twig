@@ -11,10 +11,14 @@ block body %}
             <li class="breadcrumb-item active" aria-current="page">{{ publication.title }}</li>
           </ol>
         </nav>
+        
         <p>Publication</p>
         <h1 class="h2">
           {{ publication.title }}
         </h1>
+        {% for message in app.flashes('notice') %}
+              <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -38,34 +42,81 @@ block body %}
     <div class="col-12 col-lg-10 col-xl-8">
       <div class="row">
         <div class="col-12">
+          
           <ul class="list-group list-group-flush">
             {% if is_granted('ROLE_AUDAP_MEMBER') %}
               <li class="list-group-item">
-                <span class="strong">Id:</span> {{ publication.id }}
+                <span class="strong">Id:</span> 
+                {{ publication.id }}
               </li>
             {% endif %}
             <li class="list-group-item">
-              <span class="strong">Title:</span> {{ publication.title }}
+              <span class="strong">Title:</span> 
+              {{ publication.title }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Mention:</span>
+              <span class="strong">Thématique:</span> 
+              {{ publication.thematic.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Type:</span> 
+              {{ publication.Type.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mot clé(s):</span> 
+              {% for keywordRef in publication.keywordRefs %}
+                {{ keywordRef.name }},
+              {% else %}
+                Pas de mot clé!
+              {% endfor %}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mot clé géographique:</span> 
+              {% for keywordGeo in publication.keywordGeos %}
+                {{ keywordGeo.name }},
+              {% else %}
+                Pas de mot clé géographique!
+              {% endfor %}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Auteur(s):</span> 
+              {% for author in publication.authors %}
+                {{ author.name }},
+              {% else %}
+                Pas d'auteur!
+              {% endfor %}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Résumé:</span>
+              {{ publication.summary }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Localisation:</span>
+              {{ publication.Localisation ? publication.Localisation.name : 'Pas de localisation!' }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Collection:</span>
+              {{ publication.BookCollection ? publication.BookCollection.name : 'Pas de collection!' }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Langue:</span>
+              {{ publication.Language.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="strong">Mention légale:</span>
               {{ publication.mention }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Publication_date:</span>
-              {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d H:i:s') : '' }}
+              <span class="strong">Date de publication:</span>
+              {{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Paging:</span>
+              <span class="strong">Pagination:</span>
               {{ publication.paging }}
             </li>
             <li class="list-group-item">
-              <span class="strong">Volume_number:</span>
+              <span class="strong">Tomaison</span>
               {{ publication.volumeNumber }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Summary:</span>
-              {{ publication.summary }}
             </li>
             <li class="list-group-item">
               <span class="strong">Issn_isbn:</span>
@@ -73,55 +124,54 @@ block body %}
             </li>
             <li class="list-group-item">
               <span class="strong">Support:</span>
-              {{ publication.volumeNumber }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Volume_number:</span>
               {{ publication.support }}
-            </li>
-            {% if is_granted('ROLE_AUDAP_MEMBER') %}
-            <li class="list-group-item">
-              <span class="strong">Source_address:</span>
-              {{ publication.sourceAddress }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Url:</span> {{ publication.url }}
             </li>
             <li class="list-group-item">
               <span class="strong">Cote:</span> {{ publication.cote }}
             </li>
-            <li class="list-group-item">
-              <span class="strong">Auteur Notice:</span> {{ publication.user.fullname }}
-            </li>
-            <li class="list-group-item">
-              <span class="strong">Date de mise a jour Notice:</span> {{ publication.updateDate | date("d/m/Y")}}
-            </li>
-            <li class="list-group-item">
-                <span class="strong">Emprunt:</span>
-            </li>
-            {% for borrow in publication.borrows %}
+            {% if is_granted('ROLE_AUDAP_MEMBER') %}
               <li class="list-group-item">
-                <span class="strong">Nom emprunteur:</span> {{ borrow.user.fullname }}
+                <span class="strong">Adresse source:</span>
+                {{ publication.sourceAddress }}
               </li>
               <li class="list-group-item">
-                <span class="strong">date emprunté:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
+                <span class="strong">Url:</span> {{ publication.url }}
               </li>
-            {% else %}
               <li class="list-group-item">
-              <span>jamais emprunté </span> 
-               </li>
-            {% endfor %}  
-            <li class="list-group-item">
-              <span class="strong">Access:</span>
-              {{ publication.access }}
-            </li>
+                <span class="strong">Auteur Notice:</span> {{ publication.user.fullname }}
+                <span class="strong">Date de mise a jour:</span> {{ publication.updateDate | date("d/m/Y")}}
+              </li>
+              <li class="list-group-item">
+                  <span class="strong">Emprunt:</span>
+              </li>
+              {% for borrow in publication.borrows %}
+                <li class="list-group-item">
+                  <span class="strong">Nom emprunteur:</span> {{ borrow.user.fullname }}
+                  <span class="strong">Emprunté le:</span> {{ borrow.borrowedDate | date("d/m/Y")}}
+                </li>
+              {% else %}
+                <li class="list-group-item">
+                <span>jamais emprunté </span> 
+                </li>
+              {% endfor %}  
+              <li class="list-group-item">
+                <span class="strong">Accès:</span>
+                {{ publication.access }}
+              </li>
             {% endif %}
           </ul>
         </div>
         <div class="col-12 py-3">
-          <a class="btn btn-outline-success" href="{{ path('publication_list') }}">back to list</a>
-          <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
-          {{ include("publication/_delete_form.html.twig") }}
+          <a class="btn btn-outline-success" href="{{ path('publication_list') }}">Retour à la liste</a>
+          {% if publication.support is same as('Physique') %}
+            <a class="btn btn-outline-success" href="{{ path('publication_borrow', { id: publication.id }) }}">Emprunter</a>
+          {% else %}
+            {# <a class="btn btn-outline-success" href="{{ path('xxxx', { id: publication.id }) }}">Chargement Publication</a> #}
+          {% endif %}
+          {% if is_granted('ROLE_AUDAP_MEMBER') %}
+            <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">Modification de la notice</a>
+            {{ include("publication/_delete_form.html.twig") }}
+          {% endif %}
         </div>
       </div>
     </div>

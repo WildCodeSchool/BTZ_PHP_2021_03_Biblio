@@ -22,7 +22,9 @@
         button_label: "Rechercher"
       })
     }}
-    <a class="btn btn-outline-success mt-2" href="{{ path('publication_list') }}">Anuller</a>
+    {% if is_granted('ROLE_AUDAP_MEMBER') %}
+      <a class="btn btn-outline-success mt-2" href="{{ path('publication_new') }}">Chargement d'une nouvelle publication</a>
+    {% endif %}
   </div>
 </section>
 
@@ -42,6 +44,9 @@
     {% for publication in pagination %}
     <div class="col-12 col-md-4">
       <div class="card mb-6">
+        <img src="{{
+          asset('build/images/pexels-emily-768125.jpg')
+        }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ publication.title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">
@@ -64,7 +69,11 @@
     <div class="col-4 text-center">
       {# display navigation #}
 
-        {{ knp_pagination_render(pagination) }}
+      {{ knp_pagination_render(pagination, null, {}, {
+        'align': 'center',
+        'size': 'small',
+        'rounded': true,
+     }) }}
 
     </div>
   </div>
