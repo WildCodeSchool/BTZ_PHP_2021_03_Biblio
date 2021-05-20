@@ -11,10 +11,14 @@ block body %}
             <li class="breadcrumb-item active" aria-current="page">{{ publication.title }}</li>
           </ol>
         </nav>
+        
         <p>Publication</p>
         <h1 class="h2">
           {{ publication.title }}
         </h1>
+        {% for message in app.flashes('notice') %}
+              <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -38,6 +42,7 @@ block body %}
     <div class="col-12 col-lg-10 col-xl-8">
       <div class="row">
         <div class="col-12">
+          
           <ul class="list-group list-group-flush">
             {% if is_granted('ROLE_AUDAP_MEMBER') %}
               <li class="list-group-item">
@@ -61,18 +66,24 @@ block body %}
               <span class="strong">Mot clé(s):</span> 
               {% for keywordRef in publication.keywordRefs %}
                 {{ keywordRef.name }},
+              {% else %}
+                Pas de mot clé!
               {% endfor %}
             </li>
             <li class="list-group-item">
               <span class="strong">Mot clé géographique:</span> 
               {% for keywordGeo in publication.keywordGeos %}
                 {{ keywordGeo.name }},
+              {% else %}
+                Pas de mot clé géographique!
               {% endfor %}
             </li>
             <li class="list-group-item">
               <span class="strong">Auteur(s):</span> 
               {% for author in publication.authors %}
                 {{ author.name }},
+              {% else %}
+                Pas d'auteur!
               {% endfor %}
             </li>
             <li class="list-group-item">
@@ -81,11 +92,11 @@ block body %}
             </li>
             <li class="list-group-item">
               <span class="strong">Localisation:</span>
-              {{ publication.Localisation.name }}
+              {{ publication.Localisation ? publication.Localisation.name : 'Pas de localisation!' }}
             </li>
             <li class="list-group-item">
               <span class="strong">Collection:</span>
-              {{ publication.BookCollection.name }}
+              {{ publication.BookCollection ? publication.BookCollection.name : 'Pas de collection!' }}
             </li>
             <li class="list-group-item">
               <span class="strong">Langue:</span>
@@ -151,9 +162,14 @@ block body %}
           </ul>
         </div>
         <div class="col-12 py-3">
-          <a class="btn btn-outline-success" href="{{ path('publication_list') }}">back to list</a>
+          <a class="btn btn-outline-success" href="{{ path('publication_list') }}">Retour à la liste</a>
+          {% if publication.support is same as('Physique') %}
+            <a class="btn btn-outline-success" href="{{ path('publication_borrow', { id: publication.id }) }}">Emprunter</a>
+          {% else %}
+            {# <a class="btn btn-outline-success" href="{{ path('xxxx', { id: publication.id }) }}">Chargement Publication</a> #}
+          {% endif %}
           {% if is_granted('ROLE_AUDAP_MEMBER') %}
-            <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">edit</a>
+            <a class="btn btn-outline-success"href="{{ path('publication_edit', { id: publication.id }) }}">Modification de la notice</a>
             {{ include("publication/_delete_form.html.twig") }}
           {% endif %}
         </div>

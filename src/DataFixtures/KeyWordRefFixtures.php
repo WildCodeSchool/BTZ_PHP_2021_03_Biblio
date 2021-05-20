@@ -40,7 +40,7 @@ class KeyWordRefFixtures extends Fixture
                     $manager->persist($keywordRef);
                     $slugTab[] = $slug;
                 } else {
-                    echo "doublon $slug \n";
+                    // echo "doublon $slug \n";
                 }
             }
             $i++;
