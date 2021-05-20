@@ -11,6 +11,7 @@ use App\Entity\KeywordGeo;
 use App\Entity\KeywordRef;
 use App\Entity\Language;
 use App\Entity\Localisation;
+use App\Entity\Publication;
 use App\Entity\PublicationType;
 use App\Entity\Thematic;
 use App\Entity\User;
@@ -36,6 +37,7 @@ use App\Repository\KeywordRefRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\LocalisationRepository;
+use App\Repository\PublicationRepository;
 use App\Repository\PublicationTypeRepository;
 use App\Repository\ThematicRepository;
 use App\Repository\UserRepository;
@@ -51,11 +53,14 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(AuthorRepository $authorRepository): Response
+    public function index(PublicationRepository $publicationRepository, AuthorRepository $authorRepository): Response
     {
+        $lastPublications = $publicationRepository->findBy([], ['publication_date' => 'DESC'], 5);
+
         return $this->render('admin/dashboard/panel.html.twig', [
             'authors' => $authorRepository->findAll(),
             'user' => $this->getUser(),
+            'publications' => $lastPublications,
         ]);
     }
 
