@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emprunter une Publication{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-8">
+                <h1>Emprunter une Publication</h1>
+            </div>
+            <div class="col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="strong">Titre :</span> 
+                        {{ publication.title }}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="strong">Localisation :</span> 
+                        {{ publication.Localisation }}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="strong">Cote de la publication:</span> 
+                        {{ publication.Cote }}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="strong">Emprunteur :</span> 
+                        {{ app.user.fullname }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 py-3">
+                {{ include('publication/_formBorrow.html.twig', {'button_label': 'Lancez la demande Emprunt'}) }}
+                <a class="btn btn-outline-success mt-2" href="{{ path('publication_list') }}">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

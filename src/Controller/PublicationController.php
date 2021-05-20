@@ -3,19 +3,26 @@
 namespace App\Controller;
 
 use App\Entity\Author;
+use App\Entity\Borrow;
 use App\Entity\Publication;
 use App\Form\PublicationType;
+use App\Form\BorrowType;
 use App\Form\SearchPublicationFormType;
 use App\Repository\PublicationRepository;
+use DateTime;
+use Doctrine\ORM\EntityManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 /**
  * @Route("/publication")
@@ -167,5 +174,55 @@ class PublicationController extends AbstractController
         }
 
         return $this->redirectToRoute('publication_index');
+    }
+
+    /**
+     * @Route("/{id}/emprunt", name="publication_borrow", methods={"GET","POST"})
+     */
+    public function borrow(Request $request, Publication $publication, MailerInterface $mailer): Response
+    {
+        if ($this->getUser() !== null) {
+            $borrow = new Borrow();
+            // $form = $this->createForm(BorrowType::class, $borrow);
+            // $form->handleRequest($request);
+            $borrow->setReservationDate(new DateTime());
+            $borrow->setPublication($publication);
+            $borrow->setUser($this->getUser());
+            $form = $this->createFormBuilder($borrow)
+                // ->setAction($this->generateUrl('publication_borrow', array('id' => $publication->getId())))
+                ->add('reservation_date', DateType::class, ['label' =>  'Date de réservation',])
+                ->add('comment', TextType::class, ['label' =>  'Commentaire',])
+                ->getForm();
+            
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($borrow);
+                $entityManager->flush();
+                $email = (new Email())
+                ->from($this->getUser()->getEmail())
+                ->to($this->getParameter('mailer_to'))
+                ->subject('Demande d\'emprunt pour la publication ' . $publication->getTitle())
+                ->html($this->renderView(
+                    'publication/borrowEmail.html.twig',
+                    ['publication' => $publication,
+                ]
+                ));
+
+                $mailer->send($email);
+                return $this->render('publication/showBorrowed.html.twig', [
+                    'borrow' => $borrow,
+                    'publication' => $publication,
+                    ]);
+            }
+
+            return $this->render('publication/borrow.html.twig', [
+            'borrow' => $borrow,
+            'publication' => $publication,
+            'form' => $form->createView(),
+            ]);
+        } else {
+            return $this->redirectToRoute('app_login');
+        }
     }
 }

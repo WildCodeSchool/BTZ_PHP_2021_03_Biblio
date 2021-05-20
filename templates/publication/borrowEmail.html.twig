@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Envoyer une demande d'emprunt{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-8">
+                <h1>Demande d'emprunt envoyée </h1>
+            </div>
+
+            <div class="col-12 py-3">
+                <h2> pour la publication : {{ publication.Title}} </h2>
+                <h3> Cote : {{ publication.Cote }}  </h3>
+                <h3> Un e-mail vous sera envoyé prochainement à votre adresse mail pour que vous puissiez récupérer l'ouvrage </h3>
+                <h3> à {{ publication.Localisation}} </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
