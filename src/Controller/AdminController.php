@@ -65,7 +65,7 @@ class AdminController extends AbstractController
     }
 
     ///////////////////// USER /////////////////////
-
+    
     /**
      * @Route("/admin/utilisateurs", name="user_list", methods={"GET"})
      */
@@ -77,7 +77,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
+     * @Route("/admin/utilisateurs/ajouter", name="user_add", methods={"GET","POST"})
      */
     public function userAdd(Request $request, UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify): Response
     {
@@ -115,7 +115,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateur/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/admin/utilisateur/{id}/editer", name="user_edit", methods={"GET","POST"})
      */
     public function userEdit(Request $request, User $user): Response
     {
@@ -124,7 +124,6 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('user_list');
         }
 
@@ -147,7 +146,6 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('user_list');
     }
-
     ////////////////////////////////////////////////////////////////////////////////////
 
     ///////////////////// THEMATIC /////////////////////
