@@ -110,7 +110,7 @@ class PublicationController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="publication_new", methods={"GET","POST"})
+     * @Route("/ajouter", name="publication_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
