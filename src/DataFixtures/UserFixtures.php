@@ -62,7 +62,7 @@ class UserFixtures extends Fixture
          */
         $faker = Faker\Factory::create('us_US');
         $admin = new User();
-        $admin->setEmail('admin@yopmail.com');
+        $admin->setEmail('admin_@yopmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'admin'));
         $admin->setFirstname('ADMIN FIRSTNAME');

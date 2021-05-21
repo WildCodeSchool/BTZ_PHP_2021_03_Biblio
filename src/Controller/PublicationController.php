@@ -23,6 +23,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\DateTime as ConstraintsDateTime;
 
 /**
  * @Route("/publication")
@@ -119,10 +120,14 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+             $publication->setUser($this->getUser());
+             $publication->setPublicationDate(new DateTime('now'));
+             $publication->setUpdateDate(new DateTime('now'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
             $entityManager->flush();
+            dd($publication);
+
 
 
             return $this->redirectToRoute('publication_index');
