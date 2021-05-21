@@ -1,0 +1,58 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Liste des publications
+{% endblock %}
+
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<h2>Liste des publications</h2>
+				<div class="py-3">
+					<a class="btn btn-outline-primary btn-sm" href="####" role="button">Ajouter</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>	
+				</div>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Editeur</th>
+							<th>Date</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for publication in publications %}
+							<tr>
+								<td>{{ publication.title }}</td>
+								{% if publication.user %}
+								<td>{{ publication.user.fullname }}</td>
+								{% else %}
+								<td></td>
+								{% endif %}		
+								<td>{{ publication.publicationDate | date("d/m/Y H:i") }}</td>
+								<td>
+									<a class="btn btn-outline-primary btn-sm mb-2" href="####">Détail</a>
+									<a class="btn btn-outline-primary btn-sm" href="####">Editer</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="11">Aucune donnée disponible</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			
+				<div class="py-3">
+					<a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>	
+				</div>
+			</div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

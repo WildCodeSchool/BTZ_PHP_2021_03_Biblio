@@ -126,8 +126,6 @@ class PublicationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
             $entityManager->flush();
-            dd($publication);
-
 
 
             return $this->redirectToRoute('publication_index');

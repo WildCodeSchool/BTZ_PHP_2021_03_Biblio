@@ -1044,4 +1044,16 @@ class AdminController extends AbstractController
     }
 
     //////////////////////////////KEYWORD GEO END/////////////////////////////////
+
+    /////////////////////////////PUBLICATION/////////////////////////////////////
+    /**
+     * @Route("/admin/publications", name="publication_admin_list", methods={"GET"})
+     */
+    public function publicationList(PublicationRepository $publicationRepository): Response
+    {
+        return $this->render('/admin/publication/index.html.twig', [
+            'publications' => $publicationRepository->findAll(),
+        ]);
+    }
+
 }
