@@ -34,8 +34,14 @@ class HomeController extends AbstractController
     {
         $query = $request->query->get('q');
         if (null !== $query) {
-            $publications = $publicationRepository->findByQueryAuto($query);
+            $keywords = explode(' ', $query);
+            $publications = [];
+            foreach ($keywords as $keyword) {
+                $publications = array_merge($publications, $publicationRepository->findByQueryAuto($keyword));
+            }
+            // $publications = $publicationRepository->findByQueryAuto($query);
         }
+        $publications = array_slice($publications, 0, 10);
 
         return $this->json($publications, 200);
     }
