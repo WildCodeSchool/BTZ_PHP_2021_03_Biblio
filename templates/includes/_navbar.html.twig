@@ -17,9 +17,12 @@
         <li class="nav-item">
           <a class="nav-link text-violet" href="/contact">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-violet" href="/admin"><i class="fas fa-sign-in-alt"></i></a>
-        </li>
+        {% if is_granted('ROLE_ADMIN') %}
+          <li class="nav-item">
+            <a class="nav-link text-violet" href="/admin"><i class="fas fa-sign-in-alt"></i></a>
+          </li>
+          {% else %}
+        {% endif %}
       </ul>
     </div>
   </nav>

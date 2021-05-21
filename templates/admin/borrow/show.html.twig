@@ -15,14 +15,14 @@
 						<tbody>
 							<tr>
 								<th>Utilisateur</th>
-								<td></td>
+								<td>{{ borrow.user.fullname }}</td>
 							</tr>
 							<tr>
 								<th>Date de Réservation</th>
 								<td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
 							</tr>
 							<tr>
-								<th>Date d'Emprunt</th>
+								<th>Date de demande d'emprunt</th>
 								<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
 							</tr>
 							<tr>

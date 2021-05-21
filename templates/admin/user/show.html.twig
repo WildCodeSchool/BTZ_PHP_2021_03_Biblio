@@ -9,14 +9,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-8">
-				<h1>User</h1>
+				<h1>Utilisateur</h1>
 
 				<table class="table">
 					<tbody>
-						<tr>
-							<th>Id</th>
-							<td>{{ user.id }}</td>
-						</tr>
 						<tr>
 							<th>Email</th>
 							<td>{{ user.email }}</td>
@@ -26,39 +22,31 @@
 							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 						</tr>
 						<tr>
-							<th>Password</th>
-							<td>{{ user.password }}</td>
-						</tr>
-						<tr>
-							<th>Firstname</th>
+							<th>Prénom</th>
 							<td>{{ user.firstname }}</td>
 						</tr>
 						<tr>
-							<th>Lastname</th>
+							<th>Nom</th>
 							<td>{{ user.lastname }}</td>
 						</tr>
 						<tr>
-							<th>Phone</th>
+							<th>Téléphone</th>
 							<td>{{ user.phone }}</td>
 						</tr>
 						<tr>
-							<th>Address</th>
+							<th>Adresse</th>
 							<td>{{ user.address }}</td>
 						</tr>
 						<tr>
-							<th>Newsletter</th>
-							<td>{{ user.newsletter ? 'Yes' : 'No' }}</td>
-						</tr>
-						<tr>
-							<th>Slug</th>
-							<td>{{ user.slug }}</td>
+							<th>Inscrit à la newsletter</th>
+							<td>{{ user.newsletter ? 'Oui' : 'Non' }}</td>
 						</tr>
 					</tbody>
 				</table>
 			
-				<a class="btn btn-outline-primary btn-sm" href="{{ path('user_list') }}">back to list</a>
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('user_list') }}">Retour</a>
 			
-				<a class="btn btn-outline-primary btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
 			
 				{{ include('/admin/user/_delete_form.html.twig') }}
             </div>
