@@ -1,16 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Edition KeywordGeo{% endblock %}
 
-{% block body %}
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
-                <h2>Edition KeywordGeo</h2>
-                {{ include('/admin/keyword_geo/_form.html.twig', {'button_label': 'Update'}) }}
-                {{ include('/admin/keyword_geo/_delete_form.html.twig') }}
-            </table>
-            <a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_geo_list') }}" role="button">Retour à la liste</a>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card-body">
+
+                            <h2>Edition KeywordGeo</h2>
+                            <div class="mb-2">
+                                {{ include('/admin/keyword_geo/_form.html.twig', {'button_label': 'Update'}) }}
+                            </div>
+                            {{ include('/admin/keyword_geo/_delete_form.html.twig') }}
+            
+                        <a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('keyword_geo_list') }}" role="button">Retour à la liste</a>
+       
+            </div>
+        </div>
+        
         </div>
     </div>
+</section>
 {% endblock %}

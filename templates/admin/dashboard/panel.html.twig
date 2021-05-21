@@ -2,13 +2,11 @@
 
 
 {% block content %}
-	<div class="container-fluid">
-		<h1 class="mt-4">Bonjour {{ user.fullname }}, <small>nous sommes le
-			{{ "now"|date("d/m/Y") }}</small>
-		</h1>
+	<div class="container-fluid" style="padding-top:2%">
+		{# 
 		<ol class="breadcrumb mb-4">
 			<li class="breadcrumb-item active">Alert Notification ?</li>
-		</ol>
+		</ol> 
 		<div class="row">
 			<div class="col-xl-3 col-md-6">
 				<div class="card bg-primary text-white mb-4">
@@ -21,14 +19,14 @@
 
 					</div>
 				</div>
-				{# <ul class="list-group list-group-flush">
+				 <ul class="list-group list-group-flush">
 									{% for author in authors|slice(0,10) %}
 				
 									<li class="list-group-item">{{author.name}}
 										<a href="{{ path('author_show', {'id': author.id}) }}">show</a>
 									</li>
 								{% endfor %}
-				</ul> #}
+				</ul> 
 			</div>
 			<div class="col-xl-3 col-md-6">
 				<div class="card bg-warning text-white mb-4">
@@ -87,11 +85,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="card mb-4">
+</div> #}						
+<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table mr-1"></i>
-				Dernières Publications
+				Dernières demandes d'emprunt
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -99,13 +97,40 @@
 						<thead>
 							<tr>
 								<th>Titre</th>
-								<td><strong>Ajouté par</strong></td>
-								{# <th>Type</th>
-								<th>Thematique</th>
-								<th>Support</th> #}
+								<td>Emprunté par</td>
 								<th>Date</th>
 								<th></th>
-								
+							</tr>
+						</thead>
+						<tbody>
+						{% for borrow in last_borrows %}
+							<tr>
+								<td>{{ borrow.publication.title }}</td>
+								<td>{{ borrow.user.fullname }}</td>
+								<td>{{ borrow.reservationdate|date("d/m/Y") }}</td>
+								<td><a class="btn btn-outline-success" href="{{ path('borrow_show', { id: borrow.publication.id }) }}">Consulter</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table mr-1"></i>
+				Dernières Publications ajoutées
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Titre</th>
+								<td>Ajouté par</td>
+								<th>Date</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -113,13 +138,40 @@
 							<tr>
 								<td>{{ publication.title }}</td>
 								<td>{{ user.fullname }}</td>
-								{# <td>{{ publication.type.name }}</td>
-								<td>{{ publication.thematic.name }}</td>
-								<td>{{ publication.support }}</td> #}
-								<td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</td>
+								<td>{{ publication.publicationDate ? publication.publicationDate|date("d/m/Y h:i") : '' }}</td>
 								<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
 							</tr>
 							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table mr-1"></i>
+				Dernières Publications modifiées
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Titre</th>
+								<th>Modifié par</th>
+								<th>Date</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+								 {% for publication in publications_dashboard %}
+								<tr>
+									<td>{{ publication.title }}</a></td>
+									<td>{{ publication.user.fullname }}</td>
+									<td>{{ publication.updatedate | date("d/m/Y h:i") }}</td>
+									<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
+								</tr>
+								{% endfor %} 
 						</tbody>
 					</table>
 				</div>

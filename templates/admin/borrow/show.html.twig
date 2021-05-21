@@ -1,39 +1,47 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
-{% block title %}Emprunt
-{% endblock %}
 
-{% block body %}
-	<h2>Détail Emprunt</h2>
-	<div class="table-responsive">
-		<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+{% block title %}Emprunt{% endblock %}
 
-			<tbody>
-				<tr>
-					<th>Utilisateur</th>
-					<td></td>
-				</tr>
-				<tr>
-					<th>Date de Réservation</th>
-					<td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
-				</tr>
-				<tr>
-					<th>Date d'Emprunt</th>
-					<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
-				</tr>
-				<tr>
-					<th>Date Limite</th>
-					<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
-				</tr>
-				<tr>
-					<th>Commentaire</th>
-					<td>{{ borrow.comment }}</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a>
-		{{ include('/admin/borrow/_delete_form.html.twig') }}
-		<a class="btn btn-outline-secondary btn-sm" href="{{ path('emprunt_list') }}" role="button">Retour à la Liste</a>
-	</div>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<h2>Détail Emprunt</h2>
+				<div class="table-responsive">
+					<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+			
+						<tbody>
+							<tr>
+								<th>Utilisateur</th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>Date de Réservation</th>
+								<td>{{ borrow.reservationDate ? borrow.reservationDate|date('Y-m-d') : '' }}</td>
+							</tr>
+							<tr>
+								<th>Date d'Emprunt</th>
+								<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
+							</tr>
+							<tr>
+								<th>Date Limite</th>
+								<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
+							</tr>
+							<tr>
+								<th>Commentaire</th>
+								<td>{{ borrow.comment }}</td>
+							</tr>
+						</tbody>
+					</table>
+			
+					<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a>
+					{{ include('/admin/borrow/_delete_form.html.twig') }}
+					<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('emprunt_list') }}" role="button">Retour à la Liste</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -1,12 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Création Nouveau KeywordRef
 {% endblock %}
 
-{% block body %}
-	<h2>Création Nouveau KeywordRef</h2>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+				<h2>Création Nouveau KeywordRef</h2>
 
-	{{ include('admin/keyword_ref/_form.html.twig') }}
+				{{ include('admin/keyword_ref/_form.html.twig') }}
+			
+				<a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_ref_list') }}" role="button">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_ref_list') }}" role="button">Retour à la liste</a>
 {% endblock %}

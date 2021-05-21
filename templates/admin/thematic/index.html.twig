@@ -1,40 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Liste des Thématiques
 {% endblock %}
 
-{% block body %}
-	<h2>Liste des Thématiques</h2>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Création Nouveau Thématique</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-
-	<div class="table-responsive">
-		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
-			<thead>
-				<tr class="table-active">
-					<th>Nom</th>
-					<th>Description</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for thematic in thematics %}
-					<tr>
-						<td>{{ thematic.name }}</td>
-						<td>{{ thematic.description }}</td>
-						<td>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_show', {'id': thematic.id}) }}" role="button">Détail</a>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="4">Aucun Enregistrement</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Création Nouveau Thématique</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<div class="py-4 pl-3">
+					<h2 class="py-2">Liste des Thématiques</h2>
+					<a class="btn btn-outline-primary btn-sm"  href="{{ path('user_add') }}" role="button">Ajouter</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+				</div>
+			<div class="table-responsive" style="padding-left:1%;padding-right:1%">
+				<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr class="table-active">
+							<th>Nom</th>
+							<th>Description</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for thematic in thematics %}
+							<tr>
+								<td>{{ thematic.name }}</td>
+								<td>{{ thematic.description }}</td>
+								<td>
+									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_show', {'id': thematic.id}) }}" role="button">Détail</a>
+									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="4">Aucun Enregistrement</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class=" py-4 pl-3">
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Ajouter</a>
+				<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+			</div>
+            </div>
+        </div>
+    </div>
+</section>
+	
 {% endblock %}
