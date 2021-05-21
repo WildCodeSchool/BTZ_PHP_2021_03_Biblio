@@ -89,11 +89,12 @@ class PublicationRepository extends ServiceEntityRepository
             ->andWhere('p.title LIKE :query')
             ->setParameter('query', $query)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            // ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
+
 
     public function findByQueryAuto($query)
     {
