@@ -13,7 +13,7 @@
             <div class="col-12 py-3">
                 {% if is_granted('ROLE_AUDAP_MEMBER') %}
                 {{ include('publication/_form.html.twig', {'button_label': 'Update'}) }}
-                <a class="btn btn-outline-success mt-2" href="{{ path('publication_list') }}">back to list</a>
+                <a class="btn btn-outline-success mt-2" href="{{ path('publication_list') }}">Retour à la liste</a>
                   {{ include("publication/_delete_form.html.twig") }}
                 {% endif %}
               </div>

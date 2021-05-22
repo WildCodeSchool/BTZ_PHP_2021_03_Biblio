@@ -11,6 +11,11 @@
         <li class="nav-item">
           <a class="nav-link text-violet" href="/">Accueil</a>
         </li>
+      {% if is_granted('ROLE_AUDAP_MEMBER') %}
+      <li class="nav-item">
+        <a class="nav-link text-violet" href="{{ path('publication_new') }}">Ajouter une publication</a>
+      </li>
+      {% endif %}
         <li class="nav-item">
           <a class="nav-link text-violet" href="/publication/list">Publications</a>
         </li>
