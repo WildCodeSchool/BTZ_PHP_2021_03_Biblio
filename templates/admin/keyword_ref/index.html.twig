@@ -1,42 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Liste des KeywordRef
 {% endblock %}
 
-{% block body %}
-	<h2>Liste des KeywordRef</h2>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Création Nouveau KeyWord</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-
-	<div class="table-responsive">
-		<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
-			<thead>
-				<tr class="table-active">
-					<th>Nom</th>
-
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for keyword_ref in keyword_refs %}
-					<tr>
-
-						<td>{{ keyword_ref.name }}</td>
-
-						<td>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_show', {'id': keyword_ref.id}) }}" role="button">Détail</a>
-							<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Edition</a>
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="4">Aucun Enregistrement</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-	<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Création Nouveau KeyWord</a>
-	<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<h2>Liste des KeywordRef</h2>
+				<div class="py-3">
+					<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Création Nouveau KeyWord</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr class="table-active">
+								<th>Nom</th>
+			
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for keyword_ref in keyword_refs %}
+								<tr>
+			
+									<td>{{ keyword_ref.name }}</td>
+			
+									<td>
+										<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_show', {'id': keyword_ref.id}) }}" role="button">Détail</a>
+										<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Edition</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="4">Aucun Enregistrement</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Création Nouveau KeyWord</a>
+				<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+			
+            </div>
+        </div>
+    </div>
+</section>
+	
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Author;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,7 @@ class AuthorType extends AbstractType
         $builder
             ->add('name',null, ['label' =>  'Nom Auteur',])
             ->add('address',null, ['label' =>  'Adresse',])
-            ->add('publications',null, ['label' =>  'Publication',])
+            //  ->add('publications',HiddenType::class, ['label' =>  'Publication',])
         ;
     }
 

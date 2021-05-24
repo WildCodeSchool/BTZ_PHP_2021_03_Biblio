@@ -1,26 +1,36 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Thématique
 {% endblock %}
 
-{% block body %}
-	<h2>Détail Thématique</h2>
-	<div class="table-responsive">
-		<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
-			<tbody>
-				<tr>
-					<th>Nom</th>
-					<td>{{ thematic.name }}</td>
-				</tr>
-				<tr>
-					<th>Description</th>
-					<td>{{ thematic.description }}</td>
-				</tr>
-			</tbody>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
 
-			<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
-			{{ include('/admin/thematic/_delete_form.html.twig') }}
-			<a class="btn btn-outline-secondary btn-sm" href="{{ path('thematic_list') }}" role="button">Retour à la Liste</a>
-		</table>
-	</div>
+				<h2>Détail Thématique</h2>
+				<div class="table-responsive">
+					<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+						<tbody class="pt-5">
+							<tr>
+								<th>Nom</th>
+								<td>{{ thematic.name }}</td>
+							</tr>
+							<tr>
+								<th>Description</th>
+								<td>{{ thematic.description }}</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
+					{{ include('/admin/thematic/_delete_form.html.twig') }}
+					<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('thematic_list') }}" role="button">Retour à la Liste</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

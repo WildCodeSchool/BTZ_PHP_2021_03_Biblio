@@ -53,19 +53,19 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(PublicationRepository $publicationRepository, AuthorRepository $authorRepository): Response
+    public function index(PublicationRepository $publicationRepository, AuthorRepository $authorRepository, BorrowRepository $borrowRepository): Response
     {
-        $lastPublications = $publicationRepository->findBy([], ['publication_date' => 'DESC'], 5);
-
         return $this->render('admin/dashboard/panel.html.twig', [
             'authors' => $authorRepository->findAll(),
             'user' => $this->getUser(),
-            'publications' => $lastPublications,
+            'publications_dashboard' => $publicationRepository->findBy([], ['update_date' => 'DESC'], 5),
+            'publications' => $publicationRepository->findBy([], ['publication_date' => 'DESC'], 5),
+            'last_borrows' => $borrowRepository->findBy([], ['reservation_date' => 'DESC'], 5),
         ]);
     }
 
     ///////////////////// USER /////////////////////
-
+    
     /**
      * @Route("/admin/utilisateurs", name="user_list", methods={"GET"})
      */
@@ -77,7 +77,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateurs/creation", name="user_add", methods={"GET","POST"})
+     * @Route("/admin/utilisateurs/ajouter", name="user_add", methods={"GET","POST"})
      */
     public function userAdd(Request $request, UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify): Response
     {
@@ -115,7 +115,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/utilisateur/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/admin/utilisateur/{id}/editer", name="user_edit", methods={"GET","POST"})
      */
     public function userEdit(Request $request, User $user): Response
     {
@@ -124,7 +124,6 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('user_list');
         }
 
@@ -147,7 +146,6 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('user_list');
     }
-
     ////////////////////////////////////////////////////////////////////////////////////
 
     ///////////////////// THEMATIC /////////////////////
@@ -762,7 +760,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/emprunt/{id}", name="emprunt_show", methods={"GET"})
+     * @Route("/admin/emprunt/{id}", name="borrow_show", methods={"GET"})
      */
     public function borrowShow(Borrow $borrow): Response
     {

@@ -1,8 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Liste des Mots-Clés de Géolocalisation{% endblock %}
 
-{% block body %}
+{% block content %}
+<section>
     <h2>Liste des Mots-Clés de Géolocalisation</h2>
     <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Mots-Clés de Géolocalisation</a>
     <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu</a>
@@ -35,6 +36,8 @@
             </tbody>
         </table>
         <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Mot-Clé de Géolocalisation</a>
-    <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
+        <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
     </div>
+</section>
+   
 {% endblock %}

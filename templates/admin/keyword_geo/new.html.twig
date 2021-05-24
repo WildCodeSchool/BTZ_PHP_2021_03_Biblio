@@ -1,11 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Création Nouveau Mot-Clé de Géolocalisation{% endblock %}
 
-{% block body %}
-    <h2>Création Nouveau Mot-Clé de Géolocalisation</h2>
-
-    {{ include('/admin/keyword_geo/_form.html.twig') }}
-
-    <a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_geo_list') }}" role="button">Retour à la liste</a>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+              <h2>Création Nouveau Mot-Clé de Géolocalisation</h2>
+                {{ include('/admin/keyword_geo/_form.html.twig') }}
+            
+                <a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('keyword_geo_list') }}" role="button">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+</section>
+ 
 {% endblock %}

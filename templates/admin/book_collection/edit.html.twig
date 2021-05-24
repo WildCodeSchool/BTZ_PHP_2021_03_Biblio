@@ -1,13 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Edit BookCollection{% endblock %}
 
-{% block body %}
-    <h1>Edit BookCollection</h1>
+{% block content %}
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h1>Edit BookCollection</h1>
 
-    {{ include('admin/book_collection/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('admin/book_collection/_form.html.twig', {'button_label': 'Update'}) }}
+            
+                <a href="{{ path('book_collection_list') }}">back to list</a>
+            
+                {{ include('admin/book_collection/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</section>
 
-    <a href="{{ path('book_collection_list') }}">back to list</a>
-
-    {{ include('admin/book_collection/_delete_form.html.twig') }}
 {% endblock %}

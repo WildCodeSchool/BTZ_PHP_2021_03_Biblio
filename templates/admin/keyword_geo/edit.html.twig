@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Edition Mot-Clé de Géolocalisation{% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
@@ -13,4 +13,5 @@
             <a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_geo_list') }}" role="button">Retour à la liste</a>
         </div>
     </div>
+</section>
 {% endblock %}
