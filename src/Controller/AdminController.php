@@ -2,34 +2,34 @@
 
 namespace App\Controller;
 
-use DateTime;
+
 use App\Entity\User;
 use App\Entity\Author;
 use App\Entity\Borrow;
 use App\Entity\Editor;
-use App\Form\UserType;
 use App\Entity\Keyword;
 use App\Entity\Language;
 use App\Entity\Thematic;
+use App\Entity\KeywordGeo;
+use App\Entity\KeywordRef;
+use App\Entity\Publication;
+use App\Entity\Localisation;
+use App\Entity\BookCollection;
+use App\Form\UserType;
 use App\Form\AuthorType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
-use App\Service\Slugify;
 use App\Form\KeywordType;
-use App\Entity\KeywordGeo;
-use App\Entity\KeywordRef;
 use App\Form\LanguageType;
 use App\Form\ThematicType;
 use App\Form\PublicationType;
-use App\Entity\Publication;
-use App\Entity\Localisation;
 use App\Form\KeywordGeoType;
 use App\Form\KeywordRefType;
-use App\Entity\BookCollection;
 use App\Form\LocalisationType;
 use App\Form\BookCollectionType;
 use App\Form\EditUserType;
 use App\Form\PublicationTypeType;
+use App\Form\SearchAdminBorrowFormType;
 use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\BorrowRepository;
@@ -37,7 +37,6 @@ use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\ThematicRepository;
-use App\Form\SearchAdminBorrowFormType;
 use App\Repository\KeywordGeoRepository;
 use App\Repository\KeywordRefRepository;
 use App\Repository\PublicationRepository;
@@ -47,9 +46,10 @@ use App\Repository\PublicationTypeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\Slugify;
+use DateTime;
 
 class AdminController extends AbstractController
 {
@@ -235,7 +235,7 @@ class AdminController extends AbstractController
     ///////////////////// LOCALISATION /////////////////////
 
     /**
-     * @Route("/admin/localisation", name="localisation_list", methods={"GET"})
+     * @Route("/admin/localisations", name="localisation_list", methods={"GET"})
      */
     public function localisationList(LocalisationRepository $localisationRepository): Response
     {
@@ -245,7 +245,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/localisation/creation", name="localisation_add", methods={"GET","POST"})
+     * @Route("/admin/localisation/ajouter", name="localisation_add", methods={"GET","POST"})
      */
     public function localisationAdd(Request $request): Response
     {
@@ -278,7 +278,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/localisation/{id}/edit", name="localisation_edit", methods={"GET","POST"})
+     * @Route("/admin/localisation/{id}/editer", name="localisation_edit", methods={"GET","POST"})
      */
     public function localisationEdit(Request $request, Localisation $localisation): Response
     {
@@ -313,7 +313,7 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////KEYWORD/////////////////////////////////////////////
+    ////////////////////////////////KEYWORD NOT USE NOW  DELETE ?? ////////////////////////////////////////////
 
     /**
      * @Route("/admin/keyword", name="keyword_list", methods={"GET"})
@@ -394,10 +394,10 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////////EDITOR///////////////////////////////////////
+    ///////////////////////////////////////EDITOR NOT VISIBLE IN ADMIN///////////////////////////////////////
 
     /**
-     * @Route("/admin/editor", name="editor_list", methods={"GET"})
+     * @Route("/admin/editeur", name="editor_list", methods={"GET"})
      */
     public function editorList(EditorRepository $editorRepository): Response
     {
@@ -407,7 +407,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/editor/creation", name="editor_add", methods={"GET","POST"})
+     * @Route("/admin/editeur/ajouter", name="editor_add", methods={"GET","POST"})
      */
     public function editorAdd(Request $request): Response
     {
@@ -424,13 +424,13 @@ class AdminController extends AbstractController
         }
 
         return $this->render('/admin/editor/new.html.twig', [
-            'editor' => $editor,
+            'editors' => $editor,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/admin/editor/{id}", name="editor_show", methods={"GET"})
+     * @Route("/admin/editeur/{id}", name="editor_show", methods={"GET"})
      */
     public function editorShow(Editor $editor): Response
     {
@@ -440,7 +440,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/editor/{id}/edit", name="editor_edit", methods={"GET","POST"})
+     * @Route("/admin/editeur/{id}/editer", name="editor_edit", methods={"GET","POST"})
      */
     public function editorEdit(Request $request, Editor $editor): Response
     {
@@ -474,7 +474,7 @@ class AdminController extends AbstractController
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////BOOK COLLECTION//////////////////////////////////////////
+    ///////////////////////////////BOOK COLLECTION NOT VISISBLE IN ADMIN////////////////
 
     /**
      * @Route("/admin/bookcollection", name="book_collection_list", methods={"GET"})
@@ -487,7 +487,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/bookcollection/creation", name="book_collection_add", methods={"GET","POST"})
+     * @Route("/admin/bookcollection/ajouter", name="book_collection_add", methods={"GET","POST"})
      */
     public function bookCollectionAdd(Request $request): Response
     {
@@ -520,7 +520,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/bookCollection/{id}/edit", name="book_collection_edit", methods={"GET","POST"})
+     * @Route("/admin/bookCollection/{id}/editer", name="book_collection_edit", methods={"GET","POST"})
      */
     public function bookCollectionEdit(Request $request, BookCollection $bookCollection): Response
     {
@@ -555,7 +555,7 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////PUBLICATION TYPE///////////////////////////////////////
+    ////////////////////////////////////PUBLICATION TYPE NOT VISIBLE IN ADMIN + PB WITH PublicationTYpeType ////////////////////////////
 
     /**
      * @Route("/admin/publicationType", name="publication_type_list", methods={"GET"})
@@ -568,7 +568,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/publicationType/creation", name="publication_type_add", methods={"GET","POST"})
+     * @Route("/admin/publicationType/ajouter", name="publication_type_add", methods={"GET","POST"})
      */
     public function publicationTypeAdd(Request $request): Response
     {
@@ -601,7 +601,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/publicationType/{id}/edit", name="publication_type_edit", methods={"GET","POST"})
+     * @Route("/admin/publicationType/{id}/editer", name="publication_type_edit", methods={"GET","POST"})
      */
     public function publicationTypeEdit(Request $request, PublicationType $publicationType): Response
     {
