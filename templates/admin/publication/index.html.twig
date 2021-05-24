@@ -35,8 +35,8 @@
 								{% endif %}		
 								<td>{{ publication.publicationDate | date("d/m/Y H:i") }}</td>
 								<td>
-									<a class="btn btn-outline-primary btn-sm mb-2" href="####">Détail</a>
-									<a class="btn btn-outline-primary btn-sm" href="####">Editer</a>
+									<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('publication_admin_show', {'id': publication.id}) }}">Détail</a>
+									<a class="btn btn-outline-primary btn-sm" href="{{ path('publication_admin_edit', {'id': publication.id}) }}">Editer</a
 								</td>
 							</tr>
 						{% else %}

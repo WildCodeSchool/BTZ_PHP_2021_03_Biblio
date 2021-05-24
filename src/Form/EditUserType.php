@@ -18,7 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 
 
-class UserType extends AbstractType
+class EditUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -51,24 +51,16 @@ class UserType extends AbstractType
                 'multiple' => true,
                 'label' => 'Rôles'
             ])
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Le mot de passe et la confirmation doivent être identique',
-                'required' => true,
-                'label' => 'mot de passe',
-                'first_options' => ['label' => 'Votre mot de passe' ],
-                'second_options' => ['label' => 'Confirmez votre mot de passe']
-            ])
             ->add('newsletter', CheckboxType::class, [
                 'required' => false,
             ])
             ->add('slug', HiddenType::class)
-            // ->add('submit', SubmitType::class, [
-            //     'label' => 'Ajouter',
-            //     'attr' => [
-            //         'class' => 'btn btn-success btn block',
-            //     ],
-            // ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Ajouter',
+                'attr' => [
+                    'class' => 'btn btn-success btn block',
+                ],
+            ])
     ;
     }
 

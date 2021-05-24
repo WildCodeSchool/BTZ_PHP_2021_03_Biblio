@@ -10,8 +10,8 @@
             <div class="col-12">
 				<div class="py-4 pl-3">
 					<h2 class="py-2">Liste des Thématiques</h2>
-					<a class="btn btn-outline-primary btn-sm"  href="{{ path('user_add') }}" role="button">Ajouter</a>
-					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+					<a class="btn btn-outline-primary btn-sm"  href="{{ path('thematic_add') }}" role="button">Ajouter</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>
 				</div>
 			<div class="table-responsive" style="padding-left:1%;padding-right:1%">
 				<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -28,8 +28,8 @@
 								<td>{{ thematic.name }}</td>
 								<td>{{ thematic.description }}</td>
 								<td>
-									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_show', {'id': thematic.id}) }}" role="button">Détail</a>
-									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Edition</a>
+									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_show', {'id': thematic.id}) }}" role="button">Détails</a>
+									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_edit', {'id': thematic.id}) }}" role="button">Editer</a>
 								</td>
 							</tr>
 						{% else %}
@@ -42,7 +42,7 @@
 			</div>
 			<div class=" py-4 pl-3">
 				<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_add') }}" role="button">Ajouter</a>
-				<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+				<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>
 			</div>
             </div>
         </div>

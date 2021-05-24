@@ -28,6 +28,7 @@ use App\Form\KeywordRefType;
 use App\Entity\BookCollection;
 use App\Form\LocalisationType;
 use App\Form\BookCollectionType;
+use App\Form\EditUserType;
 use App\Form\PublicationTypeType;
 use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
@@ -121,7 +122,7 @@ class AdminController extends AbstractController
      */
     public function userEdit(Request $request, User $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -153,7 +154,7 @@ class AdminController extends AbstractController
     ///////////////////// THEMATIC /////////////////////
 
     /**
-     * @Route("/admin/thematic", name="thematic_list", methods={"GET"})
+     * @Route("/admin/thematiques", name="thematic_list", methods={"GET"})
      */
     public function thematicList(ThematicRepository $thematicRepository): Response
     {
@@ -163,7 +164,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/thematic/creation", name="thematic_add", methods={"GET","POST"})
+     * @Route("/admin/thematique/ajouter", name="thematic_add", methods={"GET","POST"})
      */
     public function thematicAdd(Request $request): Response
     {
@@ -186,7 +187,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/thematic/{id}", name="thematic_show", methods={"GET"})
+     * @Route("/admin/thematique/{id}", name="thematic_show", methods={"GET"})
      */
     public function thematicShow(Thematic $thematic): Response
     {
@@ -196,7 +197,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/thematic/{id}/edit", name="thematic_edit", methods={"GET","POST"})
+     * @Route("/admin/thematique/{id}/editer", name="thematic_edit", methods={"GET","POST"})
      */
     public function thematicEdit(Request $request, Thematic $thematic): Response
     {
@@ -216,7 +217,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/thematic/{id}", name="thematic_delete", methods={"DELETE"})
+     * @Route("/admin/thematique/{id}", name="thematic_delete", methods={"DELETE"})
      */
     public function thematicDelete(Request $request, Thematic $thematic): Response
     {
@@ -1093,6 +1094,41 @@ class AdminController extends AbstractController
         return $this->render('/admin/publication/show.html.twig', [
             'publication' => $publication,
         ]);
-    } 
+    }
+    
+    /**
+     * @Route("/admin/publication/{id}/editer", name="publication_admin_edit", methods={"GET","POST"})
+     */
+    public function publicationEdit(Request $request, Publication $publication): Response
+    {
+        $form = $this->createForm(PublicationType::class, $publication);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $publication->setUpdateDate(new DateTime('now'));
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('publication_admin_list');
+        }
+
+        return $this->render('/admin/publication/edit.html.twig', [
+            'publication' => $publication,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/publication/{id}", name="publication_admin_delete", methods={"DELETE"})
+     */
+    public function publicationDelete(Request $request, Publication $publication): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$publication->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($publication);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('publication_admin_list');
+    }
 
 }

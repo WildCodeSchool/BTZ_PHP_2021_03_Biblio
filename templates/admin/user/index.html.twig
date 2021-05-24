@@ -18,8 +18,8 @@
 					<thead>
 						<tr>
 							<th>Email</th>
-							<th>Rôles</th>
 							<th>Prénom / Nom</th>
+							<th>Rôles</th>
 							<th>Téléphone</th>
 							<th>Adresse</th>
 							<th>Newsletter</th>
@@ -30,13 +30,13 @@
 						{% for user in users %}
 							<tr>
 								<td>{{ user.email }}</td>
-								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 								<td>{{ user.fullname }}</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 								<td>{{ user.phone }}</td>
 								<td>{{ user.address }}</td>
 								<td>{{ user.newsletter ? 'Oui' : 'Non' }}</td>
 								<td>
-									<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('user_show', {'id': user.id}) }}">Détail</a>
+									<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('user_show', {'id': user.id}) }}">Détails</a>
 									<a class="btn btn-outline-primary btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
 								</td>
 							</tr>
