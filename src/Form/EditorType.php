@@ -14,7 +14,7 @@ class EditorType extends AbstractType
         $builder
             ->add('name')
             ->add('address')
-            ->add('publications')
+            // ->add('publications')
         ;
     }
 

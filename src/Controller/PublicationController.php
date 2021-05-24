@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\DateTime as ConstraintsDateTime;
 
 /**
  * @Route("/publication")
@@ -111,7 +112,7 @@ class PublicationController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="publication_new", methods={"GET","POST"})
+     * @Route("/ajouter", name="publication_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -120,7 +121,9 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+             $publication->setUser($this->getUser());
+             $publication->setPublicationDate(new DateTime('now'));
+             $publication->setUpdateDate(new DateTime('now'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
             $entityManager->flush();
@@ -154,6 +157,7 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $publication->setUpdateDate(new DateTime('now'));
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('publication_list');

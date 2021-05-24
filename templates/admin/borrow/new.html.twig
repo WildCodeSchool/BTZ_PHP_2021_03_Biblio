@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}Nouvel Emprunt
+{% block title %}Créer un nouvel emprunt
 {% endblock %}
 
 {% block content %}
@@ -8,11 +8,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6">
-				<h2>Creation nouvel Emprunt</h2>
+				<h2>Créer un nouvel emprunt</h2>
 
 				{{ include('admin/borrow/_form.html.twig') }}
 			
-				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('emprunt_list') }}" role="button">Retour à la liste</a>
+				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('emprunt_list') }}" role="button">Retour</a>
             </div>
         </div>
     </div>

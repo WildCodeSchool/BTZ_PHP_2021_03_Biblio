@@ -10,8 +10,8 @@
             <div class="col-12">
 				<h2>Liste des Emprunts</h2>
 				<div class="py-3">
-					<a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_add') }}" role="button">Création Nouvel Emprunt</a>
-					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+					{# <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_add') }}" role="button">Ajouter</a> #}
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
 				</div>
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -20,7 +20,6 @@
 							<tr class="table-active">
 								<th>Côte</th>
 								<th>Titre de Publication</th>
-								<th></th>
 								<th>Date d'Emprunt</th>
 								<th>Date Limite</th>
 								<th>Utilisateur</th>
@@ -32,13 +31,12 @@
 								<tr>
 									<td>{{ borrow.publication.cote }}</td>
 									<td>{{ borrow.publication.title }}</td>
-									<td></td>
 									<td>{{ borrow.borrowedDate ? borrow.borrowedDate|date('Y-m-d') : '' }}</td>
 									<td>{{ borrow.limitDate ? borrow.limitDate|date('Y-m-d') : '' }}</td>
 									<td>{{borrow.user.fullname}}</td>
 									<td>
-										<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('borrow_show', {'id': borrow.id}) }}" role="button">Détail</a>
-										 <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Edition</a> 
+										<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('borrow_show', {'id': borrow.id}) }}" role="button">Détails</a>
+										 <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Editer</a> 
 									</td>
 								</tr>
 							{% else %}

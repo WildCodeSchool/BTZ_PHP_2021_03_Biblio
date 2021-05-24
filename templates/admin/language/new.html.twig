@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}Nouvelle Langue
+{% block title %}Ajouter nouvelle Langue
 {% endblock %}
 
 {% block content %}
@@ -8,11 +8,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6">
-				<h2>Création Nouvelle Langue</h2>
-			
+				<h2>Ajouter une nouvelle Langue</h2>
 				{{ include('/admin/language/_form.html.twig') }}
-			
-				<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('language_list') }}" role="button">Retour à la liste</a>
+				<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('language_list') }}" role="button">Retour</a>
             </div>
         </div>
     </div>

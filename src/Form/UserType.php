@@ -63,12 +63,12 @@ class UserType extends AbstractType
                 'required' => false,
             ])
             ->add('slug', HiddenType::class)
-            ->add('submit', SubmitType::class, [
-                'label' => 'Ajouter',
-                'attr' => [
-                    'class' => 'btn btn-success btn block',
-                ],
-            ])
+            // ->add('submit', SubmitType::class, [
+            //     'label' => 'Ajouter',
+            //     'attr' => [
+            //         'class' => 'btn btn-success btn block',
+            //     ],
+            // ])
     ;
     }
 

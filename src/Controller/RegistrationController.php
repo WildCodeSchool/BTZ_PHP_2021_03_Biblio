@@ -42,6 +42,7 @@ class RegistrationController extends AbstractController
             $fullname = $user->getFirstname().' '.$user->getLastname();
             $user->setSlug($slugify->generate($fullname));      
             $user->setRoles(["ROLE_PUBLIC"]);
+            // $user->setNewsletter(false);
             $this->em->persist($user);
             $this->em->flush();
             $this->addFlash('notice', 'Inscription validée');
