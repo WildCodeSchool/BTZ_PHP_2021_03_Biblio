@@ -30,7 +30,6 @@
 				</li>
 			{% endif %}
         <li class="nav-item">
-<<<<<<< HEAD
 				{% if app.user %}
 					<a class="nav-link text-violet" href="{{ path('app_logout') }}" id="deconnexion">
 						Déconnexion</a>
@@ -47,33 +46,8 @@
 				{% if not app.user %}
 					<a class="nav-link text-violet" href="{{ path('register') }}" id="inscription">
 						Inscription</a>
-					{% else %}
 				{% endif %}
 			</li>
 		</ul>
 	</div>
 </nav>
-=======
-          <a class="nav-link text-violet" href="/">Accueil</a>
-        </li>
-      {% if is_granted('ROLE_AUDAP_MEMBER') %}
-      <li class="nav-item">
-        <a class="nav-link text-violet" href="{{ path('publication_new') }}">Ajouter une publication</a>
-      </li>
-      {% endif %}
-        <li class="nav-item">
-          <a class="nav-link text-violet" href="/publication/list">Publications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-violet" href="/contact">Contact</a>
-        </li>
-        {% if is_granted('ROLE_ADMIN') %}
-          <li class="nav-item">
-            <a class="nav-link text-violet" href="/admin"><i class="fas fa-sign-in-alt"></i></a>
-          </li>
-          {% else %}
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
->>>>>>> 307f5c354637a81054df5bd400220429f8ad3ea9
