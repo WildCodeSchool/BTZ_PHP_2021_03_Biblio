@@ -8,8 +8,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Publication|null find($id, $lockMode = null, $lockVersion = null)
- * @method Publication|null findOneBy(array $criteria, array $orderBy = null)
+ * @method null|Publication find($id, $lockMode = null, $lockVersion = null)
+ * @method null|Publication findOneBy(array $criteria, array $orderBy = null)
  * @method Publication[]    findAll()
  * @method Publication[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -88,7 +88,7 @@ class PublicationRepository extends ServiceEntityRepository
             ->andWhere('p.title LIKE :query')
             ->setParameter('query', $query)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            //->setMaxResults()
             ->getQuery()
             ->getResult()
         ;

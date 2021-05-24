@@ -2,18 +2,15 @@
 
 namespace App\Form;
 
-use App\Entity\Keyword;
 use App\Entity\Publication;
 use Symfony\Component\Form\AbstractType;
-use Vich\UploaderBundle\Form\Type\VichFileType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class PublicationType extends AbstractType
 {
@@ -22,7 +19,7 @@ class PublicationType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre de la publication',
-                'attr' => ['placeholder' => 'Entrez le nom de la publication']
+                'attr' => ['placeholder' => 'Entrez le nom de la publication'],
             ])
             // ->add('image', UrlType::class, [
             //     'label' => 'Image principale',
@@ -31,8 +28,8 @@ class PublicationType extends AbstractType
             ->add('imageFile', VichFileType::class, [
                 'label' => 'Choisissez une image pour l\'article',
                 'attr' => ['placeholder' => 'Veulliez télécharger une image'],
-                'required'      => false,
-                'allow_delete'  => true, // not mandatory, default is true
+                'required' => false,
+                'allow_delete' => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
             ])
             // ->add('publication_date')
@@ -43,38 +40,38 @@ class PublicationType extends AbstractType
             ->add('cote')
             ->add('issn_isbn', TextType::class, [
                 'label' => 'Numéro de série',
-                'attr' => ['placeholder' => 'Veuillez précier le code ISSn ou ISBN']
+                'attr' => ['placeholder' => 'Veuillez précier le code ISSn ou ISBN'],
             ])
             ->add('localisation')
             ->add('bookcollection')
             ->add('language')
             ->add('summary', TextareaType::class, [
                 'label' => 'Sommaire',
-                'attr' => ['placeholder' => 'Veuillez enbtrer un résumé de la publication']
+                'attr' => ['placeholder' => 'Veuillez enbtrer un résumé de la publication'],
             ])
             ->add('mention')
             ->add('paging', NumberType::class, [
                 'label' => 'Nombre de pages',
                 'required' => false,
-                'attr' => ['placeholder' => 'Veuillez préciser le nombre de pages']
+                'attr' => ['placeholder' => 'Veuillez préciser le nombre de pages'],
             ])
             ->add('volume_number', TextType::class, [
                 'label' => 'Tome n°',
-                'attr' => ['placeholder' => 'Entrez le numéro du tome']
+                'attr' => ['placeholder' => 'Entrez le numéro du tome'],
             ])
             ->add('support', TextType::class, [
                 'label' => 'Support',
-                'attr' => ['placeholder' => 'veillez préciser si le support est physique ou digital']
+                'attr' => ['placeholder' => 'veillez préciser si le support est physique ou digital'],
             ])
             ->add('source_address', TextType::class, [
                 'label' => 'Support physique: adresse',
                 'required' => false,
-                'attr' => ['placeholder' => 'Adresse de l\'endroit ou se trouve l\'oeuvre']
+                'attr' => ['placeholder' => 'Adresse de l\'endroit ou se trouve l\'oeuvre'],
             ])
             ->add('url', TextType::class, [
                 'label' => 'Url de la publication',
                 'attr' => ['placeholder' => 'Entrez le lien vers la publication'],
-                'required' => false
+                'required' => false,
             ])
             ->add('editors')
             ->add('authors')
@@ -82,8 +79,9 @@ class PublicationType extends AbstractType
             ->add('borrows')
             ->add('user')
             ->add('update_date', null, [
-                'widget' => 'single_text'
-            ]);
+                'widget' => 'single_text',
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

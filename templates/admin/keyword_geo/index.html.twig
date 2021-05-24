@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}KeywordGeo Liste{% endblock %}
+{% block title %}Liste des Mots-Clés de Géolocalisation{% endblock %}
 
 {% block body %}
-    <h2>Liste des KeywordGeo</h2>
-    <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Keyword Geo</a>
-    <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+    <h2>Liste des Mots-Clés de Géolocalisation</h2>
+    <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Mots-Clés de Géolocalisation</a>
+    <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu</a>
 	<div class="table-responsive">
         <table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -24,7 +24,7 @@
                     {# <td>{{ keyword_geo.slug }}</td> #}
                     <td>
                         <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_show', {'id': keyword_geo.id}) }}" role="button">Détail</a>
-                        <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_edit', {'id': keyword_geo.id}) }}" role="button">Editer</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_edit', {'id': keyword_geo.id}) }}" role="button">Edition</a>
                     </td>
                 </tr>
             {% else %}
@@ -34,5 +34,7 @@
             {% endfor %}
             </tbody>
         </table>
+        <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Mot-Clé de Géolocalisation</a>
+    <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
     </div>
 {% endblock %}

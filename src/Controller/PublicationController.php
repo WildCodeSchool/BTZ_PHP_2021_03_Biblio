@@ -2,21 +2,16 @@
 
 namespace App\Controller;
 
-use App\Entity\Author;
 use App\Entity\Borrow;
 use App\Entity\Publication;
 use App\Form\PublicationType;
-use App\Form\BorrowType;
 use App\Form\SearchPublicationFormType;
 use App\Repository\PublicationRepository;
 use DateTime;
-use Doctrine\ORM\EntityManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -32,7 +27,7 @@ class PublicationController extends AbstractController
     /**
      * @Route("/", name="publication_index", methods={"GET"})
      */
-    public function index(PublicationRepository $publicationRepository, Request $request): Response
+    public function index(PublicationRepository $publicationRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $query = $request->query->get('q');
 
@@ -41,8 +36,14 @@ class PublicationController extends AbstractController
         } else {
             $publications = $publicationRepository->findAll();
         }
+        $pagination = $paginator->paginate(
+            $publications, // query NOT result
+            $request->query->getInt('page', 1), // page number
+            10 // limit per page
+        );
 
         return $this->render('publication/index.html.twig', [
+            'pagination' => $pagination,
             'publications' => $publications,
         ]);
     }
@@ -181,7 +182,7 @@ class PublicationController extends AbstractController
      */
     public function borrow(Request $request, Publication $publication, MailerInterface $mailer): Response
     {
-        if ($this->getUser() !== null) {
+        if (null !== $this->getUser()) {
             $borrow = new Borrow();
             $borrow->setReservationDate(new DateTime());
             $borrow->setPublication($publication);
@@ -189,39 +190,43 @@ class PublicationController extends AbstractController
             $form = $this->createFormBuilder($borrow)
                 // ->setAction($this->generateUrl('publication_borrow', array('id' => $publication->getId())))
                 ->add('reservation_date', DateType::class, [
-                    'label' =>  'Date de réservation',
+                    'label' => 'Date de réservation',
                     'widget' => 'single_text',
-                    ])
-                ->add('comment', TextType::class, ['label' =>  'Commentaire',])
-                ->getForm();
-            
+                ])
+                ->add('comment', TextType::class, ['label' => 'Commentaire'])
+                ->getForm()
+            ;
+
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($borrow);
                 $entityManager->flush();
                 $email = (new Email())
-                ->from($this->getUser()->getEmail())
-                ->to($this->getParameter('mailer_to'))
-                ->subject('Demande d\'emprunt pour la publication ' . $publication->getTitle())
-                ->html($this->renderView(
-                    'publication/borrowEmail.html.twig',
-                    ['publication' => $publication,
-                     'borrow' => $borrow,
-                ]
-                ));
+                    ->from($this->getUser()->getEmail())
+                    ->to($this->getParameter('mailer_to'))
+                    ->subject('Demande d\'emprunt pour la publication '.$publication->getTitle())
+                    ->html($this->renderView(
+                        'publication/borrowEmail.html.twig',
+                        ['publication' => $publication,
+                            'borrow' => $borrow,
+                        ]
+                    ))
+                ;
 
                 $mailer->send($email);
                 $this->addFlash('notice', "Votre demande d'emprunt a bien été envoyée !");
-                return $this->redirectToRoute('publication_show', [ 'id' => $publication->getId()]);
+
+                return $this->redirectToRoute('publication_show', ['id' => $publication->getId()]);
             }
+
             return $this->render('publication/borrow.html.twig', [
-            'borrow' => $borrow,
-            'publication' => $publication,
-            'form' => $form->createView(),
+                'borrow' => $borrow,
+                'publication' => $publication,
+                'form' => $form->createView(),
             ]);
-        } else {
-            return $this->redirectToRoute('app_login');
         }
+
+        return $this->redirectToRoute('app_login');
     }
 }
