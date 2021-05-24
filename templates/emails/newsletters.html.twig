@@ -1,0 +1,18 @@
+<h1>{{newsletters.name}}</h1>
+<div>
+	{{ newsletters.content|raw }}
+</div>
+<div>
+	<h3>Nos dernières publications:</h3>
+	{% for p in publiRepo.findBy({}, {'id':'DESC'}, 3) %}
+		<li>
+			<strong>{{ p.title|raw }}</strong>
+			, publiée le: &nbsp;
+			{{ p.publicationDate|date("d/m/Y", "Europe/Paris") }}
+		</li>
+	{% endfor %}
+</div>
+<p>Vous recevez ce mail car vous êtes inscrit à notre newsletter</p>
+<p>Pour vous désinscrire cliquez sur ce lien, si celui ci ne fonctionne pas faites un copié collé dans votre navigateur.
+	<a href=" {{ absolute_url(path('newsletters_cancel', {id: user.id, newsletter:newsletters.id, token: user.validationToken}))}} ">{{ absolute_url(path('newsletters_cancel', {id: user.id, newsletter:newsletters.id, token: user.validationToken}))}}</a>
+</p>
