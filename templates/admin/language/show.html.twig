@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6">
-				<h2>Détail Langue</h2>
+				<h2>Langue {{ language.name }}</h2>
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
 						<tbody>
@@ -18,9 +18,9 @@
 							</tr>
 						</tbody>
 					</table>
-					<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('language_edit', {'id': language.id}) }}" role="button">Edition</a>
+					<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('language_edit', {'id': language.id}) }}" role="button">Editer</a>
 					{{ include('/admin/language/_delete_form.html.twig') }}
-					<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('language_list') }}" role="button">Retour à la Liste</a>
+					<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('language_list') }}" role="button">Retour</a>
 			
 			
             </div>

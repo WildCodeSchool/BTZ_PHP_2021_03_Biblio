@@ -555,7 +555,8 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////PUBLICATION TYPE NOT VISIBLE IN ADMIN + PB WITH PublicationTYpeType ////////////////////////////
+    ////////////////////////////////////PUBLICATION TYPE NOT VISIBLE IN ADMIN + PB WITH naming of PublicationTypeType in Symfony
+    ////////////////////////////
 
     /**
      * @Route("/admin/publicationType", name="publication_type_list", methods={"GET"})
@@ -639,7 +640,7 @@ class AdminController extends AbstractController
     /////////////////////////// LANGUAGE ////////////////////////////////////
 
     /**
-     * @Route("/admin/language", name="language_list", methods={"GET"})
+     * @Route("/admin/langues", name="language_list", methods={"GET"})
      */
     public function languageList(LanguageRepository $languageRepository): Response
     {
@@ -649,7 +650,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/language/creation", name="language_add", methods={"GET","POST"})
+     * @Route("/admin/language/ajouter", name="language_add", methods={"GET","POST"})
      */
     public function languageAdd(Request $request): Response
     {
@@ -672,7 +673,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/language/{id}", name="language_show", methods={"GET"})
+     * @Route("/admin/langue/{id}", name="language_show", methods={"GET"})
      */
     public function languageShow(Language $language): Response
     {
@@ -682,7 +683,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/language/{id}/edit", name="language_edit", methods={"GET","POST"})
+     * @Route("/admin/langue/{id}/edit", name="language_edit", methods={"GET","POST"})
      */
     public function languageEdit(Request $request, Language $language): Response
     {
@@ -720,7 +721,7 @@ class AdminController extends AbstractController
     /////////////////////EMPRUNT//START/////////////////////////////////////////////////////////
 
     /**
-     * @Route("/admin/emprunt", name="emprunt_list", methods={"GET"})
+     * @Route("/admin/emprunts", name="emprunt_list", methods={"GET"})
      */
     public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
@@ -740,7 +741,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/emprunt/creation", name="emprunt_add", methods={"GET","POST"})
+     * @Route("/admin/emprunt/ajouter", name="emprunt_add", methods={"GET","POST"})
      */
     public function borrowAdd(Request $request): Response
     {
@@ -773,7 +774,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/emprunt/{id}/edit", name="emprunt_edit", methods={"GET","POST"})
+     * @Route("/admin/emprunt/{id}/editer", name="emprunt_edit", methods={"GET","POST"})
      */
     public function borrowEdit(Request $request, Borrow $borrow): Response
     {
