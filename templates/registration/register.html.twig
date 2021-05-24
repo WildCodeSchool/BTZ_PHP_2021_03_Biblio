@@ -3,6 +3,7 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 	<div class="col-sm-10 col-sm offset-1" style="padding-top:5%">
 		<h4>Inscription</h4>
 		<br>
@@ -27,4 +28,41 @@
 		{{ form_row(form.slug) }}	
 		{{ form_end(form) }}
 	</div>
+=======
+         {# TODO FORM error {% for message in app.flashes('notice') %}
+        	<div class="alert alert-info">{{ message }}</div>
+        {% endfor %} #}
+		<section class="py-4">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-8">
+						<div class="formulaire">
+							<h4>Inscription</h4>
+							<br>
+							{{ form_start(form) }}
+							<br>
+							{{ form_row(form.firstname) }}
+							<br>
+							{{ form_row(form.lastname) }}
+							<br>
+							{{ form_row(form.email) }}
+							<br>
+							{{ form_row(form.address) }}
+							<br>
+							{{ form_row(form.phone) }}
+							<br>
+							{{ form_row(form.password) }}
+							<br>
+							{{ form_row(form.newsletter) }}
+							<br>
+							{{ form_row(form.submit) }}
+							<br>
+							{{ form_row(form.slug) }}	
+							{{ form_end(form) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+>>>>>>> 307f5c354637a81054df5bd400220429f8ad3ea9
 {% endblock %}
