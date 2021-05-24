@@ -54,7 +54,7 @@ class PublicationType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => false,
-                'by_reference' => true
+                'by_reference' => false
             ])
             ->add('keywordGeos', EntityType::class, [
                 'label' => 'Mots clés géographique',
@@ -62,7 +62,7 @@ class PublicationType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => false,
-                'by_reference' => true
+                'by_reference' => false
             ])
             ->add('type')
             ->add('cote')

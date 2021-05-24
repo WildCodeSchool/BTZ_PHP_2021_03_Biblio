@@ -2,51 +2,53 @@
 
 namespace App\Controller;
 
+use DateTime;
+use App\Entity\User;
 use App\Entity\Author;
-use App\Entity\BookCollection;
 use App\Entity\Borrow;
 use App\Entity\Editor;
+use App\Form\UserType;
 use App\Entity\Keyword;
-use App\Entity\KeywordGeo;
-use App\Entity\KeywordRef;
 use App\Entity\Language;
-use App\Entity\Localisation;
-use App\Entity\Publication;
-use App\Entity\PublicationType;
 use App\Entity\Thematic;
-use App\Entity\User;
 use App\Form\AuthorType;
-use App\Form\BookCollectionType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
+use App\Service\Slugify;
+use App\Form\KeywordType;
+use App\Entity\KeywordGeo;
+use App\Entity\KeywordRef;
+use App\Form\LanguageType;
+use App\Form\ThematicType;
+use App\Form\PublicationType;
+use App\Entity\Publication;
+use App\Entity\Localisation;
 use App\Form\KeywordGeoType;
 use App\Form\KeywordRefType;
-use App\Form\KeywordType;
-use App\Form\LanguageType;
+use App\Entity\BookCollection;
 use App\Form\LocalisationType;
+use App\Form\BookCollectionType;
 use App\Form\PublicationTypeType;
-use App\Form\SearchAdminBorrowFormType;
-use App\Form\ThematicType;
-use App\Form\UserType;
+use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
-use App\Repository\BookCollectionRepository;
 use App\Repository\BorrowRepository;
 use App\Repository\EditorRepository;
-use App\Repository\KeywordGeoRepository;
-use App\Repository\KeywordRefRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
-use App\Repository\LocalisationRepository;
-use App\Repository\PublicationRepository;
-use App\Repository\PublicationTypeRepository;
 use App\Repository\ThematicRepository;
-use App\Repository\UserRepository;
-use App\Service\Slugify;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\SearchAdminBorrowFormType;
+use App\Repository\KeywordGeoRepository;
+use App\Repository\KeywordRefRepository;
+use App\Repository\PublicationRepository;
+use App\Repository\LocalisationRepository;
+use App\Repository\BookCollectionRepository;
+use App\Repository\PublicationTypeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Form\FormTypeInterface;
 
 class AdminController extends AbstractController
 {
@@ -1055,5 +1057,42 @@ class AdminController extends AbstractController
             'publications' => $publicationRepository->findAll(),
         ]);
     }
+
+        /**
+     * @Route("/admin/publication/ajouter", name="publication_admin_add", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
+        $publication = new Publication();
+        $form = $this->createForm(PublicationType::class, $publication);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+             $publication->setUser($this->getUser());
+             $publication->setPublicationDate(new DateTime('now'));
+             $publication->setUpdateDate(new DateTime('now'));
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($publication);
+            // dd($publication);
+            $entityManager->flush();
+
+            // return $this->redirectToRoute('publication_admin_list', [ 'id' => $publication->getId()]);
+        }
+
+        return $this->render('/admin/publication/new.html.twig', [
+            'publication' => $publication,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/publication/{id}", name="publication_admin_show", methods={"GET"})
+     */
+    public function publicationShow(Publication $publication): Response
+    {
+        return $this->render('/admin/publication/show.html.twig', [
+            'publication' => $publication,
+        ]);
+    } 
 
 }

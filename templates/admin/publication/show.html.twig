@@ -1,0 +1,145 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Publication
+{% endblock %}
+
+{% block content %}
+
+<section class="py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8">
+				<h1>Publication</h1>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>Titre</th>
+							<td>{{ publication.title }}</td>
+						</tr>
+						<tr>
+							<th>Thématique</th>
+							<td>{{ publication.thematic.name }}</td>
+						</tr>
+						<tr>
+							<th>Date de publication</th>
+							<td>{{ publication.publicationDate | date("d/m/Y H:i") }}</td>
+						</tr>
+						<tr>
+							<th>Type</th>
+							<td>{{ publication.type.name }}</td>
+						</tr>
+						<tr>
+							<th>Mot clé(s)</th>
+							<td>{% for keywordRef in publication.keywordRefs %}
+                					{{ keywordRef.name }},
+              					 {% else %}
+                					Pas de mot clé
+              					{% endfor %}
+							</td>
+						</tr>
+						<tr>
+							<th>Mot clé géographique</th>
+							<td>
+							{% for keywordGeo in publication.keywordGeos %}
+                				{{ keywordGeo.name }},
+              				{% else %}
+								Pas de mot clé
+              				{% endfor %}
+							</td>
+						</tr>
+						<tr>
+							<th>Auteur(s)</th>
+							<td>
+							{% for author in publication.authors %}
+                				{{ author.name }},
+              				{% else %}
+                				Pas d'auteur!
+              				{% endfor %}
+							</td>
+						</tr> 
+						<tr>
+							<th>Résumé</th>
+							<td>{{ publication.summary }}</td>
+						</tr>
+						<tr>
+							<th>Localisation</th>
+							<td>{{ publication.Localisation ? publication.Localisation.name : 'Pas de localisation!' }}</td>
+						</tr>
+						<tr>
+							<th>Collection</th>
+							<td>{{ publication.BookCollection ? publication.BookCollection.name : 'Pas de collection!' }}</td>
+						</tr>
+						<tr>
+							<th>Langue</th>
+							<td>{{ publication.language.name }}</td>
+						</tr>
+						<tr>
+							<th>Mention légale</th>
+							<td>{{ publication.mention }}</td>
+						</tr>
+						<tr>
+							<th>Date de publication</th>
+							<td>{{ publication.publicationDate ? publication.publicationDate|date('Y-m-d') : '' }}</td>
+						</tr>
+						<tr>
+							<th>Pagination</th>
+							<td>{{ publication.paging }}</td>
+						</tr>
+						<tr>
+							<th>Tomaison</th>
+							<td>{{ publication.volumeNumber }}</td>
+						</tr>
+						<tr>
+							<th>Issn/Isbn</th>
+							<td>{{ publication.issnIsbn }}</td>
+						</tr>
+						<tr>
+							<th>Support</th>
+							<td>{{ publication.support }}</td>
+						</tr>
+						<tr>
+							<th>Cote</th>
+							<td>{{ publication.cote }}</td>
+						</tr>
+						<tr>
+							<th>Adresse source</th>
+							<td>{{ publication.sourceAddress }}</td>
+						</tr>
+						<tr>
+							<th>Url</th>
+							<td>{{ publication.url }}</td>
+						</tr>
+						<tr>
+							<th>Auteur Notice</th>
+							<td>{{ publication.user.fullname }}</td>
+						</tr>
+						<tr>
+							<th>Date de mise à jour </th>
+							<td>{{ publication.updateDate | date("d/m/Y H:i") }}</td>
+						</tr>
+						<tr>
+							<th>Historique des emprunts</th>
+							<td>
+								{% for borrow in publication.borrows %}
+									<li>{{borrow.user.fullname }} - {{ borrow.borrowedDate | date("d/m/Y")}}</li>
+								{% endfor %}
+							</td>
+						</tr>
+						<tr>
+							<th>Accès</th>
+							<td>{{ publication.access }}</td>
+						</tr>					
+					</tbody>
+				</table>
+			
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('publication_admin_list') }}">Retour</a>
+			
+				{# <a class="btn btn-outline-primary btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a> #}
+			
+				{# {{ include('/admin/user/_delete_form.html.twig') }} #}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
