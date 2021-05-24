@@ -1,0 +1,6 @@
+<h1>Newsletter Audap</h1>
+<p>Vous vous êtes inscrit a notre Newsletter</p>
+<p>Cliquez sur ce lien, si celui ci ne fonctionne pas faites un copié collé dans votre navigateur.
+	<a href=" {{ absolute_url(path('newsletters_confirmation', {id: user.id, token: token}))}} ">{{ absolute_url(path('newsletters_confirmation', {id: user.id, token: token}))}}
+	</a>
+</p>

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des newsletters
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Liste des newsletters</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Titre</th>
+					<th>Date</th>
+					<th>Catégorie</th>
+					<th>Inscrits</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for newsletters in newslettertsList %}
+					<tr>
+						<td>
+							{{ newsletters.id }}
+						</td>
+						<td>
+							{{ newsletters.name }}
+						</td>
+						<td>
+							{{ newsletters.createdAt|date("d/m/Y H:i", "Europe/Paris") }}
+						</td>
+						<td>
+							{{ newsletters.categories.name }}
+						</td>
+						<td>
+							{{ newsletters.categories.users|length }}
+						</td>
+						<td>
+							{% if newsletters.isSent == false %}
+								<a href="{{ path('newsletters_envoi', {id: newsletters.id}) }}">Envoyer</a>
+							{% endif %}
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endblock %}
