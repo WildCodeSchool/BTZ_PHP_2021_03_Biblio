@@ -9,8 +9,8 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Publication|null find($id, $lockMode = null, $lockVersion = null)
- * @method Publication|null findOneBy(array $criteria, array $orderBy = null)
+ * @method null|Publication find($id, $lockMode = null, $lockVersion = null)
+ * @method null|Publication findOneBy(array $criteria, array $orderBy = null)
  * @method Publication[]    findAll()
  * @method Publication[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */

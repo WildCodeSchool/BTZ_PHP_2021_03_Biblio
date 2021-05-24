@@ -1,48 +1,42 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}KeywordGeo Liste{% endblock %}
+{% block title %}Liste des Mots-Clés de Géolocalisation{% endblock %}
 
 {% block content %}
-<section class="py-4">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="py-4 pl-1">
-                    <h2 class="py-2">Liste des KeywordGeo</h2>
-                    <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Keyword Geo</a>
-                    <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
-				</div>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr class="table-active">
-                                {# <th>Id</th> #}
-                                <th>Nom</th>
-                                {# <th>Slug</th> #}
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for keyword_geo in keyword_geos %}
-                            <tr>
-                                {# <td>{{ keyword_geo.id }}</td> #}
-                                <td>{{ keyword_geo.name }}</td>
-                                {# <td>{{ keyword_geo.slug }}</td> #}
-                                <td>
-                                    <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_show', {'id': keyword_geo.id}) }}" role="button">Détail</a>
-                                    <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_edit', {'id': keyword_geo.id}) }}" role="button">Editer</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="4">Aucun Enregistrement</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+<section>
+    <h2>Liste des Mots-Clés de Géolocalisation</h2>
+    <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Mots-Clés de Géolocalisation</a>
+    <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu</a>
+	<div class="table-responsive">
+        <table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr class="table-active">
+                    {# <th>Id</th> #}
+                    <th>Nom</th>
+                    {# <th>Slug</th> #}
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for keyword_geo in keyword_geos %}
+                <tr>
+                    {# <td>{{ keyword_geo.id }}</td> #}
+                    <td>{{ keyword_geo.name }}</td>
+                    {# <td>{{ keyword_geo.slug }}</td> #}
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_show', {'id': keyword_geo.id}) }}" role="button">Détail</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_edit', {'id': keyword_geo.id}) }}" role="button">Edition</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucun Enregistrement</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_geo_add') }}">Création Nouveau Mot-Clé de Géolocalisation</a>
+        <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
     </div>
 </section>
    
