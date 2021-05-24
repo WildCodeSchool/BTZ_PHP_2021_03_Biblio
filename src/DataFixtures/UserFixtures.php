@@ -43,7 +43,7 @@ class UserFixtures extends Fixture
                 } else {
                     $user->setRoles(['ROLE_PUBLIC']);
                     $user->setPassword($this->passwordEncoder->encodePassword($user, 'public'));
-                    $user->setNewsletter(true);
+                    $user->setNewsletter(false);
                     $user->setSlug($this->slugify->generate('public-slug'));
                 }
                 $user->setFullName($data[1]);

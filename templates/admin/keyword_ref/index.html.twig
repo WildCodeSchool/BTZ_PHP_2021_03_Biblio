@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}Liste des KeywordRef
+{% block title %}Liste des mots-clés de référence
 {% endblock %}
 
 {% block content %}
@@ -8,29 +8,26 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-				<h2>Liste des KeywordRef</h2>
+				<h2>Liste des mots-clés par référence</h2>
 				<div class="py-3">
-					<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Création Nouveau KeyWord</a>
-					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+					<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Ajouter</a>
+					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
 				</div>
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr class="table-active">
 								<th>Nom</th>
-			
-								<th>Actions</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							{% for keyword_ref in keyword_refs %}
 								<tr>
-			
 									<td>{{ keyword_ref.name }}</td>
-			
 									<td>
-										<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_show', {'id': keyword_ref.id}) }}" role="button">Détail</a>
-										<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Edition</a>
+										<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_show', {'id': keyword_ref.id}) }}" role="button">Détails</a>
+										<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Editer</a>
 									</td>
 								</tr>
 							{% else %}
@@ -41,8 +38,8 @@
 						</tbody>
 					</table>
 				</div>
-				<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Création Nouveau KeyWord</a>
-				<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour Menu Admin</a>
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('keyword_ref_add') }}" role="button">Ajouter</a>
+				<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Retour</a>
 			
             </div>
         </div>

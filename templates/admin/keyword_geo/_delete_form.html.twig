@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('keyword_geo_delete', {'id': keyword_geo.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+<form method="post" action="{{ path('keyword_geo_delete', {'id': keyword_geo.id}) }}" onsubmit="return confirm('Souhaitez-vous supprimer ce mot-clé ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ keyword_geo.id) }}">
-    <button class="btn btn-outline-danger btn-sm">Supprimer</button>
+    <button class="btn btn-outline-primary btn-sm">Supprimer</button>
 </form>

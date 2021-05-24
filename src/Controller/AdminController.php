@@ -716,9 +716,9 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('language_list');
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////
 
-    /////////////////////EMPRUNT//START/////////////////////////////////////////////////////////
+    /////////////////////BORROW/////////////////////////////////////////////////////////
 
     /**
      * @Route("/admin/emprunts", name="emprunt_list", methods={"GET"})
@@ -807,9 +807,9 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('emprunt_list');
     }
 
-    //////////////////////////EMPRUNT END/////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 
-    //////////////////////////AUTEUR START///////////////////////////////////////////////
+    //////////////////////////AUTHOR///////////////////////////////////////////////
 
     /**
      * @Route("/admin/auteur", name="auteur_list", methods={"GET"})
@@ -822,7 +822,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/auteur/creation", name="auteur_add", methods={"GET","POST"})
+     * @Route("/admin/auteur/ajouter", name="auteur_add", methods={"GET","POST"})
      */
     public function authorAdd(Request $request): Response
     {
@@ -855,7 +855,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/auteur/{id}/edit", name="auteur_edit", methods={"GET","POST"})
+     * @Route("/admin/auteur/{id}/editer", name="auteur_edit", methods={"GET","POST"})
      */
     public function authorEdit(Request $request, Author $author): Response
     {
@@ -891,7 +891,7 @@ class AdminController extends AbstractController
     //////////////////////////////KEYWORD REF START/////////////////////////////////
 
     /**
-     * @Route("/admin/keyword_ref", name="keyword_ref_list", methods={"GET"})
+     * @Route("/admin/mots-clés-reference", name="keyword_ref_list", methods={"GET"})
      */
     public function keywordRefList(KeywordRefRepository $keywordRefRepository): Response
     {
@@ -901,7 +901,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_ref/creation", name="keyword_ref_add", methods={"GET","POST"})
+     * @Route("/admin/mot-clé-reference/ajouter", name="keyword_ref_add", methods={"GET","POST"})
      */
     public function keywordRefAdd(Request $request): Response
     {
@@ -924,7 +924,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_ref/{id}", name="keyword_ref_show", methods={"GET"})
+     * @Route("/admin/mot-clé-reference/{id}", name="keyword_ref_show", methods={"GET"})
      */
     public function keywordRefShow(KeywordRef $keywordRef): Response
     {
@@ -934,7 +934,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_ref/{id}/edit", name="keyword_ref_edit", methods={"GET","POST"})
+     * @Route("/admin/mot-clé-reference/{id}/editer", name="keyword_ref_edit", methods={"GET","POST"})
      */
     public function keywordRefEdit(Request $request, KeywordRef $keywordRef): Response
     {
@@ -954,7 +954,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_ref/{id}", name="keyword_ref_delete", methods={"POST"})
+     * @Route("/admin/mot-clé-reference/{id}", name="keyword_ref_delete", methods={"POST"})
      */
     public function keywordRefDelete(Request $request, KeywordRef $keywordRef): Response
     {
@@ -971,7 +971,7 @@ class AdminController extends AbstractController
     //////////////////////////////KEYWORD GEO START///////////////////////////////
 
     /**
-     * @Route("/admin/keyword_geo", name="keyword_geo_list", methods={"GET"})
+     * @Route("/admin/mots-clés-geographique", name="keyword_geo_list", methods={"GET"})
      */
     public function keywordGeoList(KeywordGeoRepository $keywordGeoRepository): Response
     {
@@ -981,7 +981,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_geo/creation", name="keyword_geo_add", methods={"GET","POST"})
+     * @Route("/admin/mot-clé-geographique/ajouter", name="keyword_geo_add", methods={"GET","POST"})
      */
     public function keywordGeoAdd(Request $request): Response
     {
@@ -1004,7 +1004,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_geo/{id}", name="keyword_geo_show", methods={"GET"})
+     * @Route("/admin/mot-clé-geographique/{id}", name="keyword_geo_show", methods={"GET"})
      */
     public function keywordGeoShow(KeywordGeo $keywordGeo): Response
     {
@@ -1014,7 +1014,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_geo/{id}/edit", name="keyword_geo_edit", methods={"GET","POST"})
+     * @Route("/admin/mot-clé-geographique/{id}/editer", name="keyword_geo_edit", methods={"GET","POST"})
      */
     public function keywordGeoEdit(Request $request, KeywordGeo $keywordGeo): Response
     {
@@ -1034,7 +1034,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/keyword_geo/{id}", name="keyword_geo_delete", methods={"POST"})
+     * @Route("/admin/mot-clé-geographique/{id}", name="keyword_geo_delete", methods={"POST"})
      */
     public function keywordGeoDelete(Request $request, KeywordGeo $keywordGeo): Response
     {

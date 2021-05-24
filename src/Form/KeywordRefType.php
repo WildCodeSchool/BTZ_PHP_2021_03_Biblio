@@ -14,7 +14,7 @@ class KeywordRefType extends AbstractType
         $builder
             ->add('name')
             ->add('slug')
-            ->add('publication')
+            // ->add('publication')
         ;
     }
 

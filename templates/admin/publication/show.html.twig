@@ -131,12 +131,9 @@
 						</tr>					
 					</tbody>
 				</table>
-			
-				<a class="btn btn-outline-primary btn-sm" href="{{ path('publication_admin_list') }}">Retour</a>
-			
-				<a class="btn btn-outline-primary btn-sm" href="{{ path('publication_admin_edit', {'id': publication.id}) }}">Editer</a>
-			
+				<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('publication_admin_edit', {'id': publication.id}) }}">Editer</a>
 				{{ include('/admin/publication/_delete_form.html.twig') }}
+				<a class="btn btn-outline-primary btn-sm" href="{{ path('publication_admin_list') }}">Retour</a>
             </div>
         </div>
     </div>

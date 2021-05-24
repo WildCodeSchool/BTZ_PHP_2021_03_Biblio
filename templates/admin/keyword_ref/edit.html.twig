@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}Edition KeywordRef
+{% block title %}Editer un mot-clé de référence
 {% endblock %}
 
 {% block content %}
@@ -9,12 +9,13 @@
         <div class="row">
             <div class="col-12 col-md-6">
 						<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
-							<h2>Edition KeywordRef</h2>
-			
-							{{ include('/admin/keyword_ref/_form.html.twig', {'button_label': 'Mise à Jour'}) }}
+							<h2>Editer un mot-clé de référence</h2>
+                            <div class="mb-3">
+							{{ include('/admin/keyword_ref/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+                            </div>
 							{{ include('/admin/keyword_ref/_delete_form.html.twig') }}
 						</table>
-						<a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_ref_list') }}" role="button">Retour à la liste</a>
+						<a class="btn btn-outline-secondary btn-sm" href="{{ path('keyword_ref_list') }}" role="button">Retour</a>
             </div>
         </div>
     </div>
