@@ -91,8 +91,9 @@
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr>
+								<th>Cote</th>
 								<th>Titre</th>
-								<td>Emprunté par</td>
+								<th>Emprunté par</th>
 								<th>Date</th>
 								<th></th>
 							</tr>
@@ -100,6 +101,7 @@
 						<tbody>
 						{% for borrow in last_borrows %}
 							<tr>
+								<td>{{ borrow.publication.cote }}</td>
 								<td>{{ borrow.publication.title }}</td>
 								<td>{{ borrow.user.fullname }}</td>
 								<td>{{ borrow.reservationdate|date("d/m/Y") }}</td>
@@ -132,7 +134,7 @@
 						{% for publication in publications %}
 							<tr>
 								<td>{{ publication.title }}</td>
-								<td>{{ user.fullname }}</td>
+								<td>{{ publication.user.fullname }}</td>
 								<td>{{ publication.publicationDate ? publication.publicationDate|date("d/m/Y h:i") : '' }}</td>
 								<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
 							</tr>
@@ -153,7 +155,6 @@
 						<thead>
 							<tr>
 								<th>Titre</th>
-								<th>Modifié par</th>
 								<th>Date</th>
 								<th></th>
 							</tr>
@@ -162,7 +163,6 @@
 								 {% for publication in publications_dashboard %}
 								<tr>
 									<td>{{ publication.title }}</a></td>
-									<td>{{ publication.user.fullname }}</td>
 									<td>{{ publication.updatedate | date("d/m/Y h:i") }}</td>
 									<td><a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a></td>
 								</tr>

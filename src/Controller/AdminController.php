@@ -1051,7 +1051,7 @@ class AdminController extends AbstractController
 
     /////////////////////////////PUBLICATION/////////////////////////////////////
     /**
-     * @Route("/admin/publications", name="publication_admin_list", methods={"GET"})
+     * @Route("/admin/publication", name="publication_admin_list", methods={"GET"})
      */
     public function publicationList(PublicationRepository $publicationRepository): Response
     {

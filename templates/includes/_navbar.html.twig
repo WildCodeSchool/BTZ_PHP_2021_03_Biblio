@@ -1,33 +1,54 @@
 <nav class="navbar navbar-expand-lg was-navbar-light navbar-light bg-transpatent z-index-1">
-    <a class="navbar-brand" href="/">
-    <img class="img-fluid" width="150px" src="{{ asset('build/images/logo_AUDAP.png') }}" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+	<a class="navbar-brand" href="/">
+		<img class="img-fluid" width="150px" src="{{ asset('build/images/logo_AUDAP.png') }}" alt="">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link text-violet" href="/">Accueil</a>
+			</li>
+			{% if is_granted('ROLE_AUDAP_MEMBER') %}
+				<li class="nav-item">
+					<a class="nav-link text-violet" href="{{ path('publication_new') }}">Ajouter une publication</a>
+				</li>
+			{% endif %}
+			<li class="nav-item">
+				<a class="nav-link text-violet" href="{{ path('publication_list') }}">Publications</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-violet" href="{{ path('contact') }}">Contact</a>
+			</li>
+			{% if is_granted('ROLE_ADMIN') %}
+				<li class="nav-item">
+					<a class="nav-link text-violet" href="{{ path('admin') }}">
+						<i class="fas fa-sign-in-alt"></i>
+					</a>
+				</li>
+			{% endif %}
         <li class="nav-item">
-          <a class="nav-link text-violet" href="/">Accueil</a>
-        </li>
-        {% if is_granted('ROLE_AUDAP_MEMBER') %}
-        <li class="nav-item">
-          <a class="nav-link text-violet" href="{{ path('publication_new') }}">Ajouter une publication</a>
-        </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link text-violet" href="/publication/list">Publications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-violet" href="/contact">Contact</a>
-        </li>
-        {% if is_granted('ROLE_ADMIN') %}
-          <li class="nav-item">
-            <a class="nav-link text-violet" href="/admin"><i class="fas fa-sign-in-alt"></i></a>
-          </li>
-          {% else %}
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
+				{% if app.user %}
+					<a class="nav-link text-violet" href="{{ path('app_logout') }}" id="deconnexion">
+						Déconnexion</a>
+				{% endif %}
+			</li>
+			<li class="nav-item">
+				{% if not app.user %}
+					<a class="nav-link text-violet" href="{{ path('app_login') }}" id="connexion">Connexion
+					</a>
+					{% else %}
+				{% endif %}
+			</li>
+			<li class="nav-item">
+				{% if not app.user %}
+					<a class="nav-link text-violet" href="{{ path('register') }}" id="inscription">
+						Inscription</a>
+					{% else %}
+				{% endif %}
+			</li>
+		</ul>
+	</div>
+</nav>
