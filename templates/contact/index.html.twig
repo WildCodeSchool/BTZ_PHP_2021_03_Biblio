@@ -16,6 +16,10 @@
             <p>05 59 46 50 10</p>
             </div>
 
+            {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+
           <!--Grid column-->
           <div class="col-md-9"></div>
               <form id="contact-form" name="contact-form" action="" method="POST">
@@ -60,7 +64,7 @@
                       <div class="col-md-12">
   
                           <div class="md-form">
-                            <input type="submit" value="Send" class="btn btn-primary px-5">
+                            <input type="submit" value="Envoyer" class="btn btn-outline-success px-4">
                           </div>
                           {{ form_end(our_form) }}
                       </div>
