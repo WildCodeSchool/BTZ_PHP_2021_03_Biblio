@@ -27,24 +27,21 @@ class HomeController extends AbstractController
         ]);
     }
 
-    //     /**
-    //  * @Route("/contact", name="contact")
-    //  */
-    // public function contact(): Response
-    // {
-    //     return $this->render('home/contact.html.twig');
-    // }
-
     /**
      * @Route("/autocomplete", name="autocomplete", methods={"GET"})
      */
     public function autocomplete(Request $request, PublicationRepository $publicationRepository): Response
     {
         $query = $request->query->get('q');
-
         if (null !== $query) {
-            $publications = $publicationRepository->findByQueryAuto($query);
+            $keywords = explode(' ', $query);
+            $publications = [];
+            foreach ($keywords as $keyword) {
+                $publications = array_merge($publications, $publicationRepository->findByQueryAuto($keyword));
+            }
+            // $publications = $publicationRepository->findByQueryAuto($query);
         }
+        $publications = array_slice($publications, 0, 10);
 
         return $this->json($publications, 200);
     }

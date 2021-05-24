@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PublicationRepository;
+use Cocur\Slugify\Slugify as LeVraiSlugify;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -163,6 +164,11 @@ class Publication
      */
     private $keywordGeos;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->editors = new ArrayCollection();
@@ -196,8 +202,9 @@ class Publication
 
     public function setTitle(string $title): self
     {
+        $slugify = new LeVraiSlugify();
         $this->title = $title;
-
+        $this->slug = $slugify->slugify($title);
         return $this;
     }
 
@@ -586,6 +593,19 @@ class Publication
             $keywordGeo->removePublication($this);
         }
 
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $slugify = new LeVraiSlugify();
+        $this->slug = $slugify->slugify($slug);
         return $this;
     }
 }
