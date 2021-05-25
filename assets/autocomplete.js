@@ -23,7 +23,7 @@ document.getElementById('searchField').addEventListener('input', function(event)
 
     });
     if (event.target.value === ''){
-        li.innerHTML = ''
+        ul.innerHTML = ''
     }
     //li.innerHTML='';
     console.log(data)})
