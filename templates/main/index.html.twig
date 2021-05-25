@@ -5,6 +5,6 @@
 
 {% block body %}
 	{% for message in app.flashes('message') %}
-		<div>{{ message }}</div>
+		<div class="mt-5 alert alert-info">{{ message }}</div>
 	{% endfor %}
 {% endblock %}

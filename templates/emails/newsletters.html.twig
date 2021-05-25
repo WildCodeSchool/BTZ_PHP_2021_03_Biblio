@@ -1,7 +1,8 @@
 <h1>{{newsletters.name}}</h1>
-<div>
+<div class="mb-5">
 	{{ newsletters.content|raw }}
 </div>
+<hr>
 <div>
 	<h3>Nos dernières publications:</h3>
 	{% for p in publiRepo.findBy({}, {'id':'DESC'}, 3) %}
