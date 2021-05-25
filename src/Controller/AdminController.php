@@ -1078,7 +1078,7 @@ class AdminController extends AbstractController
             // dd($publication);
             $entityManager->flush();
 
-            // return $this->redirectToRoute('publication_admin_list', [ 'id' => $publication->getId()]);
+             return $this->redirectToRoute('publication_admin_show', [ 'id' => $publication->getId()]);
         }
 
         return $this->render('/admin/publication/new.html.twig', [
