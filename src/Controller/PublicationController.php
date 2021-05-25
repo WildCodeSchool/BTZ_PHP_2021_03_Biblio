@@ -40,7 +40,7 @@ class PublicationController extends AbstractController
         $pagination = $paginator->paginate(
             $publications, // query NOT result
             $request->query->getInt('page', 1), // page number
-            10 // limit per page
+            9 // limit per page
         );
 
         return $this->render('publication/index.html.twig', [
@@ -101,7 +101,7 @@ class PublicationController extends AbstractController
         $pagination = $paginator->paginate(
             $publications, // query NOT result
             $request->query->getInt('page', 1), // page number
-            10 // limit per page
+            9 // limit per page
         );
 
         return $this->render('publication/listpublic.html.twig', [
