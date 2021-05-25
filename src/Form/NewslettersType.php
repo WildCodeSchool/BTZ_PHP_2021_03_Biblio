@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Newsletters\Categories;
 use App\Entity\Newsletters\Newsletters;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +21,7 @@ class NewslettersType extends AbstractType
                 'label' => 'Titre de la newsletter',
                 'attr' => ['placeholder' => 'Donnez un nom à la newsletter']
             ])
-            ->add('content', CKEditorType::class, [
+            ->add('content', TextareaType::class, [
                 'label' => 'contenu de la newsletter'
             ])
             ->add('categories', EntityType::class, [
