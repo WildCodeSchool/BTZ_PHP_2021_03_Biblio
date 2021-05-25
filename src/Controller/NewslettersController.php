@@ -104,6 +104,34 @@ class NewslettersController extends AbstractController
     }
 
     /**
+     * @Route("/edition/{id}", name="edition")
+     */
+    // public function edition(NewslettersRepository $newslettersRepository, $id, Request $request): Response
+    // {
+    //     $newsletter = new Newsletters();
+    //     $news = $newslettersRepository->findOneById($id);
+    //     // dd($var);
+    //     $form = $this->createForm(NewslettersType::class, $newsletter);
+
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $em = $this->getDoctrine()->getManager();
+    //         $em->persist($newsletter);
+    //         $em->flush();
+
+    //         return $this->redirectToRoute('newsletters_liste');
+    //     }
+
+
+
+    //     return $this->render('newsletters/edition.html.twig', [
+    //         'news' => $news,
+    //         'form' => $form->createView()
+    //     ]);
+    // }
+
+    /**
      * @Route("/liste", name="liste")
      */
     public function list(NewslettersRepository $newsletterList)
