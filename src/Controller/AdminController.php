@@ -1184,10 +1184,9 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/newsletters/envoi/{id}", name="newsletters_send")
      */
-    public function send(Newsletters $newsletters, MailerInterface $mailer, $id, NewslettersRepository $newslettersRepository)
+    public function send(Newsletters $newsletters, MailerInterface $mailer)
     {
         $users = $newsletters->getCategories()->getUsers();
-        $newslettersRepository->findOneById($id);
 
         foreach ($users as $user) {
             if ($user->getIsValid()) {
