@@ -4,9 +4,9 @@ namespace App\Form;
 
 use App\Entity\Notice;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class NoticeType extends AbstractType
 {
@@ -14,7 +14,7 @@ class NoticeType extends AbstractType
     {
         $builder
             // ->add('summary')
-            ->add('summary', CKEditorType::class)
+            ->add('summary', TextareaType::class)
             ->add('creation_date')
             ->add('publication')
             ->add('author')
