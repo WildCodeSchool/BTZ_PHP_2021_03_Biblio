@@ -736,7 +736,6 @@ class AdminController extends AbstractController
 
         return $this->render('/admin/borrow/index.html.twig', [
             'borrows' => $borrowRepository->findBy([], ['reservation_date' => 'DESC']),
-
             'form' => $form->createView(),
         ]);
     }
