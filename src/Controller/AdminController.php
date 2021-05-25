@@ -735,7 +735,8 @@ class AdminController extends AbstractController
         }
 
         return $this->render('/admin/borrow/index.html.twig', [
-            'borrows' => $borrowRepository->findAll(),
+            'borrows' => $borrowRepository->findBy([], ['reservation_date' => 'DESC']),
+
             'form' => $form->createView(),
         ]);
     }
@@ -1056,7 +1057,8 @@ class AdminController extends AbstractController
     public function publicationList(PublicationRepository $publicationRepository): Response
     {
         return $this->render('/admin/publication/index.html.twig', [
-            'publications' => $publicationRepository->findAll(),
+            'publications' => $publicationRepository->findBy([], ['publication_date' => 'DESC']),
+
         ]);
     }
 
