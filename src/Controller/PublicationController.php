@@ -32,7 +32,13 @@ class PublicationController extends AbstractController
         $query = $request->query->get('q');
 
         if (null !== $query) {
-            $publications = $publicationRepository->findByQuery($query);
+            // $publications = $publicationRepository->findByQuery($query);
+            $keywords = explode(' ', $query);
+            $publications = [];
+            foreach ($keywords as $keyword) {
+                $publications = array_merge($publications, $publicationRepository->findByQuery($keyword));
+            }
+            // $publications = $publicationRepository->findByQueryAuto($query);
         } else {
             $publications = $publicationRepository->findAll();
         }
