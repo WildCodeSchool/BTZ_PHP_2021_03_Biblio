@@ -3,33 +3,35 @@
 namespace App\Controller;
 
 
+use DateTime;
 use App\Entity\User;
 use App\Entity\Author;
 use App\Entity\Borrow;
 use App\Entity\Editor;
+use App\Form\UserType;
 use App\Entity\Keyword;
 use App\Entity\Language;
 use App\Entity\Thematic;
-use App\Entity\KeywordGeo;
-use App\Entity\KeywordRef;
-use App\Entity\Publication;
-use App\Entity\Localisation;
-use App\Entity\BookCollection;
-use App\Form\UserType;
 use App\Form\AuthorType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
+use App\Service\Slugify;
 use App\Form\KeywordType;
+use App\Entity\KeywordGeo;
+use App\Entity\KeywordRef;
+use App\Form\EditUserType;
 use App\Form\LanguageType;
 use App\Form\ThematicType;
-use App\Form\PublicationType;
+use App\Entity\Publication;
+use App\Entity\Localisation;
 use App\Form\KeywordGeoType;
 use App\Form\KeywordRefType;
+use App\Form\PublicationType;
+use App\Entity\BookCollection;
 use App\Form\LocalisationType;
 use App\Form\BookCollectionType;
-use App\Form\EditUserType;
+use App\Entity\Newsletters\Users;
 use App\Form\PublicationTypeType;
-use App\Form\SearchAdminBorrowFormType;
 use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\BorrowRepository;
@@ -37,6 +39,7 @@ use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\ThematicRepository;
+use App\Form\SearchAdminBorrowFormType;
 use App\Repository\KeywordGeoRepository;
 use App\Repository\KeywordRefRepository;
 use App\Repository\PublicationRepository;
@@ -44,12 +47,19 @@ use App\Repository\LocalisationRepository;
 use App\Repository\BookCollectionRepository;
 use App\Repository\PublicationTypeRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Service\Slugify;
-use DateTime;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+
+use App\Entity\Newsletters\Newsletters;
+use App\Form\NewslettersType;
+use App\Form\NewslettersUsersType;
+use App\Repository\Newsletters\NewslettersRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+
 
 class AdminController extends AbstractController
 {
@@ -1064,7 +1074,7 @@ class AdminController extends AbstractController
         /**
      * @Route("/admin/publication/ajouter", name="publication_admin_add", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function publicationAdd(Request $request): Response
     {
         $publication = new Publication();
         $form = $this->createForm(PublicationType::class, $publication);
@@ -1133,4 +1143,71 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('publication_admin_list');
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /////////////////////////// NEWSLETTERS /////////////////////////////////////////////////////////////////////////
+
+    /**
+     * @Route("/admin/newsletter/ajouter", name="admin_newsletters_add")
+     */
+    public function newsletterAdd(Request $request): Response
+    {
+        $newsletter = new Newsletters();
+        $form = $this->createForm(NewslettersType::class, $newsletter);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newsletter);
+            $em->flush();
+
+            return $this->redirectToRoute('newsletters_list');
+        }
+
+        return $this->render('/admin/newsletters/new.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+       /**
+     * @Route("/admin/newsletters", name="newsletters_list")
+     */
+    public function list(NewslettersRepository $newsletterList)
+    {
+        return $this->render('/admin/newsletters/index.html.twig', [
+            'newslettertsList' => $newsletterList->findBy([], ['created_at' => 'DESC'])
+
+        ]);
+    }
+
+    /**
+     * @Route("/admin/newsletters/envoi/{id}", name="newsletters_send")
+     */
+    public function send(Newsletters $newsletters, MailerInterface $mailer, $id, NewslettersRepository $newslettersRepository)
+    {
+        $users = $newsletters->getCategories()->getUsers();
+        $newslettersRepository->findOneById($id);
+
+        foreach ($users as $user) {
+            if ($user->getIsValid()) {
+                $email = (new TemplatedEmail())
+                    ->from('audap-newsletter@audap.fr')
+                    ->to($user->getEmail())
+                    ->subject($newsletters->getName())
+                    ->htmlTemplate('emails/newsletters.html.twig')
+                    ->context(compact('newsletters', 'user'));
+                $mailer->send($email);
+            }
+        }
+
+        $newsletters->setIsSent(true);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($newsletters);
+
+        $em->flush();
+
+        return $this->redirectToRoute('newsletters_list');
+    }
+      
 }

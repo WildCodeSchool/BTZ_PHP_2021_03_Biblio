@@ -2,8 +2,7 @@
 
 
 {% block content %}
-	<div
-		class="container-fluid" style="padding-top:2%">
+	<div class="container-fluid" style="padding-top:2%">
 		{# 
 						<ol class="breadcrumb mb-4">
 							<li class="breadcrumb-item active">Alert Notification ?</li>
@@ -169,14 +168,9 @@
 							</tr>
 							{% endfor %} 
 						</tbody>
-					</td>
-					<td>{{ publication.updatedate | date("d/m/Y h:i") }}</td>
-					<td>
-						<a class="btn btn-outline-success" href="{{ path('publication_show', { id: publication.id }) }}">Consulter</a>
-					</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-</div></div></div></div>{% endblock %}
+					</table>
+				</div>
+			</div>
+		</div>
+</div>
+{% endblock %}
