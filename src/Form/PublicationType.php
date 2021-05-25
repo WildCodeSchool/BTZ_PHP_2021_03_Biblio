@@ -2,15 +2,27 @@
 
 namespace App\Form;
 
+use App\Entity\Author;
+use App\Entity\Keyword;
+use App\Entity\KeywordGeo;
+use App\Entity\KeywordRef;
 use App\Entity\Publication;
+use App\Entity\BookCollection;
+use App\Entity\Editor;
 use Symfony\Component\Form\AbstractType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class PublicationType extends AbstractType
 {
@@ -32,10 +44,26 @@ class PublicationType extends AbstractType
                 'allow_delete' => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
             ])
-            // ->add('publication_date')
-            ->add('thematic')
-            ->add('keywordRefs')
-            ->add('keywordGeos')
+            
+            ->add('thematic', null, [
+                'label' => 'Choisissez une thématique'
+            ])
+            ->add('keywordRefs', EntityType::class, [
+                'label' => 'Mots clés référence',
+                'class' => KeywordRef::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => false
+            ])
+            ->add('keywordGeos', EntityType::class, [
+                'label' => 'Mots clés géographique',
+                'class' => KeywordGeo::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => false
+            ])
             ->add('type')
             ->add('cote')
             ->add('issn_isbn', TextType::class, [
@@ -43,8 +71,12 @@ class PublicationType extends AbstractType
                 'attr' => ['placeholder' => 'Veuillez précier le code ISSn ou ISBN'],
             ])
             ->add('localisation')
-            ->add('bookcollection')
-            ->add('language')
+            ->add('bookcollection', null, [
+                'label' => 'Collections'
+            ])
+            ->add('language', null, [
+                'label' => 'Langues'
+            ])
             ->add('summary', TextareaType::class, [
                 'label' => 'Sommaire',
                 'attr' => ['placeholder' => 'Veuillez enbtrer un résumé de la publication'],
@@ -61,7 +93,7 @@ class PublicationType extends AbstractType
             ])
             ->add('support', TextType::class, [
                 'label' => 'Support',
-                'attr' => ['placeholder' => 'veillez préciser si le support est physique ou digital'],
+                'attr' => ['placeholder' => 'Veuillez préciser si le support est physique ou digital']
             ])
             ->add('source_address', TextType::class, [
                 'label' => 'Support physique: adresse',
@@ -73,15 +105,33 @@ class PublicationType extends AbstractType
                 'attr' => ['placeholder' => 'Entrez le lien vers la publication'],
                 'required' => false,
             ])
-            ->add('editors')
-            ->add('authors')
-            ->add('access')
-            ->add('borrows')
-            ->add('user')
-            ->add('update_date', null, [
-                'widget' => 'single_text',
+            ->add('editors', EntityType::class, [
+                'label' => 'Editeurs',
+                'class' => Editor::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => true
             ])
-        ;
+            ->add('authors', EntityType::class, [
+                'label' => 'Auteurs',
+                'class' => Author::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => false,
+                'by_reference' => true
+            ])
+            ->add('access', HiddenType::class, [
+                'label' => 'Accessibilité',
+                'data' => 'null'
+            ])
+            // ->add('borrows')
+            // ->add('user', HiddenType::class, [
+            //     'data' => '$this->getUser()->getFullname()'
+            // ])
+            // ->add('publication_date', HiddenType::class)
+            // ->add('update_date', HiddenType::class)
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}Création Nouveau Thématique
+{% block title %}Ajouter une nouvelle thématique
 {% endblock %}
 
 {% block content %}
@@ -9,11 +9,11 @@
         <div class="row">
             <div class="col-12 col-md-6">
 
-				<h2>Création Nouveau Thématique</h2>
+				<h2>Ajouter une nouvelle thématique</h2>
 
 				{{ include('/admin/thematic/_form.html.twig') }}
 			
-				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('thematic_list') }}" role="button">Retour à la liste</a>
+				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('thematic_list') }}" role="button">Retour</a>
             </div>
         </div>
     </div>

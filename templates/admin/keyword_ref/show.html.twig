@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}KeywordRef
+{% block title %}Mot-clé de référence
 {% endblock %}
 
 {% block content %}
@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-				<h2>KeywordRef</h2>
+				<h2>Mot clé {{ keyword_ref.name }} </h2>
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
 						<tbody>
@@ -20,9 +20,9 @@
 			
 						</tbody>
 					</table>
-					<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Edition</a>
+					<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('keyword_ref_edit', {'id': keyword_ref.id}) }}" role="button">Editer</a>
 					{{ include('/admin/keyword_ref/_delete_form.html.twig') }}
-					<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('keyword_ref_list') }}" role="button">Retour à la Liste</a>
+					<a class="btn btn-outline-secondary btn-sm mt-2" href="{{ path('keyword_ref_list') }}" role="button">Retour</a>
 			
 			
             </div>

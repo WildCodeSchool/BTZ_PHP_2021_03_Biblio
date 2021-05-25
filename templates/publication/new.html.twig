@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Publication
+{% block title %}Ajouter publication
 {% endblock %}
 
 {% block body %}
@@ -8,7 +8,7 @@
 		<h1 class="text-center mb-5">Ajouter une publication</h1>
 		<hr class="mb-5">
 		{{ include('publication/_form.html.twig') }}
-		<a class="btn btn-outline-info mt-3" href="{{ path('publication_index') }}">Retour à la lsite</a>
+		<a class="btn btn-outline-info mt-3 mb-6" href="{{ path('publication_index') }}">Retour à la lsite</a>
 	</div>
 
 

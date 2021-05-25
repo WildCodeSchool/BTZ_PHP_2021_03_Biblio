@@ -1,6 +1,6 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% block title %}
+{% block title %}Ajouter un nouvel utilisateur
 {% endblock %}
 
 {% block content %}
@@ -8,11 +8,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6">
-				<h1>Ajouter un nouvel utilisateur</h1>
+				<h2>Ajouter un nouvel utilisateur</h2>
 
 				{{ include('/admin/user/_form.html.twig') }}
 			
-				<a href="{{ path('user_list') }}">Retour</a>
+				<a class="btn btn-outline-secondary btn-sm mt-3" href="{{ path('user_list') }}" role="button">Retour</a>
             </div>
         </div>
     </div>
