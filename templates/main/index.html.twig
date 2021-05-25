@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('message') %}
+		<div class="mt-5 alert alert-info">{{ message }}</div>
+	{% endfor %}
+{% endblock %}
