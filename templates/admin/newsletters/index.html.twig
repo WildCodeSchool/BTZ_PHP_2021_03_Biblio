@@ -1,0 +1,55 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Liste des newsletters
+{% endblock %}
+
+{% block content %}
+	<section class="py-4">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<h2>Newsletters</h2>
+					<div class="py-3">
+						<a class="btn btn-outline-primary btn-sm" href="{{ path('admin_newsletters_add') }}" role="button">Créer</a>
+						<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr class="table-active">
+									<th>Titre</th>
+									<th>Date</th>
+									<th>Catégorie</th>
+									{# <th>Inscrits</th> #}
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for newsletters in newslettertsList %}
+									<tr>
+										<td>
+											{{ newsletters.name }}
+										</td>
+										<td>
+											{{ newsletters.createdAt|date("d/m/Y H:i", "Europe/Paris") }}
+										</td>
+										<td>
+											{{ newsletters.categories.name }}
+										</td>
+										{# <td>
+											{{ newsletters.categories.users|length }}
+										</td> #}
+										<td>
+											{% if newsletters.isSent == false %}
+												<a href="{{ path('newsletters_send', {id: newsletters.id}) }}">Envoyer</a>
+											{% endif %}
+										</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
