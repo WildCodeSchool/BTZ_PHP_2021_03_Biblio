@@ -739,18 +739,18 @@ class AdminController extends AbstractController
      */
     public function borrowList(BorrowRepository $borrowRepository, Request $request): Response
     {
-        $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
+    //     $form = $this->createForm(SearchAdminBorrowFormType::class)->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $search = $form->getData()['search'];
-            $borrowRepository->findBy(['cote' => $search]);
-        } else {
-            $borrowRepository->findAll();
-        }
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $search = $form->getData()['search'];
+    //         $borrowRepository->findBy(['cote' => $search]);
+    //     } else {
+    //         $borrowRepository->findAll();
+    //     }
 
         return $this->render('/admin/borrow/index.html.twig', [
-            'borrows' => $borrowRepository->findBy([], ['reservation_date' => 'DESC']),
-            'form' => $form->createView(),
+            'borrows' => $borrowRepository->findBy([], ['borrowed_date' => 'DESC']),
+            // 'form' => $form->createView(),
         ]);
     }
 
