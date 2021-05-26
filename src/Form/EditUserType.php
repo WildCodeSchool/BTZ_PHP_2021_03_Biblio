@@ -51,16 +51,17 @@ class EditUserType extends AbstractType
                 'multiple' => true,
                 'label' => 'Rôles'
             ])
-            ->add('newsletter', CheckboxType::class, [
-                'required' => false,
-            ])
+            // ->add('newsletter', HiddenType::class, ['data' => false, 'required' => false])
+            // ->add('newsletter', CheckboxType::class, [
+            //     'required' => false,
+            // ])
             ->add('slug', HiddenType::class)
-            ->add('submit', SubmitType::class, [
-                'label' => 'Ajouter',
-                'attr' => [
-                    'class' => 'btn btn-success btn block',
-                ],
-            ])
+            // ->add('submit', SubmitType::class, [
+            //     'label' => 'Ajouter',
+            //     'attr' => [
+            //         'class' => 'btn btn-success btn block',
+            //     ],
+            // ])
     ;
     }
 

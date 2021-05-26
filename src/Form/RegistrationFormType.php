@@ -44,10 +44,11 @@ class RegistrationFormType extends AbstractType
                 'first_options' => ['label' => 'Votre mot de passe' ],
                 'second_options' => ['label' => 'Confirmez votre mot de passe']
             ])
-            ->add('newsletter', CheckboxType::class, [
-                 'required' => false,
-                'label' => 'Souhaitez-vous être inscrit à la newsletters de l\' Audap ?',
-            ])
+            // ->add('newsletter', CheckboxType::class, [
+            //      'required' => false,
+            //     'label' => 'Souhaitez-vous être inscrit à la newsletters de l\' Audap ?',
+            // ])
+            ->add('newsletter', HiddenType::class)
             ->add('slug', HiddenType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'S\'inscrire',

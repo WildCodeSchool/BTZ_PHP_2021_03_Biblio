@@ -10,7 +10,7 @@
             <div class="col-12">
 				<h2>Liste des utilisateurs</h2>
 				<div class="py-3">
-					<a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a>
+					{# <a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a> #}
 					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>	
 				</div>
 				<div class="table-responsive">
@@ -20,9 +20,6 @@
 							<th>Email</th>
 							<th>Prénom / Nom</th>
 							<th>Rôles</th>
-							<th>Téléphone</th>
-							<th>Adresse</th>
-							<th>Newsletter</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -32,12 +29,9 @@
 								<td>{{ user.email }}</td>
 								<td>{{ user.fullname }}</td>
 								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-								<td>{{ user.phone }}</td>
-								<td>{{ user.address }}</td>
-								<td>{{ user.newsletter ? 'Oui' : 'Non' }}</td>
 								<td>
 									<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('user_show', {'id': user.id}) }}">Détails</a>
-									<a class="btn btn-outline-primary btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
+									<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
 								</td>
 							</tr>
 						{% else %}
@@ -48,10 +42,10 @@
 					</tbody>
 				</table>
 			
-				<div class="py-3">
+				{# <div class="py-3">
 					<a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a>
 					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>	
-				</div>
+				</div> #}
 			</div>
         </div>
     </div>

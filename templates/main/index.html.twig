@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Audap - Newsletters
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('message') %}
+		<div class="mt-5 alert alert-info" style="text-align:center">{{ message }}</div>
+	{% endfor %}
+{% endblock %}
