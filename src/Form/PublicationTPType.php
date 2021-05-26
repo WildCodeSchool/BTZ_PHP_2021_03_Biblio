@@ -2,13 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\PublicationType;
-use App\Form\PublicationTypeType;
+use App\Entity\PublicationTP;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PublicationTypeType extends AbstractType
+class PublicationTPType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -21,7 +20,7 @@ class PublicationTypeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PublicationType::class,
+            'data_class' => PublicationTP::class,
         ]);
     }
 }
