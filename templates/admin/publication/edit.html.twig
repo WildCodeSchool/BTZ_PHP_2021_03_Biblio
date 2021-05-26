@@ -8,10 +8,13 @@
         <div class="row">
             <div class="col-12 col-md-8">
                 <h1>Editer une publication</h1>
-                {{ include('/admin/publication/_form.html.twig', {'button_label': 'Editer'}) }}
-                {{ include('/admin/publication/_delete_form.html.twig') }}
-                <a href="{{ path('publication_admin_list') }}">Retour</a>
-            
+                <div class="mb-3">
+                    {{ include('/admin/publication/_form.html.twig', {'button_label': 'Editer'}) }}
+                </div>
+                <div class="mb-3">
+                    {{ include('/admin/publication/_delete_form.html.twig') }}
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" href="{{ path('publication_admin_list') }}" role="button">Retour</a>
             </div>
         </div>
     </div>
