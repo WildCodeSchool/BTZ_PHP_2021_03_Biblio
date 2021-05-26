@@ -12,13 +12,6 @@ use App\Form\UserType;
 use App\Entity\Keyword;
 use App\Entity\Language;
 use App\Entity\Thematic;
-use App\Entity\KeywordGeo;
-use App\Entity\KeywordRef;
-use App\Entity\Publication;
-use App\Entity\Localisation;
-use App\Entity\BookCollection;
-use App\Entity\PublicationTP;
-use App\Form\UserType;
 use App\Form\AuthorType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
@@ -33,15 +26,16 @@ use App\Entity\Publication;
 use App\Entity\Localisation;
 use App\Form\KeywordGeoType;
 use App\Form\KeywordRefType;
+use App\Entity\PublicationTP;
+use App\Form\NewslettersType;
 use App\Form\PublicationType;
 use App\Entity\BookCollection;
 use App\Form\LocalisationType;
+use App\Form\PublicationTPType;
 use App\Form\BookCollectionType;
 use App\Entity\Newsletters\Users;
 use App\Form\PublicationTypeType;
-use App\Form\EditUserType;
-use App\Form\PublicationTPType;
-use App\Form\SearchAdminBorrowFormType;
+use App\Form\NewslettersUsersType;
 use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\BorrowRepository;
@@ -49,26 +43,24 @@ use App\Repository\EditorRepository;
 use App\Repository\KeywordRepository;
 use App\Repository\LanguageRepository;
 use App\Repository\ThematicRepository;
+use App\Entity\Newsletters\Newsletters;
 use App\Form\SearchAdminBorrowFormType;
 use App\Repository\KeywordGeoRepository;
 use App\Repository\KeywordRefRepository;
 use App\Repository\PublicationRepository;
 use App\Repository\LocalisationRepository;
-use App\Repository\BookCollectionRepository;
 use App\Repository\PublicationTPRepository;
+use App\Repository\BookCollectionRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+
+
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\Newsletters\NewslettersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
-
-use App\Entity\Newsletters\Newsletters;
-use App\Form\NewslettersType;
-use App\Form\NewslettersUsersType;
-use App\Repository\Newsletters\NewslettersRepository;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 
 class AdminController extends AbstractController
@@ -105,7 +97,7 @@ class AdminController extends AbstractController
     public function userAdd(Request $request, UserPasswordEncoderInterface $passwordEncoder, Slugify $slugify): Response
     {
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -145,7 +137,9 @@ class AdminController extends AbstractController
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setNewsletter(false);
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_list');
         }

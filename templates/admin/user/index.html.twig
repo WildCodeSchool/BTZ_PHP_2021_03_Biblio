@@ -10,7 +10,7 @@
             <div class="col-12">
 				<h2>Liste des utilisateurs</h2>
 				<div class="py-3">
-					<a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a>
+					{# <a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a> #}
 					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>	
 				</div>
 				<div class="table-responsive">
@@ -37,6 +37,7 @@
 								<td>{{ user.newsletter ? 'Oui' : 'Non' }}</td>
 								<td>
 									<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('user_show', {'id': user.id}) }}">Détails</a>
+									<br>
 									<a class="btn btn-outline-primary btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
 								</td>
 							</tr>
@@ -48,10 +49,10 @@
 					</tbody>
 				</table>
 			
-				<div class="py-3">
+				{# <div class="py-3">
 					<a class="btn btn-outline-primary btn-sm" href="{{ path('user_add') }}" role="button">Ajouter</a>
 					<a class="btn btn-outline-secondary btn-sm" href="{{ path('admin') }}" role="button">Accueil</a>	
-				</div>
+				</div> #}
 			</div>
         </div>
     </div>
