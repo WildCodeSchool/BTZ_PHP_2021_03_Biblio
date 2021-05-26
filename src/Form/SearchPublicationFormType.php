@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\PublicationType;
+use App\Entity\PublicationTP;
 use App\Entity\Thematic;
 use App\Entity\Author;
 use App\Entity\User;
@@ -56,7 +56,7 @@ class SearchPublicationFormType extends AbstractType
         // }));
 
         $builder->add('type_search', EntityType::class, [
-                 'class' => PublicationType::class,
+                 'class' => PublicationTP::class,
                  'label' => 'Type de publication',
                  'required' => false,
                 //  'placeholder' => $this->tabSearch['type_search'] !== null ? $this->tabSearch['type_search']->getName(): ' ',

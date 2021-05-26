@@ -33,7 +33,13 @@ class PublicationController extends AbstractController
         $query = $request->query->get('q');
 
         if (null !== $query) {
-            $publications = $publicationRepository->findByQuery($query);
+            // $publications = $publicationRepository->findByQuery($query);
+            $keywords = explode(' ', $query);
+            $publications = [];
+            foreach ($keywords as $keyword) {
+                $publications = array_merge($publications, $publicationRepository->findByQuery($keyword));
+            }
+            // $publications = $publicationRepository->findByQueryAuto($query);
         } else {
             $publications = $publicationRepository->findAll();
         }
@@ -121,9 +127,9 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-             $publication->setUser($this->getUser());
-             $publication->setPublicationDate(new DateTime('now'));
-             $publication->setUpdateDate(new DateTime('now'));
+            $publication->setUser($this->getUser());
+            $publication->setPublicationDate(new DateTime('now'));
+            $publication->setUpdateDate(new DateTime('now'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
             $entityManager->flush();

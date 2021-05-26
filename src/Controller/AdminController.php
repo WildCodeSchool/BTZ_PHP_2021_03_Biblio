@@ -12,6 +12,13 @@ use App\Form\UserType;
 use App\Entity\Keyword;
 use App\Entity\Language;
 use App\Entity\Thematic;
+use App\Entity\KeywordGeo;
+use App\Entity\KeywordRef;
+use App\Entity\Publication;
+use App\Entity\Localisation;
+use App\Entity\BookCollection;
+use App\Entity\PublicationTP;
+use App\Form\UserType;
 use App\Form\AuthorType;
 use App\Form\BorrowType;
 use App\Form\EditorType;
@@ -32,6 +39,9 @@ use App\Form\LocalisationType;
 use App\Form\BookCollectionType;
 use App\Entity\Newsletters\Users;
 use App\Form\PublicationTypeType;
+use App\Form\EditUserType;
+use App\Form\PublicationTPType;
+use App\Form\SearchAdminBorrowFormType;
 use App\Repository\UserRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\BorrowRepository;
@@ -45,7 +55,7 @@ use App\Repository\KeywordRefRepository;
 use App\Repository\PublicationRepository;
 use App\Repository\LocalisationRepository;
 use App\Repository\BookCollectionRepository;
-use App\Repository\PublicationTypeRepository;
+use App\Repository\PublicationTPRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -565,58 +575,58 @@ class AdminController extends AbstractController
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////PUBLICATION TYPE NOT VISIBLE IN ADMIN + PB WITH naming of PublicationTypeType in Symfony
+    ////////////////////////////////////PUBLICATION TYPE NOT VISIBLE IN ADMIN 
     ////////////////////////////
 
     /**
-     * @Route("/admin/publicationType", name="publication_type_list", methods={"GET"})
+     * @Route("/admin/publicationTP", name="publication_type_list", methods={"GET"})
      */
-    public function publicationTypeList(PublicationTypeRepository $publicationTypeRepository): Response
+    public function publicationTPList(PublicationTPRepository $publicationTPRepository): Response
     {
         return $this->render('/admin/publication_type/index.html.twig', [
-            'publication_types' => $publicationTypeRepository->findAll(),
+            'publication_types' => $publicationTPRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/admin/publicationType/ajouter", name="publication_type_add", methods={"GET","POST"})
+     * @Route("/admin/publicationTP/ajouter", name="publication_type_add", methods={"GET","POST"})
      */
-    public function publicationTypeAdd(Request $request): Response
+    public function publicationTPAdd(Request $request): Response
     {
-        $publicationType = new PublicationType();
-        $form = $this->createForm(PublicationTypeType::class, $publicationType);
+        $publicationTP = new PublicationTP();
+        $form = $this->createForm(PublicationTPType::class, $publicationTP);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($publicationType);
+            $entityManager->persist($publicationTP);
             $entityManager->flush();
 
             return $this->redirectToRoute('publication_type_list');
         }
 
         return $this->render('/admin/publication_type/new.html.twig', [
-            'publication_type' => $publicationType,
+            'publication_type' => $publicationTP,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/admin/publicationType/{id}", name="publication_type_show", methods={"GET"})
+     * @Route("/admin/publicationTP/{id}", name="publication_type_show", methods={"GET"})
      */
-    public function publicationTypeShow(PublicationType $publicationType): Response
+    public function publicationTPShow(PublicationTP $publicationTP): Response
     {
         return $this->render('/admin/publication_type/show.html.twig', [
-            'publication_type' => $publicationType,
+            'publication_type' => $publicationTP,
         ]);
     }
 
     /**
-     * @Route("/admin/publicationType/{id}/editer", name="publication_type_edit", methods={"GET","POST"})
+     * @Route("/admin/publicationTP/{id}/editer", name="publication_type_edit", methods={"GET","POST"})
      */
-    public function publicationTypeEdit(Request $request, PublicationType $publicationType): Response
+    public function publicationTPEdit(Request $request, PublicationTP $publicationTP): Response
     {
-        $form = $this->createForm(PublicationTypeType::class, $publicationType);
+        $form = $this->createForm(PublicationTPType::class, $publicationTP);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -626,19 +636,19 @@ class AdminController extends AbstractController
         }
 
         return $this->render('/admin/publication_type/edit.html.twig', [
-            'publication_type' => $publicationType,
+            'publication_type' => $publicationTP,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/admin/publicationType/{id}", name="publication_type_delete", methods={"DELETE"})
+     * @Route("/admin/publicationTP/{id}", name="publication_type_delete", methods={"DELETE"})
      */
-    public function publicationTypeDelete(Request $request, PublicationType $publicationType): Response
+    public function publicationTPDelete(Request $request, PublicationTP $publicationTP): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$publicationType->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$publicationTP->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($publicationType);
+            $entityManager->remove($publicationTP);
             $entityManager->flush();
         }
 
@@ -1071,7 +1081,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * @Route("/admin/publication/ajouter", name="publication_admin_add", methods={"GET","POST"})
      */
     public function publicationAdd(Request $request): Response
@@ -1081,15 +1091,15 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-             $publication->setUser($this->getUser());
-             $publication->setPublicationDate(new DateTime('now'));
-             $publication->setUpdateDate(new DateTime('now'));
+            $publication->setUser($this->getUser());
+            $publication->setPublicationDate(new DateTime('now'));
+            $publication->setUpdateDate(new DateTime('now'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
             // dd($publication);
             $entityManager->flush();
 
-             return $this->redirectToRoute('publication_admin_show', [ 'id' => $publication->getId()]);
+            return $this->redirectToRoute('publication_admin_show', [ 'id' => $publication->getId()]);
         }
 
         return $this->render('/admin/publication/new.html.twig', [
