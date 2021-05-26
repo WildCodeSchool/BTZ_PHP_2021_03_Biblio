@@ -86,7 +86,7 @@ class Publication
     private $access;
 
     /**
-     * @ORM\ManyToOne(targetEntity=PublicationType::class, inversedBy="publications")
+     * @ORM\ManyToOne(targetEntity=PublicationTP::class, inversedBy="publications")
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
@@ -340,12 +340,12 @@ class Publication
         return $this;
     }
 
-    public function getType(): ?PublicationType
+    public function getType(): ?PublicationTP
     {
         return $this->type;
     }
 
-    public function setType(?PublicationType $type): self
+    public function setType(?PublicationTP $type): self
     {
         $this->type = $type;
 
@@ -598,7 +598,6 @@ class Publication
 
     public function getSlug(): ?string
     {
-
         return $this->slug;
     }
 

@@ -64,7 +64,7 @@ class PublicationFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             AuthorFixtures::class,
-            PublicationTypeFixtures::class,
+            PublicationTPFixtures::class,
             LocalisationFixtures::class,
             ThematicFixtures::class,
             BookCollectionFixtures::class,

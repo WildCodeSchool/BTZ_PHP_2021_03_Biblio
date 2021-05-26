@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\PublicationTypeRepository;
+use App\Repository\PublicationTPRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PublicationTypeRepository::class)
+ * @ORM\Entity(repositoryClass=PublicationTPRepository::class)
  */
-class PublicationType
+class PublicationTP
 {
     /**
      * @ORM\Id

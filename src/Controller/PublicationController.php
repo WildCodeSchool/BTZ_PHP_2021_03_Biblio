@@ -127,9 +127,9 @@ class PublicationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-             $publication->setUser($this->getUser());
-             $publication->setPublicationDate(new DateTime('now'));
-             $publication->setUpdateDate(new DateTime('now'));
+            $publication->setUser($this->getUser());
+            $publication->setPublicationDate(new DateTime('now'));
+            $publication->setUpdateDate(new DateTime('now'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
             $entityManager->flush();
