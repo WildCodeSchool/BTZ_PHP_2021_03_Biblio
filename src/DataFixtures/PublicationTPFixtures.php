@@ -2,12 +2,12 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\PublicationType;
+use App\Entity\PublicationTP;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class PublicationTypeFixtures extends Fixture
+class PublicationTPFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -21,10 +21,10 @@ class PublicationTypeFixtures extends Fixture
         foreach ($publicationTypesArray as $data) {
             if ($i > 0) {
                 $data =  explode(";", $data[0]);
-                $publicationType = new PublicationType();
-                $publicationType->setName($data[1]);
-                $this->addReference('type_' . $data[0], $publicationType);
-                $manager->persist($publicationType);
+                $publicationTP = new PublicationTP();
+                $publicationTP->setName($data[1]);
+                $this->addReference('type_' . $data[0], $publicationTP);
+                $manager->persist($publicationTP);
             }
             $i++;
         }

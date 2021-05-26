@@ -35,7 +35,7 @@
 									<td>{{borrow.user.fullname}}</td>
 									<td>
 										<a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('borrow_show', {'id': borrow.id}) }}" role="button">Détails</a>
-										 <a class="btn btn-outline-primary btn-sm" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Editer</a> 
+										 <a class="btn btn-outline-primary btn-sm mb-2" href="{{ path('emprunt_edit', {'id': borrow.id}) }}" role="button">Editer</a> 
 									</td>
 								</tr>
 							{% else %}

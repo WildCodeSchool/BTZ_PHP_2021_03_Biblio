@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewslettersController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="newsletters")
      */
     public function index(Request $request, MailerInterface $mailer): Response
     {
@@ -50,7 +50,7 @@ class NewslettersController extends AbstractController
             $mailer->send($email);
 
             $this->addFlash('message', 'Inscription en cours de validation');
-            return $this->redirectToRoute('app_acceuil');
+            return $this->redirectToRoute('app_accueil');
         }
 
         return $this->render('newsletters/index.html.twig', [
@@ -75,33 +75,10 @@ class NewslettersController extends AbstractController
 
         $this->addFlash('message', 'Validation confirmée, compte activé');
 
-        return $this->redirectToRoute('app_acceuil');
+        return $this->redirectToRoute('app_accueil');
     }
 
-    /**
-     * @Route("/prepare", name="prepare")
-     */
-    public function prepare(Request $request): Response
-    {
-        $newsletter = new Newsletters();
-        $form = $this->createForm(NewslettersType::class, $newsletter);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($newsletter);
-            $em->flush();
-
-            return $this->redirectToRoute('newsletters_liste');
-        }
-
-
-
-        return $this->render('newsletters/prepare.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
+    
 
     /**
      * @Route("/edition/{id}", name="edition")
@@ -131,44 +108,6 @@ class NewslettersController extends AbstractController
     //     ]);
     // }
 
-    /**
-     * @Route("/liste", name="liste")
-     */
-    public function list(NewslettersRepository $newsletterList)
-    {
-        return $this->render('newsletters/liste.html.twig', [
-            'newslettertsList' => $newsletterList->findAll()
-        ]);
-    }
-
-    /**
-     * @Route("/envoi/{id}", name="envoi")
-     */
-    public function send(Newsletters $newsletters, MailerInterface $mailer)
-    {
-        $users = $newsletters->getCategories()->getUsers();
-
-        // TODO: Utiliser l'asynchrone et le composant Messenger
-        foreach ($users as $user) {
-            if ($user->getIsValid()) {
-                $email = (new TemplatedEmail())
-                    ->from('audap-newsletter@audap.fr')
-                    ->to($user->getEmail())
-                    ->subject($newsletters->getName())
-                    ->htmlTemplate('emails/newsletters.html.twig')
-                    ->context(compact('newsletters', 'user'));
-                $mailer->send($email);
-            }
-        }
-
-        $newsletters->setIsSent(true);
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($newsletters);
-
-        $em->flush();
-
-        return $this->redirectToRoute('newsletters_liste');
-    }
 
     /**
      * @Route("/unsubscribe/{id}/{newsletter}/{token}", name="cancel")
@@ -191,6 +130,6 @@ class NewslettersController extends AbstractController
 
         $this->addFlash('message', 'Votre désinscription a bien été prise en compte');
 
-        return $this->redirectToRoute('app_acceuil');
+        return $this->redirectToRoute('app_accueil');
     }
 }

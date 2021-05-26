@@ -59,10 +59,10 @@ class UserType extends AbstractType
                 'first_options' => ['label' => 'Votre mot de passe' ],
                 'second_options' => ['label' => 'Confirmez votre mot de passe']
             ])
-            ->add('newsletter', CheckboxType::class, [
-                'required' => false,
-            ])
-            ->add('slug', HiddenType::class)
+            ->add('newsletter', HiddenType::class, ['data' => false])
+            // ->add('newsletter', CheckboxType::class, [
+            //     'required' => false,
+            // ])
             // ->add('submit', SubmitType::class, [
             //     'label' => 'Ajouter',
             //     'attr' => [
