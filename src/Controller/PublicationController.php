@@ -135,7 +135,7 @@ class PublicationController extends AbstractController
             $entityManager->flush();
 
 
-            return $this->redirectToRoute('publication_index');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('publication/new.html.twig', [
