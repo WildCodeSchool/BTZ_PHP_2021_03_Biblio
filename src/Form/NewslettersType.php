@@ -22,9 +22,10 @@ class NewslettersType extends AbstractType
                 'attr' => ['placeholder' => 'Donnez un nom à la newsletter']
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'contenu de la newsletter'
+                'label' => 'Contenu de la newsletter'
             ])
             ->add('categories', EntityType::class, [
+                'label' => 'Thématique',
                 'class' => Categories::class,
                 'choice_label' => 'name'
             ])

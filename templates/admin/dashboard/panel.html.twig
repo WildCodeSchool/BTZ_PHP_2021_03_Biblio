@@ -94,7 +94,8 @@
 								<th>Cote</th>
 								<th>Titre</th>
 								<th>Emprunté par</th>
-								<th>Date</th>
+								<th>Date de réservation</th>
+								<th>Date d'emprunt</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -105,7 +106,8 @@
 								<td>{{ borrow.publication.title }}</td>
 								<td>{{ borrow.user.fullname }}</td>
 								<td>{{ borrow.reservationdate|date("d/m/Y") }}</td>
-								<td><a class="btn btn-outline-success" href="{{ path('borrow_show', { id: borrow.publication.id }) }}">Consulter</a></td>
+								<td>{{ borrow.borrowedDate|date("d/m/Y") }}</td>
+								<td><a class="btn btn-outline-success" href="{{ path('borrow_show', { id: borrow.id }) }}">Consulter</a></td>
 							</tr>
 							{% endfor %}
 						</tbody>
