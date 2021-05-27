@@ -178,16 +178,15 @@ block body %}
 					</div>
 					<div class="col-12 py-3">
 						<a class="btn btn-outline-success" href="{{ path('publication_list') }}">Retour à la liste</a>
-						{% if publication.support is same as('Physique') %}
+						{% if 'Physique' in publication.support %}
 							<a class="btn btn-outline-success" href="{{ path('publication_borrow', { id: publication.id }) }}">Emprunter</a>
-							{% else %}
-							{# <a class="btn btn-outline-success" href="{{ path('xxxx', { id: publication.id }) }}">Chargement Publication</a> #}
+						{% endif %}
+						{% if 'ligne' in publication.support %}
+							<a class="btn btn-outline-success" target="_blank" href="{{ asset('/uploads/' ~ publication.image ) }}">Télécharger</a>
 						{% endif %}
 						{% if is_granted('ROLE_AUDAP_MEMBER') %}
 							<a class="btn btn-outline-success" href="{{ path('publication_edit', { id: publication.id }) }}">Modification de la notice</a>
-							{{ include("publication/_delete_form.html.twig") }}
 						{% endif %}
-						<a class="btn btn-outline-success" target="_blank" href="{{ asset('/uploads/' ~ publication.image ) }}">Télécharger</a>
 					</div>
 				</div>
 			</div>
