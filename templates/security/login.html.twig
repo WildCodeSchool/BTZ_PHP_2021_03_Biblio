@@ -4,7 +4,7 @@ block body %}
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8">
-        <form method="post">
+        <form method="post" action="/connexion">
           {% if error %}
           <div class="alert alert-danger">
             {{ error.messageKey|trans(error.messageData, 'security') }}
