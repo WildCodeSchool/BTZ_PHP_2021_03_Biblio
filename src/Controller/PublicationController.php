@@ -192,9 +192,10 @@ class PublicationController extends AbstractController
     /**
      * @Route("/{id}/emprunt", name="publication_borrow", methods={"GET","POST"})
      */
-    public function borrow(Request $request, Publication $publication, MailerInterface $mailer): Response
+    public function borrow(Request $request, Publication $publication, MailerInterface $mailer, SessionInterface $session): Response
     {
         if (null !== $this->getUser()) {
+            $session->set('origin_route', null);
             $borrow = new Borrow();
             $borrow->setReservationDate(new DateTime());
             $borrow->setPublication($publication);
@@ -238,7 +239,7 @@ class PublicationController extends AbstractController
                 'form' => $form->createView(),
             ]);
         }
-
+        $session->set('origin_route', ['route' => 'publication_borrow', 'param' => $publication->getId()]);
         return $this->redirectToRoute('app_login');
     }
 }

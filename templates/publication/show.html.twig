@@ -190,7 +190,8 @@ block body %}
 							<a class="btn btn-outline-success" href="{{ path('publication_borrow', { id: publication.id }) }}">Emprunter</a>
 						{% endif %}
 						{% if 'ligne' in publication.support %}
-							<a class="btn btn-outline-success" target="_blank" href="{{ asset('/uploads/' ~ publication.image ) }}">Télécharger</a>
+							{# <a class="btn btn-outline-success" target="_blank" href="{{ asset('/uploads/' ~ publication.image ) }}">Télécharger</a> #}
+							<a class="btn btn-outline-success" target="_blank" href="{{ asset(publication.url) }}" download="publication.pdf">Télécharger</a>
 						{% endif %}
 						{% if is_granted('ROLE_AUDAP_MEMBER') %}
 							<a class="btn btn-outline-success" href="{{ path('publication_edit', { id: publication.id }) }}">Modification de la notice</a>
