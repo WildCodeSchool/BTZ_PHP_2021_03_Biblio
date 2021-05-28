@@ -93,7 +93,15 @@ block body %}
 								{% else %}
 									Pas d'auteur!
 								{% endfor %}
+							</li><li class="list-group-item">
+								<span class="strong">Editeur(s):</span>
+								{% for author in publication.editors %}
+									{{ author.name }},
+								{% else %}
+									Pas d'auteur!
+								{% endfor %}
 							</li>
+
 							<li class="list-group-item">
 								<span class="strong">Résumé:</span>
 								{{ publication.summary }}
