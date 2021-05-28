@@ -1,37 +1,6 @@
-# Project 3 - Starter Kit - Symfony 5.*
+# Project Gestionnaire de Bibliothèque  - AUDAP - Mai 2021
 
-![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
-
-This starter kit is here to easily start a repository for your students.
-
-It's symfony website-skeleton project with some additional tools to validate code standards.
-
-* GrumPHP, as pre-commit hook, will run 2 tools when `git commit` is run :
-  
-    * PHP_CodeSniffer to check PSR12 
-    * PHPStan focuses on finding errors in your code (without actually running it)
-    * PHPmd will check if you follow PHP best practices
-     
-  If tests fail, the commit is canceled and a warning message is displayed to developper.
-
-* Github Action as Continuous Integration will be run when a branch with active pull request is updated on github. It will run :
-
-    * Tasks to check if vendor, .idea, env.local are not versionned,
-    * PHP_CodeSniffer, PHPStan and PHPmd with same configuration as GrumPHP.
- 
-
-### Trainers instructions
-
-1. Add your students team as contributor .
-2. Disallow both on 'dev' and 'master' branches your students writing credentials. 
-3. Disallow merge available while one approbation is not submitted on PR.
-
-> You can watch this very tiny short video : (Loom : verrouillage branches GitHub)[https://www.loom.com/share/ad0c641d0b9447be9e40fa38a499953b]
-4. For deploying on caprover : add two repository secrets (settings -> secrets)
-    - CAPROVER_APP_NAME with the caprover app name as value
-    - CAPROVER_PASSWORD with the caprover password
-
-## Getting Started for Students
+## Getting Started 
 
 ### Prerequisites
 
@@ -41,22 +10,23 @@ It's symfony website-skeleton project with some additional tools to validate cod
 ### Install
 
 1. Clone this project
-2. Run `composer install`
-3. Run `yarn install`
-4. Run `yarn encore dev` to build assets
+2. Copy .env to .env.local and change username/password for mysql access (line 28).
+3. Run `composer install`
+4. Run `yarn install`
+5. create folder "migrations" 
+6. Run ./init-db.sh  (initialization of the database)
+7. Run `yarn encore dev` to build assets
 
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
 
-### Testing
 
-1. Run `.vendor/bin/phpcs` to launch PHP code sniffer
-2. Run `.vendor/bin/phpstan analyse src --level max` to launch PHPStan
-3. Run `.vendor/bin/phpmd src text phpmd.xml` to launch PHP Mess Detector
-3. Run `./node_modules/.bin/eslint assets/js` to launch ESLint JS linter
-3. Run `../node_modules/.bin/sass-lint -c sass-linter.yml -v` to launch Sass-lint SASS/CSS linter
+### Starting
+
+1. http://localhost:8000/  Page d'accueil des Publications (consultatio, recherche, ajout... )
+2. http://localhost:8000/admin Page d'accueil de l'environnement d'administration.
 
 ### Windows Users
 
