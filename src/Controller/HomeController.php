@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class HomeController extends AbstractController
 {
@@ -15,8 +16,9 @@ class HomeController extends AbstractController
      *
      * @param mixed $publicationRepository
      */
-    public function index(PublicationRepository $publicationRepository): Response
+    public function index(PublicationRepository $publicationRepository, SessionInterface $session): Response
     {
+        $session->set('origin_route', ['route' => 'home', 'param' => null]);
         $user = $this->getUser();
 
         $lastPublications = $publicationRepository->findBy([], ['publication_date' => 'DESC'], 3);

@@ -1,7 +1,6 @@
 {
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
-        "@pugx/autocompleter-bundle": "file:vendor/pugx/autocompleter-bundle/assets",
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.2.0",
         "@types/bootstrap": "^5.0.13",

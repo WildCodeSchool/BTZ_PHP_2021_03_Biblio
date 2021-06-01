@@ -16,6 +16,9 @@ class ThematicType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
+            ->add('prefix', TextType::class, [
+                'label' => 'Préfix Cote'
+            ])
             ->add('description', TextType::class, [
                 'label' => 'Description'
             ])

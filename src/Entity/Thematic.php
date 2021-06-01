@@ -42,7 +42,12 @@ class Thematic
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $cote;
+    private $prefix;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $lastcote;
 
     public function __construct()
     {
@@ -125,14 +130,26 @@ class Thematic
         return $this->name;
     }
 
-    public function getCote(): ?string
+    public function getPrefix(): ?string
     {
-        return $this->cote;
+        return $this->prefix;
     }
 
-    public function setCote(?string $cote): self
+    public function setPrefix(?string $prefix): self
     {
-        $this->cote = $cote;
+        $this->prefix = $prefix;
+
+        return $this;
+    }
+
+    public function getLastcote(): ?int
+    {
+        return $this->lastcote;
+    }
+
+    public function setLastcote(?int $lastcote): self
+    {
+        $this->lastcote = $lastcote;
 
         return $this;
     }

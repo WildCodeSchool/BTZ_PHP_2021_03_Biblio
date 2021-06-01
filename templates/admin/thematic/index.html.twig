@@ -18,14 +18,16 @@
 					<thead>
 						<tr class="table-active">
 							<th>Nom</th>
-							<th>Description</th>
-							<th></th>
+							<th>Prefix</th>
+							<th>Compteur</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for thematic in thematics %}
 							<tr>
 								<td>{{ thematic.name }}</td>
+								<td>{{ thematic.prefix }}</td>
+								<td>{{ thematic.lastcote }}</td>
 								<td>{{ thematic.description }}</td>
 								<td>
 									<a class="btn btn-outline-primary btn-sm" href="{{ path('thematic_show', {'id': thematic.id}) }}" role="button">Détails</a>
