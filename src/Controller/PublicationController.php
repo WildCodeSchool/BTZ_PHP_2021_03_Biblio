@@ -28,10 +28,10 @@ class PublicationController extends AbstractController
     /**
      * @Route("/", name="publication_index", methods={"GET"})
      */
-    public function index(PublicationRepository $publicationRepository, Request $request, PaginatorInterface $paginator): Response
+    public function index(PublicationRepository $publicationRepository, Request $request, PaginatorInterface $paginator, SessionInterface $session): Response
     {
         $query = $request->query->get('q');
-
+        $session->set('origin_route', ['route' => 'publication_index', 'param' => null]);
         if (null !== $query) {
             // $publications = $publicationRepository->findByQuery($query);
             $keywords = explode(' ', $query);
@@ -62,7 +62,7 @@ class PublicationController extends AbstractController
     {
         $form = $this->createForm(SearchPublicationFormType::class);
         $form->handleRequest($request);
-
+        $session->set('origin_route', ['route' => 'publication_list', 'param' => null]);
         if ($form->isSubmitted() && $form->isValid()) {
             $fieldsSearch = $form->getData();
             $typeSearch = $form->getData()['type_search'];
@@ -130,8 +130,13 @@ class PublicationController extends AbstractController
             $publication->setUser($this->getUser());
             $publication->setPublicationDate(new DateTime('now'));
             $publication->setUpdateDate(new DateTime('now'));
+            $thematic = $publication->getThematic();
+            $thematic->setLastcote($thematic->getLastcote() + 1);
+            $cote = $thematic->getPrefix() . ' ' . sprintf('%05d', $thematic->getLastcote());
+            $publication->setCote($cote);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($publication);
+            $entityManager->persist($thematic);
             $entityManager->flush();
 
 
@@ -147,11 +152,19 @@ class PublicationController extends AbstractController
     /**
      * @Route("/{id}", name="publication_show", methods={"GET"})
      */
-    public function show(Publication $publication): Response
+    public function show(Publication $publication, SessionInterface $session): Response
     {
-        return $this->render('publication/show.html.twig', [
-            'publication' => $publication,
-        ]);
+        if ($session->has('origin_route') && $session->get('origin_route') !== null) {
+            $params = $session->get('origin_route');
+        } else {
+            $params = ['route' => 'home', 'param' => null];
+        };
+        $params['publication'] = $publication;
+        return $this->render('publication/show.html.twig',$params);
+        // return $this->render('publication/show.html.twig', [
+        //     'publication' => $publication,
+        //     'route' => $originRoute['route'],
+        // ]);
     }
 
     /**

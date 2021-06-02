@@ -55,9 +55,15 @@
       <div class="row">
 {% for publication in publications %}
     <div class="col-12 col-md-4">
-      <img src="{{
-        asset('build/images/pexels-emily-768125.jpg')
-      }}" class="card-img-top" alt="...">
+        {% if publication.image %}
+						<img src="{{
+							vich_uploader_asset(publication, 'imageFile')
+						}}" class="card-img-top" alt="...">
+				{% else %}
+						<img src="{{
+							asset('build/images/pexels-emily-768125.jpg')
+						}}" class="card-img-top" alt="...">
+				{% endif %}
       <div class="card mb-6">
         <div class="card-body">
           <h5 class="card-title">{{ publication.title }}</h5>

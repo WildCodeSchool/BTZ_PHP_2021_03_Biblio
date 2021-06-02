@@ -3,3 +3,4 @@ twig:
   form_themes: ['bootstrap_4_layout.html.twig']
   globals:
     publiRepo: '@App\Repository\PublicationRepository'
+    image_dir: '%kernel.project_dir%/public/uploads/'

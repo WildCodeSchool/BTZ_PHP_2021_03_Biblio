@@ -65,7 +65,6 @@ class PublicationType extends AbstractType
                 'by_reference' => false
             ])
             ->add('type')
-            ->add('cote')
             ->add('issn_isbn', TextType::class, [
                 'label' => 'Numéro de série',
                 'attr' => ['placeholder' => 'Veuillez précier le code ISSn ou ISBN'],
@@ -91,9 +90,14 @@ class PublicationType extends AbstractType
                 'label' => 'Tome n°',
                 'attr' => ['placeholder' => 'Entrez le numéro du tome'],
             ])
-            ->add('support', TextType::class, [
+            ->add('support', ChoiceType::class, [
                 'label' => 'Support',
-                'attr' => ['placeholder' => 'Veuillez préciser si le support est physique ou digital']
+                'choices' => [
+                    'Physique' => 'Physique',
+                    'Digital' => 'En ligne',
+                    'Physique et Digital' => 'Physique & en ligne',
+                ]
+                // 'attr' => ['placeholder' => 'Veuillez préciser si le support est physique ou digital']
             ])
             ->add('source_address', TextType::class, [
                 'label' => 'Support physique: adresse',

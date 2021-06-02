@@ -54,11 +54,11 @@ use App\Repository\BookCollectionRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 
-
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\Newsletters\NewslettersRepository;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -187,6 +187,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $thematic->setLastcote(0);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($thematic);
             $entityManager->flush();
@@ -1067,8 +1068,9 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/publication", name="publication_admin_list", methods={"GET"})
      */
-    public function publicationList(PublicationRepository $publicationRepository): Response
+    public function publicationList(PublicationRepository $publicationRepository, SessionInterface $session): Response
     {
+        $session->set('origin_route', ['route' => 'publication_admin_list', 'param' => null]);
         return $this->render('/admin/publication/index.html.twig', [
             'publications' => $publicationRepository->findBy([], ['publication_date' => 'DESC']),
 

@@ -23,6 +23,8 @@ class ThematicFixtures extends Fixture
                 $data =  explode(";", $data[0]);
                 $thematic = new Thematic();
                 $thematic->setName($data[1]);
+                $thematic->setPrefix($data[2]);
+                $thematic->setLastcote($data[3]);
                 $this->setReference('thematic_' . $data[0], $thematic);
                 $manager->persist($thematic);
             }

@@ -14,8 +14,8 @@
                 <h2> Publication : {{ publication.Title}} </h2>
                 <h3> Date de réservation : {{ borrow.reservationDate | date("d/m/Y") }} </h3>
                 <h3> Cote : {{ publication.Cote }}  </h3>
-                <h3> Un e-mail vous sera envoyé prochainement à votre adresse mail pour que vous puissiez récupérer l'ouvrage </h3>
-                <h3> à {{ publication.Localisation}} </h3>
+                <h3> Emprunteur : {{ borrow.user.fullname }} </h3>
+                <h3> pour localisation: {{ publication.Localisation}} </h3>
             </div>
         </div>
     </div>

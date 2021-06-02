@@ -35,13 +35,15 @@ block body %}
 		<div class="container">
 			<div class="row">
 				<div class="col-12 py-15" style="background-position: center;
-																																													       background-image: url({{
-																																													          asset('build/images/pexels-cottonbro-4861362.jpg')}})
-																																													          "></div>
-
-				{# Affichage de l'image pour les nouvelles publications crée #}
-				{# <img src="/uploads/{{ publication.image }}" style="height:100%;width:100%">   #}
-
+				{% if publication.image %}
+					{# Affichage de l'image pour les nouvelles publications crée #}
+					  {# <img src="{{ vich_uploader_asset(publication, 'imageFile') }}" style="height:100%;width:100%"> #}
+						{# <img src="{{ asset(image_dir ~ publication.image ) }}"> #}
+						background-image: url({{ vich_uploader_asset(publication, 'imageFile') }})">
+				{% else %}
+						background-image: url({{asset('build/images/pexels-cottonbro-4861362.jpg')}})"> 
+				{% endif %}
+				</div>
 			</div>
 		</div>
 	</section>
@@ -185,7 +187,7 @@ block body %}
 						</ul>
 					</div>
 					<div class="col-12 py-3">
-						<a class="btn btn-outline-success" href="{{ path('publication_list') }}">Retour à la liste</a>
+						<a class="btn btn-outline-success" href="{{ path(route) }}">Retour à la liste</a>
 						{% if 'Physique' in publication.support %}
 							<a class="btn btn-outline-success" href="{{ path('publication_borrow', { id: publication.id }) }}">Emprunter</a>
 						{% endif %}
